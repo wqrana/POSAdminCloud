@@ -1,0 +1,126 @@
+﻿.modal-dialog
+{
+    width: 700px;
+    height: 660px;
+}
+
+.stacked
+{
+    width: 500px;
+    height: 500px;
+}
+
+.btn.blue, .btn-group .btn.blue.dropdown-toggle, .btn-group .btn.blue:hover, .btn-group .btn.blue:focus, .btn-group .btn.blue:active, .btn-group .btn.blue.active, .btn-group .btn.blue.disabled, .btn-group .btn.blue[disabled]
+{
+    background-color: #1676b8 !important;
+}
+
+    .btn.blue:hover, .btn.blue:focus
+    {
+        background-color: #238dd5 !important;
+    }
+
+
+.accountDetail
+{
+    padding: 14px 17px;
+    padding-top: 0px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+
+.modal-footer
+{
+    text-align: center;
+}
+
+.modal-body
+{
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+
+.nav
+{
+    height: 41px;
+}
+
+.modal-title
+{
+    font-size: 24px;
+}
+
+    .modal-title label
+    {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+.modal-header
+{
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.spanText
+{
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.spanVal
+{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.spansep
+{
+    color: gray;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pInfoTxt
+{
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 0px;
+}
+
+.pInfoval
+{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.accountValues
+{
+    font-size: 13px;
+}
+
+
+.AccountStyle
+{
+    padding: 19px 2px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-bottom: 0px;
+}
+
+.dataTable
+{
+    margin-top: 0px;
+}
+
+.dataTables_scrollHeadInner
+{
+    width: 573px;
+    padding-right: 0px !important;
+}
+
+.div.checker
+{
+}

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2278E9C-EC9F-4279-8055-05C50F9DB45C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSA_ADMIN.DAL</RootNamespace>
+    <AssemblyName>MSA-ADMIN.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>
+    </AssemblyVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <AssemblyFileVersionSettings>
+    </AssemblyFileVersionSettings>
+    <AssemblyInfoVersionSettings>
+    </AssemblyInfoVersionSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug - Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug - Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BusinessObjectBase.cs" />
+    <Compile Include="Common\BusinessObjectState.cs" />
+    <Compile Include="Common\DataPortal.cs" />
+    <Compile Include="Common\NameValuePair.cs" />
+    <Compile Include="Common\NameValuePairCollection.cs" />
+    <Compile Include="Common\SafeDataReader.cs" />
+    <Compile Include="Common\SmartDate.cs" />
+    <Compile Include="Factories\AdminFactory.cs" />
+    <Compile Include="Factories\CalFactory.cs" />
+    <Compile Include="Factories\CategoryFactory.cs" />
+    <Compile Include="Factories\CommunicationFactory.cs" />
+    <Compile Include="Factories\FeeFactory.cs" />
+    <Compile Include="Factories\DistrictFactory.cs" />
+    <Compile Include="Factories\MenuFactory.cs" />
+    <Compile Include="Factories\MenuItemsFactory.cs" />
+    <Compile Include="Factories\ParentFactory.cs" />
+    <Compile Include="Factories\ReportFactory.cs" />
+    <Compile Include="Factories\SchoolsFactory.cs" />
+    <Compile Include="Factories\SettingsFactory.cs" />
+    <Compile Include="Models\AccessRightsData.cs" />
+    <Compile Include="Models\AccountInfoData.cs" />
+    <Compile Include="Models\AdteligibilityData.cs" />
+    <Compile Include="Models\AHouseHoldIDData.cs" />
+    <Compile Include="Models\BiometricsData.cs" />
+    <Compile Include="Models\CalData.cs" />
+    <Compile Include="Models\CashResultsData.cs" />
+    <Compile Include="Models\CategoryData.cs" />
+    <Compile Include="Models\CategoryTypesData.cs" />
+    <Compile Include="Models\ChargeCountsData.cs" />
+    <Compile Include="Models\CustomerActivityData.cs" />
+    <Compile Include="Models\CustomerActivityPaymentData.cs" />
+    <Compile Include="Models\CustomerLogData.cs" />
+    <Compile Include="Models\CustomerSchoolData.cs" />
+    <Compile Include="Models\CustomersData.cs" />
+    <Compile Include="Models\District.cs" />
+    <Compile Include="Models\DistrictAndDistrictOptionVM.cs" />
+    <Compile Include="Models\DistrictData.cs" />
+    <Compile Include="Models\DistrictOption.cs" />
+    <Compile Include="Models\DistrictOptionsData.cs" />
+    <Compile Include="Models\EditCheckEligAssignedData.cs" />
+    <Compile Include="Models\EditCheckEligData.cs" />
+    <Compile Include="Models\EditCheckWData.cs" />
+    <Compile Include="Models\EligibilityData.cs" />
+    <Compile Include="Models\EmployeeData.cs" />
+    <Compile Include="Models\HouseHoldData.cs" />
+    <Compile Include="Models\LettersData.cs" />
+    <Compile Include="Models\LowBalSettingsData.cs" />
+    <Compile Include="Models\MenuData.cs" />
+    <Compile Include="Models\MenuItemData.cs" />
+    <Compile Include="Models\ObjectHistoryData.cs" />
+    <Compile Include="Models\ParentAlert.cs" />
+    <Compile Include="Models\ParentAlertData.cs" />
+    <Compile Include="Models\ParentData.cs" />
+    <Compile Include="Models\Parent.cs" />
+    <Compile Include="Models\PicturesData.cs" />
+    <Compile Include="Models\ReducedMealsData.cs" />
+    <Compile Include="Models\School.cs" />
+    <Compile Include="Models\SchoolOptionsData.cs" />
+    <Compile Include="Models\SchoolsData.cs" />
+    <Compile Include="Models\SecurityGroupData.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentData.cs" />
+    <Compile Include="Models\TransactionHistory.cs" />
+    <Compile Include="Models\WebLunchCalendarData.cs" />
+    <Compile Include="Models\WebLunchMenuData.cs" />
+    <Compile Include="Models\WebLunchSchoolsData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdminPortalModels\AdminPortalModels.csproj">
+      <Project>{0f1da75a-5b37-46db-9697-d71c8f3bfc9a}</Project>
+      <Name>AdminPortalModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Dashboard";
+    
+    ViewBag.Title = "Admin Dashboard Template";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@section Header {
+    @Html.Partial("_HeaderPartial")
+}
+
+@section Footer {
+    @Html.Partial("_FooterPartial")
+}
+
+@section Sidebar {
+    @Html.Partial("_SidebarPartial")
+}*@
+
+<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							 Widget settings form goes here
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn blue">Save changes</button>
+							<button type="button" class="btn default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					Dashboard <small>statistics and more</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="#">Home</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li class="pull-right">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="Change dashboard date range">
+								<i class="fa fa-calendar"></i>
+								<span>
+								</span>
+								<i class="fa fa-angle-down"></i>
+							</div>
+						</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+
+		</div>
+	</div>

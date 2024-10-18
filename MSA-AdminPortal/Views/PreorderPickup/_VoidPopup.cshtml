@@ -1,0 +1,117 @@
+﻿<div id="VoidModalDiv" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h2 class="modal-title">
+                    Void
+
+                </h2>
+            </div>
+            <div class="modal-body">
+                <div id="processingVoidOrderDiv" >
+                    <img id="loadingSpinnerimg" src="~/Content/themes/assets/img/input-spinner.gif" />
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color:#f7ccca">
+                        <div class="panel-title">
+                            <a data-toggle="collapse" href="#collapseVoidOrder">Orders <span id="orderBadge" class="badge">0</span><span class="pull-right glyphicon glyphicon-menu-left"></span> </a>
+                        </div>
+                    </div>
+                    <div id="collapseVoidOrder" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="col-md-12 zeroLeftPadding PaddingClass">
+                                <div class="table-responsive" id="OrderTableDiv">
+                                    <table class="table table-striped table-hover table-bordered table-condensed " id="LoadVoidOrderDataTable">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Customer</th>
+                                                <th>User ID</th>
+                                                <th>PreSale ID</th>
+                                                <th>Order ID</th>
+                                                <th>Grade</th>
+                                                <th>Purchased Date</th>
+                                                <th>Void</th>
+                                                <th>CanVoid </th>
+                                                <th>Void Payment</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <hr />
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-12 paddingclass style=" padding-bottom 20px;">
+                                            <button id="VoidOrderBtnID" class="btn btn-lg red-soft"> Void Order(s)</button>
+                                            <button id="ResetOrderBtnID" class="btn btn-lg blue">Reset Selection</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="processingVoidItemDiv" >
+                    <img id="loadingSpinnerimg" src="~/Content/themes/assets/img/input-spinner.gif" />
+                </div>
+                <div class="panel panel-default zeroTopPadding">
+                    <div class="panel-heading" style="background-color:#f7ccca">
+                        <div class="panel-title">
+                            <a data-toggle="collapse" href="#collapseVoidItem">Items <span id="itemBadge" class="badge">0</span> <span class="pull-right glyphicon glyphicon-menu-left"></span></a>
+                        </div>
+                    </div>
+                    <div id="collapseVoidItem" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="col-md-12 zeroLeftPadding PaddingClass">
+                                <div class="table-responsive" id="ItemTableDiv">
+                                    <table class="table table-striped table-hover table-bordered table-condensed " id="LoadVoidItemDataTable">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Customer</th>
+                                                <th>User ID</th>
+                                                <th>Grade</th>
+                                                <th>PreSale ID</th>
+                                                <th>Order ID</th>
+                                                <th>Item Name</th>
+                                                <th>Purchased Date</th>
+                                                <th>Served Date</th>
+                                                <th>Ordered</th>
+                                                <th>Void</th>
+                                                <th>CanVoid </th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody></tbody>
+                                    </table>
+                                    <hr />
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-4 col-md-12 paddingclass style=" padding-bottom 20px;">
+                                            <button id="VoidItemBtnID" class="btn btn-lg red-soft"> Void Item(s)</button>
+                                            <button id="ResetItemBtnID" class="btn btn-lg blue">Reset Selection</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+
+
+            <div class="modal-footer">
+                <div class="modalfooterinnner">
+                    <button class="btn default btn-lg" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AdminPortalModels.Models.GradeModels>
+
+@{
+    ViewBag.Menu = "Customer Data";
+    ViewBag.SubMenu = "Grades";
+
+    ViewBag.Title = "Grades";
+}
+
+<input type="hidden" id="ViewType" value="@ViewBag.ViewType" />
+<input type="hidden" id="ClientID" value="@ViewBag.ClientID" />
+
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+<link rel="stylesheet" href="/Content/Pages/Grades.css" />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    
+    @Html.Hidden("CreateGrades", MSA_AdminPortal.Helpers.SecurityManager.CreateGrades)
+    @Html.Hidden("UpdateGrades", MSA_AdminPortal.Helpers.SecurityManager.UpdateGrades)
+    @Html.Hidden("DeleteGrades", MSA_AdminPortal.Helpers.SecurityManager.DeleteGrades)
+
+    <div class="col-md-12">
+        <!-- Begin Page Title and Breadcrumb -->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn default btn-md pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/Grade/Table'">
+                    List View
+                </button>
+                <button type="button" class="btn default btn-md pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/Grade/Tile'">
+                    Tile View
+                </button>
+            </li>
+            <li>
+                <i class="fa fa-user fa-fw"></i>
+                <a href="#">  @ViewBag.Menu </a>
+                    <i class="fa fa-angle-right"></i>
+</li>
+            <li>
+                <a href="#"> @ViewBag.SubMenu</a>
+            </li>
+        </ul>
+        <!-- End Page Title and Breadcrumb -->
+    </div>
+</div>
+<div class="row" style="padding-bottom: 15px;">
+    <div class="col-md-2">
+        <a onclick="location.href='@Url.Action("Create", new { Length = 5 })'" id="aAddNewButton" data-toggle="modal" class="ActionLink" data-id='0'>
+            <div id="sub-div">
+                <button id="AddNewButton" class="btn green col-md-12">
+                    Add New Grade
+                </button>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-7">
+        <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+            <button class="close" data-close="alert"></button>
+            You have some form error, please check in all tabs.
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+<!-- Begin List -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            @foreach (var grade in Model)
+            {
+                Html.RenderPartial("Row", grade);
+            }
+        </div>
+    </div>
+</div>
+<!-- End List -->
+
+@{Html.RenderAction("Delete");}
+<script src="~/Scripts/Grades/Grades.js"></script>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ServiceDefinition name="AdminHQ" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WebRole name="MSA-AdminPortal" vmsize="Medium">
+    <Startup>
+      <Task taskType="background" executionContext="elevated" commandLine="CrInstall.cmd" />
+      <Task commandLine="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe install" executionContext="elevated" taskType="simple" />
+    </Startup>
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+          <Binding name="Endpoint2" endpointName="Endpoint2" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+      <InputEndpoint name="Endpoint2" protocol="https" port="443" certificate="adminhq.myschoolaccount.com" />
+    </Endpoints>
+    <Imports>
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Go Daddy Class 2 Certification Authority" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="Go Daddy Root Certificate Authority - G2" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="Go Daddy Secure Certificate Authority - G2" storeLocation="LocalMachine" storeName="CA" />
+      <Certificate name="adminhq.myschoolaccount.com" storeLocation="LocalMachine" storeName="My" />
+    </Certificates>
+  </WebRole>
+</ServiceDefinition>

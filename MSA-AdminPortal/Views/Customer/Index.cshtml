@@ -1,0 +1,522 @@
+﻿@{
+    ViewBag.Menu = "Customer Data";
+    ViewBag.SubMenu = "Customers";
+
+    ViewBag.Title = "CustomersList";
+}
+
+<style>
+    .filterDiVClass
+    {
+        margin-bottom: 15px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 10px;
+        background-color: #dcdddf;
+    }
+
+    .PaddingLeftZero
+    {
+        padding-left: 0px !important;
+    }
+
+    .MarginBottomDiv
+    {
+        margin-bottom: 10px;
+    }
+
+    .actionsCSS
+    {
+        padding-left: 0px !important;
+    }
+
+        .actionsCSS ul
+        {
+            padding-left: 0px !important;
+        }
+
+    .select2-container
+    {
+        margin-bottom: -19px !important;
+    }
+</style>
+
+@*<link href="~/Content/themes/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+@Styles.Render("~/Content/themes/datatables/css")
+
+<link href="~/Content/CustomCSS/CustomerIndex.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+
+<div class="row">
+
+    @Html.Hidden("viewCustomers", MSA_AdminPortal.Helpers.SecurityManager.viewCustomers)
+    @Html.Hidden("CreateCustomers", MSA_AdminPortal.Helpers.SecurityManager.CreateCustomers)
+    @Html.Hidden("UpdateCustomers", MSA_AdminPortal.Helpers.SecurityManager.UpdateCustomers)
+    @Html.Hidden("DeleteCustomers", MSA_AdminPortal.Helpers.SecurityManager.DeleteCustomers)
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Customer Data</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-user fa-fw"></i>
+                <a href="#">Customer Data</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Customers</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+
+        @Html.Hidden("hdnFldSelectedValues")
+    </div>
+</div>
+
+<div class="row MarginBottomDiv">
+    <div class="col-md-12 ">
+        <div class="btn-group pull-left">
+            <a  href="#" onclick="location.href='@Url.Action("edit", new { id = 0 })'" id="aAddNewButton" data-toggle="modal" class="ActionLink" data-id='0'>
+                <div id="sub-div">
+                    <button id="AddNewButton" class="btn green" style="width: 160px;">Add New Customer   </button>
+                </div>
+            </a>
+        </div>
+        <ul style="float: left; padding-left: 15px; display: none;">
+            <li class="btn-group pull-right" onmouseover=" checkCustomersSelected();">
+                <button type="button" id="ActionButton" class="btn green dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                    <span>Actions
+                    </span>
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-left" role="menu">
+                    <li>
+                        <a data-toggle="modal" data-keyboard="false" data-backdrop="static" role="button" href="#PaymentsModal">Payments</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-keyboard="false" data-backdrop="static" role="button" href="#RefundsModal">Refunds</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-keyboard="false" data-backdrop="static" role="button" href="#AdjustmentsModal">Adjustments</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    @*<div class="col-md-2 actionsCSS">
+        
+    </div>
+    <div class="col-md-8 actionsCSS">
+    </div>*@
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-1" style="padding-right: 0px; margin-right: 0px;">
+            <label class="control-label" style="padding-top: 4px; margin-top: 5px;">Search By:</label>
+        </div>
+        <div class="col-md-3" style="padding: 0px; margin-left: 0px;">
+            @Html.DropDownList("searchdll", new SelectList(ViewBag.SearchByList, "id", "name", MSA_AdminPortal.Helpers.CustomerHelper.getSearchBy_Id()), new { style = "width: 250px; border: 1px solid #808080;" })
+        </div>
+        <div class="col-md-5" style="padding-right: 0px;">
+            <div class="col-md-12">
+                <div class="col-md-2" style="padding-right: 0px; padding-top: 5px;">
+                    <label class="control-label">Search</label>
+                </div>
+                <div class="col-md-7" style="padding-left: 0px; padding-right: 0px; width: 228px;">
+                    <input type="text" class="form-control" style="width: 220px;" id="SearchStr" value="@MSA_AdminPortal.Helpers.CustomerHelper.getSearchByStr()" />
+                </div>
+                <div class="col-md-3" style="padding-left: 0px;">
+                    <button class="btn yellow not-default-btn" style="width: 120px;" id="SearchBtn">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <a id="hidefilters" href="#">Hide Filters</a><br />
+            <a id="Clearfilters" href="#">Clear Filters & Search</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="row filterDiVClass" id="filterDiv" style="display: none;">
+    <div class="table-responsive">
+        <table style="background-color: #dcdddf; width: 100%">
+            <tr>
+                <td colspan="2" style="padding: 7px;">
+                    <button onclick="HideFilterDiv();" class="close" style="color: white;" type="button"></button>
+                </td>
+            </tr>
+            <tr>
+
+                <td style="width: 60%">
+                    <table>
+                        <tr>
+                            <td style="width: 11%">
+                                <label class="control-label" style="float: left;">School:</label>
+                            </td>
+                            <td style="width: 30%">
+                                @Html.DropDownList("SchoolFilter", new SelectList(ViewBag.SchoolList, "id", "name", ViewBag.SchoolStr), "", new { style = "width: 130px; border: 1px solid #808080; margin-top:-25px;" })
+                            </td>
+                            <td style="width: 8%">
+                                <label class="control-label">Grade:</label>
+                            </td>
+
+                            <td style="width: 30%">
+                                @Html.DropDownList("GradeFilter", new SelectList(ViewBag.GradeList, "value", "data", ViewBag.GradeStr), "", new { style = "width: 130px; border: 1px solid #808080; margin-top:-25px;" })
+                            </td>
+
+                            <td style="width: 8%">
+                                <label class="control-label" style="margin-left: 6px">Adult:</label>
+                            </td>
+                            <td style="width: 11%">
+                                @Html.DropDownList("adultdll", new SelectList(ViewBag.AdultList, ViewBag.AdultStr), "", new { style = "width: 130px; border: 1px solid #808080; margin-top:-25px;" })
+                            </td>
+                          <!--  <td style="width: 12%"></td> -->
+
+                        </tr>
+                        <tr>
+                            <td style="width: 11%">
+                                <label class="control-label" style="float: left;">Homeroom:</label>
+                            </td>
+                            <td style="width: 30%">
+                                @*<input type="text" class="form-control" style="width: 107px; float: left; margin-left: 0px; border: 1px solid gray; height: 30px;" id="homeroomText" value="@ViewBag.HomeRoomStr" />*@
+                                @Html.DropDownList("homeroomdll", new SelectList(ViewBag.HomeRoomList, "Value", "Text", ViewBag.HomeRoomStr), "", new { style = "width: 130px; border: 1px solid #808080;  margin-top:-25px;" })
+                            </td>
+                            <td style="width: 8%">
+                                <label class="control-label">Status:</label>
+                            </td>
+                            <td style="width: 30%">
+                                @Html.DropDownList("activedll", new SelectList(ViewBag.ActiveList, ViewBag.ActiveStr), "Both", new { style = "width: 130px; border: 1px solid #808080;  margin-top:-25px;" })
+                            </td>
+                            <td style="width: 8%"></td>
+                            <td style="width: 11%"></td>
+                          <!--  <td style="width: 12%"></td>-->
+
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 40%">
+
+                    <button class="btn FilterBtn" style="width: 120px; margin-left: 36px; margin-bottom: 30px;" id="applyFilterBtn">
+                        Apply Filters
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 7px;"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" id="customerTable">
+                <thead>
+                    <tr>
+                        <th>Actions
+                        </th>
+                        <th style="display: none;"></th>
+                        <th>User ID
+                        </th>
+                        <th>Last Name
+                        </th>
+                        <th>First Name
+                        </th>
+                        <th>Mid. initial
+                        </th>
+                        <th>Adult
+                        </th>
+                        <th>Grade
+                        </th>
+                        <th>Homeroom
+                        </th>
+                        <th>School
+                        </th>
+                        <th>PIN
+                        </th>
+
+                        <th>Balance
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<script src="~/Content/themes/assets/global/plugins/datatables/media/js/jquery.dataTables.js"></script>
+<script src="~/Content/themes/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+
+<script src="~/Content/themes/assets/admin/pages/scripts/table-ajax.js"></script>
+
+<script src="~/Scripts/jquery.dataTables.columnFilter.js"></script>*@
+
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="~/Content/themes/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 415px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header" style=" min-height: 16.43px;padding: 15px;">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                Delete Customer: <strong><span id="customerNameH"></span></strong>
+            </div>
+            <div class="modal-body" style="padding: 15px;">
+                <div class="scroller1" style="height: 25px" data-always-visible="1" data-rail-visible1="1">
+                    <h4> Are you sure you want to delete this customer?</h4> 
+                </div>    
+            </div>
+            <div class="modal-footer" style="padding: 15px; text-align: right;border-top: 0px;">
+                <button data-dismiss="modal" id="Confirmdelete" class="btn blue btn-lg margleft10 not-default-btn">Delete</button>
+                <button class="btn default btn-lg defaultBtnClass " data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="PaymentsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Apply payments to selected customers </h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+
+                    <div class="row" style="padding-top: 20px; overflow: hidden;">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <label class="">Amount:</label><br />
+                                <input type="text" name="PaymentAmount" id="PaymentAmount" size="7" class="form-control paymentAmountClass" style="width: 200px;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10" style="padding-top: 10px">
+                                <input type="checkbox" name="CheckPayment" id="CheckPayment" onchange="PayByCheck()" class="form-control">
+                                Check Payment
+                            </div>
+                        </div>
+                        <div class="row checkNum">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-11">
+                                <label class="">Check Number:</label><br />
+                                <input type="text" name="CheckNumber" id="CheckNumber" size="16" class="form-control" style="width: 200px" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding-top: 10px">
+                                <div class="col-md-1"></div>
+                                <label class="">Apply To:</label><br />
+                                <div class="radio-list">
+                                    <div class="row">
+                                        <div class="col-md-1">&nbsp;</div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="mealPlan" name="ApplyTo" id="MealPlan" class="form-control" style="float: left">
+                                                Meal Plan
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">&nbsp;</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="alaCarte" checked="checked" name="ApplyTo" id="AlaCarte" class="form-control" style="float: left">
+                                                A La Carte
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn default btn-lg" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button data-dismiss="modal" id="ConfirmPayments" class="btn blue btn-lg margleft10">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="RefundsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Apply refunds to selected customers</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="row" style="padding-top: 20px; overflow: hidden;">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <label class="">Amount:</label><br />
+                                <input type="text" name="RefundsPaymentAmount" id="RefundsPaymentAmount" size="7" class="form-control paymentAmountClass" style="width: 200px;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding-top: 10px">
+                                <div class="col-md-1"></div>
+                                <label class="">Apply To:</label><br />
+                                <div class="radio-list">
+                                    <div class="row">
+                                        <div class="col-md-1">&nbsp;</div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="mealPlan" name="ApplyTo" id="RefundsMealPlan" class="form-control" style="float: left">
+                                                Meal Plan
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">&nbsp;</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="alaCarte" checked="checked" name="ApplyTo" id="RefundsAlaCarte" class="form-control" style="float: left">
+                                                A La Carte
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn default btn-lg" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button data-dismiss="modal" id="ConfirmRefunds" class="btn blue btn-lg margleft10">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="AdjustmentsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Apply adjustments to selected customers</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="row" style="padding-top: 20px; overflow: hidden;">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <label class="">Amount:</label><br />
+                                <input type="text" name="adjustmentsPaymentAmount" id="adjustmentsPaymentAmount" size="7" class="form-control paymentAmountClass" style="width: 200px;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding-top: 10px">
+                                <div class="radio-list">
+                                    <div class="row">
+                                        <div class="col-md-1">&nbsp;</div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" name="PosNeg" id="Positive" class="form-control" style="float: left">
+                                                Positive
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">&nbsp;</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-2">
+                                            <label>
+                                                <input type="radio" name="PosNeg" id="Negative" class="form-control">
+                                                Negative
+                                            </label>
+                                        </div>
+                                        <div class="col-md-9"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" style="padding-top: 10px">
+                                <div class="col-md-1"></div>
+                                <label class="">Apply To:</label><br />
+                                <div class="radio-list">
+                                    <div class="row">
+                                        <div class="col-md-1">&nbsp;</div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="mealPlan" checked="checked" name="ApplyTo" id="AdjustmentsMealPlan" class="form-control" style="float: left">
+                                                Meal Plan
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">&nbsp;</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-5">
+                                            <label>
+                                                <input type="radio" value="alaCarte" name="ApplyTo" id="AdjustmentsAlaCarte" class="form-control" style="float: left">
+                                                A La Carte
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <label class="">Notes:</label><br />
+                                <input type="text" name="LogNotes" id="LogNotes" size="16" class="form-control" style="width: 200px" maxlength="255" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn default btn-lg" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button data-dismiss="modal" id="ConfirmAdjustments" class="btn blue btn-lg margleft10">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Loaderdiv" style="z-index: 50000">
+    <img id="loadingimg" src="~/Images/ajax-loader.gif" class="ajax-loader" />
+</div>
+
+@{Html.RenderAction("Popup");}
+@{Html.RenderAction("InitActivate");}
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="~/Scripts/CustomScripts/PaymentFormat.js"></script>
+
+<script src="~/Scripts/CustomerIndex.js"></script>
+
+
+
+

@@ -1,0 +1,94 @@
+﻿@using MSA_AdminPortal.Helpers
+@model MSA_AdminPortal.Helpers.SecurityManager
+@{
+    ViewBag.Menu = "Communication";
+    ViewBag.SubMenu = "MSA_Alerts";
+
+    ViewBag.Title = "MSA Alert";
+}
+
+@Styles.Render("~/Content/themes/datatables/css")
+<link href="~/Content/themes/assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/Communication.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+<link href="~/Content/themes/assets/global/plugins/jquery-sumoselect/sumoselect.min.css" rel="stylesheet" />
+
+<!-- BEGIN PAGE CONTENT-->
+<input type="hidden" value='@SecurityManager.UpdateMSAAlerts.ToString()' id="hdnUpdateMSAAlerts" />
+<input type="hidden" value='@SecurityManager.DeleteMSAAlerts.ToString()' id="hdnDeleteMSAAlerts" />
+
+<input type="hidden" id="hdnDistrictCheckbox" />
+
+<div class="row">
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="fa fa-envelope"></i>
+                <a href="#">Communication</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <div class="row vertical-align">
+            <div class="col-xs-6 col-md-6 text-left"><span class="heading">MSA Alert Banners</span></div>
+            <div class="col-xs-6 col-md-6 horizontal-right">
+                @if (SecurityManager.CreateMSAAlerts)
+                {
+                    <a href="#parentAlertPopup" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="btn btn-large yellow" id="btnOpenAlertPopup">Create New Alert</a>
+                }
+                else
+                {
+                    <a href="#parentAlertPopup" disabled="disabled" data-toggle="modal" class="btn btn-large yellow" id="btnOpenAlertPopup">Create New Alert</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" id="dtParentAlertGrid">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Title</th>
+                        <th>Message</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>User</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- END PAGE CONTENT-->
+<!-- BEGIN POPUPS -->
+@{
+    Html.RenderPartial("ParentAlertPopup");
+    Html.RenderPartial("DistrictListPopup");
+    Html.RenderPartial("DeleteConfirmPopup");
+    Html.RenderPartial("AlertPreviewPopup");
+    Html.RenderPartial("_Information");
+}
+
+<!-- END POPUPS -->
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="~/Content/themes/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="~/scripts/Communication/CommunicationIndex.js?ver=1.1" type="text/javascript"></script>
+<script src="~/Content/themes/assets/global/plugins/jquery-sumoselect/jquery.sumoselect.min.js" type="text/javascript"></script>

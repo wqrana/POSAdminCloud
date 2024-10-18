@@ -1,0 +1,21 @@
+﻿.tbtdstyle
+{
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+
+    .tbtdstyle td
+    {
+        text-align: right;
+    }
+
+.tableDivCss
+{
+    padding-left: 77px;
+    float: left;
+    display: none;
+    font-size: 15px;
+    font-weight: bold;
+}

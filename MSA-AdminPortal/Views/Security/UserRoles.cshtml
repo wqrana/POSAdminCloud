@@ -1,0 +1,569 @@
+﻿@model AdminPortalModels.ViewModels.UserRoleModel
+
+@{
+    ViewBag.Menu = "Security";
+    ViewBag.SubMenu = "UserRoles";
+
+    ViewBag.Title = "Users Roles";
+}
+
+<link href="~/Content/themes/assets/global/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+
+<style>
+    .ms-container .ms-list {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        height: 200px;
+        overflow-y: auto;
+        padding: 0;
+        position: relative;
+        transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    }
+
+    #feedback {
+        font-size: 1.4em;
+    }
+
+    #selectable .ui-selecting {
+        background: #FECA40;
+    }
+
+    #selectable .ui-selected {
+        background: #F39814;
+        color: white;
+    }
+
+    #selectable {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+        #selectable li {
+            margin: 0px;
+            padding: 2px 2px 2px 10px;
+            font-size: 14px;
+            height: 25px;
+        }
+
+    .ui-widget-content {
+        border: none;
+    }
+
+    .ms-container ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .adminHQCSS {
+        margin-top: 15px;
+    }
+
+    .submitbtnCSS {
+        padding-left: 8px !important;
+    }
+
+    .selectableCSS {
+        width: 247px;
+    }
+    .handClass {
+         cursor: pointer; 
+    }
+</style>
+@*<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />*@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>User Roles</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-lock fa-fw"></i>
+                <a href="#">Security</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">User Roles</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row">
+    @Html.Hidden("hdnFldSelectedValues", Model.ModulesWithPermissions)
+    @Html.Hidden("hdnFldDefaultValues", Model.ModulesWithPermissions)
+    @Html.Hidden("hdnFldClientID", Model.ClientID)
+    @Html.Hidden("hdnFldID", Model.ID)
+
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <label class="control-label">User Role Name <span class="required">*</span> </label>
+    </div>
+    <div class="col-md-4">
+        <div class="input-icon right">
+            <i class="fa"></i>
+            <input type="text" value="@Model.RoleName" name="RoleName" id="RoleName" class="form-control" placeholder="Role Name" maxlength="32">
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="row adminHQCSS">
+    <div class="col-md-1 "></div>
+    <div class="col-md-2">
+        <label class="control-label">AdminHQ System <span class="required">*</span> </label>
+    </div>
+    <div class="col-md-4 ">
+        @Html.DropDownList("AdminHQSystemList", new SelectList(@Model.SystemsList, "SystemID", "DisplaySystemText", Model.SelectedHQSystem), new { style = "width: 60%; height: 100%;" })
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="row">
+    <div class="portlet-body form">
+        <div class="form-group">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <label class="control-label">System Modules <span class="required">*</span> </label>
+            </div>
+            <div id="moduleDiv" class="col-md-4 selectableCSS">
+                
+                    <img id="loadingSpinnerimg" src="~/Content/themes/assets/img/input-spinner.gif" />
+                
+
+                <ol id="selectable">
+                    @foreach (var module in Model.ModulesList)
+                    {
+                        <li id="@((int)module.ModuleID)" class="ui-widget-content handClass">
+                            @module.DisplayModuleText
+                        </li>
+                    }
+
+                </ol>
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class=""><strong>Permissions </strong></label>
+                        <div id="checkboxContainer" class="checkbox-list">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-offset-3 col-md-9 submitbtnCSS">
+            <button type="submit" class="btn blue btn-lg  defaultBtnClass SubmitCSS">Save</button>
+            <button type="button" id="CancelBtn" class="btn default not-default-btn btn-lg">Cancel</button>
+        </div>
+    </div>
+</div>
+
+@{Html.RenderAction("Delete");}
+
+<script src="~/Content/themes/assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript">
+
+
+    var isDragging = false;
+    $(document).ready(function () {
+       // debugger;
+        $('#loadingSpinnerimg').hide();
+        var defualtSelectedModule = '#1'; // Dashboard
+        $('#RoleName').focus();
+        $("#CancelBtn").click(function () {
+            window.location = "/security/Table";
+        });
+
+        CheckedCheckBoxes = 0;
+
+        var ID = $('#hdnFldID').val();
+        
+        if (ID > 0) {
+            $('#AdminHQSystemList').select2();
+            $('#AdminHQSystemList').attr('disabled', 'disabled');
+
+            if ($('#AdminHQSystemList').val() == "POS") {
+                defualtSelectedModule = "#2"
+            }
+        }
+        else {
+         
+            $('#AdminHQSystemList').select2();
+            $("#homeroomList").select2("val", "-9999");
+           
+        }
+        InitializeModulesAndPermissions(defualtSelectedModule);
+        InitializeSelectableUI();
+
+        $('#AdminHQSystemList').change(function (e) {
+           // debugger;
+            var systemName = $('#AdminHQSystemList').val();
+            //Refersh Modules list based on change of selected System
+            getModulesList(systemName);
+
+        });
+        
+        $('.SubmitCSS').click(function () {
+          //  debugger;
+            postPermissionData();
+        });
+    
+    });
+
+    
+    function InitializeSelectableUI() {
+        $('#selectable').selectable({ distance: 1 });
+
+
+
+        $('#selectable > li').dblclick(function () {
+            //debugger;
+           
+            getPermissionsList(this);
+        });
+
+
+        $('#selectable > li').click(function () {
+           // debugger;
+            getPermissionsList(this);
+           
+            $.uniform.update('.checkboxes');
+        });
+
+         
+        $("#selectable > li").mousedown(function (e) {
+            var previous_x_position = e.pageX;
+            var previous_y_position = e.pageY;
+            var tempObj = this;
+            $(window).mousemove(function (event) {
+                isDragging = true;
+                getPermissionsList(tempObj);
+                $(window).unbind("mousemove");
+            });
+        }).mouseup(function () {
+            var wasDragging = isDragging;
+            isDragging = false;
+            $(window).unbind("mousemove");
+        });
+
+
+    }
+
+    function InitializeModulesAndPermissions(defaultModule) {
+        if (ModulesAndPermissions) {
+            //debugger;
+            //ModulesAndPermissions = JSON.parse($('#hdnFldSelectedValues').val());
+            ModulesAndPermissions = JSON.parse($('#hdnFldDefaultValues').val());
+            
+        }
+        //getPermissionsList("#1");
+        getPermissionsList(defaultModule);
+    }
+
+    function postPermissionData() {
+        //debugger;
+
+        var ClientID = $('#hdnFldClientID').val();
+        var ID = $('#hdnFldID').val();
+        var AdminHQSystemSelected = $('#AdminHQSystemList').val();
+        var UserRoleName = $('#RoleName').val();
+        var ModulesPermissions = $('#hdnFldSelectedValues').val();
+
+        if (UserRoleName.trim() == "") {
+            displayErrorMessage("Please enter role name.");
+            return false;
+        }
+
+        if (ModulesPermissions == "{}") {
+            displayErrorMessage("Please select at least one permission to save role.");
+            return false;
+        }
+
+        if (AdminHQSystemSelected == "-9999")
+        {
+            displayErrorMessage("Please select AdminHQ System");
+            return false;
+        }
+
+        var dataString = JSON.stringify({
+            allData: ClientID + "*" + ID + "*" + AdminHQSystemSelected + "*" + UserRoleName + "*" + ModulesPermissions
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Security/postPermissionsList",
+            data: dataString,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.result == '-1') {
+                    displayErrorMessage("User Role could not be saved.");
+                }
+                else {
+                    if (data.result == '-2') {
+                        displayErrorMessage("'" + $('#RoleName').val() + "' User Role Name already exists. Specify another name.");
+                    }
+                    else {
+                        if($('#hdnFldID').val()=="0")
+                            displaySuccessMessage("User Role saved successfully.");
+                        else
+                            displaySuccessMessage("User Role updated successfully.");
+                        window.location.href = '/security/UserRolesList';
+                    }
+                }
+            },
+            error: function (request, status, error) {
+                displayErrorMessage("Error occurred during getting permissions data.");
+                return false;
+            }
+        });
+
+
+
+    }
+    function emptyArray() {
+        //debugger;
+        if (SelectedItems) {
+            SelectedItems.splice(0, SelectedItems.length);
+        }
+    }
+
+    function SaveOldValues(id) {
+        //debugger;
+        if (SelectedItems) {
+            //ModulesAndPermissions[id] = SelectedItems.join(", ");
+            var array1 = new Array();
+            array1.splice(0, array1.length);
+            $.each(SelectedItems, function (index, item) {
+
+                if (item.ModuleId == id) {
+                    array1.push(item);
+                }
+            });
+
+            ModulesAndPermissions[id] = $.map(array1, function (item, i) { return item.Id }).join(", ");
+        }
+        else {
+            ModulesAndPermissions[id] = "";
+        }
+    }
+
+    // Get Modules List
+    function getModulesList(sysName) {
+        //debugger;
+
+
+        var dataString = JSON.stringify({
+            systemName: sysName
+        });
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Security/getModulesList",
+            data: dataString,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            beforeSend: function () {
+                $("#checkboxContainer").children().remove();
+                $('#selectable').selectable("destroy");
+                $('#selectable').html('');
+                $('#loadingSpinnerimg').show();
+               
+            },
+            success: function (data) {
+                //debugger;
+                if (data.result == '-1') {
+                    displaySuccessMessage("No Modules are available for selected System.");
+                }
+                else {
+                  
+                   
+                    $.each(data.result, function (index, item) {
+                        //debugger;
+                        var li = "<li id=" + item.ModuleID + ' class="ui-widget-content handClass">' +
+                            item.DisplayModuleText + '</li>';
+
+                        $("#selectable").append(li);
+                        //alert(item.ID);
+                        if (index == 0) {
+                            CheckedModuleID = item.ModuleID;
+                        }
+                    });
+                    $('#loadingSpinnerimg').hide();
+                    InitializeSelectableUI();
+                    
+                    CheckedCheckBoxes = 0;
+                    SelectedItems = [];
+                    var selectedModule = "#" + CheckedModuleID;
+                    InitializeModulesAndPermissions(selectedModule);
+                    
+                }
+            },
+            error: function (request, status, error) {
+                displayErrorMessage("Error occurred during getting permissions data.");
+                return false;
+            }
+        });
+    }
+
+
+
+    //end
+
+    function getPermissionsList(obj) {
+        //debugger;
+        var module_id = 1;
+        if (obj) {
+            module_id = $(obj).attr("id");
+        }
+
+        CheckedModuleID = module_id;
+
+        var dataString = JSON.stringify({
+            allData: module_id
+        });
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Security/getPermissionsList",
+            data: dataString,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            beforeSend: function () {
+                $('#selectable > li').removeClass('ui-selected');
+                $(obj).addClass('ui-selected');
+                $("#checkboxContainer").children('img').remove();
+
+                $("#checkboxContainer").append("<img src=\"../Content/themes/assets/img/input-spinner.gif\" />");
+            },
+            success: function (data) {
+                if (data.result == '-1') {
+                    displaySuccessMessage("No permissions are set for this module.");
+                }
+                else {
+                    $("#checkboxContainer").children().remove();
+                    $.each(data.result, function (index, item) {
+                        $("#checkboxContainer").append("<label> <input type=\"checkbox\" class=\"checkbox\" id='" + item.ActionID + "' name='" + item.ActionID + "' moduleId=" + item.ModuleID + " onclick ='CheckboxClicked(this)'  />    " + item.DisplayActionText + "   </label>");
+                        //alert(item.ID);
+                    });
+                    RestoreState();
+                    Metronic.initUniform();
+                }
+            },
+            error: function (request, status, error) {
+                displayErrorMessage("Error occurred during getting permissions data.");
+                return false;
+            }
+        });
+    }
+
+
+    var id = 0;
+    //Total no of checked checkboxes in a particular column inside the GridView.
+    var CheckedCheckBoxes;
+
+    //Array of selected item's Ids.
+    var SelectedItems = new Array();
+    var ModulesAndPermissions = new Array();
+    var CheckedModuleID = 1;
+    //Hidden field that wil contain string of selected item's Ids separated by '|'.
+    var SelectedValues;
+
+    function CheckboxClicked(obj) {
+        //debugger;
+        var checkboxChecked = $(obj).is(':checked');
+        id = obj.id;
+        var moduleId = obj.getAttribute('moduleid');
+
+        if (checkboxChecked) {
+            CheckedCheckBoxes++;
+            //Modify selected items array.
+            SelectedItems.push({
+                Id: id,
+                ModuleId: moduleId
+            });
+
+        } else {
+            CheckedCheckBoxes--;
+            DeleteItem(id, moduleId);
+        }
+
+        SaveOldValues(CheckedModuleID);
+        //Update Selected Values.
+        var tempStr = JSON.stringify(ModulesAndPermissions);
+        $('#hdnFldSelectedValues').val(tempStr);
+    }
+
+    function RestoreState() {
+        //debugger;
+        var tempStr = "";
+        emptyArray();
+        if (typeof ModulesAndPermissions[CheckedModuleID] != 'undefined') {
+            tempStr = ModulesAndPermissions[CheckedModuleID];
+        }
+
+        if (tempStr != "") {
+            $.each(tempStr.split(','), function (index, item) {
+                SelectedItems.push({
+                    Id: item,
+                    ModuleId: CheckedModuleID
+                });
+            });
+        } else {
+            emptyArray();
+        }
+
+        var Inputs = $('div#checkboxContainer input[type=checkbox]');
+        //Restore previous state of the all checkBoxes in side the GridView.
+        for (var n = 0; n < Inputs.length; ++n) {
+
+            if (Inputs[n].type == 'checkbox' && IsItemExists(Inputs[n].id, Inputs[n].getAttribute('moduleid')) > -1) {
+                Inputs[n].checked = true;
+                CheckedCheckBoxes++;
+            }
+            else
+                Inputs[n].checked = false;
+        }
+    }
+
+    function DeleteItem(Text, moduleId) {
+        var n = IsItemExists(Text, moduleId);
+        if (n > -1)
+            SelectedItems.splice(n, 1);
+    }
+
+    function IsItemExists(Text, moduleId) {
+        //debugger;
+        for (var n = 0; n < SelectedItems.length; ++n) {
+            if (SelectedItems[n].Id.trim() == Text && SelectedItems[n].ModuleId.toString() == moduleId.toString())
+                return n;
+        }
+
+        return -1;
+    }
+
+</script>

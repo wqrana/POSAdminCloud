@@ -1,0 +1,141 @@
+﻿.btn-group .btn.blue.dropdown-toggle
+{
+    background-color: #000;
+}
+
+.formRowStyle
+{
+    padding-bottom: 20px;
+}
+
+.formlabel
+{
+    padding-right: 10px;
+    text-align: right;
+}
+
+.btn-group .btn.blue.dropdown-toggle, .btn.blue
+{
+    background-color: #000 !important;
+}
+
+.btn.green, .btn.green:active
+{
+    background-color: #1676b8 !important;
+}
+
+    .btn.green:hover, .btn.green:focus
+    {
+        background-color: #084c7b !important;
+    }
+
+.rightdropDown
+{
+    border: 0px solid #DDDDDD;
+    margin-top: 8px;
+    background-color: black;
+    color: white;
+    padding-right: 0px;
+    margin-right: 0px;
+    width: 220px;
+    padding-bottom: 6px;
+}
+
+    .rightdropDown > li > a
+    {
+        border: 0px solid #DDDDDD;
+        margin-top: 4px;
+        background-color: black;
+        color: white;
+        padding-right: 0px;
+        line-height: 6px;
+    }
+
+
+    .rightdropDown li a:active, .rightdropDown li a:link
+    {
+        background-color: black;
+        color: white;
+    }
+
+    .rightdropDown li a:hover
+    {
+        background-color: gray;
+        color: #fff;
+    }
+
+.has-switch span.switch-primary:hover, .has-switch span.switch-left:hover, .has-switch span.switch-primary:focus, .has-switch span.switch-left:focus, .has-switch span.switch-primary:active, .has-switch span.switch-left:active, .has-switch span.switch-primary.active, .has-switch span.switch-left.active, .has-switch span.switch-primary.disabled, .has-switch span.switch-left.disabled, .has-switch span.switch-primary[disabled], .has-switch span.switch-left[disabled]
+{
+    background-color: #048918 !important;
+    color: #FFFFFF;
+}
+
+.has-switch span.switch-primary, .has-switch span.switch-left
+{
+    background-color: #43bd55 !important;
+}
+
+.has-switch
+{
+}
+
+    .has-switch span.switch-right
+    {
+        background-color: #ED4E2A !important;
+        color: #FFFFFF !important;
+    }
+
+.select2-container .select2-choice
+{
+    background-image: none !important;
+    border-radius: 0px !important;
+    border: 1px solid #E5E5E5;
+}
+
+    .select2-container .select2-choice .select2-arrow
+    {
+        background: none !important;
+        background-color: #e6e7e9 !important;
+    }
+
+.select2-dropdown-open .select2-choice
+{
+    background-color: #FFFFFF !important;
+}
+
+.select2-drop-active
+{
+    background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+}
+
+.submitClass
+{
+}
+
+.dates
+{
+}
+
+.admin
+{
+}
+
+.director
+{
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primar
+{
+    background-color: #43bd55 !important;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default
+{
+    background-color: #ed4e2a !important;
+    color: white !important;
+}
+
+.bootstrap-switch
+{
+    min-width:113px;
+}

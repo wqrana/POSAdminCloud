@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ClientConnectionInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Client" type="tns:ClientInfo" />
+      <xs:element minOccurs="0" name="DbConnectInfo" type="tns:DatabaseConnectInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientConnectionInfo" nillable="true" type="tns:ClientConnectionInfo" />
+  <xs:complexType name="ClientInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:long" />
+      <xs:element minOccurs="0" name="DatabaseType" type="xs:int" />
+      <xs:element minOccurs="0" name="POSAPIURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeZoneId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientInfo" nillable="true" type="tns:ClientInfo" />
+  <xs:complexType name="DatabaseConnectInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatabaseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSAPIURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PortNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatabaseConnectInfo" nillable="true" type="tns:DatabaseConnectInfo" />
+  <xs:complexType name="LoginInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Authorized" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Client" type="tns:ClientInfo" />
+      <xs:element minOccurs="0" name="Connection" type="tns:DatabaseConnectInfo" />
+      <xs:element minOccurs="0" name="Product" type="tns:ProductInfo" />
+      <xs:element minOccurs="0" name="SecurityInfo" type="tns:SecurityInfo" />
+      <xs:element minOccurs="0" name="User" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginInfo" nillable="true" type="tns:LoginInfo" />
+  <xs:complexType name="ProductInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductExpirationDates" nillable="true" type="q1:ArrayOfKeyValueOfintdateTime" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductFeatures" nillable="true" type="q2:ArrayOfKeyValueOfintArrayOfintty7Ep6D1" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Products" nillable="true" type="q3:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductInfo" nillable="true" type="tns:ProductInfo" />
+  <xs:complexType name="SecurityInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ModulePermissions" nillable="true" type="q4:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityInfo" nillable="true" type="tns:SecurityInfo" />
+  <xs:complexType name="UserInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserRoles_ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="ArrayOfUserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserRole" nillable="true" type="tns:UserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserRole" nillable="true" type="tns:ArrayOfUserRole" />
+  <xs:complexType name="UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminHQSystem" type="xs:int" />
+      <xs:element minOccurs="0" name="AssignedUsers" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="UserRoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRole" nillable="true" type="tns:UserRole" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserRoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserRoles_ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfUserFiltered">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserFiltered" nillable="true" type="tns:UserFiltered" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserFiltered" nillable="true" type="tns:ArrayOfUserFiltered" />
+  <xs:complexType name="UserFiltered">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:User">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllRecordsCount" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserFiltered" nillable="true" type="tns:UserFiltered" />
+</xs:schema>

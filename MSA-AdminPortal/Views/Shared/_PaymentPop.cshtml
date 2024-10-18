@@ -1,0 +1,136 @@
+﻿
+<style>
+    .checkNum {
+    }
+</style>
+
+@Styles.Render("~/Content/themes/datatables/css")
+
+<div class="modal fade" id="payment_modalPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 508px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"><label id="PaymentDetails">Payments</label></h4>
+                <div class="row">
+                    <label id="CustomerName" >@ViewBag.CustomerName</label>
+                    <a href="#CustomerSearcRpt" data-backdrop="static" data-keyboard="false" data-toggle="modal" id="specificCustomer">Select User</a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 304px" data-always-visible="1" data-rail-visible1="1">
+                    <input type="hidden" value="@ViewBag.CustomerId" name="CustomerId" id="CustomerId" class="form-control"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">Amount:</label><br />
+                            <input type="text" name="PaymentAmount" id="PaymentAmount" value="$00.00" size="16" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="checkbox" name="CheckPayment" id="CheckPayment" onchange="PayByCheck()" class="form-control">
+                            Check Payment
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 checkNum">
+                            <label class="">Check Number:</label><br />
+                            <input type="text" name="CheckNumber" id="CheckNumber" size="16" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="radio-list">
+                            <div class="col-md-12">
+                            <label>
+                                <input type="radio" value="mealPlan" checked="checked" name="ApplyTo" id="MealPlan" class="form-control" style="float:left">
+                                Meal Plan
+                            </label>
+                            </div> 
+                            <div class="col-md-12">
+                            <label>
+                                <input type="radio" value="alaCarte" name="ApplyTo" id="AlaCarte" class="form-control" style="float:left">
+                                A La Carte
+                            </label>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue" name="btnApply" id="btnApply" onclick="appyPayment()">Apply Payment</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@Html.Partial("_CustomerSerachPop")
+
+
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="~/Scripts/CustSearchPopup.js"></script>
+
+<script>
+
+    function appyPayment() {
+
+        var id = $('#CustomerName').val();
+
+        var url = "/Payment/ApplyPayment";
+
+        if (id != '') {
+
+            $.ajax({
+                type: "post",
+                url: url,
+                data: {
+                    "CustomerId": id,
+                    "Amount": $('#PaymentAmount').val(),
+                    "CheckNum": $('#CheckNumber').val(),
+                    "mealPlan": $('#MealPlan').val(),
+                    "alaCarte": $('#AlaCarte').val(),
+                },
+                dataType: "json",
+                success: function (data) {
+
+                    var model = data;
+
+                    if (model.IsError) {
+                        displayWarningMessage("Error applying payment");
+                    }
+                    else {
+                        if (id == '0') {
+                            displaySuccessMessage('Payment applied successfully.');
+                        }
+                        else {
+                            displaySuccessMessage('Error applying payment.');
+                        }
+                        window.location.reload(true);
+                    }
+                },
+                error: function () {
+                    displayErrorMessage("Error applying payment.");
+                }
+            });
+        }
+    }
+    
+    function PayByCheck() {
+        
+        if(document.getElementById("CheckPayment").checked = true )
+            $('.checkNum').slideDown();
+        else
+            $('.checkNum').slideUp();
+    }
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.checkNum').slideUp();
+    });
+</script>

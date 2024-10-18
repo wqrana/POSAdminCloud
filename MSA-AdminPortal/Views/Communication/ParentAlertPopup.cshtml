@@ -1,0 +1,131 @@
+﻿@*This popup will be rendered on CommunicationContller's Index View. All the CSS and JavaScript are in Index.cshtml*@
+@*<link href="~/Content/CustomCSS/Communication.css" rel="stylesheet" />*@
+
+<style>
+    #btnCancel:hover, #btnCancel:focus {
+        color: #333333 !important;
+        background-color: lightgray !important;
+    }
+
+    textarea {
+   resize: none;
+}
+</style>
+
+<div class="modal fade modal-scroll" id="parentAlertPopup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" id="alertPopupHeading">Create New Alert</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-8">
+                        <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+                            <button class="close" data-close="alert"></button>
+                            You have some form input errors.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">
+                                                <strong>Alert Title:</strong>
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9">
+                                                <div class="input-icon right">
+                                                    <i class="fa"></i>
+                                                    <input id="txtTitle" type="text" class="form-control" placeholder="Alert Title" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"><strong>Message: </strong><span class="required">*</span></label>
+                                            <div class="col-md-9">
+                                                <div class="input-icon right">
+                                                    <i class="fa"></i>
+                                                    <textarea id="txtMessage" class="form-control" rows="3" placeholder="Message" onkeyup="countChar(this)"></textarea>
+                                                </div>
+                                                <span class="help-block">
+                                                    Limit 300 charachters. (<label id="charNum">300</label>) <br />
+                                                    To insert a new line, type @Html.Raw("&lt;br&gt;") at the desired location.
+                                                    <a href="#alertPreviewPopup" data-toggle="modal" style="float:right;" class="btn btn-small green" id="btnPreview">Preview</a>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3"><strong>Select Start Date: </strong><span class="required">*</span></label>
+                                            <div class="col-md-3">
+                                                <div class="input-group input-medium date date-picker" data-date-format="mm-dd-yyyy" data-date-start-date="+0d">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input id="txtStartDate" type="text" class="form-control" placeholder="Start Date" style="background-color:white;cursor:pointer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3"><strong>Select End Date: </strong><span class="required">*</span></label>
+
+                                            <div class="col-md-4">
+                                                <div class="input-group input-medium date date-picker" data-date-format="mm-dd-yyyy" data-date-start-date="+0d">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input id="txtEndDate" type="text" class="form-control" placeholder="End Date" style="background-color:white;cursor:pointer">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-5 checkbox-list">
+                                                <label><input id="chkNoEndDate" type="checkbox"> No End Date </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3"><strong>Active:</strong></label>
+                                            <div class="col-md-9" style="margin-top:10px">
+                                                <input id="chkActive" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <!--Hidden against work item:1961-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3"><strong>Save alert for multiple <br /> school districts:</strong></label>
+                                            <div class="col-md-9" style="margin-top:10px">
+                                               @* <a href="#districtListPopup" data-toggle="modal"><input id="chkMultipleAlerts" type="checkbox"></a>
+                                               <input id="chkMultipleAlerts" onfocus="chkMultipleAlertsFocus(this)" onchange="chkMultipleAlertsChanged(this)" type="checkbox" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#districtListPopup">
+    <input id="chkMultipleAlerts" type="checkbox" onfocus="chkMultipleAlertsFocus(this)" onchange="chkMultipleAlertsChanged(this)">*@
+                                                <input id="chkMultipleAlerts" type="checkbox" onfocus="chkMultipleAlertsFocus(this)" onchange="chkMultipleAlertsChanged(this)">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" type="button" class="btn blue" id="btnSave">Save</a>
+                <a href="#" type="button" data-dismiss="modal" class="btn default not-default-btn" id="btnCancel">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdnAlertId"/>
+<input type="hidden" id="isForEdit" />
+<input type="hidden" id="txtDistrictList" />
+<input type="hidden" id="txtDistrictGroupSelection" />
+
+

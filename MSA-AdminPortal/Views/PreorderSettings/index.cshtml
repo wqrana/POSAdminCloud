@@ -1,0 +1,67 @@
+﻿@model AdminPortalModels.ViewModels.PreorderSettingModel
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "PreorderSettings";
+
+    ViewBag.Title = "Preorder";
+}
+
+
+@Styles.Render("~/Content/themes/datatables/css")
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    @* @Html.Hidden("AllowSettings", MSA_AdminPortal.Helpers.SecurityManager.AllowSettings) *@
+    @Html.Hidden("UpdateSettings", MSA_AdminPortal.Helpers.SecurityManager.updateSettingsPreorder)
+    <div class="col-md-12">
+      
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+             <a href="#">   @ViewBag.Menu</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#"> @ViewBag.Title</a>
+                
+            </li>
+        </ul>     
+    </div>
+ </div>
+
+<div class="row" style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 20px; margin-bottom:10px; overflow: hidden;">
+    <div class="col-md-12">
+        <div class="col-md-1">
+            @Html.HiddenFor(model => model.Id)
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="POPickMode">Preorder Pick Mode:</label>
+                @Html.DropDownListFor(model => model.POPickMode, new SelectList(@ViewBag.PickupOptions, "Value", "Text"), new { @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                <div id="HandlingTypeDescription">
+                    <p style="font-style:italic; font-family:Arial, Helvetica, sans-serif; font-size:small"> @Html.DisplayFor(model => model.POPickModeDescription) </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7"></div>
+     </div>
+</div>
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-10">
+            <div id="sub-div">
+                <button id="ApplyBtnID" type="button" class="btn blue btn-lg" onclick="SavePreorderSettings();">Apply</button>
+            </div>
+         </div>
+    </div>
+</div>
+  
+  
+    @Scripts.Render("~/Content/themes/datatables/js")
+
+    <script src="~/Scripts/PreorderSettings/PreorderSettings.js"></script>

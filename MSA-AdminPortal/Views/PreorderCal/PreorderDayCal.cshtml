@@ -1,0 +1,115 @@
+﻿@using MSA_AdminPortal.Helpers
+<link href="~/Content/CustomCSS/PreorderDayCal.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/OverrideCutoff.css" rel="stylesheet" />
+
+<div class="modal fade" id="PreorderDayModal" tabindex="-1" role="basic" aria-hidden="true">
+
+    <div class="modal-dialog" style="width: 940px;  margin-top: 70px;">
+        <div class="modal-content">
+            <div class="modal-header  dailyViewPopHeaderCSS">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <i class="fa  fa-calendar-o"></i>&nbsp;
+                    <label id="calNamelbl">VIEW MENU DETAIL - Preorder Menu Configuration for selected date</label>
+                </h4>
+            </div>
+            <div class="modal-body modalBodyCSS" >
+                <div class="scroller" style="height: 445px" data-always-visible="1" data-rail-visible1="1">
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="catDivCSS ">
+                                <table>
+                                    <tr>
+                                        <td>@Html.DropDownList("ddlCategoryType", new SelectList(@ViewBag.CatTypeList, "CategoryID", "Name").InsertEmptyFirst("All Categories", "-1"), new { style = "width: 180px; height: 100%; " })</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="txtSearch" id="txtSearch" size="16" class="form-control tbSearch" maxlength="20" /></td>
+                                        <td>
+                                            <i id="imgbtnSearch" class="fa fa-search pointerCSS" aria-hidden="true"></i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="sideDiv">  </div>
+                            <div class="imgDivCSS">
+                                <table width="550px" cellpadding="0" cellspacing="0" border="0" class="dwTableCSS">
+                                    <tr>
+                                        <td>
+                                            <img class="pointerCSS" src="~/Content/img/allow_orders_dw.png" id="btnimgAllowOrders">
+                                        </td>
+                                        <td>
+                                            <img class="pointerCSS" src="~/Content/img/view_only_dw.png" id="btnimgViewonly">
+
+                                        </td>
+                                        <td>
+                                            <img class="pointerCSS" src="~/Content/img/admin_only_dw.png" id="btnimgAdminonly">
+                                        </td>
+                                        <td>
+                                            
+                                            <img class="pointerCSS" data-backdrop="static" data-keyboard="false" data-toggle="modal" href="#ItemSchedulerModal" src="~/Content/img/item_scheduler_dw.png" id="btnimgItemscheduler">
+
+                                        </td>
+                                        <td>
+                                            <img class="pointerCSS" data-backdrop="static" data-keyboard="false" data-toggle="modal"  src="~/Content/img/override_cutoff_dw.png" id="btnimgbtnCutoff">
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="row divCalendarNameCSS" id="divCalendarName">
+                        <div class="col-md-12">
+                            
+                            <div>
+                                <div class="searchResultHeaderCSS">Available Items</div>
+                                <div id='external-events'>
+
+                                    <p id="eventsPara"></p>
+                                </div>
+
+
+                            </div>
+                            <div id='calendar2'></div>
+                            <div class="updownBtnDivCSS">
+                                <div id="moveUpDiv" title="Move Up"><i class="fa fa-arrow-up arrowUpCSS" aria-hidden="true"></i></div>
+                                <div id="moveDownDiv" title="Move Down"><i class="fa fa-arrow-down arrowDownCSS" aria-hidden="true"></i></div>
+
+
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px; padding-top:0px;">
+                <button type="button" class="btn default not-default-btn btn-lg CloseBtnCSSDailyView" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<input value="0" id="SelectedColor" name="SelectedColor" type="hidden">
+<input value="0" id="SelectedtextColor" name="SelectedtextColor" type="hidden">
+<input value="0" id="SelectedEventID" name="SelectedEventID" type="hidden">
+<input value="1000" id="selectedEventIndex" name="selectedEventIndex" type="hidden">
+<input value="0" id="sDateCutoffSgs" name="sDateCutoffSgs" type="hidden">
+
+
+<div id="loadingDivDailyView">
+    <img src="~/Content/themes/assets/img/ajax-loading.gif" />
+</div>
+
+
+

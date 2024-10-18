@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" />
+  <xs:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/FSS.Data.Models.AutoUpdate" />
+  <xs:element name="ActivatePos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mac" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivatePosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivatePosResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivatePosProductid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mac" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivatePosProductidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivatePosProductidResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckActivationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mac" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckActivationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckActivationStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetConnStringResult" type="q1:ClientConnectionInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnStringByClientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnStringByClientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetConnStringByClientIDResult" type="q2:ClientConnectionInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientIDResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientLogonInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientLogonInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="ClientLogonInfoResult" type="q3:LoginInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element minOccurs="0" name="userRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="customerId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnDeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="customerId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnDeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnDeleteUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCustomerName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCustomerNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserCustomerNameResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="customerId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivateUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="customerId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeactivateUserResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanCreateNewDistrict">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanCreateNewDistrictResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CanCreateNewDistrictResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanCreateNewSchool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CanCreateNewSchoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CanCreateNewSchoolResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfSchoolsAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfSchoolsAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumberOfSchoolsAvailableResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfDistrictsAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfDistrictsAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumberOfDistrictsAvailableResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfStudentsAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfStudentsAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumberOfStudentsAvailableResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfPosAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberOfPosAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumberOfPosAvailableResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientTimeZoneID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientTimeZoneIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientTimeZoneIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRolesList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="SortIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="sortDirection" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRolesListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetUserRolesListResult" nillable="true" type="q4:ArrayOfUserRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetAllUserRolesResult" nillable="true" type="q5:ArrayOfUserRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetUserRoleResult" nillable="true" type="q6:UserRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCountUsersRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCountUsersRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getCountUsersRolesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUpdateUserRoles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="UserRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserRoleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ModuleWithActions" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdminSystem" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUpdateUserRolesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateUpdateUserRolesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="roleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetSecurityInfoResult" type="q7:SecurityInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="UserRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserRoleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q8:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersFiltered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="onlyActive" type="xs:int" />
+        <xs:element minOccurs="0" name="onlyPrimary" type="xs:int" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sortColumn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sortDirection" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersFilteredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetAllUsersFilteredResult" nillable="true" type="q9:ArrayOfUserFiltered" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="CustomerID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetUserResult" nillable="true" type="q10:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetUserByUsernameResult" nillable="true" type="q11:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRoleByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:long" />
+        <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserRoleByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" minOccurs="0" name="GetUserRoleByNameResult" nillable="true" type="q12:UserRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllClientsList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllClientsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getAllClientsListResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMSALiveClientsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dbType" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="productId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMSALiveClientsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMSALiveClientsListResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUpdates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:long" />
+        <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="version" nillable="true" type="q13:Version" />
+        <xs:element minOccurs="0" name="LastUpdatedTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUpdatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUpdatesResult" type="xs:boolean" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/FSS.Data.Models.AutoUpdate" minOccurs="0" name="autoUpdateInfo" nillable="true" type="q14:AutoUpdateInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadUpdates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/FSS.Data.Models.AutoUpdate" minOccurs="0" name="autoUpdateInfo" nillable="true" type="q15:AutoUpdateInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadUpdatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadUpdatesResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

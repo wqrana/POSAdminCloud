@@ -1,0 +1,55 @@
+﻿@import "/Content/Shared/Index Page/TileView.css";
+@import "/Content/Shared/Index Page/Table-Tile-View-Buttons.css";
+
+.btn-group .btn.blue.dropdown-toggle {
+    background-color: #636366 !important;
+}
+
+ul .dropdown-menu {
+    width: 240px !important;
+}
+
+
+.marginTileBtn {
+    margin-left: 5px;
+}
+
+.selectedBtn, .selectedBtn:hover, .selectedBtn:focus, .selectedBtn:active , .btn.default:hover, .btn.default:active,.btn.default:focus
+{
+    background-color: #333e4f !important;
+    color: white !important;
+}
+   
+.unselectedBtn {
+    background-color: #fff !important;
+    border: 1px solid #333e4f !important;
+    color: #333e4f !important;
+    height: 36px;
+}
+
+#btnGridView:disabled {
+    background-color: #333e4f !important;
+    color: white !important;
+    opacity: 1.00;
+}
+
+#btnTileView:disabled {
+    background-color: #333e4f !important;
+    color: white !important;
+    opacity: 1.00;
+}
+
+.removeAnchorStyle {
+    text-decoration: none;
+    color: #000;
+}
+
+    .removeAnchorStyle:hover {
+        text-decoration: none;
+        color: #000;
+    }
+
+ #btnClose.btn.default:hover, #btnClose.btn.default:focus, #btnClose.btn.default:active, #btnClose.btn.default.active {
+    color: #333333;
+    background-color: lightgray;
+}

@@ -1,0 +1,9 @@
+﻿@import "/Content/Category-type.css";
+
+    .create-new {
+        border: none;
+    }
+
+.dashboard-stat .details .number, .dashboard-stat .details .desc, .dashboard-stat .details .labelcss {
+    color: #FFFFFF !important;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c413eb7528b41a4aa8992be87f06520" Name="Diagram1" ZoomLevel="35">
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.AccessRight" Width="1.5" PointX="4.3636398931795917" PointY="6.05054007752358" />
+        <AssociationConnector Association="FSS_POS_TEST_2Model.FK_AccessRights_SecurityGroup" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.ViewCustomerBalance" Width="1.5" PointX="21.375" PointY="16.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CashResult" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Category" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CategoryType" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Customer_School" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CustomerLog" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Customer" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.District" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DistrictOption" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Employee" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Grade" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.SchoolOption" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.School" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CashierPayment" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CustomerActivity" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DailyCashier" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DepositTicket" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DetailCafeCashier" Width="1.5" PointX="6.75" PointY="14.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DetailCafeCategory" Width="1.5" PointX="8.75" PointY="14.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DetailCafeNetChange" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.VoidsD" Width="1.5" PointX="14.75" PointY="13.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Item" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Menu" Width="1.5" PointX="17.375" PointY="5.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.POS" Width="1.5" PointX="11.375" PointY="17.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Homeroom" Width="1.5" PointX="17.75" PointY="12.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CustomerBalance" Width="1.5" PointX="17.75" PointY="16.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.CustomerRoster" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.DetailCafeSummary" Width="1.5" PointX="19.75" PointY="15.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.SalesTaxOnOrder" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.StatementDetailItem" Width="1.5" PointX="2.75" PointY="20.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.SoldItem" Width="1.5" PointX="5.375" PointY="20.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Order" Width="1.5" PointX="7.375" PointY="21.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.StatementDetailOrder" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.SystemOptions" Width="1.5" PointX="22.375" PointY="5.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Ethnicity" Width="1.5" PointX="22.75" PointY="10.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Income_Frequencies" Width="1.5" PointX="24.75" PointY="16.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Income_Types" Width="1.5" PointX="24.75" PointY="19.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Races" Width="1.5" PointX="2.75" PointY="25.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Member_Incomes" Width="1.5" PointX="13.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Members" Width="1.5" PointX="22.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Races" Width="1.5" PointX="24.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Signers" Width="1.5" PointX="24.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Statuses" Width="1.5" PointX="24.375" PointY="4.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Member" Width="1.5" PointX="26.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Applications" Width="1.5" PointX="25.375" PointY="7.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Member_Statuses" Width="1.5" PointX="15.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.App_Notes" Width="1.5" PointX="9.375" PointY="23.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.School_Tax" Width="1.5" PointX="22.375" PointY="10.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.TaxEntities" Width="1.5" PointX="13.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.School_Tax1" Width="1.5" PointX="22.375" PointY="14.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.TaxEntities1" Width="1.5" PointX="15.375" PointY="22.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.Customer_POSNotification" Width="1.5" PointX="22.375" PointY="18.75" />
+        <EntityTypeShape EntityType="FSS_POS_TEST_2Model.POSNotifications" Width="1.5" PointX="22.375" PointY="22.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

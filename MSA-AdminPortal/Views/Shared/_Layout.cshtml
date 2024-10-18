@@ -1,0 +1,134 @@
+﻿@using System.Configuration;
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js" dir="ltr" mozdisallowselectionprint moznomarginboxes>
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>My School Account | @ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta name="MobileOptimized" content="320">
+
+    <script src="~/Scripts/jquery-2.0.3.js"></script>
+    
+
+    @Styles.Render("~/content/metronic/mandatory/css")
+    @Styles.Render("~/content/metronic/plugin/css")
+    @Styles.Render("~/content/metronic/theme/css")
+    @Styles.Render("~/content/custom/css")
+
+    <link rel="shortcut icon" href="favicon.ico" />
+
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content" tabindex="1">
+    @Html.Partial("_HeaderPartial")
+    <div class="clearfix">
+    </div>
+    <div class="page-container">
+
+        <!-- BEGIN SIDEBAR -->
+        @*@RenderSection("Sidebar", required: false)*@
+        @Html.Partial("_SidebarPartial")
+        <!-- END SIDEBAR -->
+
+        <div class="page-content-wrapper">
+            <div class="page-content" id="pagecontentDiv" style="min-height: 1132px !important">
+                <!-- BEGIN CONTENT -->
+                @RenderBody()
+                <!-- END CONTENT -->
+                @*<div id="ajax-loader-element">
+                    <img src="@Url.Content("~/Images/ajax-loader.gif")" />
+                </div>*@
+            </div>
+
+        </div>
+    </div>
+    @Html.Partial("_FooterPartial")
+    @Html.Partial("_AboutPopup")
+
+    <!--[if lt IE 9]>
+    @Scripts.Render("~/Content/metronic/plugins/core/js/ie9")
+<![endif]-->
+
+    @Scripts.Render("~/Content/metronic/plugins/core/js")
+    @Scripts.Render("~/Content/metronic/scripts/js")
+
+   
+    <script type="text/javascript" src="/content/themes/assets/global/plugins/jquery-idle-timeout/jquery.idletimeout.js"></script>
+    <script type="text/javascript" src="/content/themes/assets/global/plugins/jquery-idle-timeout/jquery.idletimer.js"></script>
+
+    <script type="text/javascript">
+        var idleAfter = @Convert.ToInt32(ConfigurationManager.AppSettings["idleAfter"]);
+        var timeout = @Convert.ToInt32(ConfigurationManager.AppSettings["timeout"]);
+        var warningLength = @Convert.ToInt32(ConfigurationManager.AppSettings["warningLength"]);
+    </script>
+
+    @*<script type="text/javascript" src="/content/themes/assets/global/plugins/jquery-idle-timeout/jquery.idletimeout.js"></script>*@
+    <script src="~/Content/themes/assets/admin/pages/scripts/ui-idletimeout.js"></script>
+
+
+    @Scripts.Render("~/scripts/common/js")
+
+    <script type="text/javascript">
+
+        var counter = 0;
+
+        function getQueryStringParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        jQuery.fn.center = function () {
+            this.css("top", ($(window).height() - this.height()) / 2 + $(window).scrollTop() + "px");
+            this.css("left", ($(window).width() - this.width()) / 2 + $(window).scrollLeft() + "px");
+            return this;
+        }
+
+        jQuery(document).ready(function () {
+            Metronic.init();
+            //App.init(); // initlayout and core plugins
+            Layout.init();
+            UIIdleTimeout.init();
+            QuickSidebar.init();
+
+            
+            $("#pagecontentDiv").keypress(function (e) {
+                kCode = e.keyCode || e.charCode //for cross browser
+                if (kCode == 13) {
+                    if ($(document.activeElement).hasClass("not-default-btn") == false) {
+                        $(".defaultBtnClass").trigger("click");
+                        return false;
+                    }
+                }
+            });
+
+            jQuery(document).bind("ajaxSend", function (e, xhr, options) {
+                //jQuery('.dataTables_processing').hide();
+                //jQuery('#ajax-loader-element').center();
+                if (counter == 0) {
+                    //jQuery('#ajax-loader-element').show();
+                }
+                counter = counter + 1;
+            }).bind("ajaxComplete", function () {
+                //jQuery('#ajax-loader-element').hide();
+            });
+
+        });
+
+    </script>
+
+
+</body>
+</html>

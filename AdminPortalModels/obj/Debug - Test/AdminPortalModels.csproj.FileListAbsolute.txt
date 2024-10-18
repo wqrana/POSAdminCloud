@@ -1,0 +1,11 @@
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\AdminPortalModels.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\AdminPortalModels.pdb
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\FSS.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\FSS.Reports.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\FSS.Security.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\log4net.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\log4net.xml
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\obj\Debug - Test\AdminPortalModels.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\obj\Debug - Test\AdminPortalModels.pdb
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\bin\Debug - Test\FSS.pdb
+D:\FSS Development Local\DEV-POS Admin Final\DEV\AdminPortalModels\obj\Debug - Test\AdminPortalModels.csprojResolveAssemblyReference.cache

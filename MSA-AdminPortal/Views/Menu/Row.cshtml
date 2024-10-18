@@ -1,0 +1,54 @@
+﻿@model  AdminPortalModels.Models.MenuIndexModel
+<style>
+    .posDivClosed .dashboard-stat .details .number {
+        color: white !important;
+    }
+
+    .posDivClosed .dashboard-stat .details .desc .labelcss {
+        color: #fff;
+        font-weight: bold;
+    }
+</style>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed">
+    <a href="#" onclick="openCreateEditPopUp()" class="ActionLink removeAnchorStyle" data-toggle="modal" data-id="@Model.Id">
+        <div class="dashboard-stat grey" style=" background-color:@Model.Color !important" >
+            <div class="details">
+                <div class="number" name="name-@Model.Id" id="name-@Model.Id">
+                    <div style="height: 55px; overflow-y:auto">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
+                </div>
+                <div class="desc">
+                    <label class="labelcss" name="address-@Model.Id">@Html.DisplayFor(model => model.CategoryName) </label>
+                </div>
+                <div class="desc">
+                    <label class="labelcss" name="city-@Model.Id">@Html.DisplayFor(model => model.UPCCode) </label>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="footerdiv">
+        <a href="#" onclick="openCreateEditPopUp()" class="ActionLink" data-toggle="modal" data-id="@Model.Id">
+            <div class="enb"></div>
+            <div class="separator">&nbsp;</div>
+        </a>
+        <div class="btn-group action">
+            <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                <span>Actions
+                </span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { href = "#", onclick = "openCreateEditPopUp()", data_toggle = "modal", @class = "ActionLink EditSecurityClass", data_id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { href = "#Delete", data_toggle = "modal", @class = "DeleteLink DeleteSecurityClass", data_id = Model.Id })
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+

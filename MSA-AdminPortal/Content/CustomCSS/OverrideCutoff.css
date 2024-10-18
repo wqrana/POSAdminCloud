@@ -1,0 +1,68 @@
+﻿body {
+}
+
+.OverrideCutoff {
+    color: red;
+}
+
+
+.NewCCutoffDate {
+    color: Green;
+    display: inline-block;
+    width: 85px;
+    margin-bottom: 0px !important;
+}
+
+.tbOverrideCSS {
+    width: 40px;
+    text-align: right;
+}
+
+.OverrideCutoffPopHeaderCSS {
+    background-color: #7816b6;
+    color: #FFF;
+    height: 41px;
+    padding: 5px 5px 5px 15px;
+}
+
+.orangeCSS {
+    background-color: #f68534 !important;
+    color: white !important;
+}
+
+.footerCSS {
+    text-align: center;
+}
+
+.overridetable {
+    width: 475px;
+    text-align: justify;
+}
+
+    .overridetable td {
+    }
+
+.style1CSS {
+    width: 100%;
+}
+
+    .style1CSS td {
+        padding: 3px;
+    }
+
+.style2CSS {
+    width: 57%;
+    border-spacing: 11px;
+    border-collapse: separate;
+}
+
+.CCutoffDate {
+    margin-bottom: 0px;
+    color: red;
+}
+
+.modal .OverrideCutoffPopHeaderCSS .close {
+    margin-top: 12px !important;
+    opacity: 1;
+    margin-right: 9px;
+}

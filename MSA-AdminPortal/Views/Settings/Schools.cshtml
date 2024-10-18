@@ -1,0 +1,694 @@
+﻿@model  AdminPortalModels.ViewModels.SchoolsData
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "Schools";
+    
+    ViewBag.Title = "Schools";
+}
+
+<style>
+    .btn-group .btn.blue.dropdown-toggle {
+        background-color: #000;
+    }
+
+    .formRowStyle {
+        padding-bottom: 20px;
+    }
+
+    .formlabel {
+        padding-right: 10px;
+        text-align: right;
+    }
+
+    .btn-group .btn.blue.dropdown-toggle, .btn.blue {
+        background-color: #000 !important;
+    }
+
+    .btn.green, .btn.green:active {
+        background-color: #1676b8 !important;
+    }
+
+        .btn.green:hover {
+            background-color: #084c7b !important;
+        }
+
+    .rightdropDown {
+        border: 0px solid #DDDDDD;
+        margin-top: 8px;
+        background-color: black;
+        color: white;
+        padding-right: 0px;
+        margin-right: 0px;
+        width:220px;
+        padding-bottom:6px;
+    }
+
+        .rightdropDown > li > a {
+            border: 0px solid #DDDDDD;
+            margin-top: 4px;
+            background-color: black;
+            color: white;
+            padding-right: 0px;
+            line-height:6px;
+        }
+
+
+        .rightdropDown li a:active, .rightdropDown li a:link {
+            background-color: black;
+            color: white;
+        }
+
+        .rightdropDown li a:hover {
+            background-color: gray;
+            color:#fff;
+        }
+
+    .has-switch span.switch-primary:hover, .has-switch span.switch-left:hover, .has-switch span.switch-primary:focus, .has-switch span.switch-left:focus, .has-switch span.switch-primary:active, .has-switch span.switch-left:active, .has-switch span.switch-primary.active, .has-switch span.switch-left.active, .has-switch span.switch-primary.disabled, .has-switch span.switch-left.disabled, .has-switch span.switch-primary[disabled], .has-switch span.switch-left[disabled] {
+        background-color: #048918 !important;
+        color: #FFFFFF;
+    }
+
+    .has-switch span.switch-primary, .has-switch span.switch-left {
+        background-color: #43bd55 !important;
+    }
+
+    .has-switch {
+       
+    }
+
+        .has-switch span.switch-right {
+            background-color: #ED4E2A !important;
+            color: #FFFFFF !important;
+        }
+
+    .select2-container .select2-choice {
+        background-image: none !important;
+        border-radius: 0px !important;
+        border: 1px solid #E5E5E5;
+    }
+
+    .select2-container .select2-choice .select2-arrow {
+        background: none !important;
+        background-color: #e6e7e9 !important;
+    }
+
+    .select2-dropdown-open .select2-choice {
+        background-color: #FFFFFF !important;
+    }
+
+    .select2-drop-active {
+        background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+    }
+
+    .submitClass {
+    }
+
+    .dates {
+    }
+    .admin {
+    }
+    .director {
+    }
+
+</style>
+
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Schools</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Schools</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4">
+        <h3>School Settings: <b>@Model.SchoolVM.SchoolName</b></h3>
+        </div>
+        <div class="col-md-8">
+            <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+                <button class="close" data-close="alert"></button>
+                You have some form input errors.
+            </div>
+        </div>
+
+        @Html.Hidden("schlId", Model.SchoolVM.Id)
+        @Html.Hidden("ClientId", Model.SchoolVM.ClientID)
+        @Html.Hidden("distStartDate", Model.DistrictDates.StartSchoolYear)
+        @Html.Hidden("distEndDate", Model.DistrictDates.EndSchoolYear)
+        @Html.Hidden("schlStartDate", Model.SchoolOptionsVM.StartSchoolYear)
+        @Html.Hidden("schlEndDate", Model.SchoolOptionsVM.EndSchoolYear)
+        @Html.Hidden("distExecId", Model.SchoolVM.UseDistDirAdmin)
+
+        @*<input type="hidden" id="distStartDate" value="@Model.DistrictDates.StartSchoolYear" />
+        <input type="hidden" id="distEndDate" value="@Model.DistrictDates.EndSchoolYear" />
+        <input type="hidden" id="schlStartDate" value="@Model.SchoolOptionsVM.StartSchoolYear" />
+        <input type="hidden" id="schlEndDate" value="@Model.SchoolOptionsVM.EndSchoolYear" />
+        <input type="hidden" id="distExecId" value="@Model.SchoolVM.UseDistDirAdmin" />*@
+
+        <div class="row">
+            <div class="col-md-12">
+                <div style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 30px; overflow: hidden;">
+                    <div style="width: 39%; float: left; min-width: 448px;">
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">School ID</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.SchoolID" name="SchoolID" id="SchoolID" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">School</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.SchoolName" name="SchoolName" id="SchoolName" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Districts</label>
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(model => model.SchoolVM.District_Id, new SelectList(ViewBag.ListOfDistricts, "Value", "Text"),
+                                                    new { id = "dllDistrict", style = "width: 100%; height: 100%", onchange="distChange()" })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Address</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.Address1" name="Address1" id="Address1" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3 control-label formlabel"></div>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.Address2" name="Address2" id="Address2" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">City</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.City" name="City" id="City" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">State</label>
+                                <div class="col-md-7">
+                                    @Html.DropDownList("dllState", new SelectList(ViewBag.ListOfStates, Model.SchoolVM.State), new { style = "width: 40%; height: 100%;" })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Zip</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolVM.Zip" name="Zip" id="Zip" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Phone</label>
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                    <input type="text" value="@Model.SchoolVM.Phone1" name="Phone1" id="Phone1" class="form-control">
+                                </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Fax</label>
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                    <input type="text" value="@Model.SchoolVM.Phone2" name="Phone2" id="Phone2" class="form-control">
+                                </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Notes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="width: 59%; float: left; min-width: 448px;">
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Ala Carte Limit</label>
+                                <div class="col-md-7">
+                                    <input type="text" value="@Model.SchoolOptionsVM.AlaCarteLimit" name="AlaCarteLimit" id="AlaCarteLimit" class="form-control">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle form-group">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Meal Plan Limit</label>
+                            <div class="col-md-7">
+                                <input type="text" value="@Model.SchoolOptionsVM.MealPlanLimit" name="MealPlanLimit" id="MealPlanLimit" class="form-control">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-body formRowStyle form-group">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">PIN Length</label>
+                            <div class="col-md-7">
+                                <input type="text" value="@Model.SchoolOptionsVM.BarCodeLength" name="BarCodeLength" id="BarCodeLength" class="form-control">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-body formRowStyle form-group">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">PIN Prefix</label>
+                            <div class="col-md-3">
+                                <div class="make-switch" data-on-label="ON" data-off-label="&nbsp; OFF &nbsp;">
+                                    <input type="checkbox" id="DoPinPreFix" name="DoPinPreFix" checked="@Model.SchoolOptionsVM.DoPinPreFix" class="toggle" onchange="togglePinPrefix()"/>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" value="@Model.SchoolOptionsVM.PinPreFix" name="PinPreFix" id="PinPreFix" class="form-control" style="margin-left:auto">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-body formRowStyle form-group">
+                                <div class="col-md-12">
+                                    <div class="checkbox-list">
+                                        <div class="col-md-4">
+                                        </div>
+                                        <label>
+                                            <input type="checkbox" checked="@Model.SchoolOptionsVM.PhotoLogging" name="PhotoLogging" id="PhotoLogging" class="form-control">
+                                            Display Photos on POS
+                                        </label>
+                                        <div class="col-md-4">
+                                        </div>
+                                        <label>
+                                            <input type="checkbox" checked="@Model.SchoolOptionsVM.StripZeros" name="StripZeros" id="StripZeros" class="form-control">
+                                            Remove Leading Zeros
+                                        </label>
+                                        <div class="col-md-4">
+                                        </div>
+                                        <label>
+                                            <input type="checkbox" checked="@Model.SchoolVM.isSevereNeed" name="isSevereNeed" id="isSevereNeed" class="form-control">
+                                            Severe need school
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-body formRowStyle form-group">
+                                <div class="col-md-12">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">School Year</label>
+                                    <div class="radio-list">
+                                        <label>
+                                            <input type="radio" value="useDist" name="SchoolYear" id="DisSchoolYear" class="form-control" onclick="hideDates()" style="float:left">
+                                                Use district school year (@Model.DistrictDates.StartSchoolYear.Value.ToString("MM/dd/yyyy") - @Model.DistrictDates.EndSchoolYear.Value.ToString("MM/dd/yyyy"))
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" value="newDate" name="SchoolYear" id="NewSchoolYear" class="form-control" onclick="showDates()" style="float:left">
+                                            Override district school year dates
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle form-group dates">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Start Date</label>
+                            <div class="col-md-7">
+                                <div class="input-icon">
+                                    <i class="fa fa-calendar"></i>
+                                    <input type="text" value="@Model.SchoolOptionsVM.StartSchoolYear.Value.ToString("MM/dd/yyyy")" name="SchoolYear" id="StartSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-body formRowStyle form-group dates">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">End Date</label>
+                            <div class="col-md-7">
+                                <div class="input-icon">
+                                    <i class="fa fa-calendar"></i>
+                                    <input type="text" value="@Model.SchoolOptionsVM.EndSchoolYear.Value.ToString("MM/dd/yyyy")" name="SchoolYear" id="EndSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-body formRowStyle form-group">
+                                <div class="col-md-12">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Director/Admin</label>
+                                    <div class="radio-list">
+                                        <label>
+                                            <input type="radio" value="UseDistrict" name="DistDirAdmin" id="distExec" class="form-control" onclick="hideExec()" style="white-space:nowrap">
+                                            Use district director/admin (@ViewBag.DirectorName/@ViewBag.AdminName)
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="NewExecs" name="DistDirAdmin" id="newExec" class="form-control" onclick="showExec()">
+                                            Override district director/admin
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle form-group exec">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Director</label>
+                            <div class="col-md-7">
+                                @*<input type="text"  name="newSchoolDirector" id="SchoolDirector" class="form-control">*@
+                                @Html.DropDownList("dllDirector", new SelectList(@ViewBag.AdultCustomers, "id", "First_Name", Model.SchoolVM.Emp_Director_Id), new { style = "width: 100%; height: 100%;" })
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-body formRowStyle form-group exec">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Administrator</label>
+                            <div class="col-md-7">
+                                @*<input type="text"  name="newSchoolAdmin" id="SchoolAdmin" class="form-control">*@
+                                @Html.DropDownList("dllAdmin", new SelectList(@ViewBag.AdultCustomers, "id", "First_Name", Model.SchoolVM.Emp_Administrator_Id), new { style = "width: 100%; height: 100%;" })
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                    <div class="form-body formRowStyle form-group">
+                        <div style="padding-left: 40px; padding-right: 40px" >
+                            <textarea class="form-control textarea" id="Comments" placeholder="Enter Comments..." rows="10" name="Comments" >@Model.SchoolVM.Comments</textarea>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-12">
+                <div class="col-md-1"></div>
+                <div class="form-body formRowStyle form-group">
+                        <div style="padding-left: 40px; padding-right: 40px" >
+                            <textarea class="form-control textarea" id="Comments" placeholder="Enter Comments..." rows="10" name="Comments" >@Model.SchoolVM.Comments</textarea>
+                        </div>
+    </div>
+</div>
+        </div>*@
+
+    </div>
+</div>
+<div class="row">
+    <div class="form-actions fluid">
+        <div class="col-md-offset-5 col-md-7">
+            <!--
+            <button id="btnSave" type="button" class="btn green btn-lg submitClass defaultBtnClass" onclick="SaveSchoolData();" >OK</button>
+                 <button id="btnCancel" type="button" class="btn default btn-lg margleft10 not-default-btn" onclick="RedirectToIndex('/Settings/Schools_Index/');">Cancel</button>
+             -->
+            <button id="btnSave" type="button" class="btn green btn-lg submitClass defaultBtnClass">OK</button>
+            <button id="btnCancel" type="button" class="btn default btn-lg margleft10 not-default-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script> 
+<script src="~/Content/themes/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="~/Content/themes/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+
+<script>
+    function togglePinPrefix() {
+        if (document.getElementById("DoPinPreFix").checked) {
+            $('#PinPreFix').slideDown();
+            return false;
+        }
+        else {
+            $('#PinPreFix').slideUp();
+            return false;
+        }
+    }
+
+    function hideDates() {
+        $('.dates').slideUp();
+        return false;
+    }
+
+    function showDates(){
+        $('.dates').slideDown();
+        return false;
+    }
+
+    function hideExec() {
+        $('.exec').slideUp();
+        return false;
+    }
+
+    function showExec() {
+        $('.exec').slideDown();
+        return false;
+    }
+
+    function distChange() {
+        //change the values for the district admin and director
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+        $("#dllState").select2();
+        $("#dllDistrict").select2();
+        $("#dllDirector").select2();
+        $("#dllAdmin").select2();
+        $('#DoPinPreFix').bootstrapSwitch();
+        $('#Phone1').inputmask("(999)999-9999");
+        $('#Phone2').inputmask("(999)999-9999");
+
+        if (!document.getElementById("DoPinPreFix").checked) {
+            $('#PinPreFix').slideUp();
+        }
+
+        if (document.getElementById("distStartDate").value == document.getElementById("schlStartDate").value &&
+            document.getElementById("distEndDate").value == document.getElementById("schlEndDate").value) {
+            document.getElementById("DisSchoolYear").checked = true;
+            $('.dates').slideUp();
+        }
+        else {
+            document.getElementById("NewSchoolYear").checked = true;
+            $('.dates').slideDown();
+        }
+
+        if (document.getElementById("distExecId").value == "True") {
+            document.getElementById("distExec").checked = true;
+            $('.exec').slideUp();
+        }
+        else {
+            document.getElementById("newExec").checked = true;
+            $('.exec').slideDown();
+        }
+
+        /// click on form okay buttons
+        $('.submitClass').click(function () {
+            updateSchool();
+        });
+
+        $('#btnSave').click(function()
+        {
+            debugger;
+            SaveSchoolData();
+        });
+
+        $('#btnCancel').click(function () {
+            debugger;
+            RedirectToIndex('/Settings/Schools_Index/');
+        });
+        // validation
+
+    });
+
+    function SaveSchoolData() {
+
+        debugger;
+
+        var clientId = document.getElementById("ClientId").value;
+        var id = document.getElementById("schlId").value;
+        var SchoolID = document.getElementById("SchoolID").value;
+        var SchoolName = document.getElementById("SchoolName").value;
+        var distid = $('#dllDistrict').val();
+        var DirectorId = $('#dllDirector').val();
+        var AdminId = $('#dllAdmin').val();
+        var Addr1 = document.getElementById("Address1").value;
+        var Addr2 = document.getElementById("Address2").value;
+        var city = document.getElementById("City").value;
+        var state = $('#dllState').val();
+        var zip = document.getElementById("Zip").value;
+        var phone1 = document.getElementById("Phone1").value;
+        var phone2 = document.getElementById("Phone2").value;
+        var mealPlanLimit = document.getElementById("MealPlanLimit").value;
+        var alaCarteLimit = document.getElementById("AlaCarteLimit").value;
+        var severeNeed = $('#isSevereNeed').is(':checked');
+        var stripZero = $('#StripZeros').is(':checked');
+        var photoLogging = $('#PhotoLogging').is(':checked');
+        var useDistExec = $('#distExec').is(':checked');
+        var doPinPreFix = $('#DoPinPreFix').is(':checked');
+        var pinPreFix = document.getElementById("PinPreFix").value;
+        var PinLength = document.getElementById("BarCodeLength").value;
+        if ($('#DisSchoolYear').is(':checked') == true) {
+            var startDate = document.getElementById("distStartDate").value;
+            var endDate = document.getElementById("distEndDate").value;
+        }
+        else {
+            var startDate = document.getElementById("StartSchoolYear").value;
+            var endDate = document.getElementById("EndSchoolYear").value;
+        }
+        var Notes = document.getElementById("Comments").value;
+
+        var phone1Ver = ValidatePhone('#Phone1', "Enter a valid phone number");
+        var phone2Ver = ValidatePhone('#Phone2', "Enter a valid phone number");
+        var errorbar = $('.alert-danger');
+
+        if (phone1Ver && phone2Ver) {
+
+            errorbar.hide();
+
+        var dataString = JSON.stringify({
+            allData: clientId + "*" +
+                id + "*" +
+                distid + "*" +
+                SchoolID + "*" +
+                SchoolName + "*" +
+                DirectorId + "*" +
+                AdminId + "*" +
+                Addr1 + "*" +
+                Addr2 + "*" +
+                city + "*" +
+                state + "*" +
+                zip + "*" +
+                phone1 + "*" +
+                phone2 + "*" +
+                Notes + "*" +
+                severeNeed + "*" +
+                "false*" + //deleted
+                useDistExec + "*" +
+                alaCarteLimit + "*" +
+                mealPlanLimit + "*" +
+                doPinPreFix + "*" +
+                pinPreFix + "*" +
+                photoLogging + "*" +
+                "false*" + //finger ident
+                PinLength + "*" +
+                startDate + "*" +
+                endDate + "*" +
+                stripZero
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/Settings/updateSchools",
+            data: dataString,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.result != '-1') {
+                    displaySuccessMessage(data.result);
+                }
+                else {
+                    displaySuccessMessage("The school record has been created successfully.");
+                }
+                RedirectToIndex('/Settings/Schools_Index/');
+            },
+            error: function (request, status, error) {
+                displayErrorMessage("Error occurred during saving the data.");
+                return false;
+            }
+        });
+    }
+        else {
+            errorbar.show();
+        }
+    }
+
+    function ValidatePhone(elem, message)
+    {
+        var filter = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        var element = $(elem);
+
+        if (element.val().length == 0) {
+            var icon = $(element).parent('.input-icon').children('i');
+            icon.removeClass("fa-warning").removeAttr("data-original-title");
+            element.closest('.form-group').removeClass('has-error');
+            return true;
+        }
+
+        if (!filter.test(element.val())) {
+            var icon = $(element).parent('.input-icon').children('i');
+            icon.removeClass('fa-check').addClass("fa-warning");
+            icon.attr("data-original-title", message).tooltip({ 'container': 'body' });
+            element.closest('.form-group').removeClass('has-success').addClass('has-error');
+            return false;
+        }
+        else {
+            var icon = $(element).parent('.input-icon').children('i');
+            icon.removeClass("fa-warning").addClass("fa-check").removeAttr("data-original-title");
+            element.closest('.form-group').removeClass('has-error').addClass('has-success');
+            return true;
+        }
+    }
+
+</script>
+
+
+
+<script src="~/Scripts/datapost.js"></script>

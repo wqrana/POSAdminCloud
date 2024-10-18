@@ -1,0 +1,278 @@
+﻿@model  AdminPortalModels.ViewModels.POSPageVM
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "POS";
+
+    ViewBag.Title = "POS";
+}
+
+<link href="~/Content/CustomCSS/CustomerPopup.css" rel="stylesheet" />
+<style>
+    .ShowSchool {
+        display: block;
+    }
+
+    .HideSchool {
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+</script>
+
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>POS</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">POS</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+@if (Model.allPOSCount == 0)
+{
+    <div>
+        <div class="col-md-12">
+            <h2>No POS terminals are currently configured.</h2>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var school in Model.SchoolsList)
+        {
+            <div class="row @school.schoolDisplayClass">
+                <div style="margin-left: 15px;">
+                    <h3>
+                        @school.SchoolName
+                    </h3>
+                </div>
+                @foreach (var pos in school.POSVM)
+                {
+                    using (Html.BeginForm("pos", "Settings", FormMethod.Post, new { @class = "form-class", name = "form" }))
+                    {
+
+                    @Html.Hidden("posid", pos.Id) 
+                    @Html.Hidden("ClientID", pos.ClientID) 
+                    @Html.Hidden("School_Id", school.Id)
+                    @Html.Hidden("Name", pos.Name)
+                    @Html.Hidden("UserName", pos.VeriFoneUserId)
+                    @Html.Hidden("enbStatus", pos.enbCCCCProcessing)
+                    @Html.Hidden(pos.hrefid, pos.enbCCCCProcessing, new { id = pos.hrefid })
+
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed">
+                        <a data-toggle="modal" href="#basic_modalPopup" data-backdrop="static" data-keyboard="false" class="settingslnk">
+                            <div class="dashboard-stat blue">
+                                <div class="visual">
+                                    <i class="fa fa-desktop"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        @pos.Name
+                                    </div>
+                                    <div class="desc">
+                                        Session:
+                            <label class="labelcss">@pos.SessionStatus</label>
+                                    </div>
+                                    <div class="desc">
+                                        User:
+                            <label>@pos.VeriFoneUserId </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                        <div class="footerdiv">
+                            @if (pos.EnableCCProcessing.HasValue)
+                            {
+                                if ((bool)pos.EnableCCProcessing)
+                                {
+                                <div class="enb"><i class="fa fa-credit-card"></i>&nbsp;Enabled</div>
+                                }
+                                else
+                                {
+                                <div class="disab"><i class="fa fa-credit-card"></i>&nbsp;Disabled</div>    
+                                }
+
+                            }
+
+
+                            <div class="separator">&nbsp;</div>
+
+                            <div class="btn-group action">
+                                <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                    <span>Actions
+                                    </span>
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li>
+                                        <a data-toggle="modal" href="#basic_modalPopup" data-backdrop="static" data-keyboard="false" class="settingslnk">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#deleteModal" role="button" data-backdrop="static" data-keyboard="false" data-toggle="modal" class="deletepos">Delete POS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    }
+                }
+            </div>
+        }
+
+    </div>
+</div>
+<div class="modal fade" id="basic_modalPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 408px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <label id="posNamelbl"></label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 214px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">Enable credit cards:</label><br />
+                            <div class="make-switch" data-on-label="Enabled" data-off-label="&nbsp; Disabled &nbsp;">
+                                <input type="checkbox" id="CreditCardStatus" name="CustomerActive" class="toggle" />
+                            </div>
+
+                            @* <div class="clearfix">
+                                <button type="button" id="enbBtnpos" onclick="enbdisbtns(this)" class="btn btn-sm">Enabled</button>
+                                <button type="button" id="disBtnpos" onclick="enbdisbtns(this)" class="btn btn-sm " style="margin-left: -4px;">Disabled</button>
+                            </div>*@
+                        </div>
+
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">User name:</label><br />
+                            <input type="text" name="VeriFoneUserId" id="VeriFoneUserId" size="16" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">Password:</label><br />
+                            <input type="password" name="VeriFonePassword" id="VeriFonePassword" value="temppass" size="16" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="button" class="btn default btn-lg" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue savaForm btn-lg margleft10">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">POS Delete Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Are you sure, you want to delete this pos?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn default btn-lg " data-dismiss="modal" aria-hidden="true">Close</button>
+                <button data-dismiss="modal" id="Confirmdelete" class="btn blue btn-lg margleft10">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript">
+
+    var posdelid = "";
+    var clientdelId = "";
+    var ccStatus = "";
+    var SchoolID = "";
+
+    $(document).ready(function () {
+
+        $(".lnkItem").click(function (e) {
+            //debugger;
+            $.post({
+                url: $(this).attr('href'),
+                type: 'post',
+                success: function (data) {
+                    // assuming you're returning a partial result
+                    $('#divDetail').html(data);
+                }
+            });
+        });
+
+        $(".settingslnk").click(function (e) {
+            //debugger;
+            var oForm = $(this).closest(".form-class");
+            $("#posNamelbl").text(oForm[0]["Name"].value);
+            $("#VeriFoneUserId").val(oForm[0]["UserName"].value);
+            if (oForm[0]["enbStatus"].value == "True") {
+                $('#CreditCardStatus').prop('checked', true);
+                var parentDiv = $('#CreditCardStatus').parent('.switch-animate');
+                parentDiv.removeClass('switch-off').addClass("switch-on");
+            }
+            else {
+                $('#CreditCardStatus').prop('checked', false);
+                var parentDiv = $('#CreditCardStatus').parent('.switch-animate');
+                parentDiv.removeClass('switch-on').addClass("switch-off");
+
+            }
+            clientdelId = oForm[0]["ClientID"].value;
+            posdelid = oForm[0]["posid"].value;
+
+            ccStatus = oForm[0]["enbStatus"].value;
+            SchoolID = oForm[0]["School_Id"].value;
+        });
+
+        $(".savaForm").click(function (e) {
+            updatePOSData(this);
+        });
+        $(".deletepos").click(function (e) {
+            //debugger;
+            var oForm = $(this).closest(".form-class");
+            clientdelId = oForm[0]["ClientID"].value;
+            posdelid = oForm[0]["posid"].value;
+        });
+
+        $("#Confirmdelete").click(function (e) {
+            DeletePOS();
+        });
+
+
+
+    });
+</script>
+
+<script src="~/Scripts/datapost.js"></script>

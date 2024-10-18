@@ -1,0 +1,562 @@
+﻿@using MSA_ADMIN.DAL.Factories
+@using MSA_AdminPortal.Helpers
+@using System.Configuration
+@model MSA_ADMIN.DAL.Models.DistrictAndDistrictOptionVM
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "MSA";
+
+    ViewBag.Title = "MSA";
+
+}
+
+<link href="~/Content/themes/assets/global/plugins/jquery-sumoselect/sumoselect.min.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/SettingsMsa.css" rel="stylesheet" />
+
+
+
+@helper GetStatusHtml(bool isAllowed)
+{
+    var status = "";
+    var img = "";
+
+    if (isAllowed)
+    {
+        status = "ENABLED";
+        img = Url.Content("~/Images/circle-green.png");
+    }
+    else
+    {
+        status = "DISABLED";
+        img = Url.Content("~/Images/circle-gray.png");
+    }
+
+    <span><img height='10' width='10' style='margin-bottom:2px' src='@img' /></span> @status
+
+}
+
+@{
+    var creditFee = Model.District.CreditFee.GetValueOrDefault(0).ToString("C");
+    var studentUsageFee = Model.District.StudentUsageFee.GetValueOrDefault(0).ToString("C");
+    var allowStudentTranfers = Model.District.AllowStudentTransfers.GetValueOrDefault(false);
+    var studentAttachmentChk = Model.District.ForceMSAStudentLinkSC.GetValueOrDefault(false);
+    var displayVoidsChk = Model.District.DisplayVoids.GetValueOrDefault(false);
+    var displayAdjustmentsChk = Model.District.DisplayAdjustments.GetValueOrDefault(false);
+    var forcePaymentNegBalanceChk = Model.District.ForceBalancePaymentOnPreorder.GetValueOrDefault(false);
+
+    var useFiveDayWeekCutOffChk = Model.DistrictOption.useFiveDayWeekCutOff.GetValueOrDefault(false);
+    var validatePreorderItemStatusChk = Model.DistrictOption.RemoveStalePreorderCartItems.GetValueOrDefault(false);
+    var allowPreorderNegBalancesChk = Model.DistrictOption.allowPreorderNegativeBalances.GetValueOrDefault(false);
+    var displayMsaAlertFirstChk = Model.DistrictOption.DisplayMSAAlertsFirst.GetValueOrDefault(false);
+
+    var lastUpdate = string.Format("{0:D}", Model.District.LastUpdate) + " (" + String.Format("{0:HH:mm:ss}", Model.District.LastUpdate) + ")";
+}
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row">
+    <input type="hidden" value='@MSA_AdminPortal.Helpers.SecurityManager.UpdateMSASettings.ToString()' id="UpdateMSASettings" />
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+
+    <!-- Left -->
+
+    <div class="col-md-6 ">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="col-md-offset-1">
+                    <h3 id="DName">@Html.DisplayFor(m => m.District.Name)</h3>
+                    <span id="DAddress">@Html.DisplayFor(m => m.District.Address)</span>
+                </div>
+                <br />
+            </div>
+            <div class="portlet-body form left-box">
+                <br />
+                <div class="alert basic-panel">
+                    <div class="row"><label class="col-md-6 col-md-offset-1 label-heading">Bank Name:</label> <label id="bankName" name="bankName" class="col-md-5">@Html.DisplayFor(m => m.District.BankName)</label></div>
+                    <div class="row"><label class="col-md-6 col-md-offset-1 label-heading">Routing Number:</label> <label id="routingNumber" name="routingNumber" class="col-md-5">@Html.DisplayFor(m => m.District.BankRouting)</label></div>
+                    <div class="row"><label class="col-md-6 col-md-offset-1 label-heading">Account Number:</label> <label id="accountNumber" name="accountNumber" class="col-md-5">@Html.DisplayFor(m => m.District.BankAccount)</label></div>
+                    <hr />
+                </div>
+                <div class="alert basic-panel">
+                    <div class="row"><label class="col-md-offset-1 col-md-11 label-heading">Payment Types Accepted:</label></div>
+                    <div class="row"><label class="col-md-offset-1 col-md-6">&#8226; ACH Checking / Savings</label> <label id="achSaving" class="col-md-5">@GetStatusHtml(Model.District.allowACH ?? false)</label></div>
+                    <div class="row"><label class="col-md-offset-1 col-md-6">&#8226; Credit Card</label> <label id="creditCard" class="col-md-5">@GetStatusHtml(Model.District.allowCreditCard ?? false)</label></div>
+                    <hr />
+                </div>
+                <div id="feeDiv" class="alert basic-panel">
+
+                    @if (Model.DistrictOption.useVariableCCFee == false)
+                    {
+                        <div class="row"><label id="transferFeeHeading" class="col-md-offset-1 col-md-6 label-heading">Student Account Transfer Fee:</label> <label class="col-md-5" id="transferFee">@Html.DisplayFor(m => creditFee)</label></div>
+                    }
+                    else
+                    {
+                        <div class="row"><label class="col-md-offset-1 col-md-6 label-heading" id="transferFeeHeading">ACH Transfer Fee:</label> <label class="col-md-5" id="transferFee">@Html.DisplayFor(m => creditFee)</label></div>
+                        <div class="row"><label class="col-md-offset-1 col-md-6 label-heading">Credit Card Processing Fee:</label> <label class="col-md-5">@Html.DisplayFor(m => Model.District.VariableCCFee)%</label></div>
+                    }
+
+                    @*<div class="row"><label id="creditCardProcessingFeeHeading" class="col-md-offset-1 col-md-6 label-heading">Credit Card Processing Fee:</label> <label class="col-md-5"><label id="creditCardProcessingFee">[creditCardProcessing]</label>%</label> </div>*@
+                    @if (DistrictFactory.DistrictInSession != null && DistrictFactory.DistrictInSession.AllowStudentUsageFee.GetValueOrDefault())
+                    {
+                        <div class="row"><label class="col-md-offset-1 col-md-6 label-heading">Student Usage Fee Amount:</label> <label class="col-md-5">@Html.DisplayFor(m => studentUsageFee)</label> </div>
+                    }
+                </div>
+                <div class="alert alert-warning basic-panel">
+                   <!-- <div class="alert basic-panel"> -->
+                        <div class="row"><label class="col-md-offset-1 col-md-11 label-heading">Last Update Date & Time:</label></div>
+                        <div class="row"><label id="lastUpdateDateTime" class="col-md-offset-1 col-md-11">@Html.DisplayFor(m => lastUpdate)</label></div>
+                  <!--  </div> -->
+                    </div>
+                <div class="alert basic-panel">
+                    <br />
+                    <div class="row"><label class="col-md-offset-1 col-md-11 label-heading">Modules / Systems:</label></div>
+                    <div class="row"><label class="col-md-offset-1 col-md-6">&#8226; Preorder Purchasing</label> <label id="preorderPurchasing" class="col-md-5">@GetStatusHtml(Model.District.allowWebLunch ?? false)</label></div>
+                    <div class="row"><label class="col-md-offset-1 col-md-6">&#8226; Shopping Cart</label> <label id="shoppingCart" class="col-md-5">@GetStatusHtml(Model.District.ShoppingCart_Id.GetValueOrDefault() == 0 ? false : true)</label></div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right -->
+
+    <div class="col-md-6 ">
+        <div class="portlet box grey">
+            <div class="portlet-title form">
+                <br />
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user" style="color:white"></i>
+                                    </span>
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Contact, new { id = "contactName", @class = "form-control", placeholder = "Contact Name" });
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Contact, new { id = "contactName", @class = "form-control", placeholder = "Contact Name", @readonly = "readonly" });
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-phone" style="color:white"></i>
+                                    </span>
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Phone, new { id = "contactNumber", @class = "form-control", placeholder = "Contact Number" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Phone, new { id = "contactNumber", @class = "form-control", placeholder = "Contact Number", @readonly = "readonly" })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-envelope" style="color:white"></i>
+                                    </span>
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Email, new { id = "contactEmail", @class = "form-control", placeholder = "Contact Email" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(m => m.District.Email, new { id = "contactEmail", @class = "form-control", placeholder = "Contact Email", @readonly = "readonly" })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-7" style="text-align:left;">
+                                <label class="control-label label-heading">Low Balance Notification:</label>
+                            </div>
+                            <div class="col-md-3">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    @Html.CheckBox("lowBalanceNotification", Model.District.AllowLBN.GetValueOrDefault(0) == 0 ? false : true, new { id = "lowBalanceNotification", @class = "make-switch toggle" })
+                                }
+                                else
+                                {
+                                    @Html.CheckBox("lowBalanceNotification", Model.District.AllowLBN.GetValueOrDefault(0) == 0 ? false : true, new { id = "lowBalanceNotification", @class = "make-switch toggle", disabled = "true" })
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-7 " style="text-align:left;">
+                                <label class="control-label label-heading">Allow Student Transfers:</label>
+                            </div>
+                            <div class="col-md-3">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    @Html.CheckBoxFor(m => allowStudentTranfers, new { id = "allowStudentTransfers", @class = "make-switch toggle" })
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => allowStudentTranfers, new { id = "allowStudentTransfers", @class = "make-switch toggle", disabled = "true" })
+                                }
+                            </div>
+                        </div>
+                        @if (DistrictFactory.DistrictInSession != null && DistrictFactory.DistrictInSession.ShoppingCart_Id.GetValueOrDefault() == 0 ? false : true)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-offset-1 col-md-7" >
+                                    <label class="control-label label-heading" style="text-align:left;">Shopping Cart Requires Student Attachment:</label>
+                                </div>
+                                <div class="col-md-3">
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.CheckBoxFor(m => studentAttachmentChk, new { id = "studentAttachment", @class = "make-switch toggle" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(m => studentAttachmentChk, new { id = "studentAttachment", @class = "make-switch toggle", disabled = "true" })
+                                    }
+                                </div>
+                            </div>
+                        }
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">Student History Display Options</strong></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-7 control-label  label-heading" style="text-align:left;">Display Voids:</label>
+                            <div class="col-md-3">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    @Html.CheckBoxFor(m => displayVoidsChk, new { id = "displayVoids", @class = "make-switch toggle" })
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => displayVoidsChk, new { id = "displayVoids", @class = "make-switch toggle", disabled = "true" })
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Display Adjustments:</label>
+                            <div class="col-md-3">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    @Html.CheckBoxFor(m => displayAdjustmentsChk, new { id = "displayAdjustments", @class = "make-switch toggle" })
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => displayAdjustmentsChk, new { id = "displayAdjustments", @class = "make-switch toggle", disabled = "true" })
+                                }
+                            </div>
+                        </div>
+                        @if (ConfigurationManager.AppSettings["EnableMSASalesTax"] != "1" &&
+                             DistrictFactory.DistrictInSession != null &&
+                             (DistrictFactory.DistrictInSession.allowWebLunch.GetValueOrDefault() || DistrictFactory.DistrictInSession.AllowEasyPay.GetValueOrDefault()))
+                        {
+                        <hr />
+                            <h3>Tax Options</h3>
+                        }
+                        @if (ConfigurationManager.AppSettings["EnableMSASalesTax"] != "1" &&
+                             DistrictFactory.DistrictInSession != null &&
+                             (DistrictFactory.DistrictInSession.allowWebLunch.GetValueOrDefault()))
+                        {
+                            <div class="form-group">
+                                
+                                <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">Tax Options</strong></label>
+                            </div>
+
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-3 control-label label-heading" style="text-align:left;">Preorder:</label>
+                            <div class="col-md-offset-1 col-md-7">
+                                @Html.ListBox("preorderList", (IEnumerable<SelectListItem>)ViewBag.PreorderTaxableSchools, new { id = "preorderTax", @class = "form-control SlectBox", placeholder = "Preorder" })
+                            </div>
+                        </div>
+                        }
+                        @if (ConfigurationManager.AppSettings["EnableMSASalesTax"] != "1" &&
+                             DistrictFactory.DistrictInSession != null &&
+                             (DistrictFactory.DistrictInSession.AllowEasyPay.GetValueOrDefault()))
+                        {
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-3 control-label label-heading" style="text-align:left;">Easy Pay:</label>
+                            <div class="col-md-offset-1 col-md-7">
+                                @Html.ListBox("easyPayList", (IEnumerable<SelectListItem>)ViewBag.EasyPayTaxableSchools, new { id = "easyPayTax", @class = "form-control SlectBox", placeholder = "Preorder" })
+                            </div>
+                        </div>
+                        }
+
+                        @if (DistrictFactory.DistrictInSession != null && DistrictFactory.DistrictInSession.allowWebLunch.GetValueOrDefault())
+                        {
+                            <hr />
+                            <div class="form-group">
+                                
+                                <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">Preorder Transactions</strong></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Calendar CutOff Mode:</label>
+                                <div class="col-md-3">
+                                    <div class="radio-list">
+                                        <label class="">
+                                            @*<input type="radio" name="calendarCutoffMode" id="fiveDayWeek" value="5" checked> 5 day week*@
+                                            @Html.RadioButton("calendarCutoffMode", "five", useFiveDayWeekCutOffChk, new { id = "cutOff_5" }) 5 day week
+                                        </label>
+                                        <label class="">
+                                            @*<input type="radio" name="calendarCutoffMode" id="sevenDayWeek" value="7" checked> 7 day week*@
+                                            @Html.RadioButton("calendarCutoffMode", "seven", !useFiveDayWeekCutOffChk, new { id = "cutOff_7" }) 7 day week
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Force payment of negative balances:</label>
+                                <div class="col-md-3">
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.CheckBoxFor(m => forcePaymentNegBalanceChk, new { id = "forcePaymentNegBalance", @class = "make-switch toggle" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(m => forcePaymentNegBalanceChk, new { id = "forcePaymentNegBalance", @class = "make-switch toggle", disabled = "true" })
+                                    }
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="col-md-offset-1 col-md-8">
+                                    <address>
+                                        <span class="label-heading">Example</span><br />
+                                        <span class="small">Student A has an account balance of ($5.00).</span><br />
+                                        <span class="small">Preorder transaction for Student A = $10.00.</span><br />
+                                        <br />
+                                        <span class="small">Option turned ON = $15.00 payment required.</span><br />
+                                        <span class="small">Option turned OFF = $10.00 payment required.</span>
+                                    </address>
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            @if (!(DistrictFactory.DistrictInSession != null && DistrictFactory.DistrictInSession.allowWebLunch.GetValueOrDefault()))
+                            { <br /> <br /> @*Just to resolve css issue*@ }
+
+                            @if (SecurityManager.UpdateMSASettings)
+                            {
+                                <button type="button" id="updateSettings" class="btn btn-success col-md-offset-4">
+                                    @*<i class="fa fa-save fa-2x"></i>*@
+                                    Update Settings
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" id="updateSettings" class="btn btn-success col-md-offset-4" disabled="disabled">
+                                    @*<i class="fa fa-save fa-2x"></i>*@
+                                    Update Settings
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (DistrictFactory.DistrictInSession != null && DistrictFactory.DistrictInSession.allowWebLunch.GetValueOrDefault())
+        {
+            <div class="portlet box grey">
+                <div class="portlet-title form">
+                    <form class="form-horizontal">
+                        <div class="form-body">
+                            <div class="form-group">
+                               
+                                <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">Checkout Cart Options</strong></label>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Validate Preorder Item Status:</label>
+                                <div class="col-md-3">
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.CheckBoxFor(m => validatePreorderItemStatusChk, new { id = "validatePreorderItemStatus", @class = "make-switch toggle" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(m => validatePreorderItemStatusChk, new { id = "validatePreorderItemStatus", @class = "make-switch toggle", disabled = "true" })
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Allow Preorder Negative Account Balances:</label>
+                                <div class="col-md-3">
+                                    @if (SecurityManager.UpdateMSASettings)
+                                    {
+                                        @Html.CheckBoxFor(m => allowPreorderNegBalancesChk, new { id = "allowPreorderNegBalances", @class = "make-switch toggle" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(m => allowPreorderNegBalancesChk, new { id = "allowPreorderNegBalances", @class = "make-switch toggle", disabled = "true" })
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <br />
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    <button type="button" id="updateCartOptions" class="btn btn-success col-md-offset-4">
+                                        @*<i class="fa fa-save fa-2x"></i>*@
+                                        Update Cart Options
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button type="button" class="btn btn-success btn col-md-offset-4 disabled">
+                                        @*<i class="fa fa-save fa-2x"></i>*@
+                                        Update Cart Options
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+        <div class="portlet box grey">
+            <div class="portlet-title form">
+                <form class="form-horizontal">
+                    <div class="form-body">
+                        <div class="form-group">
+                            
+                            <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">Communications Options</strong></label>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label class="col-md-offset-1 col-md-7 control-label label-heading" style="text-align:left;">Display MSA Alerts First:</label>
+                            <div class="col-md-3">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    @Html.CheckBoxFor(m => displayMsaAlertFirstChk, new { id = "displayMsaAlertFirst", @class = "make-switch toggle" })
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => displayMsaAlertFirstChk, new { id = "displayMsaAlertFirst", @class = "make-switch toggle", disabled = "true" })
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <br />
+                            @if (SecurityManager.UpdateMSASettings)
+                            {
+                                <button type="button" id="updateOptions" class="btn btn-success col-md-offset-4">
+                                    @*<i class="fa fa-save fa-2x"></i>*@
+                                    Update Options
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-success col-md-offset-4 disabled">
+                                    @*<i class="fa fa-save fa-2x"></i>*@
+                                    Update Options
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="portlet box grey">
+            <div class="portlet-title form">
+                <form class="form-horizontal">
+                    <div class="form-body">
+                        <div class="form-group">
+                            
+                            <label class="col-md-offset-1 col-md-11 control-label" style="text-align:left;"> <strong style="font-size: 18px; margin-top: 0px;">REQUEST ATTENTION</strong></label>
+                        </div>
+                       
+                        <div class="form-group">
+                            @*<label class="">Checkboxes</label>*@
+                            <div class="checkbox-list col-md-offset-1">
+                                @if (SecurityManager.UpdateMSASettings)
+                                {
+                                    <label>
+                                        <input id="paymentType" type="checkbox" data-toggle="modal" data-target="#requestAttentionPopup"> Change Payment Types Accepted
+                                        @*<input id="paymentType" type="checkbox"> Change Payment Types Accepted*@
+                                    </label>
+                                    <label>
+                                        <input id="bankInfo" type="checkbox" data-toggle="modal" data-target="#requestAttentionPopup"> Change Bank Information
+                                        @*<input id="bankInfo" type="checkbox"> Change Bank Information*@
+                                    </label>
+                                }
+                                else
+                                {
+                                    <label>
+                                        <input id="paymentType" type="checkbox" data-toggle="modal" disabled="disabled"> Change Payment Types Accepted
+                                        @*<input id="paymentType" type="checkbox"> Change Payment Types Accepted*@
+                                    </label>
+                                    <label>
+                                        <input id="bankInfo" type="checkbox" data-toggle="modal" disabled="disabled"> Change Bank Information
+                                        @*<input id="bankInfo" type="checkbox"> Change Bank Information*@
+                                    </label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END PAGE CONTENT-->
+<!-- BEGIN POPUPS -->
+
+<input id="hdnType" type="hidden" />
+@*<input id="hdnProceedClicked" type="hidden" />*@
+
+<div id="requestAttentionPopup" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true" data-keyboard="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" id="infoTitle"> <span style="font-weight: bold;" id="requestAttentionH">Request Attention</span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" id="infoMessage">
+                        An email will be sent to administrator@myschoolaccount.com regarding your request. If you proceed, we will be contacting <b id="contactNameInDialog">@Html.DisplayFor(m => m.District.Contact)</b> shortly.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn blue not-default-btn" data-dismiss="modal" id="proceed">Proceed</a>
+                <a href="#" class="btn default defaultBtnClass" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END POPUPS -->
+
+<script src="~/Content/themes/assets/global/plugins/jquery-sumoselect/jquery.sumoselect.min.js" type="text/javascript"></script>
+<script src="~/Scripts/Settings/SettingsMsa.js" type="text/javascript"></script>

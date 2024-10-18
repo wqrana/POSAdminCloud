@@ -1,0 +1,30 @@
+﻿@model  AdminPortalModels.Models.ActivateModel
+
+@Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model => model.IsActive)
+@Html.HiddenFor(model => model.ActivateUrl)
+
+<div class="modal fade" id="Activate" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 456px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+               <span id="activeStringTitle">@Html.DisplayFor(model => model.ActiveString)</span> @Html.DisplayFor(model => model.Title): <strong><span id="span-activate-title">@Html.DisplayFor(model => model.Name)</span></strong>
+            </div>
+            <div class="modal-body">
+                <div class="scroller1" style=" min-height: 30px" data-always-visible="1" data-rail-visible1="1">
+                  <h4>Are you sure you want to <span id="activeStringMsg" >@Html.DisplayFor(model => model.ActiveString)</span>  this  @Html.DisplayFor(model => model.Title)@*<span id="span-activate-name" style="font-weight:bold;">@Html.DisplayFor(model => model.Name)</span>*@?</h4>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="submit" class="btn blue btn-lg margleft10 not-default-btn" id="btnActivate" name="btnActivate">@Html.DisplayFor(model => model.ActiveString)</button>
+                <button type="button" class="btn default btn-lg defaultBtnClass" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript" src="/Scripts/activate.js"></script>
+

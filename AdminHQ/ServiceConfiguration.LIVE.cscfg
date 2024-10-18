@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="AdminHQ" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MSA-AdminPortal">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=adminhq;AccountKey=3g7y7jLN3wrtbfR/3c+EI4/AlYBumlBueyPQtP7tlGecG0tVXkylAcIywT5JJjGu5y3dps+1BvJfFIpSt6szfg==" />
+      <!--<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=adminhq;AccountKey=3g7y7jLN3wrtbfR/3c+EI4/AlYBumlBueyPQtP7tlGecG0tVXkylAcIywT5JJjGu5y3dps+1BvJfFIpSt6szfg==" />-->
+      <!--<Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="false" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="fssadmin" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBygYJKoZIhvcNAQcDoIIBuzCCAbcCAQAxggF7MIIBdwIBADBfMEsxSTBHBgoJkiaJk/IsZAEZFjlXaW5kb3dzIEF6dXJlIFRvb2xzIEVuY3J5cHRpb24gQ2VydGlmaWNhdGUgZm9yIEV4dGVuc2lvbnMCEBa1k7THNb+TSKIve70twxAwDQYJKoZIhvcNAQEBBQAEggEAEHjozDqHS1RM67vdIAdc76cXGVRoopskyKuEUQLKr5nLoPBrqe5IRrDFSjlzH/dkLU45f5RCJoK3T/Dgigas+vL13eE4llM7Ed78q1EK+7RTKUCN7s91rbKQ6zUfKURIAhsF3D2hSyCiQjSKX1yF4Zu0rrHpYERDwcK2VHcsBD7NjWKYZE5Ut9tdFAqMDsjby3bm9/qN0mO4jQ8JckrsHqCGAjG0CnxmYBztVhc1yTorPNK0HrgvSVeZjFl4gc3AUhTaIa+gOZ3iNS1AlqHMUx//wUz4fdcH2ybYoQLzF2ly3McFkxANeh2YCAYThlIqkfdlidVJuILtN6b++kwfqTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECF975lTkWocvgBC6WSi7mIEAZsF/az6kWbuC" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2017-04-21T23:59:59.0000000-04:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />-->
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" value="1" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Go Daddy Class 2 Certification Authority" thumbprint="2796BAE63F1801E277261BA0D77770028F20EEE4" thumbprintAlgorithm="sha1" />
+      <Certificate name="Go Daddy Root Certificate Authority - G2" thumbprint="340B2880F446FCC04E59ED33F52B3D08D6242964" thumbprintAlgorithm="sha1" />
+      <Certificate name="Go Daddy Secure Certificate Authority - G2" thumbprint="27AC9369FAF25207BB2627CEFACCBE4EF9C319B8" thumbprintAlgorithm="sha1" />
+      <Certificate name="adminhq.myschoolaccount.com" thumbprint="4BB6691E4FF06E94E785FCD80793A531CC1A97AE" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

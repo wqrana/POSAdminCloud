@@ -1,0 +1,61 @@
+﻿
+
+
+<div class="modal fade" id="basic_modalPopup" tabindex="-1" role="basic" aria-hidden="true">
+
+    <div class="modal-dialog" style="width: 408px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <span id="calNamelbl"></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 180px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">&nbsp</div>
+                    <div class="row" id="divTaxName">
+                        <div class="col-md-12">
+                            <label class="control-label">Tax Name: <span class="required">*</span></label><br />
+                            <input type="text" name="TaxName" id="TaxName" maxlength="15" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row" id="divTaxRate">
+                        <div class="col-md-12">
+                            <label class="control-label">Tax Rate: <span class="required">*</span></label><br />
+                            @*<span class="valuePadding input-holder">*@
+                                <input type="text" name="TaxRate" id="TaxRate" onchange="setTwoNumberDecimal(this)" class="form-control" />
+                            @*</span>*@
+                        </div>
+                    </div>
+
+                    @*<div class="row" id="divCalendarType" style=" display:none;">
+                        <div class="col-md-12">
+                            <label class="">Calendar type:</label><br />
+                            <div>
+                                @Html.DropDownList("calTypes", new SelectList(@ViewBag.CalTypeList, "Id", "Type"), new { style = "width: 50%; height: 100%; " })
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <input value="0" id="taxID" name="taxID" type="hidden">
+                    @*<input value="0" id="distID" name="distID" type="hidden">*@
+                    @*<div class="row  calSpanClass">
+                        <span id="calSpan">Click this icon to add menu items in this calendar.  <a id="calLink" title="Calendar" class="SchoolEditTile" href="/PreorderCal/index/931"><i class="fa fa-calendar fasize"></i></a></span>
+                    </div>*@
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button id="btnSaveTax" type="button" class="btn blue savaForm btn-lg margleft10">Save</button>
+                <button type="button" class="btn default btn-lg not-default-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,81 @@
+﻿body {
+}
+
+.btn.blue,
+.btn-group .btn.blue.dropdown-toggle,
+.btn-group .btn.blue:hover,
+.btn-group .btn.blue:focus,
+.btn-group .btn.blue:active,
+.btn-group .btn.blue.active,
+.btn-group .btn.blue.disabled,
+.btn-group .btn.blue[disabled] {
+    /*background-color: #939598 !important;*/
+}
+
+div.dataTables_length label {
+    float: right;
+    text-align: right;
+}
+
+.dataTables_length {
+    padding-top: 10px;
+}
+
+.FilterBtn {
+    background-color: #1677c1;
+    color: white;
+}
+
+    .FilterBtn:hover {
+        background-color: #0d5992;
+        color: white;
+    }
+
+.select2-container .select2-choice {
+    background-image: none !important;
+    border-radius: 0px !important;
+    border: 1px solid #E5E5E5;
+}
+
+    .select2-container .select2-choice .select2-arrow {
+        background: none !important;
+        background-color: #939598 !important;
+    }
+
+        .select2-container .select2-choice .select2-arrow b {
+            background: url("../../Images/select2.png") no-repeat scroll 0 1px rgba(0, 0, 0, 0);
+        }
+
+.select2-dropdown-open .select2-choice {
+    background-color: #FFFFFF !important;
+}
+
+.select2-drop-active {
+    background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+}
+
+#Loaderdiv {
+    display: none;
+    z-index: 1000;
+}
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px; /* -1 * image height / 2 */
+    display: block;
+}
+
+.zeroLeftPadding {
+    padding-left: 0px;
+}
+
+.zeroRightPadding {
+    padding-right: 0px;
+}
+
+.centerClass {
+    text-align: center;
+}

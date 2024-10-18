@@ -1,0 +1,59 @@
+﻿@model  AdminPortalModels.Models.DistrictIndexModel
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed">
+    <a href="#CreateOrEdit"  class="ActionLink removeAnchorStyle" data-toggle="modal" data-id="@Model.Id">
+        <div class="dashboard-stat grey">
+            <div class="details" style="height: 100px;">
+                <div class="number" name="name-@Model.Id" id="name-@Model.Id" >
+                    <a href = "#CreateOrEdit"  class = "ActionLink DistrictEditTile"  style="color: #59595d; text-decoration: none;" data-toggle="modal" data-id="@Model.Id">
+                    @Html.DisplayFor(model => model.Name)
+                   </a>
+                          
+                </div>
+                <div class="desc" @(string.IsNullOrEmpty(Model.Address) ? "style=height:0":"")>
+                    <label class="labelcss" name="address-@Model.Id">@Html.DisplayFor(model => model.Address) </label>
+                </div>
+                <div class="desc" @(string.IsNullOrEmpty(Model.Address2) ? "style=height:0":"")>
+                    <label class="labelcss" name="address2-@Model.Id">@Html.DisplayFor(model => model.Address2) </label>
+                </div>
+                <div class="desc">
+                    <label class="labelcss" name="city-@Model.Id">@Html.DisplayFor(model => model.City)@(((!string.IsNullOrEmpty(Model.City) && !string.IsNullOrEmpty(Model.State)) || (!string.IsNullOrEmpty(Model.City) && !string.IsNullOrEmpty(Model.ZipCode))) ? "," : "") @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.ZipCode)  </label>
+                </div>
+                <div class="desc">
+                    
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="footerdiv">
+        <a href="#CreateOrEdit"  class="ActionLink " data-toggle="modal" data-id="@Model.Id">
+            <div class="separator">&nbsp;</div>
+            <div class="enb">
+            
+                 <a href="#" onclick="location.href='@Url.Action("SchoolByDistrict","School", new { DistrictId = @Model.Id })'">
+                
+                <label class="labelcss" style="cursor:pointer; color:white;" name="schools-@Model.schoolCount">Schools: @Html.DisplayFor(model => model.schoolCount) </label>
+                </a>
+
+            </div>
+            <div class="separator">&nbsp;</div>
+        </a>
+        <div class="btn-group action">
+            <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                <span>Actions
+                </span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { href = "#CreateOrEdit", data_toggle = "modal", @class = "ActionLink DistrictEditTile", data_id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { href = "#Delete", data_toggle = "modal", @class = "DeleteLink DistrictDeleteTile", data_id = Model.Id })
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+

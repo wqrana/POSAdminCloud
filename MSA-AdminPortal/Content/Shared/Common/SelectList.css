@@ -1,0 +1,18 @@
+﻿ .select2-container .select2-choice {
+        background-image: none !important;
+        border-radius: 0px !important;
+        border: 1px solid #E5E5E5;
+    }
+
+    .select2-container .select2-choice .select2-arrow {
+        background: none !important;
+        background-color: #e6e7e9 !important;
+    }
+
+    .select2-dropdown-open .select2-choice {
+        background-color: #FFFFFF !important;
+    }
+
+    .select2-drop-active {
+        background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+    }

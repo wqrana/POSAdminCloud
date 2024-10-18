@@ -1,0 +1,165 @@
+﻿<!--
+<div class="modal fade modal-scroll" id="districtListPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="closeDistrictList()"></button>
+                <div class="heading" style="width: 340px; padding-left: 10px;">Select district from list</div>
+            </div>
+            <div class="modal-body">
+              
+                <form>
+                    
+                    <div class="col-md-12">Please select districts to create alert for them and close this popup.</div>
+                    <br /><br/>
+                    <div class="col-md-12 alert alert-warning">Warning: mass assigning districts by using the drop down list cannot be undone after the alert is created.</div>
+                    <div id="processingDiv">
+                        <img id="loadingItemSpinnerimg" src="~/Content/themes/assets/img/input-spinner.gif" />
+                        Loading...
+                    </div>
+                    <div class="text-center col-md-6">
+                        <a href='#' id='select-all'><b>Select All</b></a>
+                    </div>
+                    <div class="col-md-5" style="margin-left:20px">
+                        <a href='#' id='deselect-all'><b>Clear All</b></a>
+                    </div>
+                    <div class="col-md-offset-2 col-md-10">
+                        <select multiple="multiple" id="districtList" name="districtList" ></select>
+                    </div>
+                    
+                    <div class="text-center col-md-12">
+                        <hr />- 
+                        OR - 
+                        <br/>
+                        You may also select from following district groups. <a id="uncheckDistrictGroups" href="#">(Clear)</a>
+                        <hr />
+                    </div>
+                    @*<div class="col-md-12">
+                        
+                    </div>*@
+                    @*<div >
+                        <input type="radio" name="dist1" id="allDistricts"> All Districts<br />
+                        <input type="radio" name="dist1" id="allCreditCardDistricts"> All Credit Card Districts <br />
+                        <input type="radio" name="dist1" id="allShoppingCartDistricts"> All Shopping Cart Districts <br />
+                        <input type="radio" name="dist1" id="allPreorderDistricts"> All Preorder Districts
+                    </div>*@
+                    <div class="text-center clearfix">
+                        <div class="btn-group-vertical" data-toggle="buttons" id="districtGroup">
+                            <label class="btn btn-default">
+                                <input type="radio" class="toggle" id="AllDistricts"> All Districts
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" class="toggle" id="AllCreditCardDistricts"> All Credit Card Districts
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" class="toggle" id="AllShoppingCartDistricts"> All Shopping Cart Districts
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" class="toggle" id="AllPreorderDistricts"> All Preorder Districts
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn blue" id="btnOk" onclick="okDistrictList()">OK</button>
+                <button id="btnDistrictPopupCancel" type="button" data-dismiss="modal" class="btn not-default-btn" onclick="closeDistrictList()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="modal fade modal-scroll" id="districtListPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="closeDistrictList()"></button>
+                <div class="heading" style="width: 340px; padding-left: 10px;">Select district from list</div>
+            </div>
+            <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-12">Please select districts to create alert for them and close this popup.</div>
+                        <br />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2 zeroRightPadding">
+
+                            <label>Districts List:</label>
+                        </div>
+
+                        <div class="col-md-8">
+                            <select multiple="multiple" id="districtList" name="districtList" class="SlectBox"></select>
+                        </div>
+                        <div class="col-md-2">
+                            
+                            <button id='deselect-all' class="btn yellow btn-sm not-default-btn" onclick="">Clear All</button>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 warningCSS"><strong>Warning:</strong> mass assigning districts by using the drop down list cannot be undone after the alert is created.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="lineDivCSS"> </div>
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="orClass">- OR -</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="lineDivCSS"> </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                           
+                        You may also select from following district groups.<a id="uncheckdistrictgroups" href="#">
+                            (Clear)</a>
+                        </div>
+                     </div>
+                                            
+                    <div class="row"></div>
+                        <div class="row">
+
+                            <div class="col-md-5 leftpadding30">
+                                <div class="radio-list">
+                                    <label>
+                                        <input type="radio" class="toggle" id="AllDistricts" name="districtGroup"> All Districts
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="toggle" id="AllCreditCardDistricts" name="districtGroup"> All Credit Card Districts
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="toggle" id="AllShoppingCartDistricts" name="districtGroup"> All Shopping Cart Districts
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="toggle" id="AllPreorderDistricts" name="districtGroup"> All Preorder Districts
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="toggle" id="AllLiveDistricts" name="districtGroup"> All Live Districts
+                                    </label>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn blue" id="btnOk" onclick="okDistrictList()">OK</button>
+                <button id="btnDistrictPopupCancel" type="button" data-dismiss="modal" class="btn not-default-btn" onclick="closeDistrictList()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

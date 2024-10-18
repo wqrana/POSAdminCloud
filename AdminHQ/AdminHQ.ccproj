@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>2.9</ProductVersion>
+    <ProjectGuid>f89cc7c0-5f3e-478f-a449-4eab7141bb22</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdminHQ</RootNamespace>
+    <AssemblyName>AdminHQ</AssemblyName>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <Name>AdminHQ</Name>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <PackageEnableRemoteDebugger>False</PackageEnableRemoteDebugger>
+    <UseWebProjectPorts>False</UseWebProjectPorts>
+    <UseEmulatorExpressByDefault>False</UseEmulatorExpressByDefault>
+    <ValidationIssuesAreErrors>True</ValidationIssuesAreErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.LOCAL.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.TEST.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.DEV.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.LIVE.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSA-AdminPortal\MSA-AdminPortal.csproj">
+      <Name>MSA-AdminPortal</Name>
+      <Project>{5b3ccfbb-10d6-492a-a6c6-f3f422118072}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>MSA-AdminPortal</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MSA-AdminPortalContent\" />
+    <Folder Include="Profiles" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MSA-AdminPortalContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\adminhq - Test_Production.azurePubxml" />
+    <PublishProfile Include="Profiles\adminhqStaging.azurePubxml" />
+    <PublishProfile Include="Profiles\adminhqProduction.azurePubxml" />
+    <PublishProfile Include="Profiles\adminhq - Production (Staging).azurePubxml" />
+    <PublishProfile Include="Profiles\adminhq - Test_Staging.azurePubxml" />
+  </ItemGroup>
+  <ItemGroup>
+	<Content Include="ServiceDefinition.LOCAL.csdef" />
+	<Content Include="ServiceDefinition.TEST.csdef" />
+	<Content Include="ServiceDefinition.DEV.csdef" />
+	<Content Include="ServiceDefinition.LIVE.csdef" />
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">11.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.9\</CloudExtensionsDir>
+	<ServiceDefinitionTransform>ServiceDefinition.$(TargetProfile).csdef</ServiceDefinitionTransform>
+	<TransformRunnerExecutable>$(MSBuildProjectDirectory)\..\packages\WebConfigTransformRunner.1.0.0.1\Tools\WebConfigTransformRunner.exe</TransformRunnerExecutable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug - Test' ">
+    <OutputPath>bin\Debug - Test\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+  <Target Name="AfterValidateServiceModel">
+    <Message Text="AfterValidateServiceModel (TargetProfile=$(TargetProfile))" Importance="high" />
+    <Message Text=" - TransformRunnerExecutable: $(TransformRunnerExecutable)" Importance="high" />
+    <Message Text=" - ServiceDefinitionTransform: $(ServiceDefinitionTransform)" Importance="high" />
+    <Message Text=" - Executing Transform: &quot;$(TransformRunnerExecutable)&quot; @(TargetServiceDefinition) $(ServiceDefinitionTransform) @(TargetServiceDefinition)" Importance="high" />
+    <Exec Command="&quot;$(TransformRunnerExecutable)&quot; &quot;@(TargetServiceDefinition)&quot; &quot;$(ServiceDefinitionTransform)&quot; &quot;@(TargetServiceDefinition)&quot;" />
+  </Target>
+</Project>

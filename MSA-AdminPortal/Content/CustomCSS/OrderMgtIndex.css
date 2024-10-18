@@ -1,0 +1,113 @@
+﻿.select2-container .select2-choice
+{
+    background-image: none !important;
+    border-radius: 0px !important;
+    border: 1px solid #E5E5E5;
+    height: 30px;
+}
+
+    .select2-container .select2-choice .select2-arrow
+    {
+        background: none !important;
+        background-color: #e6e7e9 !important;
+    }
+
+.select2-dropdown-open .select2-choice
+{
+    background-color: #FFFFFF !important;
+}
+
+.select2-drop-active
+{
+    background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+}
+
+.waitClass
+{
+    background-image: url("../../Content/themes/assets/img/loading.gif") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.portlet
+{
+    margin-bottom: 0px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
+{
+    padding: 0px;
+}
+
+.innertable > thead > tr > th, .innertable > tbody > tr > th, .innertable > tfoot > tr > th, .innertable > thead > tr > td, .innertable > tbody > tr > td, .innertable > tfoot > tr > td
+{
+    padding: 5px 5px 5px 8px;
+    line-height: 11px;
+    vertical-align: middle;
+}
+
+.table thead tr th
+{
+    line-height: 19px;
+}
+
+.portlet > .portlet-body.blue, .portlet.blue
+{
+    background-color: #1676b8 !important;
+}
+
+.portlet.box.blue > .portlet-title
+{
+    background-color: #1676b8 !important;
+}
+
+.portlet.box.blue
+{
+    border-width: 0;
+}
+
+.portlet > .portlet-body
+{
+    padding: 0px !important;
+}
+
+.table.table
+{
+    margin-bottom: 0px !important;
+}
+
+.datablockcss
+{
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    border-bottom: 1px solid #1676B8 !important;
+    border-image: none !important;
+    border-left: 1px solid #1676B8 !important;
+    border-right: 1px solid #1676B8 !important;
+    border-top: 0 none;
+    margin-bottom: 15px;
+}
+
+.centerCSS
+{
+    text-align: center;
+}
+
+.ZeroColor
+{
+   color: #d2cecd;
+}
+
+.itemCSS
+{
+    padding-left: 5px !important;
+}
+
+#toast-container > div
+{
+    opacity: 1;
+}

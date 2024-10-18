@@ -1,0 +1,331 @@
+﻿@model  AdminPortalModels.ViewModels.popUpCustomer
+
+
+@{
+    ViewBag.Title = "detailPopup";
+}
+
+
+
+
+
+
+
+
+
+<link href="~/Content/CustomCSS/CustomerDetailPopup.css" rel="stylesheet" />
+
+<div id="CustomerModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    @Html.Hidden("CustomerID")
+    @Html.Hidden("UpdateCustomers", MSA_AdminPortal.Helpers.SecurityManager.UpdateCustomers)
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Customer Detail:
+                    <label id="customerDetail"></label>
+                    <img id="activeStatusImg" src="../Images/circle-green.png" />
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row accountDetail">
+                    <span class="spanText">Total Balance:</span>
+                    <label id="customertotalbalance" class="spanVal"></label>
+                    <span class="spansep">|</span>
+                    <span class="spanText">Meal Plan:</span>
+
+                    <label id="customerMealPlanBalance" class="spanVal"></label>
+                    <span class="spansep">|</span>
+                    <span class="spanText">Ala Carte:</span>
+
+                    <label id="customerAlaCartebalance" class="spanVal"></label>
+                    <span class="spansep">|</span>
+                    <span><a href="#" id="ViewActivity">View Activity</a></span>
+
+                </div>
+                <div class="row pInfoStyle">
+                    <div class="col-md-3" style="padding-right: 2px;">
+                        <img id="cPhoto" src="@Model.uri" alt="" onerror="this.src='../../images/defaultpic.jpg';" width="130" />
+                    </div>
+                    <div class="col-md-3" style="padding-left: 2px">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Name:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12  zeroRightPadding">
+                                <label id="customernamebelow" class="pInfoval"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Date of Birth:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="cdob" class="pInfoval"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Gender:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="Cgender" class="pInfoval"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">SSN:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="cSSN" class="pInfoval"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Address:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="CAddress" class="pInfoval"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Phone:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="CPhon" class="pInfoval"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="pInfoTxt">Email:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label id="CEmail" class="pInfoval"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12" style="display:none;">
+                                <label class="pInfoTxt">Language:</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12" style="display:none;">
+                                <label id="Clanguage" class="pInfoval"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row tabrow">
+                    <div id="tabs" class="tabbable tabbable-custom tabbable-full-width">
+                        <ul class="nav nav-tabs tabsClass">
+                            <li class="active">
+                                <a data-toggle="tab" href="#tab_1_1">Account Details</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab_1_3">POS Notifications</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab_1_2">View Log</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="tab_1_1" class="tab-pane active">
+                                <div class="row AccountStyle">
+                                    <div class="col-md-5" style="padding-right: 2px;">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Notes:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="cNotes" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label  class="pInfoTxt">Creation Date:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="userCreationDate"  class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 2px">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">User ID:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="cUserID" class="accountValues"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">PIN:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="cPIN" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">School:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12 zeroRightPadding">
+                                                <label id="CSchool" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Grade:</label>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CGrade" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Homeroom:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CHomeroom" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">District:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CDistrict" class="accountValues"></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">MealStatus:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CMStatus" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Options:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="COptions" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Account Restrictions:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CAccountrest" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class="pInfoTxt">Eating Assignments:</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label id="CeatingAssign" class="accountValues"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div id="tab_1_2" class="tab-pane">
+                                <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+                                    <table class="table table-striped table-hover table-bordered" id="customerLogTable">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 94px">Date
+                                                </th>
+                                                <th style="width: 77px">Time
+                                                </th>
+                                                <th>Note
+                                                </th>
+                                                <th>By User
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tab_1_3" class="tab-pane" style="height:200px">
+                                <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+                                    <div class="form-body">
+                                        <div class="col-md-1"></div>
+                                        <label class="col-md-3 control-label formlabel">POS Notifications</label>
+                                        <div class="col-md-7" id="divpOSNotificationsList">
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button data-dismiss="modal" id="editBtn" class="btn blue btn-lg not-default-btn">Edit</button>
+                <button class="btn default btn-lg margleft10 defaultBtnClass" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

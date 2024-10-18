@@ -1,0 +1,343 @@
+﻿
+@*This popup will be rendered on PrentContller's Index View. All the CSS and JavaScript are in index.cshtml*@
+
+<div class="modal fade modal-scroll" id="parentDetailPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                <div class="portlet box yellow">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <table>
+                                <tr>
+                                    <td align="right"><b>Parent Name:</b></td>
+                                    <td>&nbsp;&nbsp;<span id="parentName"></span></td>
+                                </tr>
+                                <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                <tr>
+                                    <td align="right"><b>User Id: </b></td>
+                                    <td>&nbsp;&nbsp;<span id="userId"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tabbable-custom ">
+                            <ul class="nav nav-tabs ">
+                                <li class="active">
+                                    <a href="#tabInformation" data-toggle="tab">Information</a>
+                                </li>
+                                <li>
+                                    <a href="#tabStudents" data-toggle="tab">Students</a>
+                                </li>
+                                <li>
+                                    <a href="#tabDepositHistory" data-toggle="tab">Deposit History</a>
+                                </li>
+                                <li>
+                                    <a href="#tabMisc" data-toggle="tab">Misc</a>
+                                </li>
+                                <li>
+                                    <a href="#tabNotification" data-toggle="tab">Notification</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabInformation">
+                                    <!--Start Information Tab Content --->
+
+                                    <div style="width: 100%; padding-top: 10px;">
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 450px;">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td style="width: 160px; vertical-align: top;"><span><b>Address:</b></span></td>
+                                                        <td><span id="address"></span></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div style="float: left; height: 30px; width: 275px;">
+                                                <span style="width: 124px; display: inline-block; margin-top: 0px;"><b>Setup Date:</b></span>
+                                                <span id="setupDate"></span>
+                                            </div>
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 450px;">
+                                                <span style="width: 160px; display: inline-block;"><b>Phone:</b></span>
+                                                <span id="phone"></span>
+                                            </div>
+                                            <div style="float: left; height: 30px; width: 275px;">
+                                                <span style="width: 124px; display: inline-block; margin-top: 0px;"><b>Last Login Date:</b></span>
+                                                <span id="loginDate"></span>
+                                            </div>
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 450px;">
+                                                <span style="width: 160px; display: inline-block;"><b>Email:</b></span>
+                                                <span id="email"></span>
+                                            </div>
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 450px;">
+                                                <span style="width: 160px; display: inline-block;"><b>Verification Code:</b></span>
+                                                <span id="verificationCode"></span>
+                                            </div>
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                        <div>&nbsp;</div>
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 725px;">
+                                                <span style="width: 160px; display: inline-block;"><b>Account Status:</b></span>
+                                                <span><img id="activeCirle1" height="10" width="10" style="margin-bottom:4px" src="" /></span>
+                                                <span id="accountStatus"></span>
+
+                                            </div>
+
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                        <div>
+                                            <div style="margin-left: 55px; float: left; height: 28px; width: 725px;">
+                                                <span style="width: 160px; display: inline-block;"><b>Low Balance Notification:</b></span>
+                                                <span><img id="activeCirle2" height="10" width="10" style="margin-bottom:4px" src="" /></span>
+                                                <span id="lowBalanceNotification"></span>
+                                            </div>
+
+                                            <div style="clear: both;">
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                    </div>
+
+                                    <!--End Information Tab Content-->
+                                </div>
+                                <div class="tab-pane" id="tabStudents">
+                                    <table class="table table-striped table-hover table-bordered" id="dtStudentGrid">
+                                        <thead>
+                                            <tr>
+                                                <th>Student Id</th>
+                                                <th>Student Name</th>
+                                                <th>School Name</th>
+                                                <th>Balance</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="tabDepositHistory">
+                                    <table class="table table-striped table-hover table-bordered" id="dtDepositHistoryGrid">
+                                        <thead>
+                                            <tr>
+                                                <th>Transaction Id</th>
+                                                <th>Transaction Date</th>
+                                                <th>Payment Type</th>
+                                                <th>Transaction Total</th>
+                                                <th>Return Charge</th>
+                                                <th>Return Reason</th>
+                                                <th>Posted to LaunchAccount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="tabMisc">
+
+                                    <!--Start Mics Tab Content-->
+
+                                    <table>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td width="170px">
+                                                <span><b>Old Email Address:</b></span>
+                                            </td>
+                                            <td>
+                                                <span id="oldEmailAddress"></span>
+                                            </td>
+                                            <td colspan="3">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <span><b>New Email Address:</b></span>
+                                            </td>
+                                            <td>
+                                                <input id="newEmailAddress" name="newEmailAddress" type="text" class="form-control" value="" />
+                                            </td>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <span><b>Confirm Email Address:</b></span>
+                                            </td>
+                                            <td valign="top">
+                                                <input id="confirmEmailAddress" name="confirmEmailAddress" type="text" class="form-control" value="" />
+                                            </td>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td align="right">
+                                                <button class="btn yellow" id="btnChangeEmail">Change</button>
+                                            </td>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>
+                                                <div class="restpwd">
+                                                    You can reset this parent's login password. The system will replace the old password
+                                                    with a new temporary password and send the new login information to the parent's
+                                                    current email address.
+                                                </div>
+                                            </td>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                        <tr><td colspan="6">&nbsp;</td></tr>
+                                        <tr>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td align="right">
+                                                <button class="btn yellow" id="btnResetPassword">Reset</button>
+                                            </td>
+                                            <td colspan="3">&nbsp;</td>
+                                        </tr>
+                                        @*<tr>
+                                                <td colspan="2">&nbsp;</td>
+                                                <td>
+                                                    <div id="successMesssagePwdReset">
+                                                        Password reset successfully.
+                                                    </div>
+                                                    <span id="errorMessagePwdReset">Password could not be reset.</span>
+                                                </td>
+                                                <td colspan="3">&nbsp;</td>
+                                            </tr>*@
+                                    </table>
+
+                                    <!--End Misc Tab Content-->
+                                </div>
+                                <div class="tab-pane" id="tabNotification">
+                                    <div class="container" style="width:100%;">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="checkbox" class="checkbox lowBalCheck" id="cbxPaymentNotify" />
+                                                <label for="cbxPaymentNotify">Send Payment Confirmation Emails</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="checkbox" class="checkbox lowBalCheck" id="cbxVIPNotify">
+                                                <label for="cbxVIPNotify">Send Promotional Emails</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="checkbox" class="checkbox lowBalCheck" id="cbxPreorderNotify">
+                                                <label for="cbxPreorderNotify">Send Preorder Confirmation Emails</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="checkbox" class="checkbox lowBalCheck" id="cbxLBN">
+                                                <label for="cbxLBN">Send Low Balance Notification Emails</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 table-responsive">
+                                                <table class="table table-striped table-hover table-bordered" id="dtBalancenotification">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Student Name</th>
+                                                            <th>Current Balance</th>
+                                                            <th>Minimum Balance</th>
+                                                            <th>Enabled</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="display:flex; align-items:center;">
+                                            <div class="col-md-3">
+                                                <label class="control-label formlabels">Send email notifications to: </label>
+                                            </div>
+                                            <div class="col-md-5 pull-left">
+                                                <input type="text" name="Email" id="txtEmail" class="form-control" placeholder="example@email.com" maxlength="1000">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn yellow btn-default button pull-right" style="width:130px;" id="btnSendTestEmail">Send Test Email</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-offset-3">
+                                                <span style="margin-left:10px;">Separate multiple addresses with a semicolon.</span>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="display:flex; align-items:center;">
+                                            <div class="col-md-10">
+                                                <span>Please ensure all SPAM filters allow traffic from notification@myschoolaccount.com.</span>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn yellow btn-default button pull-right" style="width:130px;" id="btnSaveChanges">Save Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn blue">Save changes</button>
+            </div>-->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div id="studentDeleteWarning" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Delete Student: <span style="font-weight: bold;" id="studentNameH"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br />
+                        Are you sure you want to delete this student ?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn blue" id="btnConfirmDelete">Yes</button>
+                <button type="button" data-dismiss="modal" class="btn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

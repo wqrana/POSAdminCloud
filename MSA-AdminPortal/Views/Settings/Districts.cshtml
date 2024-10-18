@@ -1,0 +1,604 @@
+﻿@model  AdminPortalModels.ViewModels.DistrictsData
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "Districts";
+
+    ViewBag.Title = "Districts";
+}
+
+<link href="~/Content/CustomCSS/Districts.css" rel="stylesheet" />
+
+@Html.Hidden("districtId", Model.DistrictVM.Id)
+@Html.Hidden("ClientId", Model.DistrictVM.ClientID)
+@Html.Hidden("hdadminID", Model.DistrictVM.empAdmin)
+@Html.Hidden("hddirectorID", Model.DistrictVM.empDirector)
+@Html.Hidden("SingleSelect", "3")
+@Html.Hidden("adminOrDirector", "admin")
+@Html.Hidden("hdnFldSelectedValues", Model.DistrictVM.empAdmin)
+
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Districts</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Districts</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <span style="display: inline-block; font-size: 24px; padding-bottom: 10px;">District Settings: <strong>@Html.DisplayFor(model => model.DistrictVM.DistrictName)</strong></span>
+    </div>
+    <div class="col-md-8">
+        <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+            <button class="close" data-close="alert"></button>
+            You have some form input errors.
+        </div>
+    </div>
+</div>
+<div class="row" style="padding: 0 15px 0 15px; overflow: hidden;">
+    <div class="col-md-12">
+        <div class="row" style="border-top: 1px solid rgb(229, 229, 229); border-bottom: 1px solid rgb(229, 229, 229);">
+            <form class="form-horizontal" role="form" method="post">
+                <div class="col-md-6" style="padding-top: 20px;">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">District <span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <div class="input-icon right focus">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.DistrictName, new { id = "DistrictName", @class = "form-control", maxlength = 30 })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Address</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.Address1, new { id = "Address1", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.Address2, new { id = "Address2", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">City</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.City, new { id = "City", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">State</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("dllState", new SelectList(ViewBag.ListOfStates, Model.DistrictVM.State), new { style = "width: 40%; height: 100%;" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Zip</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.Zip, new { id = "zip", @class = "form-control", maxlength = "10" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Phone</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.Phone1, new { id = "Phone1", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Fax</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.Phone2, new { id = "Phone2", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="border-left: 1px solid rgb(229, 229, 229); padding-top: 20px 0 0 30px;">
+                    <div class="form-body">
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class=""><strong>Tax Information </strong><i>Who Pays Taxes?</i></label>
+                                <div class="checkbox-list">
+                                    <div>
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isStudentPaidTaxable" name="isStudentPaidTaxable" id="isStudentPaidTaxable" />
+                                        <label>
+                                            Paid Student
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isStudentRedTaxable" name="isStudentRedTaxable" id="isStudentRedTaxable"/>
+                                        <label>
+                                            Reduced Student
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isStudentFreeTaxable" name="isStudentFreeTaxable" id="isStudentFreeTaxable" />
+                                        <label>
+                                            Free Student
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isEmployeeTaxable" name="isEmployeeTaxable" id="isEmployeeTaxable" />
+                                        <label>
+                                            Employee
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isMealPlanTaxable" name="isMealPlanTaxable" id="isMealPlanTaxable" />
+                                        <label>
+                                            Meal Plan Person
+                                        </label>
+                                    </div>
+                                    <div>
+
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isGuestTaxable" name="isGuestTaxable" id="isGuestTaxable" />
+                                        <label>
+                                            Guest (Cash Sale)
+                                        </label>
+                                    </div>
+                                    <div>
+
+                                        <input type="checkbox" checked="@Model.DistrictOptionsVM.isStudCashTaxable" name="isStudCashTaxable" id="isStudCashTaxable" />
+                                        <label>
+                                            Student (Cash Sale)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-12">
+                                <label class="">
+                                    <strong>School Year</strong>
+                                    @*<i>Start/End date of school year</i>*@
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div style="float: left;">
+                                    <label class="">Start Date:</label>
+                                </div>
+                                <div style="float: left; margin-top: -5px; margin-left: 5px;">
+                                    <div class="input-icon">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" value='@Model.DistrictOptionsVM.StartSchoolYear' name="StartSchoolYear" id="StartSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div style="float: left;">
+                                    <label class="">End Date:</label>
+                                </div>
+                                <div style="float: left; margin-top: -5px; margin-left: 11px;">
+                                    <div class="input-icon">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" value="@Model.DistrictOptionsVM.EndSchoolYear" name="EndSchoolYear" id="EndSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div style="float: left;" class="adminlblCSS">
+                                    <label class="">Director:</label>
+                                </div>
+                                <div style="float: left; margin-top: -5px; margin-left: 11px;">
+                                    <input type="text" value="@Model.DirectorName" name="directorName" id="directorName" size="16" class="form-control form-control-inline input-medium " />
+                                </div>
+                                 <div class=" selectCustDivCss">
+                                    <a href="#CustomerSearcRpt" onclick="setDirectorValue('Director');" data-toggle="modal" data-backdrop="static" data-keyboard="false" id="specificDirector" "> 
+                                        <button type="button" class="btn green">Select Director</button> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div style="float: left;" class="adminlblCSS">
+                                    <label class="">Admin:</label>
+                                </div>
+                                <div style="float: left; margin-top: -5px; margin-left: 11px;">
+                                    <input type="text" value="@Model.AdminName" name="adminName" id="adminName" size="16" class="form-control form-control-inline input-medium " />
+                                </div>
+                                 <div class=" selectCustDivCss">
+                                    <a href="#CustomerSearcRpt" onclick="setAdminValue('admin');" data-toggle="modal" data-backdrop="static" data-keyboard="false" id="specificAdmin" "> 
+                                        <button type="button" class="btn green selectCustBtnCss">Select Admin</button> 
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="row">
+            <span style="display: inline-block; font-size: 20px; padding: 10px 0 10px 0;">Bank Info:</span>
+        </div>
+
+        <div class="row" style="background-color: #F5F5F5; margin-bottom: 10px;">
+            <form class="form-horizontal" id="form2" name="form2" role="form">
+                <div class="col-md-6" style="padding-top: 20px;">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Bank Name</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.BankName, new { id = "BankName", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Address</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.BankAddr1, new { id = "BankAddr1", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.BankAddr2, new { id = "BankAddr2", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">City</label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => model.DistrictVM.BankCity, new { id = "BankCity", @class = "form-control", maxlength = 30 })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">State</label>
+                            <div class="col-md-9">
+                                @Html.DropDownList("dllBankState", new SelectList(ViewBag.ListOfStates, Model.DistrictVM.BankState), new { style = "width: 40%; height: 100%;" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Zip</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.BankZip, new { id = "BankZip", @class = "form-control", maxlength = "10" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-top: 20px;">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Routing #</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.BankRoute, new { id = "BankRoute", @class = "form-control", maxlength = "9" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Account #</label>
+                            <div class="col-md-9">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.DistrictVM.BankAccount, new { id = "BankAccount", @class = "form-control", maxlength = "15" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-9">
+                                <img src="~/Images/routingSample.png" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row savecancelRowCSS">
+            <div class="form-actions fluid">
+                <div class="col-md-offset-5 col-md-9">
+                    <button type="button" id="submitFirstTab" class="btn blue  btn-lg submitClass defaultBtnClass">SAVE</button>
+                    <button type="button" class="btn default  btn-lg margleft10 not-default-btn" onclick="RedirectToIndex('/district');">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ConfirmModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">District Name already exists</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    "<span id="newdistrictName"></span>" has already been used as the district name and is associated with a deleted record.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class=""><strong>Would you like to </strong></label>
+                        <div class="radio-list">
+                            <label>
+                                <input type="radio" id="CreateNew" name="DuplicateDistrict" checked="checked" />
+                                Create a new district record with a different name
+                            </label>
+                            <label>
+                                <input type="radio" id="Reactivate" name="DuplicateDistrict" />
+                                Reactivate the deleted district
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn default btn-lg" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button data-dismiss="modal" id="Okaybtn" class="btn blue btn-lg margleft10 defaultBtnClass">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_CustomerSerachPop")
+
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+
+<script type="text/javascript"  src="~/Scripts/CustSearchPopup.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="~/Content/themes/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitializeSearch();
+        if ($("#StartSchoolYear").val() !== '') {
+            $("#StartSchoolYear").datepicker('setDate', new Date($("#StartSchoolYear").val()));
+            $("#StartSchoolYear").datepicker('update');
+        } else {
+            $("#StartSchoolYear").datepicker();
+        }
+
+        if ($("#EndSchoolYear").val() !== '') {
+            $("#EndSchoolYear").datepicker('setDate', new Date($("#EndSchoolYear").val()));
+            $("#EndSchoolYear").datepicker('update');
+        } else {
+            $("#EndSchoolYear").datepicker();
+        }
+
+        $("#dllState").select2({
+            placeholder: "Select State",
+            allowClear: true
+        });
+
+        $("#dllBankState").select2({
+            placeholder: "Select State",
+            allowClear: true
+        });
+        $('#Phone1').inputmask("(999)999-9999");
+        $('#Phone2').inputmask("(999)999-9999");
+        $("#dllDirector").select2();
+        $("#dllAdmin").select2();
+        //$('#zip').inputmask({ mask: "99999[-9999]", greedy: false });
+
+
+        $('#zip').keyup(function (e) {
+            if (e.keyCode != 8 && e.keyCode != 9) {
+                if (this.value.length == 5) {
+                    this.value = this.value + '-';
+                }
+            }
+        });
+
+        $('#zip').keydown(function (e) {
+            if (e.keyCode != 8 && e.keyCode != 9) {
+                if (this.value.length == 5) {
+                    this.value = this.value + '-';
+                }
+            }
+        });
+
+        $('#zip').focusout(function () {
+            var lastChar = this.value[this.value.length - 1];
+            if (lastChar === "-") {
+                this.value = this.value.replace('-', '');
+            }
+            var zip = '#zip';
+            checkZipCode(zip);
+        });
+
+        $('#BankZip').keyup(function (e) {
+            if (e.keyCode != 8 && e.keyCode != 9) {
+                if (this.value.length == 5) {
+                    this.value = this.value + '-';
+                }
+            }
+        });
+
+        $('#BankZip').keydown(function (e) {
+            if (e.keyCode != 8 && e.keyCode != 9) {
+                if (this.value.length == 5) {
+                    this.value = this.value + '-';
+                }
+            }
+        });
+
+        $('#BankZip').focusout(function () {
+            var lastChar = this.value[this.value.length - 1];
+            if (lastChar === "-") {
+                this.value = this.value.replace('-', '');
+            }
+            var bankZip = '#BankZip';
+            checkZipCode(bankZip);
+        });
+
+        //$('#BankAccount').keyup(function () {
+        //    this.value = this.value.replace(/[^0-9\.]/g, '');
+        //    typingTimer = setTimeout(CheckBankRouteInput, doneTypingInterval);
+        //});
+
+        //$('#BankAccount').focusout(function () {
+        //    typingTimer = setTimeout(CheckBankRouteInput, doneTypingInterval);
+        //});
+
+        /// click on form okay buttons
+        $('.submitClass').click(function () {
+            updateDistrict();
+        });
+
+
+        var typingTimer;                //timer identifier
+        var doneTypingInterval = 1000;  //time in ms, 5 second for example
+
+        //on keyup, start the countdown
+        /*
+        $('#BankRoute').keyup(function () {
+            typingTimer = setTimeout(CheckBankRouteInput, doneTypingInterval);
+        });
+        
+        $('#BankRoute').focusout(function () {
+            typingTimer = setTimeout(CheckBankRouteInput, doneTypingInterval);
+        });
+        
+        //on keydown, clear the countdown 
+        $('#BankRoute').keydown(function () {
+            clearTimeout(typingTimer);
+        });
+        */
+        $("#BankRoute").blur(function () {
+            CheckBankRouteInput();
+        });
+
+        $("#BankAccount").blur(function () {
+            CheckBankAccountInput();
+        });
+                
+        $("#DistrictName").blur(function () {
+            ValidateDistrictData();
+        });
+
+        $("#Okaybtn").click(function () {
+            var creatNew = $('#CreateNew').is(':checked');
+
+            var ReactivateOld = $('#Reactivate').is(':checked');
+            if (creatNew) {
+                dofocus();
+            } else if (ReactivateOld) {
+                ReactivateOldDistrict();
+            } else {
+                return false;
+            }
+        });
+
+        // validation
+        onLoadPage();
+    });
+
+    function CreateNewDistrict() {
+        window.location.href = '/settings/Districts/0';
+    }
+    function onLoadPage() {
+        //debugger;
+        if (window.location.href.indexOf('Districts/0') != -1) {
+            //displayInfoMessage("Please enter information of new district.");
+        }
+    }
+    function dofocus() {
+        //debugger;
+        window.scrollTo(0, 0);
+        $('#ConfirmModal').modal('hide');
+        $('#DistrictName').focus();
+        return false;
+    }
+    function ReactivateOldDistrict() {
+        var clientId = document.getElementById("ClientId").value;
+        var distName = document.getElementById('DistrictName').value;
+        var dataString2 = JSON.stringify({
+            allData: distName + "*" + clientId
+        });
+        $.ajax({
+            type: "POST",
+            url: "/Settings/activateDistrict",
+            data: dataString2,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                if (data.result == '1') {
+                    displayErrorMessage("The district record could no activated successfully.");
+                }
+                else {
+                    displaySuccessMessage("The district record has been reactivated successfully.");
+                    //window.location.href = '/settings/Districts/' + data.result
+                    RedirectToIndex('/district/');
+                }
+            },
+            error: function (request, status, error) {
+                displayErrorMessage("Error occurred during saving the data.");
+                return false;
+            }
+        });
+
+    }
+    $(function () {
+        $('.focus :input').focus();
+    });
+
+    function setAdminValue(val)
+    {
+        $('#adminOrDirector').val(val);
+    }
+
+    function setDirectorValue(val) {
+        $('#adminOrDirector').val(val);
+    }
+
+</script>
+
+<script src="~/Scripts/datapost.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>

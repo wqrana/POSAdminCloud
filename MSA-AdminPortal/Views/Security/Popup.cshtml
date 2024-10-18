@@ -1,0 +1,250 @@
+﻿@model  AdminPortalModels.ViewModels.UsersDetailsVM
+
+@Styles.Render("~/Content/themes/datatables/css")
+<link href="~/Content/CustomCSS/RepotsIndex.css" rel="stylesheet" />
+
+<input type="hidden" id="SingleSelect" value="2" name="SingleSelect" />
+<input type="hidden" id="newUser" value="true" name="newUser" />
+
+<div class="modal fade" id="basic_modalPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 408px; margin-top: 135px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></a>
+                <h4 class="modal-title">
+                    <label id="UserDetails">Edit User Details</label><img style="margin-left:102px;" id="loading-image" src="~/Content/themes/assets/img/input-spinner.gif" /></h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 300px" data-always-visible="1" data-rail-visible1="1">
+                    <input type="hidden" value="@Model.EmployeeId" name="CustomerId" id="CustomerId" class="form-control"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">User name:  <span class="required">*</span></label>
+                            <label class="cNam" id="CustomerName">@ViewBag.CustomerName</label>
+                            <a href="#CustomerSearcRpt" data-toggle="modal" id="specificCustomer" onclick="">Select User</a><br />
+                            <input type="text" name="UserNameEdit" id="UserNameEdit" value="@Model.UserName" size="16" class="form-control" readonly="true" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Login name: <span class="required">*</span></label><br />
+                            <input type="text" name="LoginNameEdit" id="LoginNameEdit" value="@Model.LoginName" size="16" class="form-control" maxlength="15"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Password: <span class="required">*</span></label><br />
+                            <input type="password" name="Password" id="Password" value="@Model.Password" size="16" maxlength="15" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Confirm Password: <span class="required">*</span></label><br />
+                            <input type="password" name="ConfirmPassword" id="ConfirmPassword" value="@Model.Password" maxlength="15" size="16" class="form-control" />
+                        </div>
+                    </div>
+                   
+                    <div class="row" >
+                        <div class="col-md-12">
+                            <label class="control-label">User Role: <span class="required">*</span></label><br />
+                            @Html.DropDownList("dlluserRoles", new SelectList(@ViewBag.userRolesList, "Id", "RoleName"), new { style = "width: 100%; height: 100%; " })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <a href="#" type="button" class="btn blue btn-lg margleft10" name="btnSave" id="btnSave" onclick="saveUser()"><span id="savebtnSpan">@Html.DisplayFor(model => Model.savebtnCaption)</span></a>
+                <a href="#" type="button" class="btn default btn-lg not-default-btn" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@Html.Partial("_CustomerSerachPop")
+
+
+<script type="text/javascript" src="/Scripts/Users.js"></script>
+@Scripts.Render("~/Content/themes/datatables/js")
+<script src="~/Scripts/CustSearchPopup.js"></script>
+
+<script>
+
+    function saveUser() {
+        if (validateUserInput()) {
+            var pw = $('#Password').val();
+            var conf = $('#ConfirmPassword').val();
+            if (pw == conf) {
+                validateUserFromServer();
+            }
+            else {
+                displayWarningMessage("Passwords do not match");
+            }
+        }
+    }
+
+    function validateUserFromServer() {
+
+        $.ajax({
+            type: "post",
+            async: false,
+            url: "/Security/ValidateUserData",
+            data: {
+                "EmployeeId": $('#CustomerId').val(),
+                "UserName": $('#UserNameEdit').val(),
+                "LoginName": $('#LoginNameEdit').val(),
+                "Password": $('#Password').val(),
+                "UserRolesID": $('#dlluserRoles').val(),
+                "SecurityGroupId": 1,
+                "newUser": $('#newUser').val()
+            },
+            dataType: "json",
+            success: function (data) {
+                var outMessage = '';
+                var isValidate = true;
+                if (data.userAlreadyExists) {
+                    outMessage += "Login already exists for this user.Select some other user<br/>";
+                    isValidate = false;
+                }
+                if (data.loginAlreadyExists) {
+                    outMessage += '\'' + $('#LoginNameEdit').val() + "' is not available. Choose other login name.";
+                    isValidate = false;
+                }
+                if (data.error) {
+                    displayErrorMessage("Error validating user data");
+                    isValidate = false;
+                }
+                if (!isValidate) {
+                    displayWarningMessage(outMessage);
+                    return false;
+                }
+                else {
+                    saveUserAfterValidation();
+                }
+            },
+            error: function () {
+                displayErrorMessage("Error validating user data");
+            }
+
+        });
+    }
+
+    function validateUserInput() {
+     
+        var username = $('#UserNameEdit').val();
+        var loginname = $('#LoginNameEdit').val();
+        var password = $('#Password').val();
+        var confirmPassword = $('#ConfirmPassword').val();
+        var userRoles = $('#dlluserRoles').val();
+
+        var outMessage = '';
+        var isValidate = true;
+        if (username.trim() === '') {
+            outMessage += ' User Name,';
+            isValidate = false;
+        }
+
+        if (loginname.trim() === '') {
+            outMessage += ' Login Name,';
+            isValidate = false;
+        }
+
+        if (password.trim() === '') {
+            outMessage += ' Password,';
+            isValidate = false;
+        }
+
+        if (confirmPassword.trim() === '') {
+            outMessage += ' Confirm Password';
+            isValidate = false;
+        }
+
+        if (userRoles == null) {
+            outMessage += ' User Roles';
+            isValidate = false;
+        }
+
+        if (!isValidate) {
+         
+            if (outMessage.substr(-1) === ",") {
+                outMessage = outMessage.substr(0, outMessage.length - 1);
+            }
+            var tempCount = outMessage.split(',');
+            if (tempCount.length > 1) {
+                var pos = outMessage.lastIndexOf(',');
+                outMessage = outMessage.substring(0, pos) + ' &' + outMessage.substring(pos + 1);
+                outMessage = outMessage + " are required fields.";
+                displayWarningMessage(outMessage);
+            } else {
+                outMessage = outMessage.replace(',', ' ');
+                displayWarningMessage(outMessage + ' is required field.');
+            }
+            return false;
+            
+        } else {
+            return true;
+        }
+    }
+
+    function saveUserAfterValidation() {
+
+        var id = $('#CustomerId').val();
+
+        var url = "/Security/SaveUser";
+
+        if (id != '') {
+
+            $.ajax({
+                type: "post",
+                url: url,
+                data: {
+                    "EmployeeId": id,
+                    "UserName": $('#UserNameEdit').val(),
+                    "LoginName": $('#LoginNameEdit').val(),
+                    "Password": $('#Password').val(),
+                    //"SecurityGroupId": $('#dllSecurity').val(), --Remove comment to add security group
+                    "UserRolesID": $('#dlluserRoles').val(),
+                    "RedirectUrl":location.href,
+                    "SecurityGroupId": 1,
+                    "newUser": $('#newUser').val(),
+                    "forEdit": $('newUserForEdit').val()
+                    
+                },
+                dataType: "json",
+                success: function (data) {
+
+                    var model = data;
+
+                    if (model.IsError) {
+                        displayWarningMessage("Error saving data");
+                    }
+                    else {
+                        if (model.EmployeeId != '0') {
+                            if (model.returnCode == '1') {
+                                displaySuccessMessage('The user record has been updated successfully.');
+                            } else {
+                                displaySuccessMessage('The user record has been saved successfully.');
+                            }
+                            window.location.href = model.RedirectUrl;
+                        }
+                        else {
+                            displayErrorMessage('Error saving data.');
+                        }
+                    }
+                },
+                error: function () {
+                    displayErrorMessage("Error saving data");
+                }
+            });
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitializeSearch();
+        $("#dlluserRoles").select2();
+    });
+</script>

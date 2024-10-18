@@ -1,0 +1,267 @@
+﻿@using System.Reflection
+@model AdminPortalModels.ViewModels.RSSFeedModels
+@{
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Dashboard";
+
+    ViewBag.Title = "Home Page";
+    ViewBag.Version = typeof(MSA_AdminPortal.MvcApplication).Assembly.GetName().Version;
+}
+
+<link href="~/Content/CustomCSS/Dashboard.css" rel="stylesheet" />
+
+
+<style>
+    .page-content {
+        margin-left: 225px;
+        margin-top: 0px;
+        min-height: 760px;
+        padding: 25px 20px 20px;
+    }
+</style>
+
+<div class="container-fluid" id="div123">
+
+    <div id="dashboard">
+        <!-- BEGIN DASHBOARD STATS -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-fluid">
+
+                    <h3 class="page-title">My Dashboard <small>statistics and more</small>
+                    </h3>
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+                       
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+        </div>
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div>
+                <div id="leftDiv" class="col-md-8" style="float: left;">
+                    <div id="pg">
+                        <!-- BEGIN PAYMENT GRAPH-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    @* <i class="fa fa-usd font-red"></i>*@
+                                    <span class="caption-subject font-red bold uppercase">Payments Made</span>
+                                    <span class="caption-helper"></span>
+                                </div>
+                                @*<div class="actions">
+                            <label class="btn red btn-outline btn-circle btn-sm active">Last 12 months</label>
+                        </div>*@
+                            </div>
+                            <div class="portlet-body">
+                                <div id="divMSAPaymentChartLoading">
+                                    <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                </div>
+                                <div id="divMSAPaymentChartContent" class="display-none">
+                                    <div id="divMSAPaymentChart" class="chart graph-height"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PAYMENT GRAPH-->
+                    </div>
+                    <div id="sale-graph">
+                        <!-- BEGIN SALES GRAPH -->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    @* <i class="fa fa-usd font-red"></i>*@
+                                    <span class="caption-subject font-red bold uppercase">SALES</span>
+                                    <span class="caption-helper"></span>
+
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div id="divMSASalesChartLoading">
+                                    <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                </div>
+                                <div id="divMSASalesChartContent" class="display-none">
+                                    <div id="divMSASalesChart" class="chart graph-height"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SALES GRAPH-->
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row-fluid">
+
+
+                                <div class="span6">
+                                    <!-- BEGIN PARTICIPATION PERCENTAGE-->
+                                    <div class="portlet box green">
+                                        <div class="portlet-title">
+                                            <div class="caption">Participation Percentage</div>
+
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div id="divParticipationPercentageLoading">
+                                                <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="pricing-head pricing-head">
+                                                        <h4 id="divYesterdayParticipation"></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pricing-head pricing-head">
+                                                        <h4 id="divTodayParticipation"></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="pricing-head pricing-head">
+                                                        <h4 id="divLastWeekParticipation"></h4>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PARTICIPATION PERCENTAGE-->
+                                </div>
+                                <div class="span6">
+                                    <!-- BEGIN OPEN CASHIER SESSION-->
+                                    <div class="portlet box red">
+                                        <div class="portlet-title">
+                                            <div class="caption"><i class="icon-reorder"></i>Open Cashier Sessions</div>
+
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div id="divCashierSessionsLoading">
+                                                <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                            </div>
+                                            <div class="scroller open-cashier-sessions-height" data-always-visible="1">
+
+                                                <div id="divCashier">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END OPEN CASHIER SESSION-->
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="col-md-7">
+                            <div class="row-fluid">
+
+                                <div class="span6">
+                                    <!-- BEGIN ACCOUNT INFORMATION PIE CHART-->
+                                    <div class="portlet box yellow">
+                                        <div class="portlet-title">
+                                            <div class="caption"><i class="icon-reorder"></i>Account Information</div>
+
+                                        </div>
+                                        <div class="portlet-body">
+                                            <h4></h4>
+                                            <div id="divAccountInfoLoading">
+                                                <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                            </div>
+                                            <div id="divAccountInfoPieChart" class="chart account-info-height"></div>
+                                        </div>
+                                    </div>
+                                    <!-- END ACCOUNT INFORMATION PIE CHART-->
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div id="rightDive" class="col-md-4" style="float: left; width: 312px">
+                    <div>
+                        <!-- BEGIN RSS FEED-->
+                        <div class="portlet box grey">
+                            <div class="portlet-title">
+                                <div class="caption">MySchoolAccount Blog</div>
+
+                            </div>
+                            <div class="portlet-body">
+                                <div class="scroller  my-school-account-blog" data-always-visible="1">
+                                    <table class="table table-hover">
+
+                                        <tbody>
+
+                                            @if (Model != null)
+                                            {
+                                                if (Model.BlogFeed != null)
+                                                {
+                                                    foreach (var item in Model.BlogFeed.Items.ToList())
+                                                    {
+                                                <tr>
+                                                    <td>
+                                                        <div class="rssfeed-title"><a href="@item.Links.First().Uri" target="_blank">@item.Title.Text</a></div>
+                                                        <div class="rssfeed-summary">@WebUtility.HtmlDecode(item.Summary.Text)</div>
+                                                        <div class="rssfeed-summary">@item.PublishDate.ToString("dd MMMM")</div>
+
+                                                    </td>
+
+                                                </tr>
+                        
+                                                    }
+                                                }
+
+                                            }
+
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- END RSS FEED-->
+                    </div>
+                    <div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.categories.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="~/Scripts/Dashboard/dashboard.js"></script>
+
+
+
+

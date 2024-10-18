@@ -1,0 +1,3139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FSS_POS_TEST_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="App_Ethnicity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="Ethnic_Id" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Member_Incomes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="App_Member_Id" Type="bigint" Nullable="false" />
+    <Property Name="Income_Type_Id" Type="int" Nullable="false" />
+    <Property Name="Income" Type="float" />
+    <Property Name="Frequency_Id" Type="int" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Member_Statuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="App_Member_Id" Type="bigint" Nullable="false" />
+    <Property Name="Status_Type_Id" Type="int" />
+    <Property Name="Direct_Cert_Id" Type="int" />
+    <Property Name="Precertified" Type="bit" />
+  </EntityType>
+  <EntityType Name="App_Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="Ethnic_Id" Type="int" />
+    <Property Name="Customer_Id" Type="bigint" />
+    <Property Name="Member_Id" Type="bigint" />
+    <Property Name="Foster" Type="bit" />
+    <Property Name="Homeless" Type="bit" />
+    <Property Name="Migrant" Type="bit" />
+    <Property Name="Runaway" Type="bit" />
+    <Property Name="NoIncome" Type="bit" />
+    <Property Name="isStudent" Type="bit" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Notes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="1024" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Races">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="Race_Id" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Signers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="App_Member_Id" Type="bigint" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Cell_Phone" Type="varchar" MaxLength="12" />
+    <Property Name="Other_Phone" Type="varchar" MaxLength="12" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="SSN" Type="varchar" MaxLength="4" />
+    <Property Name="No_SSN" Type="bit" />
+    <Property Name="Signed_Date" Type="datetime2" Precision="7" />
+    <Property Name="Other_Identifier" Type="int" />
+    <Property Name="IP_Address" Type="varchar" MaxLength="20" />
+    <Property Name="Terms_Of_Use_Accepted" Type="bit" />
+    <Property Name="Confirmation_Of_Accuracy" Type="bit" />
+    <Property Name="Signature" Type="varchar" MaxLength="75" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="App_Statuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Application_Id" Type="bigint" Nullable="false" />
+    <Property Name="Status_Type_Id" Type="int" Nullable="false" />
+    <Property Name="Direct_Cert_Id" Type="int" />
+    <Property Name="Precertified" Type="bit" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="int" Nullable="false" />
+    <Property Name="Parent_Id" Type="int" Nullable="false" />
+    <Property Name="Household_Size" Type="int" />
+    <Property Name="Homeless_On_App" Type="bit" />
+    <Property Name="Migrant_On_App" Type="bit" />
+    <Property Name="Runaway_On_App" Type="bit" />
+    <Property Name="Beneficiary_Name" Type="varchar" MaxLength="75" />
+    <Property Name="Case_Number" Type="varchar" MaxLength="50" />
+    <Property Name="Total_Income" Type="float" />
+    <Property Name="Total_Frequency_Id" Type="int" />
+    <Property Name="Fee_Waiver" Type="bit" />
+    <Property Name="Language_Id" Type="int" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+    <Property Name="Entered" Type="bit" Nullable="false" />
+    <Property Name="Updated" Type="bit" />
+    <Property Name="DateEntered" Type="datetime2" Precision="7" />
+    <Property Name="Printed" Type="bit" />
+    <Property Name="PrintedDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="AppStatusTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppStatusType" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="POS_Id" Type="bigint" Nullable="false" />
+    <Property Name="Emp_Cashier_Id" Type="bigint" Nullable="false" />
+    <Property Name="OpenDate" Type="datetime2" Precision="7" />
+    <Property Name="OpenDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="CloseDate" Type="datetime2" Precision="7" />
+    <Property Name="CloseDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="TotalCash" Type="float" />
+    <Property Name="OverShort" Type="float" />
+    <Property Name="Additional" Type="float" />
+    <Property Name="PaidOuts" Type="float" />
+    <Property Name="OpenAmount" Type="float" />
+    <Property Name="CloseAmount" Type="float" />
+    <Property Name="Sales" Type="float" />
+    <Property Name="Finished" Type="bit" />
+    <Property Name="OpenBlob" Type="varbinary(max)" />
+    <Property Name="CloseBlob" Type="varbinary(max)" />
+    <Property Name="CashDrawer_Id" Type="int" />
+    <Property Name="PartitionId" Type="varchar" MaxLength="32" />
+    <Property Name="PartitionOffset" Type="varchar" MaxLength="32" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryType_Id" Type="bigint" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="10" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="30" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategoryTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="canFree" Type="bit" />
+    <Property Name="canReduce" Type="bit" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="isMealPlan" Type="bit" />
+    <Property Name="isMealEquiv" Type="bit" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer_POSNotification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="POSNotification_Id" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer_School">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" Nullable="false" />
+    <Property Name="isPrimary" Type="bit" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="Emp_Changed_Id" Type="bigint" />
+    <Property Name="ChangedDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="255" />
+    <Property Name="Comment" Type="varchar" MaxLength="255" />
+    <Property Name="ChangedDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="bigint" Nullable="false" />
+    <Property Name="Language_Id" Type="bigint" />
+    <Property Name="Grade_Id" Type="bigint" />
+    <Property Name="Homeroom_Id" Type="bigint" />
+    <Property Name="isStudent" Type="bit" />
+    <Property Name="UserID" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="PIN" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="Gender" Type="varchar" MaxLength="1" />
+    <Property Name="SSN" Type="varchar" MaxLength="11" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" MaxLength="14" />
+    <Property Name="LunchType" Type="int" />
+    <Property Name="AllowAlaCarte" Type="bit" />
+    <Property Name="CashOnly" Type="bit" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="GraduationDate" Type="smalldatetime" />
+    <Property Name="SchoolDat" Type="varchar" MaxLength="25" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="ExtraInfo" Type="varchar" MaxLength="30" />
+    <Property Name="EMail" Type="varchar" MaxLength="60" />
+    <Property Name="DOB" Type="smalldatetime" />
+    <Property Name="ACH" Type="bit" />
+    <Property Name="isSnack" Type="bit" />
+    <Property Name="isStudentWorker" Type="bit" />
+    <Property Name="isVeteran" Type="bit" />
+    <Property Name="Ethnicity_Id" Type="int" />
+    <Property Name="Disability" Type="int" />
+    <Property Name="isHomeless" Type="bit" />
+    <Property Name="Disabled" Type="int" />
+    <Property Name="CreationDate" Type="datetime2" Precision="7" />
+    <Property Name="NotInDistrict" Type="bit" />
+    <Property Name="MealPlan_Id" Type="bigint" />
+    <Property Name="MealsLeft" Type="int" />
+    <Property Name="STUD_MGMT_ID" Type="varchar" MaxLength="25" />
+    <Property Name="DeactiveDate" Type="datetime2" Precision="7" />
+    <Property Name="ReactiveDate" Type="datetime2" Precision="7" />
+    <Property Name="GradDate" Type="datetime2" Precision="7" />
+    <Property Name="GraduationDateSet" Type="bit" />
+    <Property Name="CreationDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="DeactiveDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="ReactiveDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+    <Property Name="MSAStudentSyncDateUTC" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_Administrator_Id" Type="bigint" />
+    <Property Name="Emp_Director_Id" Type="bigint" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="30" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone1" Type="varchar" MaxLength="14" />
+    <Property Name="Phone2" Type="varchar" MaxLength="14" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="BankCity" Type="varchar" MaxLength="30" />
+    <Property Name="BankState" Type="varchar" MaxLength="2" />
+    <Property Name="BankZip" Type="varchar" MaxLength="10" />
+    <Property Name="BankName" Type="varchar" MaxLength="30" />
+    <Property Name="BankAddr1" Type="varchar" MaxLength="30" />
+    <Property Name="BankAddr2" Type="varchar" MaxLength="30" />
+    <Property Name="BankRoute" Type="varchar" MaxLength="15" />
+    <Property Name="BankAccount" Type="varchar" MaxLength="15" />
+    <Property Name="BankMICR" Type="varbinary(max)" />
+    <Property Name="SpecialSetup" Type="int" />
+    <Property Name="Forms_Admin_Id" Type="bigint" />
+    <Property Name="Forms_Director_Id" Type="bigint" />
+    <Property Name="UseDistNameDirector" Type="bit" />
+    <Property Name="UseDistNameAdmin" Type="bit" />
+    <Property Name="Forms_Admin_Title" Type="varchar" MaxLength="60" />
+    <Property Name="Forms_Admin_Phone" Type="varchar" MaxLength="15" />
+    <Property Name="Forms_Dir_Title" Type="varchar" MaxLength="60" />
+    <Property Name="Forms_Dir_Phone" Type="varchar" MaxLength="15" />
+    <Property Name="AppUpdateDelay" Type="int" />
+    <Property Name="UpdatePositiveID" Type="bit" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DistrictOptions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="bigint" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime2" Precision="7" />
+    <Property Name="LetterWarning1" Type="int" />
+    <Property Name="LetterWarning2" Type="int" />
+    <Property Name="LetterWarning3" Type="int" />
+    <Property Name="TaxPercent" Type="float" />
+    <Property Name="isEmployeeTaxable" Type="bit" />
+    <Property Name="isStudentFreeTaxable" Type="bit" />
+    <Property Name="isStudentPaidTaxable" Type="bit" />
+    <Property Name="isStudentRedTaxable" Type="bit" />
+    <Property Name="StartSchoolYear" Type="smalldatetime" />
+    <Property Name="EndSchoolYear" Type="smalldatetime" />
+    <Property Name="StartForms" Type="smalldatetime" />
+    <Property Name="EndForms" Type="smalldatetime" />
+    <Property Name="isMealPlanTaxable" Type="bit" />
+    <Property Name="UsingMealPlan" Type="bit" />
+    <Property Name="UsingMealEqual" Type="bit" />
+    <Property Name="UsingBonus" Type="bit" />
+    <Property Name="BlindCashOut" Type="bit" />
+    <Property Name="isGuestTaxable" Type="bit" />
+    <Property Name="isStudCashTaxable" Type="bit" />
+    <Property Name="LetterWarning4" Type="int" />
+    <Property Name="LetterWarning5" Type="int" />
+    <Property Name="LetterWarning6" Type="int" />
+    <Property Name="MaxLetter" Type="int" />
+    <Property Name="LetterResetLimit" Type="float" />
+    <Property Name="LetterResetRule" Type="int" />
+    <Property Name="ReqSecondAuth" Type="bit" Nullable="false" />
+    <Property Name="SecondAuthType" Type="int" Nullable="false" />
+    <Property Name="CCProcessor_Id" Type="int" />
+    <Property Name="EnableGlobalVeriFoneUser" Type="bit" />
+    <Property Name="LicenseModel" Type="varchar" MaxLength="1" />
+    <Property Name="MerchantId" Type="varchar" MaxLength="12" />
+    <Property Name="VeriFoneIP" Type="varchar" MaxLength="16" />
+    <Property Name="VeriFonePort" Type="int" />
+    <Property Name="VeriFoneUserId" Type="varchar" MaxLength="20" />
+    <Property Name="VeriFonePassword" Type="varchar" MaxLength="20" />
+    <Property Name="IncomePercentage" Type="float" />
+    <Property Name="FSTANFPercentage" Type="float" />
+    <Property Name="AnnualAmountToQualify" Type="float" />
+    <Property Name="ChangedDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="SecurityGroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="LoginName" Type="varchar" MaxLength="15" />
+    <Property Name="Password" Type="varchar" MaxLength="15" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserRoles_ID" Type="int" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Homeroom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Income_Frequencies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Frequency_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Multiplier" Type="int" />
+  </EntityType>
+  <EntityType Name="Income_Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Income_Type" Type="varchar" MaxLength="75" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_Id" Type="bigint" Nullable="false" />
+    <Property Name="Menu_Id" Type="bigint" Nullable="false" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="FullPrice" Type="float" />
+    <Property Name="PaidPrice" Type="float" />
+    <Property Name="TaxPrice" Type="float" />
+    <Property Name="isVoid" Type="bit" />
+    <Property Name="SoldType" Type="int" />
+    <Property Name="PreOrderItem_Id" Type="bigint" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Member_Statuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Member_Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="int" Nullable="false" />
+    <Property Name="Member_Status_Id" Type="int" />
+    <Property Name="First_Name" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="SSN" Type="varchar" MaxLength="15" />
+    <Property Name="DOB" Type="smalldatetime" />
+    <Property Name="Email" Type="varchar" MaxLength="60" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_Id" Type="bigint" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="M_F6_Code" Type="varchar" MaxLength="15" />
+    <Property Name="StudentFullPrice" Type="float" />
+    <Property Name="StudentRedPrice" Type="float" />
+    <Property Name="EmployeePrice" Type="float" />
+    <Property Name="GuestPrice" Type="float" />
+    <Property Name="isTaxable" Type="bit" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="isScaleItem" Type="bit" />
+    <Property Name="ItemType" Type="int" />
+    <Property Name="isOnceDay" Type="bit" />
+    <Property Name="KitchenItem" Type="int" />
+    <Property Name="MealEquivItem" Type="bit" />
+    <Property Name="UPC" Type="varchar" MaxLength="25" />
+    <Property Name="PreOrderDesc" Type="varchar" MaxLength="256" />
+    <Property Name="ButtonCaption" Type="varchar" MaxLength="30" />
+    <Property Name="LastUpdate" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Pr_School_Id" Type="bigint" />
+    <Property Name="POS_Id" Type="bigint" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" />
+    <Property Name="Emp_Cashier_Id" Type="bigint" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="OrdersLog_Id" Type="bigint" />
+    <Property Name="GDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="OrderDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LunchType" Type="int" />
+    <Property Name="ADebit" Type="float" />
+    <Property Name="MDebit" Type="float" />
+    <Property Name="ACredit" Type="float" />
+    <Property Name="BCredit" Type="float" />
+    <Property Name="MCredit" Type="float" />
+    <Property Name="CheckNumber" Type="int" />
+    <Property Name="OverRide" Type="bit" />
+    <Property Name="isVoid" Type="bit" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="CreditAuth_Id" Type="bigint" />
+    <Property Name="PartitionId" Type="varchar" MaxLength="32" />
+    <Property Name="PartitionOffset" Type="varchar" MaxLength="32" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="POS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ShortCutsNumber" Type="int" />
+    <Property Name="ShortCutsBlob" Type="image" />
+    <Property Name="isQuickSale" Type="bit" />
+    <Property Name="Quick1" Type="int" />
+    <Property Name="Quick2" Type="int" />
+    <Property Name="Quick3" Type="int" />
+    <Property Name="isMealEqual" Type="bit" />
+    <Property Name="MealEqual1" Type="int" />
+    <Property Name="MealEqual2" Type="int" />
+    <Property Name="MealEqual3" Type="int" />
+    <Property Name="EnableCCProcessing" Type="bit" />
+    <Property Name="VeriFoneUserId" Type="varchar" MaxLength="20" />
+    <Property Name="VeriFonePassword" Type="varchar" MaxLength="20" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="POSNotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="16" />
+    <Property Name="Code" Type="varchar" MaxLength="8" />
+    <Property Name="Description" Type="varchar" MaxLength="80" />
+    <Property Name="TextColor" Type="int" />
+    <Property Name="BackColor" Type="int" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+    <Property Name="TextColorS" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BackColorS" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School_Tax">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" Nullable="false" />
+    <Property Name="TaxEntity_Id" Type="bigint" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Races">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Race_Name" Type="varchar" MaxLength="75" />
+  </EntityType>
+  <EntityType Name="SchoolOptions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime2" Precision="7" />
+    <Property Name="AlaCarteLimit" Type="float" />
+    <Property Name="MealPlanLimit" Type="float" />
+    <Property Name="DoPinPreFix" Type="bit" />
+    <Property Name="PinPreFix" Type="varchar" MaxLength="4" />
+    <Property Name="PhotoLogging" Type="bit" />
+    <Property Name="FingerPrinting" Type="bit" />
+    <Property Name="BarCodeLength" Type="int" />
+    <Property Name="StartSchoolYear" Type="smalldatetime" />
+    <Property Name="EndSchoolYear" Type="smalldatetime" />
+    <Property Name="StripZeros" Type="bit" />
+    <Property Name="ChangedDateLocal" Type="datetime2" Precision="7" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Schools">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="District_Id" Type="bigint" Nullable="false" />
+    <Property Name="Emp_Director_Id" Type="bigint" />
+    <Property Name="Emp_Administrator_Id" Type="bigint" />
+    <Property Name="SchoolID" Type="varchar" MaxLength="30" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone1" Type="varchar" MaxLength="14" />
+    <Property Name="Phone2" Type="varchar" MaxLength="14" />
+    <Property Name="Comment" Type="varchar" MaxLength="1000" />
+    <Property Name="isSevereNeed" Type="bit" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="UseDistDirAdmin" Type="bit" />
+    <Property Name="Forms_Director_Id" Type="bigint" />
+    <Property Name="Forms_Admin_Id" Type="bigint" />
+    <Property Name="UseDistFormsDirAdmin" Type="bit" />
+    <Property Name="UseDistNameDirector" Type="bit" />
+    <Property Name="UseDistNameAdmin" Type="bit" />
+    <Property Name="Forms_Admin_Title" Type="varchar" MaxLength="60" />
+    <Property Name="Forms_Admin_Phone" Type="varchar" MaxLength="15" />
+    <Property Name="Forms_Dir_Title" Type="varchar" MaxLength="60" />
+    <Property Name="Forms_Dir_Phone" Type="varchar" MaxLength="15" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemOptions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="PackageType" Type="int" />
+    <Property Name="Discount" Type="bit" />
+    <Property Name="AllowCreditCard" Type="bit" />
+    <Property Name="AllowVending" Type="bit" />
+    <Property Name="UsingPreOrder" Type="bit" />
+    <Property Name="MSADistrictID" Type="int" />
+    <Property Name="PreOrderUserName" Type="varchar" MaxLength="50" />
+    <Property Name="PreOrderPassword" Type="varchar" MaxLength="50" />
+    <Property Name="POPickupMode" Type="int" />
+    <Property Name="AutoReCalc" Type="int" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaxEntities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaxName" Type="varchar" MaxLength="50" />
+    <Property Name="TaxRate" Type="float" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School_Tax1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="School_Id" Type="int" Nullable="false" />
+    <Property Name="TaxEntity_Id" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaxEntities1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="TaxName" Type="varchar" MaxLength="50" />
+    <Property Name="TaxRate" Type="float" />
+    <Property Name="LastUpdatedUTC" Type="datetime2" Precision="7" />
+    <Property Name="UpdatedBySync" Type="bit" />
+    <Property Name="Local_ID" Type="int" />
+    <Property Name="CloudIDSync" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.CashierPayments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CashierPayments">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="POSID" />
+      <PropertyRef Name="EmpUserID" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="PaymentDate" />
+      <PropertyRef Name="Middle" />
+      <PropertyRef Name="Comments" />
+      <PropertyRef Name="GroupType" />
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="DISTID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="CSTID" Type="bigint" />
+    <Property Name="EMPID" Type="bigint" />
+    <Property Name="POSID" Type="bigint" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="30" />
+    <Property Name="SchoolID" Type="varchar" MaxLength="30" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+    <Property Name="EmpUserID" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="CashierName" Type="varchar" MaxLength="44" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="PaymentDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="CustUserID" Type="varchar" MaxLength="16" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="PaymentAmount" Type="float" />
+    <Property Name="Comments" Type="varchar" MaxLength="54" Nullable="false" />
+    <Property Name="TotalCashPayments" Type="float" />
+    <Property Name="TotalChecks" Type="float" />
+    <Property Name="TotalCredits" Type="float" />
+    <Property Name="OnlineCreditPayments" Type="float" />
+    <Property Name="OnlineACHPayments" Type="float" />
+    <Property Name="OnlineACHReturns" Type="float" />
+    <Property Name="Refunds" Type="float" />
+    <Property Name="AccountPayments" Type="float" />
+    <Property Name="CashSaleMonies" Type="float" />
+    <Property Name="TotalMonies" Type="float" />
+    <Property Name="TotalDeposit" Type="float" />
+    <Property Name="LineCount" Type="int" />
+    <Property Name="GroupType" Type="int" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.CustomerActivity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerActivity">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="POS_Id" />
+      <PropertyRef Name="Customer_Id" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="Items" />
+      <PropertyRef Name="SalesTax" />
+      <PropertyRef Name="OrderType" />
+      <PropertyRef Name="OrderDateLocal" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Customer_Pr_School_Id" Type="bigint" />
+    <Property Name="POS_Id" Type="bigint" Nullable="false" />
+    <Property Name="School_Id" Type="bigint" />
+    <Property Name="Emp_Cashier_Id" Type="bigint" />
+    <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+    <Property Name="OrdersLog_Id" Type="bigint" />
+    <Property Name="GDate" Type="smalldatetime" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="OrderDateLocal" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LunchType" Type="int" />
+    <Property Name="ADebit" Type="float" />
+    <Property Name="MDebit" Type="float" />
+    <Property Name="ACredit" Type="float" />
+    <Property Name="BCredit" Type="float" />
+    <Property Name="MCredit" Type="float" />
+    <Property Name="CheckNumber" Type="int" />
+    <Property Name="OverRide" Type="int" />
+    <Property Name="isVoid" Type="bit" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="CreditAuth_Id" Type="bigint" />
+    <Property Name="CashierName" Type="varchar" MaxLength="42" />
+    <Property Name="Debit" Type="float" />
+    <Property Name="Credit" Type="float" />
+    <Property Name="Items" Type="float" Nullable="false" />
+    <Property Name="SalesTax" Type="float" Nullable="false" />
+    <Property Name="OrderType" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.CustomerBalance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerBalance">
+    <Key>
+      <PropertyRef Name="ROWID" />
+      <PropertyRef Name="LunchType" />
+    </Key>
+    <Property Name="ROWID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="16" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="isPrimary" Type="bit" Nullable="false" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+    <Property Name="Grade" Type="varchar" MaxLength="15" />
+    <Property Name="Homeroom" Type="varchar" MaxLength="10" />
+    <Property Name="ABalance" Type="float" Nullable="false" />
+    <Property Name="MBalance" Type="float" Nullable="false" />
+    <Property Name="BonusBalance" Type="float" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="HRID" Type="bigint" Nullable="false" />
+    <Property Name="GRID" Type="bigint" Nullable="false" />
+    <Property Name="ClientID" Type="bigint" />
+    <Property Name="LunchType" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.CustomerRoster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CustomerRoster">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CSTID" />
+      <PropertyRef Name="DISTID" />
+      <PropertyRef Name="isActive" />
+      <PropertyRef Name="isDeleted" />
+      <PropertyRef Name="isActiveInt" />
+      <PropertyRef Name="isDeletedInt" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="PIN" />
+      <PropertyRef Name="LunchType" />
+      <PropertyRef Name="isFrozen" />
+      <PropertyRef Name="Middle" />
+      <PropertyRef Name="Grade" />
+      <PropertyRef Name="Homeroom" />
+      <PropertyRef Name="SchoolName" />
+      <PropertyRef Name="SchoolID" />
+      <PropertyRef Name="SchoolAddress1" />
+      <PropertyRef Name="SchoolAddress2" />
+      <PropertyRef Name="SchoolCity" />
+      <PropertyRef Name="SchoolState" />
+      <PropertyRef Name="SchoolZip" />
+      <PropertyRef Name="SchoolPhone1" />
+      <PropertyRef Name="SchoolPhone2" />
+      <PropertyRef Name="DistrictName" />
+      <PropertyRef Name="DistrictAddress1" />
+      <PropertyRef Name="DistrictAddress2" />
+      <PropertyRef Name="DistrictCity" />
+      <PropertyRef Name="DistrictState" />
+      <PropertyRef Name="DistrictZip" />
+      <PropertyRef Name="DistrictPhone1" />
+      <PropertyRef Name="DistrictPhone2" />
+      <PropertyRef Name="LunchTypeStatus" />
+      <PropertyRef Name="LunchTypeSort" />
+      <PropertyRef Name="ActiveStatus" />
+      <PropertyRef Name="QTYPaid" />
+      <PropertyRef Name="QTYReduced" />
+      <PropertyRef Name="QTYFree" />
+      <PropertyRef Name="QTYAdult" />
+      <PropertyRef Name="QTYMealPlan" />
+      <PropertyRef Name="QTYPFR" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CSTID" Type="bigint" Nullable="false" />
+    <Property Name="DISTID" Type="bigint" Nullable="false" />
+    <Property Name="LANGUAGEID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="GRID" Type="bigint" />
+    <Property Name="HRID" Type="bigint" />
+    <Property Name="CreationDate" Type="datetime2" Precision="7" />
+    <Property Name="GraduationDate" Type="smalldatetime" />
+    <Property Name="DeactiveDate" Type="datetime2" Precision="7" />
+    <Property Name="ReactiveDate" Type="datetime2" Precision="7" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+    <Property Name="isActiveInt" Type="int" Nullable="false" />
+    <Property Name="isDeletedInt" Type="int" Nullable="false" />
+    <Property Name="AllowBio" Type="bit" />
+    <Property Name="BioPresent" Type="bit" />
+    <Property Name="UserID" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="PIN" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="AllowAlaCarte" Type="bit" />
+    <Property Name="CashOnly" Type="bit" />
+    <Property Name="LunchType" Type="int" Nullable="false" />
+    <Property Name="isStudent" Type="bit" />
+    <Property Name="isFrozen" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" MaxLength="14" />
+    <Property Name="EMail" Type="varchar" MaxLength="60" />
+    <Property Name="ExtraInfo" Type="varchar" MaxLength="30" />
+    <Property Name="SSN" Type="varchar" MaxLength="11" />
+    <Property Name="Grade" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Homeroom" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="SchoolID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SchoolAddress1" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SchoolAddress2" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SchoolCity" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SchoolState" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="SchoolZip" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SchoolPhone1" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="SchoolPhone2" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DistrictAddress1" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DistrictAddress2" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DistrictCity" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DistrictState" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="DistrictZip" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DistrictPhone1" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="DistrictPhone2" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="LunchTypeStatus" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LunchTypeSort" Type="int" Nullable="false" />
+    <Property Name="MealPlanAssignment" Type="varchar" MaxLength="20" />
+    <Property Name="NumMealsLeft" Type="int" />
+    <Property Name="ActiveStatus" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="ActiveStatusSort" Type="int" />
+    <Property Name="QTYPaid" Type="int" Nullable="false" />
+    <Property Name="QTYReduced" Type="int" Nullable="false" />
+    <Property Name="QTYFree" Type="int" Nullable="false" />
+    <Property Name="QTYAdult" Type="int" Nullable="false" />
+    <Property Name="QTYMealPlan" Type="int" Nullable="false" />
+    <Property Name="QTYPFR" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DailyCashier' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DailyCashier">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CASHRESID" />
+      <PropertyRef Name="POSID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CASHRESID" Type="bigint" Nullable="false" />
+    <Property Name="CUSTID" Type="bigint" />
+    <Property Name="POSID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="POSName" Type="varchar" MaxLength="15" />
+    <Property Name="SchoolID" Type="varchar" MaxLength="30" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+    <Property Name="LoginName" Type="varchar" MaxLength="15" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="UserId" Type="varchar" MaxLength="16" />
+    <Property Name="OpenDate" Type="datetime2" Precision="7" />
+    <Property Name="CloseDate" Type="datetime2" Precision="7" />
+    <Property Name="OpenAmount" Type="float" />
+    <Property Name="CloseAmount" Type="float" />
+    <Property Name="Deposit" Type="float" />
+    <Property Name="PaidOuts" Type="float" />
+    <Property Name="Additional" Type="float" />
+    <Property Name="TotalCash" Type="float" />
+    <Property Name="OverShort" Type="float" />
+    <Property Name="Sales" Type="float" />
+    <Property Name="Tax" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DepositTicket' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DepositTicket">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CASHRESID" />
+      <PropertyRef Name="ORDID" />
+      <PropertyRef Name="CSTID" />
+      <PropertyRef Name="POSID" />
+      <PropertyRef Name="DepositType" />
+      <PropertyRef Name="PaymentType" />
+      <PropertyRef Name="PaymentTypeName" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CASHRESID" Type="bigint" Nullable="false" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="CSTID" Type="int" Nullable="false" />
+    <Property Name="POSID" Type="bigint" Nullable="false" />
+    <Property Name="DISTID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="DepositType" Type="int" Nullable="false" />
+    <Property Name="PaymentType" Type="int" Nullable="false" />
+    <Property Name="PaymentTypeName" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" />
+    <Property Name="ReportDate" Type="datetime" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="30" />
+    <Property Name="DistAddress1" Type="varchar" MaxLength="30" />
+    <Property Name="DistAddress2" Type="varchar" MaxLength="30" />
+    <Property Name="DistCity" Type="varchar" MaxLength="30" />
+    <Property Name="DistState" Type="varchar" MaxLength="2" />
+    <Property Name="DistZip" Type="varchar" MaxLength="10" />
+    <Property Name="DistBankName" Type="varchar" MaxLength="30" />
+    <Property Name="DistBankAddress1" Type="varchar" MaxLength="30" />
+    <Property Name="DistBankAddress2" Type="varchar" MaxLength="30" />
+    <Property Name="DistBankCity" Type="varchar" MaxLength="30" />
+    <Property Name="DistBankState" Type="varchar" MaxLength="2" />
+    <Property Name="DistBankZip" Type="varchar" MaxLength="10" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="CheckNumber" Type="int" />
+    <Property Name="CheckAmount" Type="float" />
+    <Property Name="POSCheckAmount" Type="float" />
+    <Property Name="AdminCheckAmount" Type="float" />
+    <Property Name="CreditAmount" Type="float" />
+    <Property Name="POSCreditAmount" Type="float" />
+    <Property Name="AdminCreditAmount" Type="float" />
+    <Property Name="CashAmount" Type="float" />
+    <Property Name="MiscCashAmount" Type="float" />
+    <Property Name="POSCashAmount" Type="float" />
+    <Property Name="AdminCashAmount" Type="float" />
+    <Property Name="POSTotalAmount" Type="float" />
+    <Property Name="AdminTotalAmount" Type="float" />
+    <Property Name="CashOutAmount" Type="float" />
+    <Property Name="Amount" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DetailCafeCashiers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DetailCafeCashiers">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CASHRESID" />
+      <PropertyRef Name="Emp_Cashier_Id" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CASHRESID" Type="bigint" Nullable="false" />
+    <Property Name="POSID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="Finished" Type="bit" />
+    <Property Name="POSName" Type="varchar" MaxLength="15" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="Emp_Cashier_Id" Type="bigint" Nullable="false" />
+    <Property Name="OpenDate" Type="datetime2" Precision="7" />
+    <Property Name="CloseDate" Type="datetime2" Precision="7" />
+    <Property Name="OpenMessage" Type="varchar" MaxLength="30" />
+    <Property Name="CloseMessage" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DetailCafeCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DetailCafeCategories">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="ORDID" />
+      <PropertyRef Name="ItemMenuID" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="GDate" />
+      <PropertyRef Name="CSTID" />
+      <PropertyRef Name="CategoryName" />
+      <PropertyRef Name="CategoryType" />
+      <PropertyRef Name="QualifiedSort" />
+      <PropertyRef Name="QualifiedDisplay" />
+      <PropertyRef Name="AccountType" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="DISTID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="ItemMenuID" Type="bigint" Nullable="false" />
+    <Property Name="MENUID" Type="bigint" />
+    <Property Name="CATID" Type="bigint" />
+    <Property Name="PREORDITEMID" Type="bigint" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="GDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="CSTID" Type="bigint" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CategoryType" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="canFree" Type="bit" />
+    <Property Name="canReduce" Type="bit" />
+    <Property Name="QualifiedSort" Type="int" Nullable="false" />
+    <Property Name="QualifiedDisplay" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="AccountType" Type="varchar" MaxLength="19" Nullable="false" />
+    <Property Name="NetPrice" Type="float" />
+    <Property Name="AccountTotal" Type="float" />
+    <Property Name="CashTotal" Type="float" />
+    <Property Name="PreorderTotal" Type="float" />
+    <Property Name="TotalCount" Type="int" />
+    <Property Name="AccountCount" Type="int" />
+    <Property Name="CashCount" Type="int" />
+    <Property Name="PreorderCount" Type="int" />
+    <Property Name="PaidPrice" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DetailCafeNetChange' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DetailCafeNetChange">
+    <Key>
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="ReportDate" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" />
+    <Property Name="CSTID" Type="bigint" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ReportDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="NetChange" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.DetailCafeSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DetailCafeSummary">
+    <Key>
+      <PropertyRef Name="ORDID" />
+      <PropertyRef Name="CASHRESID" />
+      <PropertyRef Name="POSID" />
+      <PropertyRef Name="CUSTID" />
+      <PropertyRef Name="TaxOnPOSales" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="CASHRESID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="POSID" Type="bigint" Nullable="false" />
+    <Property Name="EMPID" Type="bigint" />
+    <Property Name="CUSTID" Type="bigint" Nullable="false" />
+    <Property Name="ReportDateTime" Type="datetime2" Precision="7" />
+    <Property Name="ReportDate" Type="datetime" />
+    <Property Name="CashSalesByItem" Type="float" />
+    <Property Name="AccountSalesByItem" Type="float" />
+    <Property Name="PreOrderSalesByItem" Type="float" />
+    <Property Name="CashSalesByItemTotal" Type="float" />
+    <Property Name="AccountSalesByItemTotal" Type="float" />
+    <Property Name="PreOrderSalesByItemTotal" Type="float" />
+    <Property Name="PaymentsOnAccount" Type="float" />
+    <Property Name="TotalOnAccount" Type="float" />
+    <Property Name="CashPayments" Type="float" />
+    <Property Name="CashSales" Type="float" />
+    <Property Name="AccountSales" Type="float" />
+    <Property Name="VendingPayments" Type="float" />
+    <Property Name="VendingAcctSales" Type="float" />
+    <Property Name="VendingCashSales" Type="float" />
+    <Property Name="VendingSales" Type="float" />
+    <Property Name="TotalAccountSales" Type="float" />
+    <Property Name="TotalCashSales" Type="float" />
+    <Property Name="Refunds" Type="float" />
+    <Property Name="OverShort" Type="float" />
+    <Property Name="TotalSales" Type="float" />
+    <Property Name="POSDeposit" Type="float" />
+    <Property Name="VendingDeposit" Type="float" />
+    <Property Name="AdminDeposit" Type="float" />
+    <Property Name="OnlineDeposit" Type="float" />
+    <Property Name="Deposit" Type="float" />
+    <Property Name="ChargedOnAccount" Type="float" />
+    <Property Name="TotalCredits" Type="float" />
+    <Property Name="TotalDebits" Type="float" />
+    <Property Name="Revenue" Type="float" />
+    <Property Name="ToAccountFor" Type="float" />
+    <Property Name="AdultPayments" Type="float" />
+    <Property Name="StudentPayments" Type="float" />
+    <Property Name="TaxableSales" Type="float" />
+    <Property Name="TaxableCashSales" Type="float" />
+    <Property Name="TaxableAcctSales" Type="float" />
+    <Property Name="TaxCollected" Type="float" />
+    <Property Name="TaxOnAcctSales" Type="float" />
+    <Property Name="TaxOnCashSales" Type="float" />
+    <Property Name="TaxOnPOSales" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+    <Property Name="CreditsOnAccount" Type="float" />
+    <Property Name="OnlinePayments" Type="float" />
+    <Property Name="OnlineCCPayments" Type="float" />
+    <Property Name="OnlineACHPayments" Type="float" />
+    <Property Name="OnlineACHReturns" Type="float" />
+    <Property Name="AccountSubtotal" Type="float" />
+    <Property Name="POSPaymentsOnAccount" Type="float" />
+    <Property Name="AdminPaymentsOnAccount" Type="float" />
+    <Property Name="AdminPaymentsVoided" Type="float" />
+    <Property Name="AdminRefunds" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.SalesTaxOnOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SalesTaxOnOrder">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="ORDID" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="CashSaleSalesTax" Type="float" />
+    <Property Name="AccountSaleSalesTax" Type="float" />
+    <Property Name="SalesTax" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.SoldItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SoldItems">
+    <Key>
+      <PropertyRef Name="clientid" />
+      <PropertyRef Name="ItemMenuID" />
+      <PropertyRef Name="POSID" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="GDate" />
+      <PropertyRef Name="LunchType" />
+      <PropertyRef Name="LunchTypeStatus" />
+      <PropertyRef Name="PreOrderStatus" />
+    </Key>
+    <Property Name="clientid" Type="bigint" Nullable="false" />
+    <Property Name="ItemMenuID" Type="bigint" Nullable="false" />
+    <Property Name="MenuID" Type="bigint" />
+    <Property Name="CategoryID" Type="bigint" />
+    <Property Name="CategoryTypeID" Type="bigint" />
+    <Property Name="POSID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="PRIMSCHID" Type="bigint" />
+    <Property Name="EMPCASHID" Type="bigint" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="GDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="CategoryTypeName" Type="varchar" MaxLength="15" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+    <Property Name="MenuItem" Type="varchar" MaxLength="75" />
+    <Property Name="LunchType" Type="int" Nullable="false" />
+    <Property Name="LunchTypeStatus" Type="varchar" MaxLength="17" Nullable="false" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="RegularPrice" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="SoldType" Type="int" />
+    <Property Name="Total" Type="float" />
+    <Property Name="PreOrderStatus" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PreOrderPickup" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.StatementDetailItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StatementDetailItems">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CSTID" />
+      <PropertyRef Name="SCHID" />
+      <PropertyRef Name="ORDID" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="OrderTypeName" />
+      <PropertyRef Name="OrderType" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CSTID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" Nullable="false" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="GDate" Type="datetime" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="OrderTypeName" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="OrderType" Type="int" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="111" />
+    <Property Name="PaidPrice" Type="float" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ExtendedPrice" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.StatementDetailOrders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StatementDetailOrders">
+    <Key>
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="CSTID" />
+      <PropertyRef Name="SCHID" />
+      <PropertyRef Name="ORDID" />
+      <PropertyRef Name="OrderTypeName" />
+      <PropertyRef Name="OrderType" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="PaymentType" />
+      <PropertyRef Name="TotalItemQTY" />
+    </Key>
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="CSTID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" Nullable="false" />
+    <Property Name="ORDID" Type="bigint" Nullable="false" />
+    <Property Name="OrderTypeName" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="OrderType" Type="int" Nullable="false" />
+    <Property Name="GDate" Type="datetime" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="PaymentType" Type="varchar" MaxLength="69" Nullable="false" />
+    <Property Name="TotalAccount" Type="float" />
+    <Property Name="TotalPaid" Type="float" />
+    <Property Name="SalesTax" Type="float" />
+    <Property Name="BalanceChange" Type="float" />
+    <Property Name="TotalItemQTY" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Live_MSA_Test_Cloud.dbo.VoidsDS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VoidsDS">
+    <Key>
+      <PropertyRef Name="ROWID" />
+      <PropertyRef Name="ClientID" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="ROWID" Type="bigint" Nullable="false" />
+    <Property Name="ClientID" Type="bigint" Nullable="false" />
+    <Property Name="SCHID" Type="bigint" />
+    <Property Name="ORDEMPID" Type="bigint" />
+    <Property Name="CSTID" Type="bigint" />
+    <Property Name="MODEMPID" Type="bigint" />
+    <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="GDate" Type="datetime" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+    <Property Name="SchoolID" Type="varchar" MaxLength="30" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="2" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="LastName" Type="varchar" MaxLength="24" />
+    <Property Name="FirstName" Type="varchar" MaxLength="16" />
+    <Property Name="Middle" Type="varchar" MaxLength="1" />
+    <Property Name="ChangedBy" Type="varchar" MaxLength="44" />
+    <Property Name="VoidTime" Type="datetime2" Precision="7" />
+    <Property Name="VoidOrder" Type="bit" />
+    <Property Name="VoidItem" Type="int" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="ACredit" Type="float" />
+    <Property Name="ADebit" Type="float" />
+    <Property Name="MCredit" Type="float" />
+    <Property Name="MDebit" Type="float" />
+    <Property Name="ItemName" Type="varchar" MaxLength="75" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="TaxPrice" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Cashier" Type="varchar" MaxLength="44" />
+    <Property Name="Notes" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="SortDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <Function Name="AccountBalanceInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ABalance" Type="float" />
+          <Property Name="MBalance" Type="float" />
+          <Property Name="BonusBalance" Type="float" />
+          <Property Name="BalNegative" Type="float" />
+          <Property Name="BalPositive" Type="float" />
+          <Property Name="BalZero" Type="numeric" Precision="38" Scale="1" />
+          <Property Name="TotalNegativeBal" Type="int" />
+          <Property Name="TotalPositiveBal" Type="int" />
+          <Property Name="TotalZeroBal" Type="int" />
+          <Property Name="TotalBalance" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="AccountBalances" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ABalance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="MBalance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="BonusBalance" Type="numeric" Precision="1" Scale="1" Nullable="false" />
+          <Property Name="BalNegative" Type="float" />
+          <Property Name="BalPositive" Type="float" />
+          <Property Name="BalZero" Type="numeric" Precision="38" Scale="1" />
+          <Property Name="TotalNegativeBal" Type="int" />
+          <Property Name="TotalPositiveBal" Type="int" />
+          <Property Name="TotalZeroBal" Type="int" />
+          <Property Name="TotalBalance" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_AccessRights_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityGroup" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="bigint" />
+          <Property Name="ObjectID" Type="int" />
+          <Property Name="SecurityGroup_Id" Type="bigint" />
+          <Property Name="canInsert" Type="bit" />
+          <Property Name="canDelete" Type="bit" />
+          <Property Name="canView" Type="bit" />
+          <Property Name="canEdit" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Applications_SortedList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <Parameter Name="SignedDateFilter" Type="datetime" Mode="In" />
+    <Parameter Name="ApprovalStatus" Type="int" Mode="In" />
+    <Parameter Name="Entered" Type="bit" Mode="In" />
+    <Parameter Name="Updated" Type="bit" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="AllRecordsCount" Type="int" />
+          <Property Name="Application_Id" Type="int" />
+          <Property Name="Parent_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Parent_Id" Type="int" />
+          <Property Name="Member_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Member_Id" Type="int" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Student_Id" Type="int" />
+          <Property Name="District_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Household_Size" Type="int" />
+          <Property Name="No_Of_Students" Type="int" />
+          <Property Name="No_Of_Members" Type="int" />
+          <Property Name="App_Signer_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Approval_Status" Type="int" />
+          <Property Name="Entered" Type="bit" />
+          <Property Name="Updated" Type="bit" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_BeginningBalance_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SchoolFilter" Type="varchar" Mode="In" />
+    <Parameter Name="GradeFilter" Type="varchar" Mode="In" />
+    <Parameter Name="HomeRoomFilter" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictFilter" Type="varchar" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_Categories_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CategoryID" Type="bigint" Mode="In" />
+    <Parameter Name="categoryTypeID" Type="bigint" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="totalCount" Type="int" />
+          <Property Name="catID" Type="bigint" />
+          <Property Name="catName" Type="varchar" MaxLength="50" />
+          <Property Name="catTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="catColor" Type="varchar" MaxLength="50" />
+          <Property Name="ItemCount" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Connected_Customers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="ListClientCustids" Type="varchar" Mode="In" />
+    <Parameter Name="ListDistCustids" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_Connected_Customers_MSA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="ListClientCustids" Type="varchar" Mode="In" />
+    <Parameter Name="ListDistCustids" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_Customer_Balance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="UserID" Type="varchar" MaxLength="16" />
+          <Property Name="LastName" Type="varchar" MaxLength="24" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="isPrimary" Type="bit" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+          <Property Name="GradeName" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="HomeroomName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ABalance" Type="float" />
+          <Property Name="MBalance" Type="float" />
+          <Property Name="BonusBalance" Type="float" />
+          <Property Name="HRID" Type="bigint" Nullable="false" />
+          <Property Name="GRID" Type="bigint" Nullable="false" />
+          <Property Name="SCHID" Type="bigint" />
+          <Property Name="ClientID" Type="bigint" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Customer_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="OverrideBalance" Type="bit" Mode="In" />
+    <Parameter Name="OverrideEmployee" Type="bit" Mode="In" />
+    <Parameter Name="OverrideOrders" Type="bit" Mode="In" />
+    <Parameter Name="OverrideBonusPayments" Type="bit" Mode="In" />
+    <Parameter Name="OverridePreorders" Type="bit" Mode="In" />
+    <Parameter Name="OverrideStudentApp" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Admin_Customer_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Admin_Customer_Detail_ForPayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Admin_Customer_IsFreeReducedApplied" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Admin_Customer_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <Parameter Name="FilterString" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FilterBy" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="UserID" Type="varchar" MaxLength="16" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="30" />
+          <Property Name="First_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Middle_Initial" Type="varchar" MaxLength="1" />
+          <Property Name="Adult" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Grade" Type="varchar" MaxLength="30" />
+          <Property Name="Homeroom" Type="varchar" MaxLength="30" />
+          <Property Name="School_Name" Type="varchar" MaxLength="60" />
+          <Property Name="M_Balance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_Balance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Total_Balance" Type="decimal" Precision="10" Scale="2" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Customer_Logs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Customer_Id" Type="bigint" Nullable="false" />
+          <Property Name="EmployeeID" Type="bigint" />
+          <Property Name="Employee_Name" Type="varchar" MaxLength="44" />
+          <Property Name="ChangedDateLocal" Type="datetime2" Precision="7" />
+          <Property Name="Note" Type="varchar" MaxLength="255" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Customers_SortedList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <Parameter Name="isAnyFilter" Type="bit" Mode="In" />
+    <Parameter Name="SchoolFilter" Type="varchar" Mode="In" />
+    <Parameter Name="GradeFilter" Type="varchar" Mode="In" />
+    <Parameter Name="HomeRoomFilter" Type="varchar" Mode="In" />
+    <Parameter Name="OnlyActive" Type="bit" Mode="In" />
+    <Parameter Name="OnlyAdult" Type="bit" Mode="In" />
+    <Parameter Name="ExcludeCashSale" Type="bit" Mode="In" />
+    <Parameter Name="IsBalanceRequired" Type="bit" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="allRecordsCount" Type="int" />
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="UserID" Type="varchar" MaxLength="16" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="30" />
+          <Property Name="First_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Middle_Initial" Type="varchar" MaxLength="1" />
+          <Property Name="Adult" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Grade" Type="varchar" MaxLength="30" />
+          <Property Name="Homeroom" Type="varchar" MaxLength="30" />
+          <Property Name="School_Name" Type="varchar" MaxLength="60" />
+          <Property Name="PIN" Type="varchar" MaxLength="20" />
+          <Property Name="M_Balance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="A_Balance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Total_Balance" Type="decimal" Precision="10" Scale="2" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Dashboard_AccountInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CountOfPositiveAccounts" Type="int" Nullable="false" />
+          <Property Name="PositiveAmount" Type="float" Nullable="false" />
+          <Property Name="CountOfNegativeAccounts" Type="int" Nullable="false" />
+          <Property Name="NegativeAmount" Type="float" Nullable="false" />
+          <Property Name="CountOfZeroAccounts" Type="int" Nullable="false" />
+          <Property Name="ZeroAmount" Type="float" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Dashboard_Participation_Percentage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TodayParticipation" Type="float" Nullable="false" />
+          <Property Name="YesterdayParticipation" Type="float" Nullable="false" />
+          <Property Name="LastWeekParticipation" Type="float" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Dashboard_Payments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="date" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="PaymentDate" Type="varchar" MaxLength="30" />
+          <Property Name="TotalPayment" Type="float" />
+          <Property Name="SortDate" Type="date" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Dashboard_Sales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="date" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="SaleDate" Type="varchar" MaxLength="30" />
+          <Property Name="TotalSales" Type="float" />
+          <Property Name="SortDate" Type="date" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Dashboard_TotalSales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="TodaySales" Type="float" Nullable="false" />
+          <Property Name="YesterdaySales" Type="float" Nullable="false" />
+          <Property Name="LastWeekSales" Type="float" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_District_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="District_Id" Type="bigint" Nullable="false" />
+          <Property Name="District_Name" Type="varchar" MaxLength="30" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_District_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="DistrictID" Type="int" Mode="In" />
+    <Parameter Name="DistrictName" Type="varchar" Mode="In" />
+    <Parameter Name="EmployeeTaxable" Type="bit" Mode="In" />
+    <Parameter Name="FreeTaxable" Type="bit" Mode="In" />
+    <Parameter Name="PaidTaxable" Type="bit" Mode="In" />
+    <Parameter Name="RedTaxable" Type="bit" Mode="In" />
+    <Parameter Name="MealPlanTaxable" Type="bit" Mode="In" />
+    <Parameter Name="GuestTaxable" Type="bit" Mode="In" />
+    <Parameter Name="StudentCashTaxable" Type="bit" Mode="In" />
+    <Parameter Name="Deleted" Type="bit" Mode="In" />
+    <Parameter Name="EmpAdminID" Type="int" Mode="In" />
+    <Parameter Name="EmpDirectorID" Type="int" Mode="In" />
+    <Parameter Name="DistAddr1" Type="varchar" Mode="In" />
+    <Parameter Name="DistAddr2" Type="varchar" Mode="In" />
+    <Parameter Name="DistCity" Type="varchar" Mode="In" />
+    <Parameter Name="DistState" Type="varchar" Mode="In" />
+    <Parameter Name="DistZip" Type="varchar" Mode="In" />
+    <Parameter Name="DistPhone1" Type="varchar" Mode="In" />
+    <Parameter Name="DistPhone2" Type="varchar" Mode="In" />
+    <Parameter Name="BankName" Type="varchar" Mode="In" />
+    <Parameter Name="BankAddr1" Type="varchar" Mode="In" />
+    <Parameter Name="BankAddr2" Type="varchar" Mode="In" />
+    <Parameter Name="BankCity" Type="varchar" Mode="In" />
+    <Parameter Name="BankState" Type="varchar" Mode="In" />
+    <Parameter Name="BankZip" Type="varchar" Mode="In" />
+    <Parameter Name="BankRoute" Type="varchar" Mode="In" />
+    <Parameter Name="BankAccount" Type="varchar" Mode="In" />
+    <Parameter Name="FiscalYearStart" Type="smalldatetime" Mode="In" />
+    <Parameter Name="FiscalYearEnd" Type="smalldatetime" Mode="In" />
+    <Parameter Name="LocalTime" Type="datetime2" Mode="In" />
+    <Parameter Name="CCProcessor_Id" Type="int" Mode="In" />
+    <Parameter Name="EnableGlobalVeriFoneUser" Type="bit" Mode="In" />
+    <Parameter Name="LicenseModel" Type="varchar" Mode="In" />
+    <Parameter Name="MerchantId" Type="varchar" Mode="In" />
+    <Parameter Name="VeriFoneIP" Type="varchar" Mode="In" />
+    <Parameter Name="VeriFonePort" Type="int" Mode="In" />
+    <Parameter Name="VeriFoneUserId" Type="varchar" Mode="In" />
+    <Parameter Name="VeriFonePassword" Type="varchar" Mode="In" />
+    <Parameter Name="newDistrictId" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="Admin_Ethnicity_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Ethnicity_Id" Type="bigint" Nullable="false" />
+          <Property Name="Ethnicity_Name" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Grade_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Grade_Id" Type="bigint" Nullable="false" />
+          <Property Name="Grade" Type="varchar" MaxLength="15" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_HomeRoom_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="HomeRoom_Id" Type="bigint" Nullable="false" />
+          <Property Name="HomeRoom_Name" Type="varchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Language_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Language_Id" Type="bigint" Nullable="false" />
+          <Property Name="Language_Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Menu_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ClientID" Type="bigint" Nullable="false" />
+          <Property Name="MenuID" Type="bigint" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="isMenuDeleted" Type="bit" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" Nullable="false" />
+          <Property Name="UPC" Type="varchar" MaxLength="25" />
+          <Property Name="isTaxable" Type="bit" />
+          <Property Name="KitchenItem" Type="int" />
+          <Property Name="isScaleItem" Type="bit" />
+          <Property Name="CategoryTypeId" Type="bigint" />
+          <Property Name="CategoryColor" Type="varchar" MaxLength="10" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="20" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Payment_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CASHRESID" Type="int" Mode="InOut" />
+    <Parameter Name="ORDID" Type="int" Mode="InOut" />
+    <Parameter Name="ORDLOGID" Type="int" Mode="InOut" />
+    <Parameter Name="CASHIERID" Type="int" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="AlaCartePayment" Type="float" Mode="In" />
+    <Parameter Name="MealPlanPayment" Type="float" Mode="In" />
+    <Parameter Name="TransType" Type="int" Mode="In" />
+    <Parameter Name="LocalTime" Type="datetime2" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMsg" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="ABalance" Type="float" Mode="InOut" />
+    <Parameter Name="MBalance" Type="float" Mode="InOut" />
+    <Parameter Name="BonusBalance" Type="float" Mode="InOut" />
+    <Parameter Name="CheckNum" Type="int" Mode="In" />
+    <Parameter Name="ORDERDATE" Type="datetime" Mode="In" />
+    <Parameter Name="OPENDATE" Type="datetime" Mode="In" />
+    <Parameter Name="OpenDateLocal" Type="datetime2" Mode="In" />
+    <Parameter Name="OPENAMOUNT" Type="float" Mode="In" />
+    <Parameter Name="CLOSEDATE" Type="datetime" Mode="In" />
+    <Parameter Name="CloseDateLocal" Type="datetime2" Mode="In" />
+    <Parameter Name="CLOSEAMOUNT" Type="float" Mode="In" />
+    <Parameter Name="PaymentNote" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_POS_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="POSID" Type="int" Mode="In" />
+    <Parameter Name="OverrideOrders" Type="bit" Mode="In" />
+    <Parameter Name="OverrideCashResults" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Admin_POS_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SchoolID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ClientID" Type="bigint" Nullable="false" />
+          <Property Name="POS_Id" Type="bigint" Nullable="false" />
+          <Property Name="POS_Name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="SchoolID" Type="bigint" />
+          <Property Name="School_Name" Type="varchar" MaxLength="60" />
+          <Property Name="Credit_Card_Enabled" Type="bit" />
+          <Property Name="POS_Open_Session" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="POS_Open_Cashier" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="POS_Open_Session_Date" Type="datetime2" Precision="7" />
+          <Property Name="VeriFoneUserId" Type="varchar" MaxLength="20" />
+          <Property Name="VeriFonePassword" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_POS_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="POSID" Type="int" Mode="In" />
+    <Parameter Name="School_Id" Type="int" Mode="In" />
+    <Parameter Name="POS_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Credit_Card_Enabled" Type="bit" Mode="In" />
+    <Parameter Name="Credit_Card_UserId" Type="varchar" Mode="In" />
+    <Parameter Name="Credit_Card_Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_PreorderItems_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="PreorderItemsIds" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="AllRecordsCount" Type="int" />
+          <Property Name="Id" Type="bigint" />
+          <Property Name="PreOrderId" Type="bigint" />
+          <Property Name="PickupCountValid" Type="int" />
+          <Property Name="Selected" Type="int" />
+          <Property Name="TransactionId" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="15" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="varchar" MaxLength="16" />
+          <Property Name="CustomerId" Type="bigint" />
+          <Property Name="MealPlan_Id" Type="bigint" />
+          <Property Name="ItemName" Type="varchar" MaxLength="75" />
+          <Property Name="MenuId" Type="bigint" />
+          <Property Name="StudentFullPrice" Type="float" />
+          <Property Name="Category_Id" Type="bigint" />
+          <Property Name="KitchenItem" Type="int" />
+          <Property Name="DatePurchased" Type="datetime2" Precision="7" />
+          <Property Name="DateToServe" Type="datetime2" Precision="7" />
+          <Property Name="DatePickedUp" Type="datetime2" Precision="7" />
+          <Property Name="Received" Type="int" />
+          <Property Name="ItemVoid" Type="bit" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="OrderVoid" Type="bit" />
+          <Property Name="Void" Type="varchar" MaxLength="10" />
+          <Property Name="SchoolId" Type="bigint" />
+          <Property Name="PickupQty" Type="int" />
+          <Property Name="isReimbursableItem" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_School_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SchoolID" Type="int" Mode="In" />
+    <Parameter Name="OverridePrimaryAssignment" Type="bit" Mode="In" />
+    <Parameter Name="OverridePOSAssignment" Type="bit" Mode="In" />
+    <Parameter Name="OverrideVendingMachineAssignment" Type="bit" Mode="In" />
+    <Parameter Name="OverrideExpressGroupAssignment" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Admin_School_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="District_Id" Type="bigint" Mode="In" />
+    <Parameter Name="IncludeDeleted" Type="bit" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="District_Id" Type="bigint" Nullable="false" />
+          <Property Name="School_ID" Type="varchar" MaxLength="30" />
+          <Property Name="School_Name" Type="varchar" MaxLength="60" />
+          <Property Name="District_Name" Type="varchar" MaxLength="30" />
+          <Property Name="POSNum" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_School_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SchoolID" Type="bigint" Mode="In" />
+    <Parameter Name="District_ID" Type="bigint" Mode="In" />
+    <Parameter Name="School_Id_Num" Type="varchar" Mode="In" />
+    <Parameter Name="School_Name" Type="varchar" Mode="In" />
+    <Parameter Name="LocalTime" Type="datetime2" Mode="In" />
+    <Parameter Name="Emp_Director_ID" Type="bigint" Mode="In" />
+    <Parameter Name="Emp_Administrator_ID" Type="bigint" Mode="In" />
+    <Parameter Name="School_Addr1" Type="varchar" Mode="In" />
+    <Parameter Name="School_Addr2" Type="varchar" Mode="In" />
+    <Parameter Name="School_City" Type="varchar" Mode="In" />
+    <Parameter Name="School_State" Type="varchar" Mode="In" />
+    <Parameter Name="School_Zip" Type="varchar" Mode="In" />
+    <Parameter Name="School_Phone1" Type="varchar" Mode="In" />
+    <Parameter Name="School_Phone2" Type="varchar" Mode="In" />
+    <Parameter Name="School_Notes" Type="varchar" Mode="In" />
+    <Parameter Name="Severe_Need_School" Type="bit" Mode="In" />
+    <Parameter Name="Deleted" Type="bit" Mode="In" />
+    <Parameter Name="UseDistDirAdmin" Type="bit" Mode="In" />
+    <Parameter Name="AlaCarteLimit" Type="float" Mode="In" />
+    <Parameter Name="MealPlanLimit" Type="float" Mode="In" />
+    <Parameter Name="UsePinPrefix" Type="bit" Mode="In" />
+    <Parameter Name="PinPrefix" Type="varchar" Mode="In" />
+    <Parameter Name="UsePhotos" Type="bit" Mode="In" />
+    <Parameter Name="UseFingerIdent" Type="bit" Mode="In" />
+    <Parameter Name="BarCodePinLength" Type="int" Mode="In" />
+    <Parameter Name="FiscalStart" Type="smalldatetime" Mode="In" />
+    <Parameter Name="FiscalEnd" Type="smalldatetime" Mode="In" />
+    <Parameter Name="StripZeros" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Admin_SchoolAssignment_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="School_Id" Type="bigint" Nullable="false" />
+          <Property Name="School_Name" Type="varchar" MaxLength="60" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_SoldItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="clientid" Type="bigint" Nullable="false" />
+          <Property Name="MenuItem" Type="varchar" MaxLength="75" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="SCHID" Type="bigint" />
+          <Property Name="GDate" Type="smalldatetime" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_UserRole_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityGroupName" Type="varchar" Mode="In" />
+    <Parameter Name="ResultCode" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="Admin_UserRole_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ClientID" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserRoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminHQSystem" Type="int" Nullable="false" />
+          <Property Name="UserRolePermissions_IDS" Type="varchar" MaxLength="300" />
+          <Property Name="usersCount" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_UserRole_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UserRoleName" Type="varchar" Mode="In" />
+    <Parameter Name="AdminHQSystem" Type="int" Mode="In" />
+    <Parameter Name="UserRolePermissions_IDS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_Users_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="InOut" />
+    <Parameter Name="ResultCode" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="Admin_Users_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Admin_Users_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <Parameter Name="FilterString" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FilterBy" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="LoginName" Type="varchar" MaxLength="16" />
+          <Property Name="UserName" Type="varchar" MaxLength="45" />
+          <Property Name="SecurityGroup" Type="varchar" MaxLength="16" />
+          <Property Name="CashedInStatus" Type="varchar" MaxLength="10" />
+          <Property Name="POSName" Type="varchar" MaxLength="16" />
+          <Property Name="UserRoleName" Type="varchar" MaxLength="20" />
+          <Property Name="UserRole_Id" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_Users_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="InOut" />
+    <Parameter Name="LoginName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityGroupID" Type="int" Mode="In" />
+    <Parameter Name="UserRolesID" Type="int" Mode="In" />
+    <Parameter Name="ResultCode" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="Admin_VoidGroup_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="GroupID" Type="int" Mode="In" />
+    <Parameter Name="DateStart" Type="datetime" Mode="In" />
+    <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="OrderID" Type="int" />
+          <Property Name="OrderLogID" Type="int" />
+          <Property Name="OrderType" Type="int" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="OrderDateLocal" Type="datetime" />
+          <Property Name="Item" Type="float" />
+          <Property Name="SalesTax" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Payment" Type="float" />
+          <Property Name="Type" Type="varchar(max)" />
+          <Property Name="isVoid" Type="bit" />
+          <Property Name="Check" Type="varchar(max)" />
+          <Property Name="POS" Type="varchar(max)" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Admin_VoidGroup_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="DateStart" Type="datetime" Mode="In" />
+    <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SearchBy" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="GroupName" Type="varchar" MaxLength="300" />
+          <Property Name="CustomerBalance" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="CustomerBalanceData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CustList" Type="varchar" Mode="In" />
+    <Parameter Name="SchList" Type="varchar" Mode="In" />
+    <Parameter Name="GRList" Type="varchar" Mode="In" />
+    <Parameter Name="HRList" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ROWID" Type="int" />
+          <Property Name="UserID" Type="varchar" MaxLength="16" />
+          <Property Name="LastName" Type="varchar" MaxLength="24" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="isPrimary" Type="bit" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+          <Property Name="Grade" Type="varchar" MaxLength="15" />
+          <Property Name="Homeroom" Type="varchar" MaxLength="10" />
+          <Property Name="ABalance" Type="float" />
+          <Property Name="MBalance" Type="float" />
+          <Property Name="BonusBalance" Type="float" />
+          <Property Name="SCHID" Type="bigint" />
+          <Property Name="HRID" Type="bigint" />
+          <Property Name="GRID" Type="bigint" />
+          <Property Name="ClientID" Type="bigint" />
+          <Property Name="LunchType" Type="int" />
+          <Property Name="CustomerID" Type="bigint" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="FetchBeginningBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SchoolFilter" Type="varchar" Mode="In" />
+    <Parameter Name="GradeFilter" Type="varchar" Mode="In" />
+    <Parameter Name="HomeRoomFilter" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictFilter" Type="varchar" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FetchDistinctGradesForGraduateSeniors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SchoolID" Type="bigint" Mode="In" />
+    <Parameter Name="DistrictID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchDistinctHomeRoomForBeginningBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SchoolID" Type="bigint" Mode="In" />
+    <Parameter Name="GradeID" Type="bigint" Mode="In" />
+    <Parameter Name="DistrictId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchDistinctSchoolsForGraduateSeniors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="DistrictID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchGraduateSeniors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchString" Type="varchar" Mode="In" />
+    <Parameter Name="SchoolFilter" Type="varchar" Mode="In" />
+    <Parameter Name="GradeFilter" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictFilter" Type="varchar" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPercentage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="FirstVal" Type="float" Mode="In" />
+    <Parameter Name="SecondVal" Type="float" Mode="In" />
+  </Function>
+  <Function Name="GRADUATESENIORS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientId" Type="bigint" Mode="In" />
+    <Parameter Name="CUSTID" Type="int" Mode="In" />
+    <Parameter Name="ALACARTE" Type="float" Mode="In" />
+    <Parameter Name="MEALPLAN" Type="float" Mode="In" />
+    <Parameter Name="SCHOOLID" Type="int" Mode="In" />
+    <Parameter Name="LUNCHTYPE" Type="int" Mode="In" />
+    <Parameter Name="FULLDELETE" Type="bit" Mode="In" />
+    <Parameter Name="CASHRESID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Main_Items_View" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+    <Parameter Name="OrderType" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="id" Type="int" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="ItemName" Type="varchar" MaxLength="75" />
+          <Property Name="PaidPrice" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Void" Type="bit" />
+          <Property Name="ServingDate" Type="datetime2" Precision="7" />
+          <Property Name="PickedupDate" Type="datetime2" Precision="7" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Main_Items_Void" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="ITEMID" Type="bigint" Mode="In" />
+    <Parameter Name="EMPLOYEEID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDERTYPE" Type="int" Mode="In" />
+    <Parameter Name="ORDLOGID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDLOGNOTE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_LoadItem_Void_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Preorder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_LoadOrder_Void_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Preorder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_Order_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDID" Type="int" Mode="InOut" />
+    <Parameter Name="POS_ID" Type="int" Mode="In" />
+    <Parameter Name="EMP_CASH_ID" Type="int" Mode="In" />
+    <Parameter Name="CUST_ID" Type="int" Mode="In" />
+    <Parameter Name="TRANSTYPE" Type="int" Mode="In" />
+    <Parameter Name="MDEBIT" Type="float" Mode="In" />
+    <Parameter Name="ADEBIT" Type="float" Mode="In" />
+    <Parameter Name="MCREDIT" Type="float" Mode="In" />
+    <Parameter Name="ACREDIT" Type="float" Mode="In" />
+    <Parameter Name="BCREDIT" Type="float" Mode="In" />
+    <Parameter Name="LocalTime" Type="datetime2" Mode="In" />
+    <Parameter Name="ORDLOG_ID" Type="int" Mode="InOut" />
+    <Parameter Name="ABalance" Type="float" Mode="InOut" />
+    <Parameter Name="MBalance" Type="float" Mode="InOut" />
+    <Parameter Name="BonusBalance" Type="float" Mode="InOut" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMsg" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="MEALPLANID" Type="int" Mode="In" />
+    <Parameter Name="CASHRESID" Type="int" Mode="In" />
+    <Parameter Name="LUNCHTYPE" Type="int" Mode="In" />
+    <Parameter Name="SCHOOL_ID" Type="int" Mode="In" />
+    <Parameter Name="ORDERDATE" Type="datetime" Mode="In" />
+    <Parameter Name="CREDITAUTH" Type="int" Mode="In" />
+    <Parameter Name="CHECKNUM" Type="int" Mode="In" />
+    <Parameter Name="OVERRIDE" Type="bit" Mode="In" />
+    <Parameter Name="VOID" Type="bit" Mode="In" />
+    <Parameter Name="ORDLOGNOTE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_Order_View" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+    <Parameter Name="OrderType" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="OrderNumber" Type="bigint" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="OrderDateLocal" Type="datetime2" Precision="7" />
+          <Property Name="OrderTotal" Type="float" />
+          <Property Name="Payment" Type="float" />
+          <Property Name="POSName" Type="varchar" MaxLength="15" />
+          <Property Name="CashierName" Type="varchar" MaxLength="43" />
+          <Property Name="CustomerID" Type="bigint" Nullable="false" />
+          <Property Name="POSID" Type="bigint" Nullable="false" />
+          <Property Name="CashierID" Type="bigint" />
+          <Property Name="SchoolID" Type="bigint" />
+          <Property Name="PrimarySchoolID" Type="bigint" />
+          <Property Name="OrdersLogID" Type="bigint" />
+          <Property Name="OrderNote" Type="varchar" MaxLength="255" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Main_Order_Void" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="EMPLOYEEID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDERID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDERTYPE" Type="int" Mode="In" />
+    <Parameter Name="VOIDPAYMENT" Type="bit" Mode="In" />
+    <Parameter Name="ORDLOGID" Type="bigint" Mode="In" />
+    <Parameter Name="ORDLOGNOTE" Type="varchar" Mode="In" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="Main_PreOrder_AvgInPreorderOverview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Main_PreOrder_Count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="DateRangeTypes" Type="varchar" Mode="In" />
+    <Parameter Name="FromDate" Type="varchar" Mode="In" />
+    <Parameter Name="ToDate" Type="varchar" Mode="In" />
+    <Parameter Name="homeRoom" Type="varchar" Mode="In" />
+    <Parameter Name="CustomersSelectionType" Type="varchar" Mode="In" />
+    <Parameter Name="CustomersList" Type="varchar" Mode="In" />
+    <Parameter Name="Grade" Type="varchar" Mode="In" />
+    <Parameter Name="ItemSelectionType" Type="varchar" Mode="In" />
+    <Parameter Name="ItemStatus" Type="varchar" Mode="In" />
+    <Parameter Name="SelectedTypeList" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_PreOrder_CurrentPreorderOverview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Main_PreOrder_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="DateRangeTypes" Type="varchar" Mode="In" />
+    <Parameter Name="FromDate" Type="varchar" Mode="In" />
+    <Parameter Name="ToDate" Type="varchar" Mode="In" />
+    <Parameter Name="homeRoom" Type="varchar" Mode="In" />
+    <Parameter Name="CustomersSelectionType" Type="varchar" Mode="In" />
+    <Parameter Name="CustomersList" Type="varchar" Mode="In" />
+    <Parameter Name="Grade" Type="varchar" Mode="In" />
+    <Parameter Name="ItemSelectionType" Type="varchar" Mode="In" />
+    <Parameter Name="ItemStatus" Type="varchar" Mode="In" />
+    <Parameter Name="SelectedTypeList" Type="varchar" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="SortColumn" Type="varchar" Mode="In" />
+    <Parameter Name="SortOrder" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_PreOrder_MenuItem_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoryTypeID" Type="int" Mode="In" />
+    <Parameter Name="categoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Main_PreOrder_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PreorderIdsStr" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Main_PreOrder_TopSellingItemOverview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PeriodTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ProcessPickupPreorderItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CashierId" Type="bigint" Mode="In" />
+    <Parameter Name="LocalDateTime" Type="datetime2" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+    <Parameter Name="ErrorMsg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="Reporting_CustomerBySoldItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="GRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="HRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="QualificationTypes" Type="varchar" Mode="In" />
+    <Parameter Name="ItemSelectionType" Type="int" Mode="In" />
+    <Parameter Name="SelectedTypeList" Type="varchar" Mode="In" />
+    <Parameter Name="SelectedQtyType" Type="varchar" Mode="In" />
+    <Parameter Name="minQty" Type="int" Mode="In" />
+    <Parameter Name="maxQty" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="itemName" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="schoolName" Type="varchar" MaxLength="60" />
+          <Property Name="grade" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="homeroom" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FormattedName" Type="varchar" MaxLength="42" />
+          <Property Name="qty" Type="int" />
+          <Property Name="total" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_CustomerRosterSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CUSTLIST" Type="varchar" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="GRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="HRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="LTLIST" Type="varchar" Mode="In" />
+    <Parameter Name="ACTIVETYPE" Type="int" Mode="In" />
+    <Parameter Name="DELETEDTYPE" Type="int" Mode="In" />
+    <Parameter Name="ZEROBALANCES" Type="varchar" Mode="In" />
+    <Parameter Name="ACCOUNTTYPE" Type="varchar" Mode="In" />
+    <Parameter Name="RangeStart" Type="float" Mode="In" />
+    <Parameter Name="RangeEnd" Type="float" Mode="In" />
+    <Parameter Name="GreaterThan" Type="float" Mode="In" />
+    <Parameter Name="LessThan" Type="float" Mode="In" />
+    <Parameter Name="DOCREATEDATE" Type="bit" Mode="In" />
+    <Parameter Name="CREATEDATEBEGIN" Type="datetime" Mode="In" />
+    <Parameter Name="CREATEDATEEND" Type="datetime" Mode="In" />
+    <Parameter Name="CREATETYPE" Type="int" Mode="In" />
+    <Parameter Name="BALCALCENDDATE" Type="datetime" Mode="In" />
+    <Parameter Name="INCLUDEBALS" Type="bit" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CSTID" Type="bigint" Nullable="false" />
+          <Property Name="SCHID" Type="bigint" />
+          <Property Name="DISTID" Type="bigint" Nullable="false" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="SchoolAddress1" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SchoolAddress2" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SchoolCity" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SchoolState" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="SchoolZip" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Greeting" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="24" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" />
+          <Property Name="Middle" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="30" />
+          <Property Name="Address2" Type="varchar" MaxLength="30" />
+          <Property Name="City" Type="varchar" MaxLength="30" />
+          <Property Name="State" Type="varchar" MaxLength="2" />
+          <Property Name="zip" Type="varchar" MaxLength="10" />
+          <Property Name="Grade" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Homeroom" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMail" Type="varchar" MaxLength="60" />
+          <Property Name="EMailSent" Type="int" Nullable="false" />
+          <Property Name="BeginningBalance" Type="float" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
+          <Property Name="LunchType" Type="int" Nullable="false" />
+          <Property Name="isFrozen" Type="int" Nullable="false" />
+          <Property Name="balanceSum" Type="float" Nullable="false" />
+          <Property Name="lastfirst" Type="varchar" MaxLength="42" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_DetailedTransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="SchoolID" Type="bigint" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="60" />
+          <Property Name="DistrictID" Type="bigint" />
+          <Property Name="DistrictName" Type="varchar" MaxLength="30" />
+          <Property Name="EmpCashierID" Type="bigint" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="200" />
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="LastName" Type="varchar" MaxLength="24" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" />
+          <Property Name="Middle" Type="varchar" MaxLength="1" />
+          <Property Name="OrderID" Type="bigint" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" />
+          <Property Name="TransType" Type="int" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="200" />
+          <Property Name="Payment" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccountSales" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashSales" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ItemName" Type="varchar" MaxLength="200" />
+          <Property Name="PaidPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="SalesTax" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OnlineACHPayment" Type="decimal" Precision="18" Scale="0" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_SoldItemsByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CategoryName" Type="varchar" MaxLength="20" />
+          <Property Name="MenuItem" Type="varchar" MaxLength="75" />
+          <Property Name="LunchTypeStatus" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="LunchType" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Total" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_StatementDetailedItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CUSTLIST" Type="varchar" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="GRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="HRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="ACTIVETYPE" Type="int" Mode="In" />
+    <Parameter Name="DELETEDTYPE" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CSTID" Type="bigint" Nullable="false" />
+          <Property Name="SCHID" Type="bigint" Nullable="false" />
+          <Property Name="GDate" Type="datetime" />
+          <Property Name="ORDID" Type="bigint" Nullable="false" />
+          <Property Name="OrderType" Type="int" Nullable="false" />
+          <Property Name="OrderTypeName" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="111" />
+          <Property Name="PaidPrice" Type="float" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="ExtendedPrice" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_StatementDetailedOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CUSTLIST" Type="varchar" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="GRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="HRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="ACTIVETYPE" Type="int" Mode="In" />
+    <Parameter Name="DELETEDTYPE" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CSTID" Type="bigint" Nullable="false" />
+          <Property Name="SCHID" Type="bigint" Nullable="false" />
+          <Property Name="ORDID" Type="bigint" Nullable="false" />
+          <Property Name="OrderTypeName" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="OrderType" Type="int" Nullable="false" />
+          <Property Name="GDate" Type="datetime" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="69" Nullable="false" />
+          <Property Name="TotalAccount" Type="float" />
+          <Property Name="TotalPaid" Type="float" />
+          <Property Name="SalesTax" Type="float" />
+          <Property Name="BalanceChange" Type="float" />
+          <Property Name="TotalItemQTY" Type="int" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="Reporting_StatementOrdersSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CUSTLIST" Type="varchar" Mode="In" />
+    <Parameter Name="SCHLIST" Type="varchar" Mode="In" />
+    <Parameter Name="GRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="HRLIST" Type="varchar" Mode="In" />
+    <Parameter Name="ACTIVETYPE" Type="int" Mode="In" />
+    <Parameter Name="DELETEDTYPE" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="CSTID" Type="bigint" />
+          <Property Name="SCHID" Type="bigint" Nullable="false" />
+          <Property Name="ORDID" Type="bigint" Nullable="false" />
+          <Property Name="GDate" Type="datetime" />
+          <Property Name="TotalAccount" Type="float" />
+          <Property Name="TotalPaid" Type="float" />
+          <Property Name="Adjustment" Type="float" />
+          <Property Name="OnlineTransfer" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="BalanceChange" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="sp_ItemCountOfCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CategoryID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="sp_ItemCountOfCategoryType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="bigint" Mode="In" />
+    <Parameter Name="CategoryID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="VoidItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="int" Mode="In" />
+    <Parameter Name="ITEMID" Type="int" Mode="In" />
+    <Parameter Name="ORDERID" Type="int" Mode="In" />
+    <Parameter Name="ORDLOGID" Type="int" Mode="In" />
+    <Parameter Name="CUSTID" Type="int" Mode="In" />
+    <Parameter Name="ORDERTYPE" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VoidOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClientID" Type="int" Mode="In" />
+    <Parameter Name="ORDERID" Type="int" Mode="In" />
+    <Parameter Name="ORDLOGID" Type="int" Mode="In" />
+    <Parameter Name="ORDERTYPE" Type="int" Mode="In" />
+    <Parameter Name="VOIDPAYMENT" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="FSS_POS_TEST_2ModelStoreContainer">
+    <EntitySet Name="App_Ethnicity" EntityType="Self.App_Ethnicity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Member_Incomes" EntityType="Self.App_Member_Incomes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Member_Statuses" EntityType="Self.App_Member_Statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Members" EntityType="Self.App_Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Notes" EntityType="Self.App_Notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Races" EntityType="Self.App_Races" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Signers" EntityType="Self.App_Signers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App_Statuses" EntityType="Self.App_Statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStatusTypes" EntityType="Self.AppStatusTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashResults" EntityType="Self.CashResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryTypes" EntityType="Self.CategoryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_POSNotification" EntityType="Self.Customer_POSNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_School" EntityType="Self.Customer_School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DistrictOptions" EntityType="Self.DistrictOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Homeroom" EntityType="Self.Homeroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Income_Frequencies" EntityType="Self.Income_Frequencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Income_Types" EntityType="Self.Income_Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member_Statuses" EntityType="Self.Member_Statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POS" EntityType="Self.POS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POSNotifications" EntityType="Self.POSNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School_Tax" EntityType="Self.School_Tax" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Races" EntityType="Self.Races" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolOptions" EntityType="Self.SchoolOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemOptions" EntityType="Self.SystemOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaxEntities" EntityType="Self.TaxEntities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School_Tax1" EntityType="Self.School_Tax1" Schema="Deleted" Table="School_Tax" store:Type="Tables" />
+    <EntitySet Name="TaxEntities1" EntityType="Self.TaxEntities1" Schema="Deleted" Table="TaxEntities" store:Type="Tables" />
+    <EntitySet Name="CashierPayments" EntityType="Self.CashierPayments" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CashierPayments].[ClientID] AS [ClientID], 
+    [CashierPayments].[DISTID] AS [DISTID], 
+    [CashierPayments].[SCHID] AS [SCHID], 
+    [CashierPayments].[CSTID] AS [CSTID], 
+    [CashierPayments].[EMPID] AS [EMPID], 
+    [CashierPayments].[POSID] AS [POSID], 
+    [CashierPayments].[DistrictName] AS [DistrictName], 
+    [CashierPayments].[SchoolID] AS [SchoolID], 
+    [CashierPayments].[SchoolName] AS [SchoolName], 
+    [CashierPayments].[EmpUserID] AS [EmpUserID], 
+    [CashierPayments].[CashierName] AS [CashierName], 
+    [CashierPayments].[OrderDate] AS [OrderDate], 
+    [CashierPayments].[PaymentDate] AS [PaymentDate], 
+    [CashierPayments].[CustUserID] AS [CustUserID], 
+    [CashierPayments].[LastName] AS [LastName], 
+    [CashierPayments].[FirstName] AS [FirstName], 
+    [CashierPayments].[Middle] AS [Middle], 
+    [CashierPayments].[TransType] AS [TransType], 
+    [CashierPayments].[PaymentAmount] AS [PaymentAmount], 
+    [CashierPayments].[Comments] AS [Comments], 
+    [CashierPayments].[TotalCashPayments] AS [TotalCashPayments], 
+    [CashierPayments].[TotalChecks] AS [TotalChecks], 
+    [CashierPayments].[TotalCredits] AS [TotalCredits], 
+    [CashierPayments].[OnlineCreditPayments] AS [OnlineCreditPayments], 
+    [CashierPayments].[OnlineACHPayments] AS [OnlineACHPayments], 
+    [CashierPayments].[OnlineACHReturns] AS [OnlineACHReturns], 
+    [CashierPayments].[Refunds] AS [Refunds], 
+    [CashierPayments].[AccountPayments] AS [AccountPayments], 
+    [CashierPayments].[CashSaleMonies] AS [CashSaleMonies], 
+    [CashierPayments].[TotalMonies] AS [TotalMonies], 
+    [CashierPayments].[TotalDeposit] AS [TotalDeposit], 
+    [CashierPayments].[LineCount] AS [LineCount], 
+    [CashierPayments].[GroupType] AS [GroupType], 
+    [CashierPayments].[FullName] AS [FullName]
+    FROM [dbo].[CashierPayments] AS [CashierPayments]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomerActivity" EntityType="Self.CustomerActivity" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CustomerActivity].[ClientID] AS [ClientID], 
+    [CustomerActivity].[Id] AS [Id], 
+    [CustomerActivity].[Customer_Pr_School_Id] AS [Customer_Pr_School_Id], 
+    [CustomerActivity].[POS_Id] AS [POS_Id], 
+    [CustomerActivity].[School_Id] AS [School_Id], 
+    [CustomerActivity].[Emp_Cashier_Id] AS [Emp_Cashier_Id], 
+    [CustomerActivity].[Customer_Id] AS [Customer_Id], 
+    [CustomerActivity].[OrdersLog_Id] AS [OrdersLog_Id], 
+    [CustomerActivity].[GDate] AS [GDate], 
+    [CustomerActivity].[OrderDate] AS [OrderDate], 
+    [CustomerActivity].[OrderDateLocal] AS [OrderDateLocal], 
+    [CustomerActivity].[LunchType] AS [LunchType], 
+    [CustomerActivity].[ADebit] AS [ADebit], 
+    [CustomerActivity].[MDebit] AS [MDebit], 
+    [CustomerActivity].[ACredit] AS [ACredit], 
+    [CustomerActivity].[BCredit] AS [BCredit], 
+    [CustomerActivity].[MCredit] AS [MCredit], 
+    [CustomerActivity].[CheckNumber] AS [CheckNumber], 
+    [CustomerActivity].[OverRide] AS [OverRide], 
+    [CustomerActivity].[isVoid] AS [isVoid], 
+    [CustomerActivity].[TransType] AS [TransType], 
+    [CustomerActivity].[CreditAuth_Id] AS [CreditAuth_Id], 
+    [CustomerActivity].[CashierName] AS [CashierName], 
+    [CustomerActivity].[Debit] AS [Debit], 
+    [CustomerActivity].[Credit] AS [Credit], 
+    [CustomerActivity].[Items] AS [Items], 
+    [CustomerActivity].[SalesTax] AS [SalesTax], 
+    [CustomerActivity].[OrderType] AS [OrderType]
+    FROM [dbo].[CustomerActivity] AS [CustomerActivity]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomerBalance" EntityType="Self.CustomerBalance" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CustomerBalance].[ROWID] AS [ROWID], 
+    [CustomerBalance].[UserID] AS [UserID], 
+    [CustomerBalance].[LastName] AS [LastName], 
+    [CustomerBalance].[FirstName] AS [FirstName], 
+    [CustomerBalance].[isActive] AS [isActive], 
+    [CustomerBalance].[isPrimary] AS [isPrimary], 
+    [CustomerBalance].[SchoolName] AS [SchoolName], 
+    [CustomerBalance].[Grade] AS [Grade], 
+    [CustomerBalance].[Homeroom] AS [Homeroom], 
+    [CustomerBalance].[ABalance] AS [ABalance], 
+    [CustomerBalance].[MBalance] AS [MBalance], 
+    [CustomerBalance].[BonusBalance] AS [BonusBalance], 
+    [CustomerBalance].[SCHID] AS [SCHID], 
+    [CustomerBalance].[HRID] AS [HRID], 
+    [CustomerBalance].[GRID] AS [GRID], 
+    [CustomerBalance].[ClientID] AS [ClientID], 
+    [CustomerBalance].[LunchType] AS [LunchType], 
+    [CustomerBalance].[CustomerID] AS [CustomerID]
+    FROM [dbo].[CustomerBalance] AS [CustomerBalance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CustomerRoster" EntityType="Self.CustomerRoster" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CustomerRoster].[ClientID] AS [ClientID], 
+    [CustomerRoster].[CSTID] AS [CSTID], 
+    [CustomerRoster].[DISTID] AS [DISTID], 
+    [CustomerRoster].[LANGUAGEID] AS [LANGUAGEID], 
+    [CustomerRoster].[SCHID] AS [SCHID], 
+    [CustomerRoster].[GRID] AS [GRID], 
+    [CustomerRoster].[HRID] AS [HRID], 
+    [CustomerRoster].[CreationDate] AS [CreationDate], 
+    [CustomerRoster].[GraduationDate] AS [GraduationDate], 
+    [CustomerRoster].[DeactiveDate] AS [DeactiveDate], 
+    [CustomerRoster].[ReactiveDate] AS [ReactiveDate], 
+    [CustomerRoster].[isActive] AS [isActive], 
+    [CustomerRoster].[isDeleted] AS [isDeleted], 
+    [CustomerRoster].[isActiveInt] AS [isActiveInt], 
+    [CustomerRoster].[isDeletedInt] AS [isDeletedInt], 
+    [CustomerRoster].[AllowBio] AS [AllowBio], 
+    [CustomerRoster].[BioPresent] AS [BioPresent], 
+    [CustomerRoster].[UserID] AS [UserID], 
+    [CustomerRoster].[PIN] AS [PIN], 
+    [CustomerRoster].[AllowAlaCarte] AS [AllowAlaCarte], 
+    [CustomerRoster].[CashOnly] AS [CashOnly], 
+    [CustomerRoster].[LunchType] AS [LunchType], 
+    [CustomerRoster].[isStudent] AS [isStudent], 
+    [CustomerRoster].[isFrozen] AS [isFrozen], 
+    [CustomerRoster].[LastName] AS [LastName], 
+    [CustomerRoster].[FirstName] AS [FirstName], 
+    [CustomerRoster].[Middle] AS [Middle], 
+    [CustomerRoster].[Address1] AS [Address1], 
+    [CustomerRoster].[Address2] AS [Address2], 
+    [CustomerRoster].[City] AS [City], 
+    [CustomerRoster].[State] AS [State], 
+    [CustomerRoster].[Zip] AS [Zip], 
+    [CustomerRoster].[Phone] AS [Phone], 
+    [CustomerRoster].[EMail] AS [EMail], 
+    [CustomerRoster].[ExtraInfo] AS [ExtraInfo], 
+    [CustomerRoster].[SSN] AS [SSN], 
+    [CustomerRoster].[Grade] AS [Grade], 
+    [CustomerRoster].[Homeroom] AS [Homeroom], 
+    [CustomerRoster].[SchoolName] AS [SchoolName], 
+    [CustomerRoster].[SchoolID] AS [SchoolID], 
+    [CustomerRoster].[SchoolAddress1] AS [SchoolAddress1], 
+    [CustomerRoster].[SchoolAddress2] AS [SchoolAddress2], 
+    [CustomerRoster].[SchoolCity] AS [SchoolCity], 
+    [CustomerRoster].[SchoolState] AS [SchoolState], 
+    [CustomerRoster].[SchoolZip] AS [SchoolZip], 
+    [CustomerRoster].[SchoolPhone1] AS [SchoolPhone1], 
+    [CustomerRoster].[SchoolPhone2] AS [SchoolPhone2], 
+    [CustomerRoster].[DistrictName] AS [DistrictName], 
+    [CustomerRoster].[DistrictAddress1] AS [DistrictAddress1], 
+    [CustomerRoster].[DistrictAddress2] AS [DistrictAddress2], 
+    [CustomerRoster].[DistrictCity] AS [DistrictCity], 
+    [CustomerRoster].[DistrictState] AS [DistrictState], 
+    [CustomerRoster].[DistrictZip] AS [DistrictZip], 
+    [CustomerRoster].[DistrictPhone1] AS [DistrictPhone1], 
+    [CustomerRoster].[DistrictPhone2] AS [DistrictPhone2], 
+    [CustomerRoster].[LunchTypeStatus] AS [LunchTypeStatus], 
+    [CustomerRoster].[LunchTypeSort] AS [LunchTypeSort], 
+    [CustomerRoster].[MealPlanAssignment] AS [MealPlanAssignment], 
+    [CustomerRoster].[NumMealsLeft] AS [NumMealsLeft], 
+    [CustomerRoster].[ActiveStatus] AS [ActiveStatus], 
+    [CustomerRoster].[ActiveStatusSort] AS [ActiveStatusSort], 
+    [CustomerRoster].[QTYPaid] AS [QTYPaid], 
+    [CustomerRoster].[QTYReduced] AS [QTYReduced], 
+    [CustomerRoster].[QTYFree] AS [QTYFree], 
+    [CustomerRoster].[QTYAdult] AS [QTYAdult], 
+    [CustomerRoster].[QTYMealPlan] AS [QTYMealPlan], 
+    [CustomerRoster].[QTYPFR] AS [QTYPFR]
+    FROM [dbo].[CustomerRoster] AS [CustomerRoster]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DailyCashier" EntityType="Self.DailyCashier" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DailyCashier].[ClientID] AS [ClientID], 
+    [DailyCashier].[CASHRESID] AS [CASHRESID], 
+    [DailyCashier].[CUSTID] AS [CUSTID], 
+    [DailyCashier].[POSID] AS [POSID], 
+    [DailyCashier].[SCHID] AS [SCHID], 
+    [DailyCashier].[POSName] AS [POSName], 
+    [DailyCashier].[SchoolID] AS [SchoolID], 
+    [DailyCashier].[SchoolName] AS [SchoolName], 
+    [DailyCashier].[LoginName] AS [LoginName], 
+    [DailyCashier].[LastName] AS [LastName], 
+    [DailyCashier].[FirstName] AS [FirstName], 
+    [DailyCashier].[Middle] AS [Middle], 
+    [DailyCashier].[UserId] AS [UserId], 
+    [DailyCashier].[OpenDate] AS [OpenDate], 
+    [DailyCashier].[CloseDate] AS [CloseDate], 
+    [DailyCashier].[OpenAmount] AS [OpenAmount], 
+    [DailyCashier].[CloseAmount] AS [CloseAmount], 
+    [DailyCashier].[Deposit] AS [Deposit], 
+    [DailyCashier].[PaidOuts] AS [PaidOuts], 
+    [DailyCashier].[Additional] AS [Additional], 
+    [DailyCashier].[TotalCash] AS [TotalCash], 
+    [DailyCashier].[OverShort] AS [OverShort], 
+    [DailyCashier].[Sales] AS [Sales], 
+    [DailyCashier].[Tax] AS [Tax]
+    FROM [dbo].[DailyCashier] AS [DailyCashier]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DepositTicket" EntityType="Self.DepositTicket" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DepositTicket].[ClientID] AS [ClientID], 
+    [DepositTicket].[CASHRESID] AS [CASHRESID], 
+    [DepositTicket].[ORDID] AS [ORDID], 
+    [DepositTicket].[CSTID] AS [CSTID], 
+    [DepositTicket].[POSID] AS [POSID], 
+    [DepositTicket].[DISTID] AS [DISTID], 
+    [DepositTicket].[SCHID] AS [SCHID], 
+    [DepositTicket].[DepositType] AS [DepositType], 
+    [DepositTicket].[PaymentType] AS [PaymentType], 
+    [DepositTicket].[PaymentTypeName] AS [PaymentTypeName], 
+    [DepositTicket].[OrderDate] AS [OrderDate], 
+    [DepositTicket].[ReportDate] AS [ReportDate], 
+    [DepositTicket].[DistrictName] AS [DistrictName], 
+    [DepositTicket].[DistAddress1] AS [DistAddress1], 
+    [DepositTicket].[DistAddress2] AS [DistAddress2], 
+    [DepositTicket].[DistCity] AS [DistCity], 
+    [DepositTicket].[DistState] AS [DistState], 
+    [DepositTicket].[DistZip] AS [DistZip], 
+    [DepositTicket].[DistBankName] AS [DistBankName], 
+    [DepositTicket].[DistBankAddress1] AS [DistBankAddress1], 
+    [DepositTicket].[DistBankAddress2] AS [DistBankAddress2], 
+    [DepositTicket].[DistBankCity] AS [DistBankCity], 
+    [DepositTicket].[DistBankState] AS [DistBankState], 
+    [DepositTicket].[DistBankZip] AS [DistBankZip], 
+    [DepositTicket].[LastName] AS [LastName], 
+    [DepositTicket].[FirstName] AS [FirstName], 
+    [DepositTicket].[Middle] AS [Middle], 
+    [DepositTicket].[CheckNumber] AS [CheckNumber], 
+    [DepositTicket].[CheckAmount] AS [CheckAmount], 
+    [DepositTicket].[POSCheckAmount] AS [POSCheckAmount], 
+    [DepositTicket].[AdminCheckAmount] AS [AdminCheckAmount], 
+    [DepositTicket].[CreditAmount] AS [CreditAmount], 
+    [DepositTicket].[POSCreditAmount] AS [POSCreditAmount], 
+    [DepositTicket].[AdminCreditAmount] AS [AdminCreditAmount], 
+    [DepositTicket].[CashAmount] AS [CashAmount], 
+    [DepositTicket].[MiscCashAmount] AS [MiscCashAmount], 
+    [DepositTicket].[POSCashAmount] AS [POSCashAmount], 
+    [DepositTicket].[AdminCashAmount] AS [AdminCashAmount], 
+    [DepositTicket].[POSTotalAmount] AS [POSTotalAmount], 
+    [DepositTicket].[AdminTotalAmount] AS [AdminTotalAmount], 
+    [DepositTicket].[CashOutAmount] AS [CashOutAmount], 
+    [DepositTicket].[Amount] AS [Amount]
+    FROM [dbo].[DepositTicket] AS [DepositTicket]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DetailCafeCashiers" EntityType="Self.DetailCafeCashiers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DetailCafeCashiers].[ClientID] AS [ClientID], 
+    [DetailCafeCashiers].[CASHRESID] AS [CASHRESID], 
+    [DetailCafeCashiers].[POSID] AS [POSID], 
+    [DetailCafeCashiers].[SCHID] AS [SCHID], 
+    [DetailCafeCashiers].[Finished] AS [Finished], 
+    [DetailCafeCashiers].[POSName] AS [POSName], 
+    [DetailCafeCashiers].[LastName] AS [LastName], 
+    [DetailCafeCashiers].[FirstName] AS [FirstName], 
+    [DetailCafeCashiers].[Middle] AS [Middle], 
+    [DetailCafeCashiers].[Emp_Cashier_Id] AS [Emp_Cashier_Id], 
+    [DetailCafeCashiers].[OpenDate] AS [OpenDate], 
+    [DetailCafeCashiers].[CloseDate] AS [CloseDate], 
+    [DetailCafeCashiers].[OpenMessage] AS [OpenMessage], 
+    [DetailCafeCashiers].[CloseMessage] AS [CloseMessage]
+    FROM [dbo].[DetailCafeCashiers] AS [DetailCafeCashiers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DetailCafeCategories" EntityType="Self.DetailCafeCategories" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DetailCafeCategories].[ClientID] AS [ClientID], 
+    [DetailCafeCategories].[ORDID] AS [ORDID], 
+    [DetailCafeCategories].[DISTID] AS [DISTID], 
+    [DetailCafeCategories].[SCHID] AS [SCHID], 
+    [DetailCafeCategories].[ItemMenuID] AS [ItemMenuID], 
+    [DetailCafeCategories].[MENUID] AS [MENUID], 
+    [DetailCafeCategories].[CATID] AS [CATID], 
+    [DetailCafeCategories].[PREORDITEMID] AS [PREORDITEMID], 
+    [DetailCafeCategories].[OrderDate] AS [OrderDate], 
+    [DetailCafeCategories].[GDate] AS [GDate], 
+    [DetailCafeCategories].[CSTID] AS [CSTID], 
+    [DetailCafeCategories].[CategoryName] AS [CategoryName], 
+    [DetailCafeCategories].[CategoryType] AS [CategoryType], 
+    [DetailCafeCategories].[canFree] AS [canFree], 
+    [DetailCafeCategories].[canReduce] AS [canReduce], 
+    [DetailCafeCategories].[QualifiedSort] AS [QualifiedSort], 
+    [DetailCafeCategories].[QualifiedDisplay] AS [QualifiedDisplay], 
+    [DetailCafeCategories].[AccountType] AS [AccountType], 
+    [DetailCafeCategories].[NetPrice] AS [NetPrice], 
+    [DetailCafeCategories].[AccountTotal] AS [AccountTotal], 
+    [DetailCafeCategories].[CashTotal] AS [CashTotal], 
+    [DetailCafeCategories].[PreorderTotal] AS [PreorderTotal], 
+    [DetailCafeCategories].[TotalCount] AS [TotalCount], 
+    [DetailCafeCategories].[AccountCount] AS [AccountCount], 
+    [DetailCafeCategories].[CashCount] AS [CashCount], 
+    [DetailCafeCategories].[PreorderCount] AS [PreorderCount], 
+    [DetailCafeCategories].[PaidPrice] AS [PaidPrice]
+    FROM [dbo].[DetailCafeCategories] AS [DetailCafeCategories]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DetailCafeNetChange" EntityType="Self.DetailCafeNetChange" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DetailCafeNetChange].[ClientID] AS [ClientID], 
+    [DetailCafeNetChange].[CSTID] AS [CSTID], 
+    [DetailCafeNetChange].[SCHID] AS [SCHID], 
+    [DetailCafeNetChange].[OrderDate] AS [OrderDate], 
+    [DetailCafeNetChange].[ReportDate] AS [ReportDate], 
+    [DetailCafeNetChange].[NetChange] AS [NetChange]
+    FROM [dbo].[DetailCafeNetChange] AS [DetailCafeNetChange]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DetailCafeSummary" EntityType="Self.DetailCafeSummary" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DetailCafeSummary].[ClientID] AS [ClientID], 
+    [DetailCafeSummary].[ORDID] AS [ORDID], 
+    [DetailCafeSummary].[CASHRESID] AS [CASHRESID], 
+    [DetailCafeSummary].[SCHID] AS [SCHID], 
+    [DetailCafeSummary].[POSID] AS [POSID], 
+    [DetailCafeSummary].[EMPID] AS [EMPID], 
+    [DetailCafeSummary].[CUSTID] AS [CUSTID], 
+    [DetailCafeSummary].[ReportDateTime] AS [ReportDateTime], 
+    [DetailCafeSummary].[ReportDate] AS [ReportDate], 
+    [DetailCafeSummary].[CashSalesByItem] AS [CashSalesByItem], 
+    [DetailCafeSummary].[AccountSalesByItem] AS [AccountSalesByItem], 
+    [DetailCafeSummary].[PreOrderSalesByItem] AS [PreOrderSalesByItem], 
+    [DetailCafeSummary].[CashSalesByItemTotal] AS [CashSalesByItemTotal], 
+    [DetailCafeSummary].[AccountSalesByItemTotal] AS [AccountSalesByItemTotal], 
+    [DetailCafeSummary].[PreOrderSalesByItemTotal] AS [PreOrderSalesByItemTotal], 
+    [DetailCafeSummary].[PaymentsOnAccount] AS [PaymentsOnAccount], 
+    [DetailCafeSummary].[TotalOnAccount] AS [TotalOnAccount], 
+    [DetailCafeSummary].[CashPayments] AS [CashPayments], 
+    [DetailCafeSummary].[CashSales] AS [CashSales], 
+    [DetailCafeSummary].[AccountSales] AS [AccountSales], 
+    [DetailCafeSummary].[VendingPayments] AS [VendingPayments], 
+    [DetailCafeSummary].[VendingAcctSales] AS [VendingAcctSales], 
+    [DetailCafeSummary].[VendingCashSales] AS [VendingCashSales], 
+    [DetailCafeSummary].[VendingSales] AS [VendingSales], 
+    [DetailCafeSummary].[TotalAccountSales] AS [TotalAccountSales], 
+    [DetailCafeSummary].[TotalCashSales] AS [TotalCashSales], 
+    [DetailCafeSummary].[Refunds] AS [Refunds], 
+    [DetailCafeSummary].[OverShort] AS [OverShort], 
+    [DetailCafeSummary].[TotalSales] AS [TotalSales], 
+    [DetailCafeSummary].[POSDeposit] AS [POSDeposit], 
+    [DetailCafeSummary].[VendingDeposit] AS [VendingDeposit], 
+    [DetailCafeSummary].[AdminDeposit] AS [AdminDeposit], 
+    [DetailCafeSummary].[OnlineDeposit] AS [OnlineDeposit], 
+    [DetailCafeSummary].[Deposit] AS [Deposit], 
+    [DetailCafeSummary].[ChargedOnAccount] AS [ChargedOnAccount], 
+    [DetailCafeSummary].[TotalCredits] AS [TotalCredits], 
+    [DetailCafeSummary].[TotalDebits] AS [TotalDebits], 
+    [DetailCafeSummary].[Revenue] AS [Revenue], 
+    [DetailCafeSummary].[ToAccountFor] AS [ToAccountFor], 
+    [DetailCafeSummary].[AdultPayments] AS [AdultPayments], 
+    [DetailCafeSummary].[StudentPayments] AS [StudentPayments], 
+    [DetailCafeSummary].[TaxableSales] AS [TaxableSales], 
+    [DetailCafeSummary].[TaxableCashSales] AS [TaxableCashSales], 
+    [DetailCafeSummary].[TaxableAcctSales] AS [TaxableAcctSales], 
+    [DetailCafeSummary].[TaxCollected] AS [TaxCollected], 
+    [DetailCafeSummary].[TaxOnAcctSales] AS [TaxOnAcctSales], 
+    [DetailCafeSummary].[TaxOnCashSales] AS [TaxOnCashSales], 
+    [DetailCafeSummary].[TaxOnPOSales] AS [TaxOnPOSales], 
+    [DetailCafeSummary].[CreditsOnAccount] AS [CreditsOnAccount], 
+    [DetailCafeSummary].[OnlinePayments] AS [OnlinePayments], 
+    [DetailCafeSummary].[OnlineCCPayments] AS [OnlineCCPayments], 
+    [DetailCafeSummary].[OnlineACHPayments] AS [OnlineACHPayments], 
+    [DetailCafeSummary].[OnlineACHReturns] AS [OnlineACHReturns], 
+    [DetailCafeSummary].[AccountSubtotal] AS [AccountSubtotal], 
+    [DetailCafeSummary].[POSPaymentsOnAccount] AS [POSPaymentsOnAccount], 
+    [DetailCafeSummary].[AdminPaymentsOnAccount] AS [AdminPaymentsOnAccount], 
+    [DetailCafeSummary].[AdminPaymentsVoided] AS [AdminPaymentsVoided], 
+    [DetailCafeSummary].[AdminRefunds] AS [AdminRefunds]
+    FROM [dbo].[DetailCafeSummary] AS [DetailCafeSummary]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SalesTaxOnOrder" EntityType="Self.SalesTaxOnOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SalesTaxOnOrder].[ClientID] AS [ClientID], 
+    [SalesTaxOnOrder].[ORDID] AS [ORDID], 
+    [SalesTaxOnOrder].[CashSaleSalesTax] AS [CashSaleSalesTax], 
+    [SalesTaxOnOrder].[AccountSaleSalesTax] AS [AccountSaleSalesTax], 
+    [SalesTaxOnOrder].[SalesTax] AS [SalesTax]
+    FROM [dbo].[SalesTaxOnOrder] AS [SalesTaxOnOrder]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SoldItems" EntityType="Self.SoldItems" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SoldItems].[clientid] AS [clientid], 
+    [SoldItems].[ItemMenuID] AS [ItemMenuID], 
+    [SoldItems].[MenuID] AS [MenuID], 
+    [SoldItems].[CategoryID] AS [CategoryID], 
+    [SoldItems].[CategoryTypeID] AS [CategoryTypeID], 
+    [SoldItems].[POSID] AS [POSID], 
+    [SoldItems].[SCHID] AS [SCHID], 
+    [SoldItems].[PRIMSCHID] AS [PRIMSCHID], 
+    [SoldItems].[EMPCASHID] AS [EMPCASHID], 
+    [SoldItems].[OrderDate] AS [OrderDate], 
+    [SoldItems].[GDate] AS [GDate], 
+    [SoldItems].[TransType] AS [TransType], 
+    [SoldItems].[CategoryTypeName] AS [CategoryTypeName], 
+    [SoldItems].[CategoryName] AS [CategoryName], 
+    [SoldItems].[MenuItem] AS [MenuItem], 
+    [SoldItems].[LunchType] AS [LunchType], 
+    [SoldItems].[LunchTypeStatus] AS [LunchTypeStatus], 
+    [SoldItems].[Qty] AS [Qty], 
+    [SoldItems].[RegularPrice] AS [RegularPrice], 
+    [SoldItems].[Price] AS [Price], 
+    [SoldItems].[SoldType] AS [SoldType], 
+    [SoldItems].[Total] AS [Total], 
+    [SoldItems].[PreOrderStatus] AS [PreOrderStatus], 
+    [SoldItems].[PreOrderPickup] AS [PreOrderPickup]
+    FROM [dbo].[SoldItems] AS [SoldItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="StatementDetailItems" EntityType="Self.StatementDetailItems" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StatementDetailItems].[ClientID] AS [ClientID], 
+    [StatementDetailItems].[CSTID] AS [CSTID], 
+    [StatementDetailItems].[SCHID] AS [SCHID], 
+    [StatementDetailItems].[ORDID] AS [ORDID], 
+    [StatementDetailItems].[GDate] AS [GDate], 
+    [StatementDetailItems].[OrderDate] AS [OrderDate], 
+    [StatementDetailItems].[TransType] AS [TransType], 
+    [StatementDetailItems].[OrderTypeName] AS [OrderTypeName], 
+    [StatementDetailItems].[OrderType] AS [OrderType], 
+    [StatementDetailItems].[ItemName] AS [ItemName], 
+    [StatementDetailItems].[PaidPrice] AS [PaidPrice], 
+    [StatementDetailItems].[Qty] AS [Qty], 
+    [StatementDetailItems].[ExtendedPrice] AS [ExtendedPrice]
+    FROM [dbo].[StatementDetailItems] AS [StatementDetailItems]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="StatementDetailOrders" EntityType="Self.StatementDetailOrders" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StatementDetailOrders].[ClientID] AS [ClientID], 
+    [StatementDetailOrders].[CSTID] AS [CSTID], 
+    [StatementDetailOrders].[SCHID] AS [SCHID], 
+    [StatementDetailOrders].[ORDID] AS [ORDID], 
+    [StatementDetailOrders].[OrderTypeName] AS [OrderTypeName], 
+    [StatementDetailOrders].[OrderType] AS [OrderType], 
+    [StatementDetailOrders].[GDate] AS [GDate], 
+    [StatementDetailOrders].[OrderDate] AS [OrderDate], 
+    [StatementDetailOrders].[TransType] AS [TransType], 
+    [StatementDetailOrders].[PaymentType] AS [PaymentType], 
+    [StatementDetailOrders].[TotalAccount] AS [TotalAccount], 
+    [StatementDetailOrders].[TotalPaid] AS [TotalPaid], 
+    [StatementDetailOrders].[SalesTax] AS [SalesTax], 
+    [StatementDetailOrders].[BalanceChange] AS [BalanceChange], 
+    [StatementDetailOrders].[TotalItemQTY] AS [TotalItemQTY]
+    FROM [dbo].[StatementDetailOrders] AS [StatementDetailOrders]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VoidsDS" EntityType="Self.VoidsDS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VoidsDS].[ROWID] AS [ROWID], 
+    [VoidsDS].[ClientID] AS [ClientID], 
+    [VoidsDS].[SCHID] AS [SCHID], 
+    [VoidsDS].[ORDEMPID] AS [ORDEMPID], 
+    [VoidsDS].[CSTID] AS [CSTID], 
+    [VoidsDS].[MODEMPID] AS [MODEMPID], 
+    [VoidsDS].[OrderDate] AS [OrderDate], 
+    [VoidsDS].[GDate] AS [GDate], 
+    [VoidsDS].[SchoolName] AS [SchoolName], 
+    [VoidsDS].[SchoolID] AS [SchoolID], 
+    [VoidsDS].[Address1] AS [Address1], 
+    [VoidsDS].[Address2] AS [Address2], 
+    [VoidsDS].[City] AS [City], 
+    [VoidsDS].[State] AS [State], 
+    [VoidsDS].[Zip] AS [Zip], 
+    [VoidsDS].[LastName] AS [LastName], 
+    [VoidsDS].[FirstName] AS [FirstName], 
+    [VoidsDS].[Middle] AS [Middle], 
+    [VoidsDS].[ChangedBy] AS [ChangedBy], 
+    [VoidsDS].[VoidTime] AS [VoidTime], 
+    [VoidsDS].[VoidOrder] AS [VoidOrder], 
+    [VoidsDS].[VoidItem] AS [VoidItem], 
+    [VoidsDS].[TransType] AS [TransType], 
+    [VoidsDS].[ACredit] AS [ACredit], 
+    [VoidsDS].[ADebit] AS [ADebit], 
+    [VoidsDS].[MCredit] AS [MCredit], 
+    [VoidsDS].[MDebit] AS [MDebit], 
+    [VoidsDS].[ItemName] AS [ItemName], 
+    [VoidsDS].[Qty] AS [Qty], 
+    [VoidsDS].[Price] AS [Price], 
+    [VoidsDS].[TaxPrice] AS [TaxPrice], 
+    [VoidsDS].[Total] AS [Total], 
+    [VoidsDS].[Cashier] AS [Cashier], 
+    [VoidsDS].[Notes] AS [Notes], 
+    [VoidsDS].[Type] AS [Type], 
+    [VoidsDS].[SortDate] AS [SortDate]
+    FROM [dbo].[VoidsDS] AS [VoidsDS]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

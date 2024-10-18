@@ -1,0 +1,48 @@
+﻿
+
+<div class="modal fade" id="basic_modalPopup" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 408px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <label id="posNamelbl"></label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 214px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">Enable credit cards:</label><br />
+                            <div  >
+                                <input type="checkbox" id="CreditCardStatus" name="CustomerActive" class="toggle make-switch" data-on-text="Enabled" data-off-text="&nbsp; Disabled &nbsp;" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row" id="divUserName">
+                        <div class="col-md-12">
+                            <label class="">User name:</label><br />
+                            <input type="text" name="VeriFoneUserId" id="VeriFoneUserId" size="16" class="form-control" maxlength="20"/>
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row" id="divUserPassword">
+                        <div class="col-md-12">
+                            <label class="">Password:</label><br />
+                            <input type="password" name="VeriFonePassword" id="VeriFonePassword" value="temppass" size="16" class="form-control" maxlength="20" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="button" class="btn blue savaForm btn-lg margleft10 not-default-btn">Save</button>
+                <button type="button" class="btn default btn-lg defaultBtnClass" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

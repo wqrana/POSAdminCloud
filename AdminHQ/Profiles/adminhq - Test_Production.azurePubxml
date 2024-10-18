@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AzureCredentials>{"ServiceManagementEndpoint":"https:\/\/management.core.windows.net\/","SubscriptionId":"e2cc7e68-f85a-4af9-94b9-9932b2ee5792"}</AzureCredentials>
+    <AzureDeleteDeploymentOnFailure>False</AzureDeleteDeploymentOnFailure>
+    <AzureDeploymentLabel>AdminHQ - 6.1.2.65</AzureDeploymentLabel>
+    <AzureDeploymentReplacementMethod>AutomaticUpgrade</AzureDeploymentReplacementMethod>
+    <AzureSlot>Production</AzureSlot>
+    <AzureEnableRemoteDesktop>False</AzureEnableRemoteDesktop>
+    <AzureEnableWebDeploy>False</AzureEnableWebDeploy>
+    <AzureFallbackToDeleteAndRecreateIfUpgradeFails>True</AzureFallbackToDeleteAndRecreateIfUpgradeFails>
+    <AzureHostedServiceLabel>fssposadmintest</AzureHostedServiceLabel>
+    <AzureHostedServiceName>fssposadmintest</AzureHostedServiceName>
+    <AzureEnableIntelliTrace>False</AzureEnableIntelliTrace>
+    <AzureEnableProfiling>False</AzureEnableProfiling>
+    <AzureServiceConfiguration>TEST</AzureServiceConfiguration>
+    <AzureSolutionConfiguration>Debug - Test</AzureSolutionConfiguration>
+    <AzureStorageAccountLabel>cpsposteststorage1</AzureStorageAccountLabel>
+    <AzureStorageAccountName>cpsposteststorage1</AzureStorageAccountName>
+    <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <AzureHostedServiceResourceGroup>CPS-TEST-1</AzureHostedServiceResourceGroup>
+  </PropertyGroup>
+</Project>

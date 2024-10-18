@@ -1,0 +1,81 @@
+﻿td .width15{
+   /* width:15%;*/
+}
+
+td .width20{
+  /*  width:20%;*/
+}
+td .width70{
+   /* width:70%; */
+}
+td .width80{
+  /*  width:80%; */
+}
+.font-red {
+    color: #989898 !important;
+}
+
+.graph-height {
+  height:211px !important;
+}
+
+.legendLabel {
+  padding-left:5px !important;
+}
+.legendColorBox {
+ vertical-align:top !important;
+}
+
+.current-preorder-height {
+  height:180px !important;
+}
+
+.avg-preorderIncome-height {
+  height:313px !important;
+}
+
+.top-selling-items-height {
+  height:80px !important;
+}
+
+.control {
+
+  padding-left: 62%;
+  padding-top: 1%;
+}
+
+.grey.box.portlet {
+  border:1px solid #989898 !important;
+}
+.grey.box.portlet > .portlet-title {
+    background-color: #989898 !important;
+}
+
+.grey.box.portlet > .portlet-title > .caption {
+    color: #FFFFFF !important;
+ }
+
+.portlet.box.green {
+    border: 1px solid #8dc63f !important;
+}
+
+.portlet.box.green > .portlet-title {
+    background-color: #8dc63f !important;
+}
+
+.portlet.box.yellow {
+    border: 1px solid #efb23a !important;
+}
+
+.portlet.box.yellow > .portlet-title {
+    background-color: #efb23a !important;
+}
+
+.portlet.box.red {
+    border: 1px solid #ed1d34 !important;
+}
+
+.portlet.box.red > .portlet-title {
+    background-color: #ed1d34 !important;
+}
+

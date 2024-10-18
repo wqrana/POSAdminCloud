@@ -1,0 +1,28 @@
+﻿@import "/Content/Shared/Index Page/TileView.css";
+@import "/Content/Shared/Index Page/Table-Tile-View-Buttons.css";
+
+.btn-group .btn.blue.dropdown-toggle {
+    background-color: #636366 !important;
+}
+
+ul .dropdown-menu {
+    width: 240px !important;
+}
+
+.removeAnchorStyle {
+    text-decoration: none;
+    color: #000;
+}
+
+    .removeAnchorStyle:hover {
+        text-decoration: none;
+        color: #000;
+    }
+
+.TileView .dashboard-stat .visual i
+{
+    margin-left:7px;
+    opacity:1;
+    color:#fff;
+
+}

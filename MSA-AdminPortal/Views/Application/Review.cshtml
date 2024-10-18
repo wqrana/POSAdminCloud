@@ -1,0 +1,494 @@
+﻿@model AdminPortalModels.ViewModels.Application
+@Styles.Render("~/Content/themes/datatables/css")
+<link href="~/Content/CustomCSS/Application.css" rel="stylesheet" />
+@Html.Hidden("appId", Model.Application_Id)
+<style>
+    td {
+        padding: 5px 0;
+    }
+
+/*Start*/
+.incomeDetail td, .incomeDetail th{
+    padding:10px 0px 10px 20px;
+}
+/*End*/
+
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Application Review</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-book"></i>
+                <a href="#">Application Review</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <table>
+                    <tr>
+                        <td>
+                            <label><strong>Application ID :</strong></label>
+                        </td>
+                        <td>
+                            <label style="margin-left:10px;">@Model.Application_Id</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>District</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <td>
+                            <span><strong>Selected District:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.District_Name</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Household Size:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Household_Size</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Precertified:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@if(Model.Precertified.HasValue && Model.Precertified.Value){<i class="fa fa-check" style="margin-left:0px;"></i>}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Date Entered:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.DateEntered</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7">
+                <table>
+                    <tr>
+                        <td>
+                            <span><strong>Status:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Status</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Direct cert:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.DirectCert</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Household Size</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <th>
+                            <span>Given</span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>@Model.Household_Size</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <th>
+                            <span>Actual</span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>@Model.Household_Size</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Students and Income</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-condensed" id="tblAppstudentsReviwe">
+                        <thead>
+                            <tr>
+                                <th>
+                                    &nbsp;
+                                </th>
+                                <th>Id</th>
+                                <th>Student Name</th>
+                                <th>Homeroom</th>
+                                <th>Date of Birth</th>
+                                <th>Has Income</th>
+                                <th>POS Status</th>
+                                <th>Status</th>
+                                <th>Direct Cert</th>
+                                <th>Precertified</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Members & (Students Not Enrolled) and their Income</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-condensed" id="tblAppMembersReview">
+                        <thead>
+                            <tr>
+                                <th>
+                                    &nbsp;
+                                </th>
+                                <th>Id</th>
+                                <th>Member Name</th>
+                                <th>Date of Birth</th>
+                                <th>Email</th>
+                                <th>SSN</th>
+                                <th>Foster</th>
+                                <th>Has Income</th>
+                                <th>Student</th>
+                                <th>Status</th>
+                                <th>Direct Cert</th>
+                                <th>Precertified</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Special Circumstances</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <td>
+                            <span><strong>Beneficiary Name:</strong></span>
+                        </td>
+                        <td>
+                            <span>
+                                <span style="margin-left:10px;">@Model.Beneficiary_Name</span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Case Number:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Case_Number</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Special Circumstances:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.SpecialCircum</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Entered:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;"><input class="make-switch toggle" type="checkbox" data-on-text="Yes" data-off-text="No" disabled="disabled" checked="@Model.Entered" /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Updated:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;"><input class="make-switch toggle" type="checkbox" data-on-text="Yes" data-off-text="No" disabled="disabled" checked="@Model.Updated" /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Entered Date:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.DateEntered</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Printed:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;"><input type="checkbox" class="make-switch toggle" data-on-text="Yes" data-off-text="No" disabled="disabled" checked="@Model.IsPrinted"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Printed Date:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.PrintedDate</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Demographic Information</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <th>
+                            <span><strong>Ethnicity</strong></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <spain>@Model.Ethnicity</spain>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <th>
+                            <span><strong>Race</strong></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>@Model.Race</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="SeventhPageDiv">
+                    <div style="float: left;">
+                        <h4>Application Signer</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <td>
+                            <span><strong>Signer Name:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.App_Signer_Name</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Address1:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Address1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Address2:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Address2</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Email:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Email</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Date:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.SignedDate</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Cell Phone:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Cell_Phone</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7">
+                <table style="margin-top:10px;">
+                    <tr>
+                        <td>
+                            <span><strong>Zip:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.ZIP</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>City:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.City</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>SSN:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.SSN</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>State:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.State</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span><strong>Phone:</strong></span>
+                        </td>
+                        <td>
+                            <span style="margin-left:10px;">@Model.Phone</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <textarea id="txtAreaComments" maxlength="1000" placeholder=" comments go here..." style="width:100%; max-width:100%; height:70px; max-height:70px; margin-top:10px;">@Model.Comments</textarea>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    @Html.ActionLink("Print Application", "Print", "Application", new { appId = Model.Application_Id }, new { @class = "btn btn-default", target="_blank", style = "margin-top:10px; width:90%;" })
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <input type="button" id="btnReject" class="btn btn-default red" style="margin-top:5px;" title="Rejcet" value="Reject" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <input type="button" id="btnAccept" class="btn btn-default green" style="margin-top:5px;" title="Accept" value="Accept" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="approvalConfirmation" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:450px; margin-top:193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <strong><span>Confirmation</span></strong>
+            </div>
+            <div class="modal-body">
+                <div class="scroller1" style=" min-height: 30px" data-always-visible="1" data-rail-visible1="1">
+                    <h4>Are you sure to <span id="acceptStringMsg"></span> this application?</h4>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="button" class="btn blue btn-lg margleft10 not-default-btn" data-dismiss="modal" id="btnSubmit" name="btnAccept">Yes</button>
+                <button type="button" class="btn default btn-lg defaultBtnClass" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@Scripts.Render("~/Content/themes/datatables/js")
+<script src="~/Scripts/Applications/Review.js"></script>

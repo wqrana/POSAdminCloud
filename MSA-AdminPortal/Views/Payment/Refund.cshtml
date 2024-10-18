@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Menu = "Order Management";
+    ViewBag.SubMenu = "Refund";
+
+    ViewBag.Title = "Refunds";
+}
+
+<style>
+    .modal-dialog {
+        width: 992px;
+    }
+
+    .centerClass {
+        text-align: center;
+    }
+
+    .modal-footer {
+        text-align: center;
+    }
+
+    .modalfooterinnner {
+        background-color: #efebeb;
+        height: 62px;
+        padding-top: 14px;
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 4px;
+    }
+
+    .radio input[type="radio"], .radio-inline input[type="radio"] {
+        margin-left: 0px;
+    }
+</style>
+
+@Styles.Render("~/Content/themes/datatables/css")
+<link href="~/Content/CustomCSS/RepotsIndex.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/PRACommon.css" rel="stylesheet" />
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    @Html.Hidden("AllowRefunding", MSA_AdminPortal.Helpers.SecurityManager.AllowRefunding)
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+           
+            <li>
+                <i class="fa fa-table fa-fw"></i>
+               <a href="#">@ViewBag.Menu</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#"> @ViewBag.Title</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <input type="hidden" id="CustomerId" name="CustomerId" value="@ViewBag.CustomerId" />
+        <input type="hidden" id="searchBy" name="CustomerId" value="@ViewBag.searchBy" />
+        <input type="hidden" id="SingleSelect" name="SingleSelect" value="1" />
+        <input type="hidden" id="PageName" name="PageName" value="refund" />
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11" style="padding-left: 0;">
+            <a href="#CustomerSearcRpt" data-toggle="modal" data-backdrop="static" data-keyboard="false" id="specificCustomer" onclick="resetUrl()">
+                <button type="button" class="btn green">Select Customer</button>
+            </a>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div id="tableDiv" class="tableDivCss">
+            <table class="tbtdstyle" style="width: 320px;">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Customer:</td>
+                    <td>
+                        <div id="CustomerName">@ViewBag.CustomerName</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>User ID:</td>
+                    <td>
+                        <div id="UserID">@ViewBag.UserID</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meal Balance:</td>
+                    <td>
+                        <div id="MBalance">@ViewBag.MealPlanBalance</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ala Carte Balance:</td>
+                    <td>
+                        <div id="ABalance">@ViewBag.AlaCarteBalance</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row" style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 20px; margin-bottom:10px; overflow: hidden;">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <label class="">Amount:</label><br />
+                <input type="text" name="PaymentAmount" id="PaymentAmount" size="7" class="form-control" style="width: 200px;" maxlength="7"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="padding-top: 10px">
+                <div class="col-md-1"></div>
+                <label class="">Apply To:</label><br />
+                <div class="radio-list">
+                    <div class="row">
+                        <div class="col-md-1">&nbsp;</div>
+                        <div class="col-md-2">
+                            <label>
+                                <input type="radio" value="mealPlan" name="ApplyTo" id="MealPlan"  style="float: left">
+                                Meal Plan
+                            </label>
+                        </div>
+                        <div class="col-md-9">&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">
+                            <label>
+                                <input type="radio" value="alaCarte" checked="checked" name="ApplyTo" id="AlaCarte"  style="float: left">
+                                Ala Carte
+                            </label>
+                        </div>
+                        <div class="col-md-9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-actions fluid">
+        <div class="col-md-offset-5 col-md-7">
+            <button  id="ApplyBtnID" type="button" class="btn blue btn-lg" onclick="SaveRefund();">Apply</button>
+            <button type="button" class="btn default btn-lg margleft10" onclick="CancelRefund();">Cancel</button>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_CustomerSerachPop")
+
+
+
+@Scripts.Render("~/Content/themes/datatables/js")
+<script type="text/javascript" src="~/Scripts/CustSearchPopup.js"></script>
+<script type="text/javascript" src="~/Content/themes/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+<script  type="text/javascript"  src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script>
+
+    function SaveRefund() {
+
+        //debugger;
+
+        var id = $('#CustomerId').val();
+        var id2 = $('#hdnFldSelectedValues').val();
+
+        var currency = $('#PaymentAmount').val();
+        var result = parseFloat(currency.replace(/[^0-9-.]/g, ''));
+
+        var url = "/Payment/ApplyRefund";
+
+        if (id != '0') {
+            if (currency.trim() !== '') {
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: {
+                        "CustomerId": id,
+                        "Amount": result,
+                        "mealPlan": $('#MealPlan').is(':checked'),
+                        "alaCarte": $('#AlaCarte').is(':checked'),
+                    },
+                    dataType: "json",
+                    success: function (data) {
+
+                        var res = data;
+
+                        if (res.result == '-1') {
+                            displaySuccessMessage('Refund applied successfully.');
+                            if (getQueryStringParameterByName('id') != null)
+                                window.location = "/OrdersMgt/Activity?search=true&searchBy=\"" + $('#searchBy').val() + "\"";
+                            else
+                                window.location.reload(true);
+                        }
+                        else {
+                            displayErrorMessage('Error applying refund.');
+                        }
+                    },
+                    error: function () {
+                        displayErrorMessage("Error applying refund.");
+                    }
+                });
+            } else {
+                displayWarningMessage("Please provide some amount.");
+            }
+        }
+        else {
+            displayErrorMessage("Select a Customer.");
+        }
+    }
+    function CancelRefund() {
+        if (getQueryStringParameterByName('id') != null)
+            window.location = "/OrdersMgt/Activity?search=true&searchBy=\"" + $('#searchBy').val() + "\"";
+        else
+            window.location = "/OrdersMgt/Activity";
+    }
+
+    function resetUrl() {
+        window.history.pushState("", "", "/Payment/Refund");
+    }
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        InitializeSearch();
+        BindPaymentAmount();
+        //$('#PaymentAmount').inputmask("$999.99");
+
+        disableButton("AllowRefunding", "ApplyBtnID", "disabled", "", "You don’t have rights to apply Refunds.");
+
+        if (getQueryStringParameterByName('id') != null)
+            $('#tableDiv').show();
+    });
+</script>
+<script type="text/javascript" src="~/Scripts/CustomScripts/PaymentAmount.js"></script>
+

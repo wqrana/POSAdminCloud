@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Menu = "Order Management";
+    ViewBag.SubMenu = "Voids";
+
+    ViewBag.Title = "OrderManagement";
+}
+
+@Styles.Render("~/Content/themes/datatables/css")
+
+<link href="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+
+<link href="~/Content/CustomCSS/OrderMgtIndex.css" rel="stylesheet" />
+
+<div class="row">
+    <div id="topDiv" class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2 id="voidsheading">Activity</h2>
+        <ul class="page-breadcrumb breadcrumb">
+           
+            <li>
+                <i class="fa fa-user fa-fw"></i>
+                <a href="#">Order Management</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Search</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-12">
+
+        <div class="col-md-1" style="padding: 0px; margin-left: 0px;">
+            <label class="control-label" style="padding-top: 4px;">Search By:</label>
+        </div>
+        <div class="col-md-3" style="padding: 0px; margin-left: 0px;">
+            @Html.DropDownList("searchdll", new SelectList(ViewBag.SearchByList, "id", "name"), new { style = "width: 250px; height:32px; border: 1px solid #808080;" })
+        </div>
+        @Html.Hidden("startDate")
+        @Html.Hidden("EndDate")
+
+        @Html.Hidden("orderId")
+        @Html.Hidden("ordertype")
+
+        @Html.Hidden("hdnFldSelectedValues")
+
+        @Html.Hidden("CashierID")
+        @Html.Hidden("OrdersLogID")
+
+        @Html.Hidden("VoidType")
+        @Html.Hidden("isVoid",false)
+
+        @Html.Hidden("firstLoad", true)
+        @Html.Hidden("CustomerID", "-999")
+
+        <div class="col-md-5" style="padding-right: 0px;">
+            <div class="col-md-2" style="padding: 0px; margin-left: 0px;">
+                <label class="control-label" style="padding-left: 21px; padding-top: 4px;">Search:</label>
+            </div>
+            <div class="col-md-6" style="padding: 0px; margin-left: 0px;">
+                <input type="text" class="form-control" style="width: 220px;" id="SearchStr" />
+            </div>
+
+            <div class="col-md-4" style="padding: 0px; padding-left: 5px; margin-left: 0px;">
+                <button class="btn yellow" style="width: 120px;" id="SearchBtn">
+                    Search
+                </button>
+            </div>
+        </div>
+          <div class="col-md-3">&nbsp;</div>
+        
+    </div>
+</div>
+
+
+<div class="row" style=" padding-bottom:10px;">
+    <div class="col-md-12">
+        <div class="col-md-1" style="padding: 0px; margin-left: 0px;">
+            <label class="control-label" style="padding-top: 4px;">Date Range:</label>
+        </div>
+        <div class="col-md-3" style="padding: 0px; margin-left: 0px;">
+            <div id="reportrange" class="btn default reportrangeClass">
+                <i class="fa fa-calendar"></i>
+                &nbsp;
+												<span></span>
+                <b class="fa fa-angle-down"></b>
+            </div>
+        </div>
+        <div class="col-md-5" id="ActiveFilter" style="display:none;">
+            <div class="col-md-2" style="padding: 0px; margin-left: 0px;">
+                <label class="control-label" style="padding-left: 21px; padding-top: 4px;">Active:</label>
+            </div>
+            <div class="col-md-4" style="padding: 0px; margin-left: 0px;">
+                <select id="ActiveList" style="width:222px;">
+                    <option>Both</option>
+                    <option value="true" selected="selected">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+             
+        </div>
+        <div class="col-md-3">&nbsp;</div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" id="groupTable">
+                <thead style="display: none;">
+                    <tr>
+                        <th></th>
+                        <th>ID
+                        </th>
+                        <th><span id="headername">Group Name </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@{Html.RenderAction("Popup");}
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="~/Content/themes/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+
+<script src="~/Scripts/OrderMgtIndex.js"></script>
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
+

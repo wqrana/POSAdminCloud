@@ -1,0 +1,60 @@
+﻿.filterDiVClass {
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 10px;
+    background-color: #dcdddf;
+}
+
+.FilterBtn {
+    background-color: #1677c1;
+    color: white;
+}
+
+    .FilterBtn:hover {
+        background-color: #0d5992;
+        color: white;
+    }
+
+.modal-dialog {
+    width: 80% !important;
+}
+
+td.details-control {
+    background: url('/content/themes/assets/img/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('/content/themes/assets/img/details_close.png') no-repeat center center;
+}
+
+
+.SeventhPageDiv {
+    border-bottom: 2px solid #000000;
+    min-height: 45px;
+}
+
+
+    td.details-control {
+        background: url('/content/themes/assets/img/details_open.png') no-repeat center center;
+        cursor: pointer;
+    }
+
+tr.shown td.details-control {
+    background: url('/content/themes/assets/img/details_close.png') no-repeat center center;
+}
+
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 180px;
+	height: 40px;
+	margin-left: -90px;
+	padding: 10px 0 10px 0;
+	text-align: center;
+	color: #333;
+	font-size: 13px;
+	background-color:transparent;
+}

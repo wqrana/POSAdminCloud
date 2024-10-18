@@ -1,0 +1,350 @@
+﻿.contentDiv
+{
+    border: 1px #000 solid;
+    min-height: 980px;
+   /* margin-left: 2%;*/
+}
+
+.reportsFiltersDiv
+{
+    background-color: #edeff0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    min-width: 280px;
+}
+
+.input-group-addon
+{
+    background: none repeat scroll 0 0 #dddddd;
+    border-color: #939598;
+    border-left: none;
+    border-right: none;
+    color: #311c15;
+    min-width: 39px;
+}
+
+.input-group-addon, .input-group-btn
+{
+    width: 0%;
+}
+
+.form-control
+{
+    border: 1px solid #939598;
+}
+
+.reportrangeClass
+{
+    font-size: 12px;
+    border: 1px solid #AAAAAA;
+    padding-left: 9px;
+    padding-right: 9px;
+    width: 100%;
+}
+
+
+
+.select2-container .select2-choice
+{
+    background-image: none !important;
+    border-radius: 0px !important;
+    height: 29px;
+    line-height: 29px;
+}
+
+    .select2-container .select2-choice .select2-arrow
+    {
+        background: none !important;
+        background-color: #fff !important;
+        border-left: 0px !important;
+    }
+
+        .select2-container .select2-choice .select2-arrow b
+        {
+            background: url("../../Images/reportsselect2.png") no-repeat scroll 0 1px rgba(0, 0, 0, 0);
+        }
+
+.select2-dropdown-open .select2-choice
+{
+    background-color: #FFFFFF !important;
+}
+
+.select2-drop-active
+{
+    background-color: -moz-use-text-color #E5E5E5 #E5E5E5 !important;
+}
+
+.select2-drop
+{
+    z-index: 10000;
+}
+
+#select2-drop
+{
+    z-index: 100000;
+}
+
+
+.PaddingClass
+{
+    padding-top: 7px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+}
+
+.zeroLeftPadding
+{
+    padding-left: 0px;
+    margin-bottom:15px;
+}
+
+.zeroRightPadding
+{
+    padding-right: 0px;
+}
+
+.zeroBottomPadding
+{
+    padding-bottom: 0px;
+}
+.zeroTopPadding
+{
+    padding-top: 0px;
+}
+
+.leftpadding20
+{
+    padding-left: 20px;
+}
+
+.leftpadding30
+{
+    padding-left: 29px;
+}
+
+.leftpadding50
+{
+    padding-left: 50px;
+}
+
+.daterangepicker .ranges li
+{
+    color: #000;
+}
+
+.ui-slider-horizontal
+{
+    height: 1.3em;
+}
+
+.ui-slider .ui-slider-handle
+{
+    height: 1.6em;
+}
+
+.bg-blue
+{
+    background-color: #dddddd !important;
+    border-color: #909192 !important;
+}
+
+.slider
+{
+    margin: 0px;
+}
+
+
+ .modal-dialog {
+          width: 90% !important /* New width for default modal */
+        }
+        .modal-sm {
+          width: 40% !important /* New width for small modal */
+        }
+    }
+
+ 
+ /*
+.modal-confirmation {
+  width: 500px;
+  margin: auto;
+}
+
+
+
+.modal-dialog
+{
+    width: 992px;
+}
+*/
+
+.centerClass
+{
+    text-align: center;
+}
+
+.modal-footer
+{
+    text-align: center;
+}
+
+.modalfooterinnner
+{
+    background-color: #efebeb;
+    height: 75px;
+    padding-top: 14px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td
+{
+    padding: 4px;
+}
+
+.greensearch
+{
+    background-color: #86c43f !important;
+}
+/*
+    .btn.blue {
+        background-color: #1676b8;
+    }
+
+        .btn.blue:hover, .btn.blue:focus {
+            background-color: #115685 !important;
+        }
+        */
+.dataTables_length
+{
+    margin-top: 12px;
+}
+
+.table thead tr th
+{
+    font-size: 13px;
+}
+
+#pdf
+{
+    width: 500px;
+    height: 300px;
+    margin: 2em auto;
+    border: 10px solid #6699FF;
+}
+
+    #pdf p
+    {
+        padding: 1em;
+    }
+
+    #pdf object
+    {
+        display: block;
+        border: solid 1px #666;
+    }
+
+.exportClick
+{
+    cursor: pointer;
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.closeIcon
+{
+    cursor: pointer;
+    font-size: 21px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    color:red !important;
+}
+
+.exportDivTag {
+    display: none;
+    margin-left:2%;
+    float: left;
+}
+
+.closeDivTag {
+    display: none;
+    float: right;
+}
+
+.loadingdivCSS
+{
+    text-align :center;
+    
+}
+.loadingSpinnerimgCSS
+{
+    display:none;
+}
+
+.dropdownParentCSS
+    {
+        background-color: white;
+        border: 1px solid #aaa !important;
+        height: 31px;
+    }
+
+    .dropdownCSS, .dropdownCSS:hover
+    {
+        width: 250px;
+        text-align: left;
+        color: black !important;
+        background-color: white !important;
+        padding: 4px 6px 4px 6px;
+    }
+
+    .dropdownArrowCSS
+    {
+        color: black !important;
+        background-color: white !important;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    .dropdown-menuoverride
+    {
+        margin-top: 1px !important;
+        /*max-height: 200px;
+        overflow-y: auto;
+        width: 220px;*/
+    }
+
+    .table100
+    {
+        width: 100%;
+    }
+
+    .ms-container
+    {
+        width: 250px !important;
+    }
+
+    .dropdownScrollBar{
+         width: 250px;
+        height: 100px; 
+        overflow-y: auto;
+
+    }
+
+  .SumoSelect { width: 100% !important ; display:block;}
+  p.select-all { height:30px !important;}
+
+  .SlectBox {
+  position: absolute;
+  z-index: -1;
+}
+
+.optWrapper{
+    opacity:1;
+}
+
+.input-mini {
+        width: 100% !important;
+    }
+
+.modal-backdrop {
+    /* bug fix - no overlay */    
+    z-index: -1; 
+}

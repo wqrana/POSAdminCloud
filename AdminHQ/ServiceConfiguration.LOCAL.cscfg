@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="AdminHQ" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MSA-AdminPortal">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ClientDiagnosticLevel" value="1" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Go Daddy Class 2 Certification Authority" thumbprint="2796BAE63F1801E277261BA0D77770028F20EEE4" thumbprintAlgorithm="sha1" />
+      <Certificate name="Go Daddy Root Certificate Authority - G2" thumbprint="340B2880F446FCC04E59ED33F52B3D08D6242964" thumbprintAlgorithm="sha1" />
+      <Certificate name="Go Daddy Secure Certificate Authority - G2" thumbprint="27AC9369FAF25207BB2627CEFACCBE4EF9C319B8" thumbprintAlgorithm="sha1" />
+      <Certificate name="adminhq.myschoolaccount.com" thumbprint="4BB6691E4FF06E94E785FCD80793A531CC1A97AE" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

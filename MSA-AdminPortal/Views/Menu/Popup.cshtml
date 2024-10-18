@@ -1,0 +1,217 @@
+﻿@model  AdminPortalModels.ViewModels.MenuViewModel
+
+@Html.HiddenFor(model => model.MenuItem.Id)
+
+<style>
+    .topMargin10 {
+        margin-top: 10px;
+    }
+
+    .topMargin5 {
+        margin-top: 5px;
+    }
+
+    .rightZeroPadding {
+        padding-right: 0px;
+    }
+
+    .leftZeroPadding {
+        padding-left: 0px;
+    }
+
+    .rightAlignText {
+        text-align: right;
+    }
+    .label-dots {
+        font-size:11pt;
+        font-weight:normal;
+    }
+    .label-dots label{
+        font-size:11pt;
+        font-weight:normal;
+    }
+</style>
+
+<div id="CreateOrEdit" class="modal fade modal-scroll" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 420px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" type="button" class="close" data-dismiss="modal" aria-hidden="true"></a>
+
+                <strong><span id="MenuItem_Title_Create"
+                     @if (Model.MenuItem.Id != 0)
+                     {
+                    <text>style="display:none;"</text>
+                     }
+                    >Create New Item</span></strong>
+                <span id="MenuItem_Title_Edit"
+                     @if (Model.MenuItem.Id == 0)
+                     {
+                    <text>style="display:none;"</text>
+                     }
+                    
+                    >Edit Item:</span>
+                <strong><span id="MenuItem_Title-Name" name="MenuItem_Title-Name">@Html.DisplayFor(model => model.MenuItem.ItemName)</span></strong>
+
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => model.MenuItem.Category_Id): <span class="required">*</span></label><br />
+                            @Html.DropDownListFor(model => model.MenuItem.Category_Id, Model.CategoryList, "-- Select --", new { @class = "form-control", @onchange = "CheckCategoryType()" })
+                            @Html.ValidationMessageFor(model => model.MenuItem.Category_Id)
+
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => model.MenuItem.ItemName): <span class="required">*</span> </label>
+                            <br />
+                            @Html.TextBoxFor(model => model.MenuItem.ItemName, new { @class = "form-control", maxLength = 75 })
+                            @Html.ValidationMessageFor(model => model.MenuItem.ItemName)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => model.MenuItem.PreOrderDesc):</label>
+                            <br />
+                            @Html.TextBoxFor(model => model.MenuItem.PreOrderDesc, new { @class = "form-control", maxLength = 75 })
+                            @Html.ValidationMessageFor(model => model.MenuItem.PreOrderDesc)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">@Html.LabelFor(model => model.MenuItem.ButtonCaption):</label><br />
+                            @Html.TextBoxFor(model => model.MenuItem.ButtonCaption, new { @class = "form-control", maxLength = 30 })
+                            @Html.ValidationMessageFor(model => model.MenuItem.ButtonCaption)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">@Html.LabelFor(model => model.MenuItem.UPC):</label><br />
+                            @Html.TextBoxFor(model => model.MenuItem.UPC, new { @class = "form-control", maxLength = 25 })
+                            @Html.ValidationMessageFor(model => model.MenuItem.UPC)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <p>
+                                <strong>Item Type:</strong>
+                            </p>
+                            <div class="radio-list">
+                                <label for="ItemType_NA">
+                                    <input type="radio" name="ItemType" id="ItemType_NA" value="NA" 
+                      
+                                @if (Model.MenuItem.ItemType == AdminPortalModels.Models.ItemType.NA)
+                                {
+                                    <text>
+                                        checked="checked"
+                                    </text>
+                                }
+
+                                   data-mini="true" />
+                                    N/A</label>
+
+                                <label for="ItemType_LunchItem">
+                                    <input type="radio" name="ItemType" id="ItemType_LunchItem" value="LunchItem" 
+                                @if (Model.MenuItem.ItemType == AdminPortalModels.Models.ItemType.LunchItem)
+                                {
+                                    <text>
+                                        checked="checked"
+                                    </text>
+                                }
+                                   data-mini="true" />
+                                    Lunch Item</label>
+
+                                <label for="ItemType_Breakfast">
+                                    <input type="radio" name="ItemType" id="ItemType_Breakfast" value="Breakfast" 
+                      
+                                @if (Model.MenuItem.ItemType == AdminPortalModels.Models.ItemType.Breakfast)
+                                {
+                                    <text>
+                                        checked="checked"
+                                    </text>
+                                }
+
+                                   data-mini="true" />
+                                    Breakfast</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-7">
+                            <p>
+                                <strong>Menu Items Specifications:</strong>
+                            </p>
+                            <input type="checkbox" name="KitchenItem" id="KitchenItem">
+                            @Html.LabelFor(model => model.MenuItem.KitchenItem)<br />
+                            <input type="checkbox" name="isScaleItem" id="isScaleItem">
+                            @Html.LabelFor(model => model.MenuItem.isScaleItem)<br />
+                            <input type="checkbox" name="isTaxable" id="isTaxable">
+                            @Html.LabelFor(model => model.MenuItem.isTaxable)<br />
+                            <input type="checkbox" name="isOnceDay" id="isOnceDay">
+                            @Html.LabelFor(model => model.MenuItem.isOnceDay)<br />
+                        </div>
+                    </div>
+
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-sm-9 rightZeroPadding">
+                            <label class="label-dots topMargin5">@Html.LabelFor(model => model.MenuItem.StudentFullPrice)  ...................................&nbsp;&nbsp;&nbsp;&nbsp;$</label>
+                            @Html.ValidationMessageFor(model => model.MenuItem.StudentFullPrice)
+                        </div>
+                        <div class="col-sm-3 leftZeroPadding">
+                            @Html.TextBoxFor(model => model.MenuItem.StudentFullPrice, new { @class = "form-control floatOnly price rightAlignText", maxLength = 12 })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row topMargin10" id="ReducedPrice">
+                    <div class="col-sm-9 rightZeroPadding">
+                        <label class="label-dots topMargin5">@Html.LabelFor(model => model.MenuItem.StudentRedPrice) ..........................&nbsp;&nbsp;&nbsp;&nbsp;$</label>
+                        @Html.ValidationMessageFor(model => model.MenuItem.StudentRedPrice)
+                    </div>
+                    <div class="col-sm-3 leftZeroPadding">
+                        @Html.TextBoxFor(model => model.MenuItem.StudentRedPrice, new { @class = "form-control floatOnly price rightAlignText", maxLength = 12 })
+                    </div>
+                </div>
+
+                <div class="row topMargin10">
+                    <div class="col-sm-9 rightZeroPadding">
+                        <label class="label-dots topMargin5">@Html.LabelFor(model => model.MenuItem.EmployeePrice) .......................................&nbsp;&nbsp;&nbsp;&nbsp;$</label>
+                        @Html.ValidationMessageFor(model => model.MenuItem.EmployeePrice)
+                    </div>
+                    <div class="col-sm-3 leftZeroPadding">
+                        @Html.TextBoxFor(model => model.MenuItem.EmployeePrice, new { @class = "form-control floatOnly price rightAlignText", maxLength = 12 })
+                    </div>
+                </div>
+
+                <div class="row topMargin10">
+                    <div class="col-sm-9 rightZeroPadding">
+                        <label class="label-dots topMargin5">@Html.LabelFor(model => model.MenuItem.GuestPrice) ..............................................&nbsp;&nbsp;&nbsp;&nbsp;$</label>
+                        @Html.ValidationMessageFor(model => model.MenuItem.GuestPrice)
+                    </div>
+                    <div class="col-sm-3 leftZeroPadding">
+                        @Html.TextBoxFor(model => model.MenuItem.GuestPrice, new { @class = "form-control floatOnly price rightAlignText", maxLength = 12 })
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="border-top: 0px;">
+                <button href="#" type=" submit" class="btn blue btn-lg margleft10" id="btnSave" name="btnSave"><span id="savebtnSpan">@Html.DisplayFor(model => Model.MenuItem.savebtnCaption)</span></button>
+                <button href="#" type=" button" class="btn default btn-lg not-default-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Registration" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServiceFssRegistration" />
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/FSS.Data.Models.AutoUpdate" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRegistration_ActivatePos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivatePos" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ActivatePos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivatePosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ActivatePosProductid_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivatePosProductid" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ActivatePosProductid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivatePosProductidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CheckActivationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckActivationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CheckActivationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckActivationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetConnString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnString" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetConnString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetConnStringByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnStringByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetConnStringByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnStringByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientID" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ClientLogonInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientLogonInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ClientLogonInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientLogonInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_SaveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_SaveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_UnDeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnDeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_UnDeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnDeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_UpdateUserCustomerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserCustomerName" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_UpdateUserCustomerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserCustomerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ActivateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ActivateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeactivateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeactivateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CanCreateNewDistrict_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanCreateNewDistrict" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CanCreateNewDistrict_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanCreateNewDistrictResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CanCreateNewSchool_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanCreateNewSchool" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CanCreateNewSchool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanCreateNewSchoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfSchoolsAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfSchoolsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfSchoolsAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfSchoolsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfDistrictsAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfDistrictsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfDistrictsAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfDistrictsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfStudentsAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfStudentsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfStudentsAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfStudentsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfPosAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfPosAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_NumberOfPosAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NumberOfPosAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ClientTimeZoneID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientTimeZoneID" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_ClientTimeZoneID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientTimeZoneIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRolesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRolesList" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRolesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRolesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_getCountUsersRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCountUsersRoles" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_getCountUsersRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCountUsersRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CreateUpdateUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CreateUpdateUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUpdateUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetSecurityInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityInfo" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetSecurityInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeleteUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DeleteUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUsersFiltered_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersFiltered" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetAllUsersFiltered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersFilteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRoleByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoleByName" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetUserRoleByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoleByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_getAllClientsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientsList" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_getAllClientsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetMSALiveClientsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMSALiveClientsList" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_GetMSALiveClientsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMSALiveClientsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CheckUpdates_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUpdates" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_CheckUpdates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DownloadUpdates_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadUpdates" />
+  </wsdl:message>
+  <wsdl:message name="IRegistration_DownloadUpdates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRegistration">
+    <wsdl:operation name="ActivatePos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/ActivatePos" message="tns:IRegistration_ActivatePos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/ActivatePosResponse" message="tns:IRegistration_ActivatePos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivatePosProductid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/ActivatePosProductid" message="tns:IRegistration_ActivatePosProductid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/ActivatePosProductidResponse" message="tns:IRegistration_ActivatePosProductid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckActivationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/CheckActivationStatus" message="tns:IRegistration_CheckActivationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/CheckActivationStatusResponse" message="tns:IRegistration_CheckActivationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetConnString" message="tns:IRegistration_GetConnString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetConnStringResponse" message="tns:IRegistration_GetConnString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnStringByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetConnStringByClientID" message="tns:IRegistration_GetConnStringByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetConnStringByClientIDResponse" message="tns:IRegistration_GetConnStringByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetClientID" message="tns:IRegistration_GetClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetClientIDResponse" message="tns:IRegistration_GetClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientLogonInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/ClientLogonInfo" message="tns:IRegistration_ClientLogonInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/ClientLogonInfoResponse" message="tns:IRegistration_ClientLogonInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/SaveUser" message="tns:IRegistration_SaveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/SaveUserResponse" message="tns:IRegistration_SaveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/DeleteUser" message="tns:IRegistration_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/DeleteUserResponse" message="tns:IRegistration_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnDeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/UnDeleteUser" message="tns:IRegistration_UnDeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/UnDeleteUserResponse" message="tns:IRegistration_UnDeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserCustomerName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/UpdateUserCustomerName" message="tns:IRegistration_UpdateUserCustomerName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/UpdateUserCustomerNameResponse" message="tns:IRegistration_UpdateUserCustomerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/ActivateUser" message="tns:IRegistration_ActivateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/ActivateUserResponse" message="tns:IRegistration_ActivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/DeactivateUser" message="tns:IRegistration_DeactivateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/DeactivateUserResponse" message="tns:IRegistration_DeactivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanCreateNewDistrict">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/CanCreateNewDistrict" message="tns:IRegistration_CanCreateNewDistrict_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/CanCreateNewDistrictResponse" message="tns:IRegistration_CanCreateNewDistrict_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanCreateNewSchool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/CanCreateNewSchool" message="tns:IRegistration_CanCreateNewSchool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/CanCreateNewSchoolResponse" message="tns:IRegistration_CanCreateNewSchool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfSchoolsAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/NumberOfSchoolsAvailable" message="tns:IRegistration_NumberOfSchoolsAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/NumberOfSchoolsAvailableResponse" message="tns:IRegistration_NumberOfSchoolsAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfDistrictsAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/NumberOfDistrictsAvailable" message="tns:IRegistration_NumberOfDistrictsAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/NumberOfDistrictsAvailableResponse" message="tns:IRegistration_NumberOfDistrictsAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfStudentsAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/NumberOfStudentsAvailable" message="tns:IRegistration_NumberOfStudentsAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/NumberOfStudentsAvailableResponse" message="tns:IRegistration_NumberOfStudentsAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfPosAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/NumberOfPosAvailable" message="tns:IRegistration_NumberOfPosAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/NumberOfPosAvailableResponse" message="tns:IRegistration_NumberOfPosAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientTimeZoneID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/ClientTimeZoneID" message="tns:IRegistration_ClientTimeZoneID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/ClientTimeZoneIDResponse" message="tns:IRegistration_ClientTimeZoneID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRolesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetUserRolesList" message="tns:IRegistration_GetUserRolesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetUserRolesListResponse" message="tns:IRegistration_GetUserRolesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetAllUserRoles" message="tns:IRegistration_GetAllUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetAllUserRolesResponse" message="tns:IRegistration_GetAllUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetUserRole" message="tns:IRegistration_GetUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetUserRoleResponse" message="tns:IRegistration_GetUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCountUsersRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/getCountUsersRoles" message="tns:IRegistration_getCountUsersRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/getCountUsersRolesResponse" message="tns:IRegistration_getCountUsersRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/CreateUpdateUserRoles" message="tns:IRegistration_CreateUpdateUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/CreateUpdateUserRolesResponse" message="tns:IRegistration_CreateUpdateUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetSecurityInfo" message="tns:IRegistration_GetSecurityInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetSecurityInfoResponse" message="tns:IRegistration_GetSecurityInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/DeleteUserRole" message="tns:IRegistration_DeleteUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/DeleteUserRoleResponse" message="tns:IRegistration_DeleteUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetAllUsers" message="tns:IRegistration_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetAllUsersResponse" message="tns:IRegistration_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersFiltered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetAllUsersFiltered" message="tns:IRegistration_GetAllUsersFiltered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetAllUsersFilteredResponse" message="tns:IRegistration_GetAllUsersFiltered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetUser" message="tns:IRegistration_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetUserResponse" message="tns:IRegistration_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetUserByUsername" message="tns:IRegistration_GetUserByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetUserByUsernameResponse" message="tns:IRegistration_GetUserByUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetUserRoleByName" message="tns:IRegistration_GetUserRoleByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetUserRoleByNameResponse" message="tns:IRegistration_GetUserRoleByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/getAllClientsList" message="tns:IRegistration_getAllClientsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/getAllClientsListResponse" message="tns:IRegistration_getAllClientsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMSALiveClientsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/GetMSALiveClientsList" message="tns:IRegistration_GetMSALiveClientsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/GetMSALiveClientsListResponse" message="tns:IRegistration_GetMSALiveClientsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpdates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/CheckUpdates" message="tns:IRegistration_CheckUpdates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/CheckUpdatesResponse" message="tns:IRegistration_CheckUpdates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadUpdates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistration/DownloadUpdates" message="tns:IRegistration_DownloadUpdates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistration/DownloadUpdatesResponse" message="tns:IRegistration_DownloadUpdates_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRegistration" type="tns:IRegistration">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ActivatePos">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/ActivatePos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivatePosProductid">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/ActivatePosProductid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckActivationStatus">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/CheckActivationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnString">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetConnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnStringByClientID">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetConnStringByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientID">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientLogonInfo">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/ClientLogonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/SaveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnDeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/UnDeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserCustomerName">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/UpdateUserCustomerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/ActivateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/DeactivateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanCreateNewDistrict">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/CanCreateNewDistrict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanCreateNewSchool">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/CanCreateNewSchool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfSchoolsAvailable">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/NumberOfSchoolsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfDistrictsAvailable">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/NumberOfDistrictsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfStudentsAvailable">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/NumberOfStudentsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NumberOfPosAvailable">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/NumberOfPosAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientTimeZoneID">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/ClientTimeZoneID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRolesList">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetUserRolesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetAllUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRole">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountUsersRoles">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/getCountUsersRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUpdateUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/CreateUpdateUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityInfo">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetSecurityInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserRole">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/DeleteUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersFiltered">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetAllUsersFiltered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUsername">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetUserByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleByName">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetUserRoleByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientsList">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/getAllClientsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMSALiveClientsList">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/GetMSALiveClientsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpdates">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/CheckUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadUpdates">
+      <soap:operation soapAction="http://tempuri.org/IRegistration/DownloadUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Registration">
+    <wsdl:port name="BasicHttpBinding_IRegistration" binding="tns:BasicHttpBinding_IRegistration">
+      <soap:address location="http://fssregistrationdev.cloudapp.net/Registration.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

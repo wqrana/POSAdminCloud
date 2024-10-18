@@ -1,0 +1,100 @@
+﻿@model IEnumerable<AdminPortalModels.Models.GradeModels>
+
+@{
+    ViewBag.Menu = "Customer Data";
+    ViewBag.SubMenu = "Grades";
+
+    ViewBag.Title = "Grades";
+}
+
+<input type="hidden" id="ViewType" value="@ViewBag.ViewType" />
+<input type="hidden" id="ClientID" value="@ViewBag.ClientID" />
+
+<link rel="stylesheet" href="/Content/Pages/Grades.css" />
+@Styles.Render("~/Content/themes/datatables/css")
+
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    
+    @Html.Hidden("CreateGrades", MSA_AdminPortal.Helpers.SecurityManager.CreateGrades)
+    @Html.Hidden("UpdateGrades", MSA_AdminPortal.Helpers.SecurityManager.UpdateGrades)
+    @Html.Hidden("DeleteGrades", MSA_AdminPortal.Helpers.SecurityManager.DeleteGrades)
+
+    <div class="col-md-12">
+        <!-- Begin Page Title and Breadcrumb -->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="fa fa-user fa-fw"></i>
+                <a href="#">@ViewBag.Menu</a>
+                    <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#"> @ViewBag.SubMenu</a>
+            </li>
+            <li class="btn-group pull-right">
+                <button title="List View" class="btn default btn-md pull-right marginTileBtn" type="button" id="btnGridView">
+                    List View
+                </button>
+                <button title="Tile View" class="btn default btn-md pull-right" type="button" id="btnTileView">
+                    Tile View
+                </button>
+            </li>
+        </ul>
+        <!-- End Page Title and Breadcrumb -->
+    </div>
+
+
+</div>
+
+<div class="row" style="padding-bottom: 15px;">
+    <div class="col-md-2">
+         <a  onclick="location.href='@Url.Action("Create", new { Length = 5 })'"  id="aAddNewButton" data-toggle="modal" class="ActionLink" data-id='0'>
+              <div id="sub-div">  <button id="AddNewButton" class="btn green col-md-12" >
+                    Add New Grade
+                </button></div>
+            </a>
+    </div>
+    <div class="col-md-7">
+        <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+            <button class="close" data-close="alert"></button>
+            You have some form error, please check in all tabs.
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+<!-- Begin List -->
+<div class="row">
+    <div class="col-md-12">
+        <div id="gradesGrid">
+            <table class="table table-striped table-hover table-bordered" id="dtGrid">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="gradesTiles">
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial("Tile", item);
+            }
+        </div>
+    </div>
+</div>
+<!-- End List -->
+
+@{Html.RenderAction("Delete");}
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="~/Scripts/jquery.cookie.js"></script>
+<script src="~/Scripts/Grades/Grades.js"></script>

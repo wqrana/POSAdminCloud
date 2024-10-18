@@ -1,0 +1,687 @@
+﻿@model AdminPortalModels.ViewModels.SingleCustomer
+
+@{
+    ViewBag.Title = "Customer";
+}
+<link href="~/Content/themes/assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" />
+
+<script src="~/Content/themes/assets/global/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="~/Content/themes/assets/global/plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="~/Content/themes/assets/global/plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
+
+<!--<link href="~/Content/CustomCSS/CustomerEdit.css?version=1.1" rel="stylesheet" />-->
+<link href="~/Content/CustomCSS/CustomerEdit.css" rel="stylesheet" />
+<link href="~/Content/themes/assets/global/plugins/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
+
+
+
+<input type="hidden" id="FreeReducedAppCount" value="@Model.FreeReducedAppCount" />
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Customer Data <span style="font-size: 20px;">@ViewBag.CustomerModeTitle</span></h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                    <span>Actions
+                    </span>
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li>
+                        <a href="/customer/Edit/0">Add New Customer</a>
+                    </li>
+
+                    <li>
+                        <a href="/customer/index">Customer List</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="SaveCustomerData()">Save</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <i class="fa fa-user fa-fw"></i>
+                <a href="#">Customer Data</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.CustomerBreadCrumTitle</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Personal Information:</h3>
+    </div>
+    <div class="col-md-4">
+        <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+            <button class="close" data-close="alert"></button>
+            Either required field(s) is/are missing or there is invalid field(s) value.
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <label class="control-label formlabels">Required fields are indicated using an asterisk  <span class="required">*</span></label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 30px; overflow: auto;">
+            <div style="width: 20%; float: left; min-width: 230px; padding-top: 30px; border-right: 1px solid #E5E5E5; margin-top: -30px; margin-bottom: -30px; min-height: 422px;">
+                <div class="col-md-12">
+
+
+                    <img id="target" src="@Model.uri" onerror="this.src='../../images/defaultpic.jpg';" alt="" width="200" />
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="fileUpload btn green">
+                                <span>Add Photo</span>
+                                <input id="fileupload" name="fileupload" type="file" accept="image/gif, image/jpeg" class="upload" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @if (ViewBag.IsCustomerImageExist)
+                            {
+                                <text><div id="removePhotoContainer" data-toggle="modal" data-keyboard="false" data-backdrop="static" role="button" href="#removeImageModal" style="padding-top: 18px; padding-left: 0px;">
+                                    <i title="Remove Photo"  style="font-size: 32px; color: rgb(8, 76, 123); cursor: pointer;" class="fa fa-trash-o"></i>
+                                </div></text>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Hidden("CustomerId", Model.Customer.Customer_Id)
+            @Html.Hidden("ClientId", Model.ClientID)
+
+            @Html.Hidden("PictureExtension", Model.Customer.PictureExtension)
+            @Html.Hidden("StorageAccountName", Model.Customer.StorageAccountName)
+            @Html.Hidden("ContainerName", Model.Customer.ContainerName)
+            @Html.Hidden("PictureFileName", Model.Customer.PictureFileName)
+            @Html.Hidden("HDdistrictID", Model.Customer.District_Id)
+
+
+            <div style="width: 39%; float: left;">
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-sm-3 control-label formlabels">Status: </label>
+
+                        <div class="col-md-7">
+                            <div  >
+                                <input type="checkbox" id="CustomerActive" name="CustomerActive" data-on-text="Active" data-off-text="&nbsp; Non Active &nbsp;" checked="@Model.Customer.Active" class="make-switch toggle" />
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label formlabels">Last Name: <span class="required">*</span></label>
+                        <div class="col-md-7 formtexts">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.LastName" name="LastName" id="LastName" placeholder="Last Name" class="form-control"  maxlength="24">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label formlabels">First Name: <span class="required">*</span></label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.FirstName" name="FirstName" id="FirstName" placeholder="First Name" class="form-control" maxlength="16">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Mid. initial: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Middle" name="Middle" id="Middle" placeholder="Middle Name" class="form-control" maxlength="1">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Date of Birth: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.CustomerDOB" name="Date_Of_Birth" id="Date_Of_Birth" class="form-control datepicker" placeholder="00/00/0000">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Gender: </label>
+                        <div class="col-md-7">
+                            @Html.DropDownList("genderList", new SelectList(@Model.GendersList, "value", "data", Model.Customer.Gender), new { style = "width: 60%; height: 100%;" })
+
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">SSN: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.SSN" name="SSN" id="SSN"class="form-control" placeholder="000-00-0000">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Notes: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_Notes" name="Customer_Notes" id="Customer_Notes"class="form-control"  maxlength="30" >
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 39%; float: left;">
+
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Address: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_Addr1" name="Customer_Addr1" id="Customer_Addr1"class="form-control" placeholder="Address Line 1" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels"></label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_Addr2" name="Customer_Addr2" id="Customer_Addr2"class="form-control" placeholder="Address Line 2" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">City: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_City" name="Customer_City" id="Customer_City" class="form-control" placeholder="City Name" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">State: </label>
+                        <div class="col-md-7">
+                            @Html.DropDownList("stateList", new SelectList(@Model.StatesList, "value", "data", Model.Customer.Customer_State), new { style = "width: 60%; height: 100%;" })
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Zip: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_Zip" name="Customer_Zip" id="Customer_Zip" maxlength="9" class="form-control" placeholder="00000">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Phone: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Customer_Phone" name="Customer_Phone" id="Customer_Phone" class="form-control" placeholder="(000) 000-0000">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Email: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <i class="fa"></i>
+                                <input type="text" value="@Model.Customer.Email" name="Email" id="Email" class="form-control" placeholder="example@email.com" maxlength="60">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle" style="display: none;">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Language: </label>
+                        <div class="col-md-7">
+                            @Html.DropDownList("languageList", new SelectList(@Model.Languages, "value", "data", Model.Customer.Language_Id), new { style = "width: 100%; height: 100%;", @disabled = true })
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row formRowSyle" style="display: none;">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">Ethnicity Group: </label>
+                        <div class="col-md-7">
+                            @Html.DropDownList("EthnicityList", new SelectList(@Model.Ethnicities, "value", "data", Model.Customer.Ethnicity_Id), new { style = "width: 100%; height: 100%;", @disabled = true })
+
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="FreeReducedDIV" class="row formRowSyle rowFreeRedCSS">
+                    <div class="form-group">
+                        <div class="col-md-1">
+                        </div>
+                        <label class="col-md-3 control-label formlabels">School Meals: </label>
+                        <div class="col-md-7">
+                            <div class="input-icon right">
+                                <label class="fRlblCSS">
+                                    Applied for Free and Reduced Meal
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Account Information:</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 0px; background-color: #f8f8f8; overflow: auto; min-height: 390px; margin-bottom:20px;">
+            <div style="width: 35%; float: left; border-right: 1px solid #E5E5E5; min-height: 400px; padding-top: 30px;">
+                <div>
+
+
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-3 control-label formlabels">District: <span class="required">*</span></label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("districtList", new SelectList(@Model.Districts, "value", "data", Model.Customer.District_Id), "Select district", new { style = "width: 100%; height: 100%;" })
+                                @*<label id="districtName" class="col-md-12 control-label pull-left">@Model.Customer.District_Name</label>*@
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="checkbox-list">
+                                    <label>
+                                        <input type="checkbox" name="NotInDistrict" id="NotInDistrict" checked="@Model.Customer.NotInDistrict">
+                                        <span style="font-size: 11px;">Not in District (FSS AutoImport Only) </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-3 control-label formlabels">School: <span class="required">*</span></label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("schoolsList", new SelectList(Model.Schools, "value", "data", Model.Customer.School_Id), "Select school", new { style = "width: 100%; height: 100%;" })
+
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-sm-3 control-label formlabels">User ID: <span class="required">*</span></label>
+                            <div class="col-md-7 formtexts">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" value="@Model.Customer.UserID" name="UserID" id="UserID" class="form-control" placeholder="ID" maxlength="16">
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-3 control-label formlabels">PIN: <span class="required">*</span></label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" value="@Model.Customer.PIN" name="PIN" id="PIN" class="form-control" placeholder="PIN" maxlength="16">
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-3 control-label formlabels">Grade: </label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("gradeList", new SelectList(@Model.Grades, "value", "data", Model.Customer.Grade_Id), "-- Select --", new { style = "width: 80%; height: 100%;" })
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="checkbox-list">
+                                    <label>
+                                        <input type="checkbox" id="graduationDateSet" name="graduationDateSet" checked="@Model.Customer.graduationDateSet">
+                                        <span style="font-size: 11px;">Set Graduation Date</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="GraduationDateDiv" class="row formRowSyle">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label formlabels">Graduation Date: </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" value="@Model.Customer.FormatGraduationDate" name="GraduationDate" id="GraduationDate" class="form-control datepicker" placeholder="Graduation Date" maxlength="16">
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row formRowSyle">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-3 control-label formlabels">Homeroom: </label>
+                            <div class="col-md-7">
+                                @*@Html.DropDownList("homeroomList", new SelectList(@Model.HomeRooms, "value", "data", Model.Customer.Homeroom_Id), new { style = "width: 80%; height: 100%;" })*@
+                                @Html.DropDownListFor(m => m.Customer.Homeroom_Id, Model.HomeRooms, "-- Select --", new { id = "homeroomList", style = "width: 80%; height: 100%;" })
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 19%; float: left; border-right: 1px solid #E5E5E5; min-height: 400px; padding-top: 30px; padding-left: 25px">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label"><strong>Meal Status</strong><span class="required"> * </span></label>
+                            <div class="radio-list">
+                                <label>
+                                    <input type="radio" id="PiadLunch" name="MealStatus" checked="@Model.Customer.MealStatuPaid" />
+                                    Paid / Standard
+                                </label>
+                                <div id="ReducedAndFree" class="ReducedAndFreeClass">
+                                    <label>
+                                        <input type="radio" id="ReducedLunch" name="MealStatus" checked="@Model.Customer.MealStatuReduced"/>
+                                        Reduced
+                                    </label>
+                                    <br />
+                                    <label>
+                                        <input type="radio" id="FreeLunch" name="MealStatus" checked="@Model.Customer.MealStatuFree"/>
+                                        Free
+                                    </label>
+                                </div>
+                                <label id="EmployeeAdultParent">
+                                    <input type="radio" id="EmployeeAdult" name="MealStatus" checked="@Model.Customer.MealStatusEmployeeAdult"/>
+                                    Employee / Adult
+                                </label>
+                                <label>
+                                    <input type="radio" id="MealPlanLunch" name="MealStatus" checked="@Model.Customer.MealStatuMealPlan"/>
+                                    Meal Plan
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 14px;">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class=""><strong>Options</strong></label>
+                            <div class="checkbox-list">
+                                <label>
+                                    <input type="checkbox" id="Student" name="Student" checked="@Model.Customer.Student" />
+                                    Student
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="Snack_Participant" id="Snack_Participant" checked="@Model.Customer.Snack_Participant" />
+                                    Snack Program
+                                                                            
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="Student_Worker" id="Student_Worker"  checked="@Model.Customer.Student_Worker"/>
+                                    Student Worker
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: 14px;">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class=""><strong>Account Restrictions</strong></label>
+                            <div class="checkbox-list">
+                                <label>
+                                    <input type="checkbox" id="AllowAlaCarte" name="AllowAlaCarte" checked="@Model.Customer.AllowAlaCarte"/>
+                                    Allow Ala Carte
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="No_Credit_On_Account" id="No_Credit_On_Account" checked="@Model.Customer.No_Credit_On_Account"/>
+                                    No Credit on Account
+                                                                            
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 44%; float: left; padding-top: 30px; padding-left: 25px">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="display: block;"><strong>Eating Assignments</strong></label>
+                            <label style="font-size: 11px">Click on a available school from the box on the left to assign that customer to eat there.</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Available
+                        </div>
+                        <div class="col-md-3">
+                            Assigned
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.DropDownList("AssignedSchoolsList",
+                    new MultiSelectList(Model.eatingSchools,
+                    "id", "name",
+                    Model.assignedSchools.Select(s => s.id)),
+                    new
+                    {
+                        multiple = "multiple",
+                        id = "AssignedSchoolsList",
+                        name = "AssignedSchoolsList[]",
+                        width = "200px"
+                    })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-actions fluid">
+        <div class="col-md-offset-5 col-md-7">
+            <button type="button" class="btn green btn-lg submitClass defaultBtnClass" onclick="SaveCustomerData();">SAVE</button>
+            <button type="button" class="btn default btn-lg margleft10 not-default-btn" onclick="RedirectToIndex('/Customer/');">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="removeImageModal" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 415px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <strong>Remove photo</strong>
+            </div>
+            <div class="modal-body">
+                <div class="scroller1" style="height: 25px" data-always-visible="1" data-rail-visible1="1">
+                  <h4>Are you sure you want to remove the photo for this customer?</h4>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button type="submit" class="btn blue  btn-lg margleft10" id="btnRemoveImage" onclick="removePhoto()" name="btnRemoveImage" >Remove</button>
+                <button type="button" class="btn default btn-lg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script src="~/Content/themes/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="~/Content/themes/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+
+<script src="~/Scripts/CustomerEdit.js"></script>

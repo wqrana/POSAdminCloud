@@ -1,0 +1,203 @@
+﻿@model AdminPortalModels.ViewModels.OrderingOptionsModel
+
+@{
+    ViewBag.Menu = "Preorder";
+    ViewBag.SubMenu = "Calendars";
+    ViewBag.Title = "Preorder Calendars";
+}
+
+
+<link href="~/Content/themes/assets/global/plugins/fullcalendar/fullcalendar.css?ver=1" rel="stylesheet" />
+
+<link href="~/Content/MultiDatesPickerV163/css/mdp.css" rel="stylesheet" />
+
+<style>
+    .ui-draggable-dragging {
+        width:40% !important;
+        background:lightgray !important;
+    }
+
+    .ui-helper {
+        background:grey !important;
+        position: absolute !important;
+         z-index: 999999 !important;
+    }
+</style>
+<link href="~/Content/CustomCSS/PreorderCal.css" rel="stylesheet" />
+<div class="row">
+    @Html.Hidden("UpdateCalendars", MSA_AdminPortal.Helpers.SecurityManager.UpdatePreorderCalendars)
+    @Html.Hidden("CalendarType", @Model.CalendarType)
+
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-calendar-o"></i>
+                <a style="color: #5b9bd1;" href="#">Preorder</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a style="color: #5b9bd1;" href="#">Calendars</a>
+            </li>
+
+            <li class="btn-group pull-right">
+                <button type="button" class="btn blue dropdown-toggle" id="btnAction" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                    <span>
+                        Actions
+                    </span>
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul id="actionsDrop" class="dropdown-menu pull-right actionsDropCSS" role="menu">
+                    <li><img src="~/Content/img/allow_orders.png" id="AllowOrdersImg" class="pointerCSS" /></li>
+                    <li class="divider"></li>
+                    <li><img src="~/Content/img/view_only.png" id="ViewOnlyIMg" class="pointerCSS" /></li>
+                    <li class="divider"></li>
+                    <li><img src="~/Content/img/admin_only.png" id="AdminOlnyimg" class="pointerCSS" /></li>
+                    <li class="divider"></li>
+                    <li><img src="~/Content/img/cutoff_settings.png" id="orderingOptionsImg" class="pointerCSS" /></li>
+                    <li class="divider"></li>
+                    <li><img src="~/Content/img/close.png" id="close" class="pointerCSS" /></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row col-md-12 rightPaddingZero">
+    <div class="col-md-2 textCSS">
+        Calendar Name:
+    </div>
+    <div class="col-md-2 valueCSS">
+        @ViewBag.CalName
+    </div>
+    <div class="col-md-8 rightPaddingZero">
+        <table class="LegendTable" width="600" border="0" cellpadding="0" cellspacing="2" border="2">
+            <tr>
+                <td width="80px" class="legendCss">
+                    <strong style="color: #000">Legend:</strong>
+                </td>
+                <td align="left" width="30px">
+                    <div id="Panel91" class="AdminOnlyCSS"
+                         title="View Menu Items for Admin Only">
+                    </div>
+                </td>
+                <td align="left" valign="middle" width="150px" class="tdpaddClass ">
+                    <b>Admin Only </b>
+                </td>
+                <td align="left" width="30px">
+                    <div id="Pane92" class="ViewableCSS"
+                         title="Menu items available for Studnets to Show only">
+                    </div>
+                </td>
+                <td align="left" valign="middle" class="tdpaddClass" width="150px">
+                    <b>Viewable</b>
+                </td>
+                <td align="left" width="30x">
+                    <div id="Panel93" class="OrderableCSS"
+                         title="Menu items available for Studnets to Order">
+                    </div>
+                </td>
+                <td align="left" valign="middle" width="130px" class="tdpaddClass">
+                    <b>Orderable</b>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+</div>
+<div class="row col-md-12 rightPaddingZero">
+    <div class="col-md-2 textCSS">
+        Calendar Type:
+    </div>
+    <div class="col-md-2 valueCSS">
+        @ViewBag.CalTypeName
+    </div>
+    <div class="col-md-8 rightPaddingZero">
+        <table class="LegendTable" width="600" border="0" cellpadding="0" cellspacing="2" border="2">
+            <tr>
+                <td width="80px" class="legendCss">
+                    <strong style="color: #000"> &nbsp;</strong>
+                </td>
+                <td align="left" width="30px">
+                    <div id="Panel94" class="OrderClosedCSS"
+                         title="Orders are no being longer taken">
+                    </div>
+                </td>
+                <td align="left" valign="middle" width="150px" class="tdpaddClass "><b>Ordering Closed</b></td>
+                <td align="left" width="30px">
+                    <div id="Panel95" class="OrderoverrideCSS"
+                         title="Orders are no being longer taken">
+                    </div>
+                </td>
+                <td align="left" valign="middle" class="tdpaddClass" width="150px"><b>Orderable (override)</b></td>
+                <td align="left" width="30x"></td>
+                <td align="left" valign="middle" width="130px" class="tdpaddClass">
+                    <b></b>
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
+
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div id="calendar" class="has-toolbar">
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<div id="loadingDiv">
+    <img src="~/Content/themes/assets/img/ajax-loading.gif" />
+</div>
+
+
+@Html.Partial("AllowOrdersPopup")
+@Html.Partial("AdminOlnyPopup")
+@Html.Partial("ViewOnlyPopup")
+@Html.Partial("orderingOptionsPopup", @Model)
+
+@Html.Partial("PreorderDayCal")
+
+@Html.Partial("ConfirmDeletePopup")
+
+
+@Html.Partial("ItemScheduler")
+@Html.Partial("OverrideCutoffPopup")
+
+
+<script src="~/Content/fullcalendar-3.2.0/lib/moment.min.js"></script>
+
+<script src="~/Content/fullcalendar-3.2.0/fullcalendar.min.js"></script>
+<script src="~/Content/fullcalendar-3.2.0/lib/jquery-ui.min.js"></script>
+
+<script>
+</script>
+
+<script src="/scripts/PreorderCal.js" type="text/javascript"></script>
+<script src="/scripts/PreorderDayCal.js" type="text/javascript"></script>
+
+<script src="~/Content/themes/assets/global/scripts/metronic.js"></script>
+
+<script src="~/Content/MultiDatesPickerV163/jquery-ui.multidatespicker.js"></script>
+
+<script src="~/Scripts/overrideCutOff.js"></script>

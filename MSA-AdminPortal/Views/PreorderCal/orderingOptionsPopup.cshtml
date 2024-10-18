@@ -1,0 +1,108 @@
+﻿@model AdminPortalModels.ViewModels.OrderingOptionsModel
+
+<div class="modal fade" id="orderingOptionsModal" tabindex="-1" role="basic" aria-hidden="true">
+
+    <div class="modal-dialog" style="width: 520px; margin-top: 170px;">
+        <div class="modal-content">
+            <div class="modal-header  orderingOptionsPopHeaderCSS">
+                <button id="btnCloseOrderingOptions" type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <span>
+                        <i class="fa fa-window-maximize"></i>
+                        <label id="calNamelbl">ORDERING OPTIONS</label>
+                    </span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="scrollerDiv" class="scroller" style="height: 120px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="col-md-12">
+                        <div class="radio-list">
+                            <label>
+                                <input type="radio" id="none" name="orderingoption" checked="checked" />
+                                None
+                            </label>
+
+                            <label>
+                                <input type="radio" id="cutoffsettings" name="orderingoption" />
+                                Use Cutoff Settings
+                            </label>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <table class="cutOffTableCSS">
+                                        <tr>
+                                            <td>For each</td>
+                                            <td style=" padding-left:5px;">
+                                                @Html.DropDownList("DDCutOffSelection", new SelectList(@Model.SinglesDayList, "value", "data", Model.CutOffSelection), new { @class = "DropDownList2CSS" })
+                                            </td>
+                                            <td colspan="2">&nbsp; orders must be placed</td>
+                                        </tr>
+                                        <tr style=" margin-top:10px;">
+                                            <td>
+                                                <input type="text" value="@Model.CutOffValue" name="txtcutoffday" id="txtcutoffday" class="form-control cutoffValueCSS numericOnly" maxlength="2">
+                                            </td>
+                                            <td style=" padding-left:5px;">
+                                                @Html.DropDownList("DropDownList2", new SelectList(@Model.MultipleDayList, "value", "data", Model.CutOffType), new { @class = "DropDownList2CSS" })
+
+                                            </td>
+                                            <td>&nbsp; prior to service</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row marginBottom10"> &nbsp;</div>
+                            <label id="samedaysettingsLbl">
+                                <input type="radio" id="sameDaySettings" name="orderingoption" />
+                                Allow Same Day Ordering
+                            </label>
+                            <div id="samedaysettingsDiv" class="col-md-12 marginTop3">
+                                <div class="col-md-12">
+                                    <table>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td><span class="hoursCSS">Hours</span> </td>
+                                            <td><span class="minutesCSS">Minutes</span> </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cutoff time &nbsp;</td>
+                                            <td>
+                                                @Html.DropDownList("sameDayHours", new SelectList(@Model.HousrList, "value", "data", Model.sameDayHours), new { @class = "sameDayHoursCSS" })
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                                @Html.DropDownList("sameDayMinutes", new SelectList(@Model.MinutesList, "value", "data", Model.sameDayMinutes), new { @class = "sameDayMinutesCSS" })
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                                @Html.DropDownList("sameDayAmPm", new SelectList(@Model.AMPMList, "value", "data", Model.sameDayAmPm), new { @class = "sameDayMinutesCSS" })
+
+                                            </td>
+                                            <td>&nbsp;EST</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <input id="HDOrderingOption" type="hidden" name="HDOrderingOption" value="@Model.OrderingOption" />
+                    <input id="hduseSameDayOrdering" name="hdusesamedayordering" type="hidden" value="@Model.useSameDayOrdering" />
+                    <input id="hdDistrictIDOOP" name="hdDistrictIDOOP" type="hidden" value="@Model.DistrictID" />
+                    <input id="hdWEBCalIDOOP" name="hdWEBCalIDOOP" type="hidden" value="@Model.WebCalID" />
+
+
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button id="btnOrderingOptions" type="button" class="btn blue orderingOptionsBtn btn-lg margleft10">OK</button>
+                <button id="btnCancelOrderingOptions" type="button" class="btn default not-default-btn btn-lg" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

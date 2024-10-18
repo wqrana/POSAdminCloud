@@ -1,0 +1,73 @@
+﻿@model  IEnumerable<AdminPortalModels.Models.DistrictIndexModel>
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "Districts";
+
+    ViewBag.Title = "Districts";
+}
+
+<link rel="stylesheet" type="text/css" href="/Content/themes/assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+<link href="/Content/district.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+
+@Html.Hidden("CreateDistricts",MSA_AdminPortal.Helpers.SecurityManager.CreateDistricts)
+@Html.Hidden("UpdateDistricts",MSA_AdminPortal.Helpers.SecurityManager.UpdateDistricts)
+@Html.Hidden("DeleteDistricts",MSA_AdminPortal.Helpers.SecurityManager.DeleteDistricts)
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn default btn-md pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/district/Table'">
+                    List View
+                </button>
+                <button type="button" class="btn default btn-md pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/district/Tile'">
+                    Tile View
+                </button>
+            </li>
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+        </ul>
+        <div class="col-md-2" style="margin-bottom: 10px; padding-left: 0px;">
+            <div class="btn-group pull-left" id="DivAddNewDistrict">
+                <a id="aAddNewDistrict" href="#CreateOrEdit" data-toggle="modal" class="ActionLink" data-id='0'>
+                     <div id="sub-div">  <button id="btnAddNewDistrict" class="btn green" style="width: 160px;">
+                        Add New District
+                    </button></div>
+                </a>
+            </div>
+        </div>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+
+            @foreach (var district in Model)
+            {
+                Html.RenderPartial("Row", district);
+            }
+
+            @*@{Html.RenderPartial("_CreateRow");}*@
+
+        </div>
+
+    </div>
+</div>
+
+@{Html.RenderAction("Delete");}
+
+<script src="/scripts/DistrictTile.js" type="text/javascript"></script>
+
+

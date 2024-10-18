@@ -1,0 +1,68 @@
+﻿    .FilterBtn {
+        background-color: #1677c1;
+        color: white;
+    }
+
+    .FilterBtn:hover {
+        background-color: #0d5992;
+        color: white;
+    }
+
+.btn:hover, .btn:focus {
+    color: white;
+}
+
+.table-nowrap td {
+    nowrap:nowrap;
+}
+
+.filterBox td {
+    text-align:right;
+    color:#939598;
+}
+
+td .control-label {
+    margin-left:12px;
+    margin-right:5px;
+}
+
+.btn FilterBtn {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 12px;
+}
+
+.btn-group .btn.blue.dropdown-toggle {
+    background-color: #636366 !important;
+}
+
+.modal-body .form-control {
+    display:inline;
+    /*font-weight:bold;*/
+}
+
+.label-dots {
+    padding-right:15px;
+}
+
+.center {
+ text-align:center !important;
+}
+
+ tbody tr.odd {
+    padding:5px;
+    background-color: #E6FF99;
+}
+
+.dataTables_length {
+    margin-top:10px;
+}
+
+.price {
+    width: 80px;
+    text-align: right;
+}
+

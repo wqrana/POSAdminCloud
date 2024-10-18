@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd5" filename="Registration.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd0" filename="Registration0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?wsdl" filename="Registration.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?disco" filename="Registration.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd3" filename="Registration1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd1" filename="Registration2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd4" filename="Registration3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://fssregistrationdev.cloudapp.net/Registration.svc?xsd=xsd2" filename="Registration4.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

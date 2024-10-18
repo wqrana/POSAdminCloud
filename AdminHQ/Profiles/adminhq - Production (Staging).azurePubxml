@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AzureCredentials>{"ServiceManagementEndpoint":"https:\/\/management.core.windows.net\/","SubscriptionId":"f7f1cbbe-7198-4475-b7b8-4c9c8a39030e"}</AzureCredentials>
+    <AzureDeleteDeploymentOnFailure>False</AzureDeleteDeploymentOnFailure>
+    <AzureDeploymentLabel>AdminHQ - 6.1.3.3</AzureDeploymentLabel>
+    <AzureDeploymentReplacementMethod>DeleteAndCreate</AzureDeploymentReplacementMethod>
+    <AzureSlot>Staging</AzureSlot>
+    <AzureEnableRemoteDesktop>False</AzureEnableRemoteDesktop>
+    <AzureEnableWebDeploy>False</AzureEnableWebDeploy>
+    <AzureFallbackToDeleteAndRecreateIfUpgradeFails>True</AzureFallbackToDeleteAndRecreateIfUpgradeFails>
+    <AzureHostedServiceLabel>fssposadmin</AzureHostedServiceLabel>
+    <AzureHostedServiceName>fssposadmin</AzureHostedServiceName>
+    <AzureEnableIntelliTrace>False</AzureEnableIntelliTrace>
+    <AzureEnableProfiling>False</AzureEnableProfiling>
+    <AzureServiceConfiguration>LIVE</AzureServiceConfiguration>
+    <AzureSolutionConfiguration>Release</AzureSolutionConfiguration>
+    <AzureStorageAccountLabel>fssposadmin</AzureStorageAccountLabel>
+    <AzureStorageAccountName>fssposadmin</AzureStorageAccountName>
+    <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <AzureHostedServiceResourceGroup />
+  </PropertyGroup>
+</Project>

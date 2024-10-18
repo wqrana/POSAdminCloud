@@ -1,0 +1,182 @@
+﻿.popup {
+}
+
+.create-new {
+    border: 2px solid #ffb751;
+    padding: 28px 30px;
+    font-size: 22px;
+    color: white;
+    height: 98px;
+}
+
+ul .dropdown-menu {
+    width: 240px !important;
+}
+
+label {
+    font-size: 12px;
+}
+
+.posDivClosed .dashboard-stat .details .desc .labelcss {
+    font-size: 11px;
+}
+
+.btn-group .btn.blue.dropdown-toggle {
+    background-color: #636366 !important;
+}
+
+.posDivClosed {
+    width: 19.5%;
+    min-width: 200px; /**/
+    max-height: 100px;
+    margin-bottom: 30px;
+    padding-right: 0;
+}
+
+    .posDivClosed .dashboard-stat {
+        margin-bottom: 0px;
+        min-height: 65px;
+        min-width: 200px; /**/
+    }
+
+        .posDivClosed .dashboard-stat.grey {
+            background-color: #d1d2d4 !important;
+        }
+
+        .posDivClosed .dashboard-stat .visual {
+            height: 60px;
+            padding-left: 10px;
+            width: 70px;
+        }
+
+            .posDivClosed .dashboard-stat .visual i {
+                font-size: 43px !important;
+                height: 30px !important;
+                color: #d1232a;
+                line-height: 37px;
+                opacity:1;
+                margin-left:0px;
+            }
+
+
+        .posDivClosed .dashboard-stat .details {
+            position: inherit;
+        }
+
+            .posDivClosed .dashboard-stat .details .number {
+                font-size: 17px;
+                font-weight: 400;
+                color: #59595d;
+                padding-top: 0px;
+                margin-bottom: 0px;
+                /*float: left;*/
+                line-height: 26px;
+            }
+
+            .posDivClosed .dashboard-stat .details .desc {
+                font-size: 13px;
+                color: #59595d;
+                padding-top: 0px;
+                /*float: left;*/
+            }
+
+                .posDivClosed .dashboard-stat .details .desc .labelcss {
+                    color: #636366;
+                    font-weight: bold;
+                }
+
+                .posDivClosed .dashboard-stat .details .desc label {
+                    margin-bottom: 0px;
+                }
+
+    .posDivClosed .footerdiv {
+        background-color: #636366;
+        color: white;
+        height: 28px;
+        font-size: 11px;
+        min-width: 200px; /**/
+    }
+
+        .posDivClosed .footerdiv .enb {
+            width: 130px;
+            height: 28px;
+            float: left;
+            padding: 6px;
+        }
+
+        .posDivClosed .footerdiv .disab {
+            width: 145px;
+            float: left;
+            padding: 6px;
+            color: gray;
+        }
+
+        .posDivClosed .footerdiv .separator {
+            width: 1px;
+            float: left;
+            background-color: white;
+            height: 30px;
+        }
+
+        .posDivClosed .footerdiv .action {
+            width: 60px;
+            float: right;
+            padding: 6px;
+            margin-right: 4px;
+        }
+
+
+
+        .posDivClosed .footerdiv .btn {
+            padding: 0px;
+            font-size: 11px;
+        }
+
+        .posDivClosed .footerdiv .dropdown-menu {
+            background-color: #e6e7e9;
+            font-size: 11px;
+            color: black;
+            margin-right: -4px;
+            box-shadow: none;
+            min-width: 90px;
+        }
+
+            .posDivClosed .footerdiv .dropdown-menu li > a {
+                padding: 0px 0px 0px 6px;
+            }
+
+.posDivOpen .dashboard-stat {
+    background-color: #86c43f !important;
+}
+
+    .posDivOpen .dashboard-stat .visual i {
+        color: white;
+    }
+
+    .posDivOpen .dashboard-stat .details .desc {
+        color: white;
+    }
+
+        .posDivOpen .dashboard-stat .details .desc .labelcss {
+            color: white;
+        }
+
+    .posDivOpen .dashboard-stat .details .number {
+        color: white;
+    }
+
+.top-buffer {
+    padding-top: 10px;
+}
+
+.posDivClosed .dropdown-menu li > a {
+    padding: 0;
+}
+
+.removeAnchorStyle {
+    text-decoration: none !important;
+}
+
+    .removeAnchorStyle:hover {
+        text-decoration: none !important;
+    }

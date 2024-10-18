@@ -1,0 +1,2429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FSS_POS_TEST_2ModelStoreContainer" CdmEntityContainer="PortalContext">
+    <FunctionImportMapping FunctionImportName="AccountBalances" FunctionName="FSS_POS_TEST_2Model.Store.AccountBalances">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.AccountBalances_Result">
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="BalNegative" ColumnName="BalNegative" />
+          <ScalarProperty Name="BalPositive" ColumnName="BalPositive" />
+          <ScalarProperty Name="BalZero" ColumnName="BalZero" />
+          <ScalarProperty Name="TotalNegativeBal" ColumnName="TotalNegativeBal" />
+          <ScalarProperty Name="TotalPositiveBal" ColumnName="TotalPositiveBal" />
+          <ScalarProperty Name="TotalZeroBal" ColumnName="TotalZeroBal" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_Balance" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_Balance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_Balance_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+          <ScalarProperty Name="HomeroomName" ColumnName="HomeroomName" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="HRID" ColumnName="HRID" />
+          <ScalarProperty Name="GRID" ColumnName="GRID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_Delete" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_Delete_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_List_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Middle_Initial" ColumnName="Middle_Initial" />
+          <ScalarProperty Name="Adult" ColumnName="Adult" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="M_Balance" ColumnName="M_Balance" />
+          <ScalarProperty Name="A_Balance" ColumnName="A_Balance" />
+          <ScalarProperty Name="Total_Balance" ColumnName="Total_Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_Logs" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_Logs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_Logs_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="ChangedDateLocal" ColumnName="ChangedDateLocal" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_District_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_District_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_District_List_Result">
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="District_Name" ColumnName="District_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_District_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_District_Save" />
+    <FunctionImportMapping FunctionImportName="Admin_Ethnicity_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Ethnicity_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Ethnicity_List_Result">
+          <ScalarProperty Name="Ethnicity_Id" ColumnName="Ethnicity_Id" />
+          <ScalarProperty Name="Ethnicity_Name" ColumnName="Ethnicity_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Grade_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Grade_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Grade_List_Result">
+          <ScalarProperty Name="Grade_Id" ColumnName="Grade_Id" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_HomeRoom_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_HomeRoom_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_HomeRoom_List_Result">
+          <ScalarProperty Name="HomeRoom_Id" ColumnName="HomeRoom_Id" />
+          <ScalarProperty Name="HomeRoom_Name" ColumnName="HomeRoom_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Language_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Language_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Language_List_Result">
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="Language_Name" ColumnName="Language_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Menu_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Menu_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Menu_List_Result">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="isMenuDeleted" ColumnName="isMenuDeleted" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="isTaxable" ColumnName="isTaxable" />
+          <ScalarProperty Name="KitchenItem" ColumnName="KitchenItem" />
+          <ScalarProperty Name="isScaleItem" ColumnName="isScaleItem" />
+          <ScalarProperty Name="CategoryTypeId" ColumnName="CategoryTypeId" />
+          <ScalarProperty Name="CategoryColor" ColumnName="CategoryColor" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Payment_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Payment_Save" />
+    <FunctionImportMapping FunctionImportName="Admin_POS_Delete" FunctionName="FSS_POS_TEST_2Model.Store.Admin_POS_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_POS_Delete_Result">
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="POSNAME" ColumnName="POSNAME" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_POS_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_POS_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_POS_List_Result">
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="POS_Name" ColumnName="POS_Name" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="Credit_Card_Enabled" ColumnName="Credit_Card_Enabled" />
+          <ScalarProperty Name="POS_Open_Session" ColumnName="POS_Open_Session" />
+          <ScalarProperty Name="POS_Open_Cashier" ColumnName="POS_Open_Cashier" />
+          <ScalarProperty Name="POS_Open_Session_Date" ColumnName="POS_Open_Session_Date" />
+          <ScalarProperty Name="VeriFoneUserId" ColumnName="VeriFoneUserId" />
+          <ScalarProperty Name="VeriFonePassword" ColumnName="VeriFonePassword" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_POS_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_POS_Save">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_POS_Save_Result">
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_School_Delete" FunctionName="FSS_POS_TEST_2Model.Store.Admin_School_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_School_Delete_Result">
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_School_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_School_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_School_List_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="School_ID" ColumnName="School_ID" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="District_Name" ColumnName="District_Name" />
+          <ScalarProperty Name="POSNum" ColumnName="POSNum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SchoolAssignment_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_SchoolAssignment_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_SchoolAssignment_List_Result">
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SoldItems" FunctionName="FSS_POS_TEST_2Model.Store.Admin_SoldItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_SoldItems_Result">
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_UserRole_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_UserRole_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_UserRole_List_Result">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+          <ScalarProperty Name="AdminHQSystem" ColumnName="AdminHQSystem" />
+          <ScalarProperty Name="UserRolePermissions_IDS" ColumnName="UserRolePermissions_IDS" />
+          <ScalarProperty Name="usersCount" ColumnName="usersCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_UserRole_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_UserRole_Save">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_UserRole_Save_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Users_Delete" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Users_Delete" />
+    <FunctionImportMapping FunctionImportName="Admin_Users_Detail" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Users_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Users_Detail_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="SecurityGroup_Id" ColumnName="SecurityGroup_Id" />
+          <ScalarProperty Name="SecurityGroup" ColumnName="SecurityGroup" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRoles_ID" ColumnName="UserRoles_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Users_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Users_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Users_List_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="SecurityGroup" ColumnName="SecurityGroup" />
+          <ScalarProperty Name="CashedInStatus" ColumnName="CashedInStatus" />
+          <ScalarProperty Name="POSName" ColumnName="POSName" />
+          <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+          <ScalarProperty Name="UserRole_Id" ColumnName="UserRole_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Users_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Users_Save" />
+    <FunctionImportMapping FunctionImportName="Admin_VoidGroup_Detail" FunctionName="FSS_POS_TEST_2Model.Store.Admin_VoidGroup_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_VoidGroup_Detail_Result">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderLogID" ColumnName="OrderLogID" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderDateLocal" ColumnName="OrderDateLocal" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="Check" ColumnName="Check" />
+          <ScalarProperty Name="POS" ColumnName="POS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_Items_Void" FunctionName="FSS_POS_TEST_2Model.Store.Main_Items_Void">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_Items_Void_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="CreditDif" ColumnName="CreditDif" />
+          <ScalarProperty Name="DebitDif" ColumnName="DebitDif" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_Order_Save" FunctionName="FSS_POS_TEST_2Model.Store.Main_Order_Save" />
+    <FunctionImportMapping FunctionImportName="Main_Order_View" FunctionName="FSS_POS_TEST_2Model.Store.Main_Order_View">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_Order_View_Result">
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderDateLocal" ColumnName="OrderDateLocal" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="POSName" ColumnName="POSName" />
+          <ScalarProperty Name="CashierName" ColumnName="CashierName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="CashierID" ColumnName="CashierID" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="PrimarySchoolID" ColumnName="PrimarySchoolID" />
+          <ScalarProperty Name="OrdersLogID" ColumnName="OrdersLogID" />
+          <ScalarProperty Name="OrderNote" ColumnName="OrderNote" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ItemCountOfCategoryType" FunctionName="FSS_POS_TEST_2Model.Store.sp_ItemCountOfCategoryType" />
+    <FunctionImportMapping FunctionImportName="sp_ItemCountOfCategory" FunctionName="FSS_POS_TEST_2Model.Store.sp_ItemCountOfCategory" />
+    <FunctionImportMapping FunctionImportName="Admin_VoidGroup_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_VoidGroup_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_VoidGroup_List_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CustomerBalance" ColumnName="CustomerBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CashResults">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CashResult">
+        <MappingFragment StoreEntitySet="CashResults">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="PartitionOffset" ColumnName="PartitionOffset" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+          <ScalarProperty Name="CashDrawer_Id" ColumnName="CashDrawer_Id" />
+          <ScalarProperty Name="CloseBlob" ColumnName="CloseBlob" />
+          <ScalarProperty Name="OpenBlob" ColumnName="OpenBlob" />
+          <ScalarProperty Name="Finished" ColumnName="Finished" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="CloseAmount" ColumnName="CloseAmount" />
+          <ScalarProperty Name="OpenAmount" ColumnName="OpenAmount" />
+          <ScalarProperty Name="PaidOuts" ColumnName="PaidOuts" />
+          <ScalarProperty Name="Additional" ColumnName="Additional" />
+          <ScalarProperty Name="OverShort" ColumnName="OverShort" />
+          <ScalarProperty Name="TotalCash" ColumnName="TotalCash" />
+          <ScalarProperty Name="CloseDateLocal" ColumnName="CloseDateLocal" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="OpenDateLocal" ColumnName="OpenDateLocal" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="Emp_Cashier_Id" ColumnName="Emp_Cashier_Id" />
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryType_Id" ColumnName="CategoryType_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTypes">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CategoryType">
+        <MappingFragment StoreEntitySet="CategoryTypes">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="isMealEquiv" ColumnName="isMealEquiv" />
+          <ScalarProperty Name="isMealPlan" ColumnName="isMealPlan" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="canReduce" ColumnName="canReduce" />
+          <ScalarProperty Name="canFree" ColumnName="canFree" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_School">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Customer_School">
+        <MappingFragment StoreEntitySet="Customer_School">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerLogs">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CustomerLog">
+        <MappingFragment StoreEntitySet="CustomerLog">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ChangedDateLocal" ColumnName="ChangedDateLocal" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="Emp_Changed_Id" ColumnName="Emp_Changed_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="MSAStudentSyncDateUTC" ColumnName="MSAStudentSyncDateUTC" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ReactiveDateLocal" ColumnName="ReactiveDateLocal" />
+          <ScalarProperty Name="DeactiveDateLocal" ColumnName="DeactiveDateLocal" />
+          <ScalarProperty Name="CreationDateLocal" ColumnName="CreationDateLocal" />
+          <ScalarProperty Name="GraduationDateSet" ColumnName="GraduationDateSet" />
+          <ScalarProperty Name="GradDate" ColumnName="GradDate" />
+          <ScalarProperty Name="ReactiveDate" ColumnName="ReactiveDate" />
+          <ScalarProperty Name="DeactiveDate" ColumnName="DeactiveDate" />
+          <ScalarProperty Name="STUD_MGMT_ID" ColumnName="STUD_MGMT_ID" />
+          <ScalarProperty Name="MealsLeft" ColumnName="MealsLeft" />
+          <ScalarProperty Name="MealPlan_Id" ColumnName="MealPlan_Id" />
+          <ScalarProperty Name="NotInDistrict" ColumnName="NotInDistrict" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="isHomeless" ColumnName="isHomeless" />
+          <ScalarProperty Name="Disability" ColumnName="Disability" />
+          <ScalarProperty Name="Ethnicity_Id" ColumnName="Ethnicity_Id" />
+          <ScalarProperty Name="isVeteran" ColumnName="isVeteran" />
+          <ScalarProperty Name="isStudentWorker" ColumnName="isStudentWorker" />
+          <ScalarProperty Name="isSnack" ColumnName="isSnack" />
+          <ScalarProperty Name="ACH" ColumnName="ACH" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="ExtraInfo" ColumnName="ExtraInfo" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="SchoolDat" ColumnName="SchoolDat" />
+          <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CashOnly" ColumnName="CashOnly" />
+          <ScalarProperty Name="AllowAlaCarte" ColumnName="AllowAlaCarte" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="isStudent" ColumnName="isStudent" />
+          <ScalarProperty Name="Homeroom_Id" ColumnName="Homeroom_Id" />
+          <ScalarProperty Name="Grade_Id" ColumnName="Grade_Id" />
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="UpdatePositiveID" ColumnName="UpdatePositiveID" />
+          <ScalarProperty Name="AppUpdateDelay" ColumnName="AppUpdateDelay" />
+          <ScalarProperty Name="Forms_Dir_Phone" ColumnName="Forms_Dir_Phone" />
+          <ScalarProperty Name="Forms_Dir_Title" ColumnName="Forms_Dir_Title" />
+          <ScalarProperty Name="Forms_Admin_Phone" ColumnName="Forms_Admin_Phone" />
+          <ScalarProperty Name="Forms_Admin_Title" ColumnName="Forms_Admin_Title" />
+          <ScalarProperty Name="UseDistNameAdmin" ColumnName="UseDistNameAdmin" />
+          <ScalarProperty Name="UseDistNameDirector" ColumnName="UseDistNameDirector" />
+          <ScalarProperty Name="Forms_Director_Id" ColumnName="Forms_Director_Id" />
+          <ScalarProperty Name="Forms_Admin_Id" ColumnName="Forms_Admin_Id" />
+          <ScalarProperty Name="SpecialSetup" ColumnName="SpecialSetup" />
+          <ScalarProperty Name="BankMICR" ColumnName="BankMICR" />
+          <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+          <ScalarProperty Name="BankRoute" ColumnName="BankRoute" />
+          <ScalarProperty Name="BankAddr2" ColumnName="BankAddr2" />
+          <ScalarProperty Name="BankAddr1" ColumnName="BankAddr1" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="BankZip" ColumnName="BankZip" />
+          <ScalarProperty Name="BankState" ColumnName="BankState" />
+          <ScalarProperty Name="BankCity" ColumnName="BankCity" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="Emp_Director_Id" ColumnName="Emp_Director_Id" />
+          <ScalarProperty Name="Emp_Administrator_Id" ColumnName="Emp_Administrator_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistrictOptions">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DistrictOption">
+        <MappingFragment StoreEntitySet="DistrictOptions">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ChangedDateLocal" ColumnName="ChangedDateLocal" />
+          <ScalarProperty Name="AnnualAmountToQualify" ColumnName="AnnualAmountToQualify" />
+          <ScalarProperty Name="FSTANFPercentage" ColumnName="FSTANFPercentage" />
+          <ScalarProperty Name="IncomePercentage" ColumnName="IncomePercentage" />
+          <ScalarProperty Name="VeriFonePassword" ColumnName="VeriFonePassword" />
+          <ScalarProperty Name="VeriFoneUserId" ColumnName="VeriFoneUserId" />
+          <ScalarProperty Name="VeriFonePort" ColumnName="VeriFonePort" />
+          <ScalarProperty Name="VeriFoneIP" ColumnName="VeriFoneIP" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="LicenseModel" ColumnName="LicenseModel" />
+          <ScalarProperty Name="EnableGlobalVeriFoneUser" ColumnName="EnableGlobalVeriFoneUser" />
+          <ScalarProperty Name="CCProcessor_Id" ColumnName="CCProcessor_Id" />
+          <ScalarProperty Name="SecondAuthType" ColumnName="SecondAuthType" />
+          <ScalarProperty Name="ReqSecondAuth" ColumnName="ReqSecondAuth" />
+          <ScalarProperty Name="LetterResetRule" ColumnName="LetterResetRule" />
+          <ScalarProperty Name="LetterResetLimit" ColumnName="LetterResetLimit" />
+          <ScalarProperty Name="MaxLetter" ColumnName="MaxLetter" />
+          <ScalarProperty Name="LetterWarning6" ColumnName="LetterWarning6" />
+          <ScalarProperty Name="LetterWarning5" ColumnName="LetterWarning5" />
+          <ScalarProperty Name="LetterWarning4" ColumnName="LetterWarning4" />
+          <ScalarProperty Name="isStudCashTaxable" ColumnName="isStudCashTaxable" />
+          <ScalarProperty Name="isGuestTaxable" ColumnName="isGuestTaxable" />
+          <ScalarProperty Name="BlindCashOut" ColumnName="BlindCashOut" />
+          <ScalarProperty Name="UsingBonus" ColumnName="UsingBonus" />
+          <ScalarProperty Name="UsingMealEqual" ColumnName="UsingMealEqual" />
+          <ScalarProperty Name="UsingMealPlan" ColumnName="UsingMealPlan" />
+          <ScalarProperty Name="isMealPlanTaxable" ColumnName="isMealPlanTaxable" />
+          <ScalarProperty Name="EndForms" ColumnName="EndForms" />
+          <ScalarProperty Name="StartForms" ColumnName="StartForms" />
+          <ScalarProperty Name="EndSchoolYear" ColumnName="EndSchoolYear" />
+          <ScalarProperty Name="StartSchoolYear" ColumnName="StartSchoolYear" />
+          <ScalarProperty Name="isStudentRedTaxable" ColumnName="isStudentRedTaxable" />
+          <ScalarProperty Name="isStudentPaidTaxable" ColumnName="isStudentPaidTaxable" />
+          <ScalarProperty Name="isStudentFreeTaxable" ColumnName="isStudentFreeTaxable" />
+          <ScalarProperty Name="isEmployeeTaxable" ColumnName="isEmployeeTaxable" />
+          <ScalarProperty Name="TaxPercent" ColumnName="TaxPercent" />
+          <ScalarProperty Name="LetterWarning3" ColumnName="LetterWarning3" />
+          <ScalarProperty Name="LetterWarning2" ColumnName="LetterWarning2" />
+          <ScalarProperty Name="LetterWarning1" ColumnName="LetterWarning1" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserRoles_ID" ColumnName="UserRoles_ID" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="SecurityGroup_Id" ColumnName="SecurityGroup_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Grade">
+        <MappingFragment StoreEntitySet="Grades">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolOptions">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.SchoolOption">
+        <MappingFragment StoreEntitySet="SchoolOptions">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ChangedDateLocal" ColumnName="ChangedDateLocal" />
+          <ScalarProperty Name="StripZeros" ColumnName="StripZeros" />
+          <ScalarProperty Name="EndSchoolYear" ColumnName="EndSchoolYear" />
+          <ScalarProperty Name="StartSchoolYear" ColumnName="StartSchoolYear" />
+          <ScalarProperty Name="BarCodeLength" ColumnName="BarCodeLength" />
+          <ScalarProperty Name="FingerPrinting" ColumnName="FingerPrinting" />
+          <ScalarProperty Name="PhotoLogging" ColumnName="PhotoLogging" />
+          <ScalarProperty Name="PinPreFix" ColumnName="PinPreFix" />
+          <ScalarProperty Name="DoPinPreFix" ColumnName="DoPinPreFix" />
+          <ScalarProperty Name="MealPlanLimit" ColumnName="MealPlanLimit" />
+          <ScalarProperty Name="AlaCarteLimit" ColumnName="AlaCarteLimit" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.School">
+        <MappingFragment StoreEntitySet="Schools">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Forms_Dir_Phone" ColumnName="Forms_Dir_Phone" />
+          <ScalarProperty Name="Forms_Dir_Title" ColumnName="Forms_Dir_Title" />
+          <ScalarProperty Name="Forms_Admin_Phone" ColumnName="Forms_Admin_Phone" />
+          <ScalarProperty Name="Forms_Admin_Title" ColumnName="Forms_Admin_Title" />
+          <ScalarProperty Name="UseDistNameAdmin" ColumnName="UseDistNameAdmin" />
+          <ScalarProperty Name="UseDistNameDirector" ColumnName="UseDistNameDirector" />
+          <ScalarProperty Name="UseDistFormsDirAdmin" ColumnName="UseDistFormsDirAdmin" />
+          <ScalarProperty Name="Forms_Admin_Id" ColumnName="Forms_Admin_Id" />
+          <ScalarProperty Name="Forms_Director_Id" ColumnName="Forms_Director_Id" />
+          <ScalarProperty Name="UseDistDirAdmin" ColumnName="UseDistDirAdmin" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="isSevereNeed" ColumnName="isSevereNeed" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="Emp_Administrator_Id" ColumnName="Emp_Administrator_Id" />
+          <ScalarProperty Name="Emp_Director_Id" ColumnName="Emp_Director_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashierPayments">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CashierPayment">
+        <MappingFragment StoreEntitySet="CashierPayments">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="GroupType" ColumnName="GroupType" />
+          <ScalarProperty Name="LineCount" ColumnName="LineCount" />
+          <ScalarProperty Name="TotalDeposit" ColumnName="TotalDeposit" />
+          <ScalarProperty Name="TotalMonies" ColumnName="TotalMonies" />
+          <ScalarProperty Name="CashSaleMonies" ColumnName="CashSaleMonies" />
+          <ScalarProperty Name="AccountPayments" ColumnName="AccountPayments" />
+          <ScalarProperty Name="Refunds" ColumnName="Refunds" />
+          <ScalarProperty Name="OnlineACHReturns" ColumnName="OnlineACHReturns" />
+          <ScalarProperty Name="OnlineACHPayments" ColumnName="OnlineACHPayments" />
+          <ScalarProperty Name="OnlineCreditPayments" ColumnName="OnlineCreditPayments" />
+          <ScalarProperty Name="TotalCredits" ColumnName="TotalCredits" />
+          <ScalarProperty Name="TotalChecks" ColumnName="TotalChecks" />
+          <ScalarProperty Name="TotalCashPayments" ColumnName="TotalCashPayments" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CustUserID" ColumnName="CustUserID" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="CashierName" ColumnName="CashierName" />
+          <ScalarProperty Name="EmpUserID" ColumnName="EmpUserID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="DISTID" ColumnName="DISTID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerActivities">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CustomerActivity">
+        <MappingFragment StoreEntitySet="CustomerActivity">
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="Items" ColumnName="Items" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="CashierName" ColumnName="CashierName" />
+          <ScalarProperty Name="CreditAuth_Id" ColumnName="CreditAuth_Id" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="OverRide" ColumnName="OverRide" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+          <ScalarProperty Name="MCredit" ColumnName="MCredit" />
+          <ScalarProperty Name="BCredit" ColumnName="BCredit" />
+          <ScalarProperty Name="ACredit" ColumnName="ACredit" />
+          <ScalarProperty Name="MDebit" ColumnName="MDebit" />
+          <ScalarProperty Name="ADebit" ColumnName="ADebit" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="OrderDateLocal" ColumnName="OrderDateLocal" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrdersLog_Id" ColumnName="OrdersLog_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Emp_Cashier_Id" ColumnName="Emp_Cashier_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="Customer_Pr_School_Id" ColumnName="Customer_Pr_School_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyCashiers">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DailyCashier">
+        <MappingFragment StoreEntitySet="DailyCashier">
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="OverShort" ColumnName="OverShort" />
+          <ScalarProperty Name="TotalCash" ColumnName="TotalCash" />
+          <ScalarProperty Name="Additional" ColumnName="Additional" />
+          <ScalarProperty Name="PaidOuts" ColumnName="PaidOuts" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="CloseAmount" ColumnName="CloseAmount" />
+          <ScalarProperty Name="OpenAmount" ColumnName="OpenAmount" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="POSName" ColumnName="POSName" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+          <ScalarProperty Name="CASHRESID" ColumnName="CASHRESID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepositTickets">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DepositTicket">
+        <MappingFragment StoreEntitySet="DepositTicket">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CashOutAmount" ColumnName="CashOutAmount" />
+          <ScalarProperty Name="AdminTotalAmount" ColumnName="AdminTotalAmount" />
+          <ScalarProperty Name="POSTotalAmount" ColumnName="POSTotalAmount" />
+          <ScalarProperty Name="AdminCashAmount" ColumnName="AdminCashAmount" />
+          <ScalarProperty Name="POSCashAmount" ColumnName="POSCashAmount" />
+          <ScalarProperty Name="MiscCashAmount" ColumnName="MiscCashAmount" />
+          <ScalarProperty Name="CashAmount" ColumnName="CashAmount" />
+          <ScalarProperty Name="AdminCreditAmount" ColumnName="AdminCreditAmount" />
+          <ScalarProperty Name="POSCreditAmount" ColumnName="POSCreditAmount" />
+          <ScalarProperty Name="CreditAmount" ColumnName="CreditAmount" />
+          <ScalarProperty Name="AdminCheckAmount" ColumnName="AdminCheckAmount" />
+          <ScalarProperty Name="POSCheckAmount" ColumnName="POSCheckAmount" />
+          <ScalarProperty Name="CheckAmount" ColumnName="CheckAmount" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DistBankZip" ColumnName="DistBankZip" />
+          <ScalarProperty Name="DistBankState" ColumnName="DistBankState" />
+          <ScalarProperty Name="DistBankCity" ColumnName="DistBankCity" />
+          <ScalarProperty Name="DistBankAddress2" ColumnName="DistBankAddress2" />
+          <ScalarProperty Name="DistBankAddress1" ColumnName="DistBankAddress1" />
+          <ScalarProperty Name="DistBankName" ColumnName="DistBankName" />
+          <ScalarProperty Name="DistZip" ColumnName="DistZip" />
+          <ScalarProperty Name="DistState" ColumnName="DistState" />
+          <ScalarProperty Name="DistCity" ColumnName="DistCity" />
+          <ScalarProperty Name="DistAddress2" ColumnName="DistAddress2" />
+          <ScalarProperty Name="DistAddress1" ColumnName="DistAddress1" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PaymentTypeName" ColumnName="PaymentTypeName" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="DepositType" ColumnName="DepositType" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="DISTID" ColumnName="DISTID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="CASHRESID" ColumnName="CASHRESID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailCafeCashiers">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DetailCafeCashier">
+        <MappingFragment StoreEntitySet="DetailCafeCashiers">
+          <ScalarProperty Name="CloseMessage" ColumnName="CloseMessage" />
+          <ScalarProperty Name="OpenMessage" ColumnName="OpenMessage" />
+          <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="Emp_Cashier_Id" ColumnName="Emp_Cashier_Id" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="POSName" ColumnName="POSName" />
+          <ScalarProperty Name="Finished" ColumnName="Finished" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="CASHRESID" ColumnName="CASHRESID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailCafeCategories">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DetailCafeCategory">
+        <MappingFragment StoreEntitySet="DetailCafeCategories">
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="PreorderCount" ColumnName="PreorderCount" />
+          <ScalarProperty Name="CashCount" ColumnName="CashCount" />
+          <ScalarProperty Name="AccountCount" ColumnName="AccountCount" />
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+          <ScalarProperty Name="PreorderTotal" ColumnName="PreorderTotal" />
+          <ScalarProperty Name="CashTotal" ColumnName="CashTotal" />
+          <ScalarProperty Name="AccountTotal" ColumnName="AccountTotal" />
+          <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+          <ScalarProperty Name="QualifiedDisplay" ColumnName="QualifiedDisplay" />
+          <ScalarProperty Name="QualifiedSort" ColumnName="QualifiedSort" />
+          <ScalarProperty Name="canReduce" ColumnName="canReduce" />
+          <ScalarProperty Name="canFree" ColumnName="canFree" />
+          <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PREORDITEMID" ColumnName="PREORDITEMID" />
+          <ScalarProperty Name="CATID" ColumnName="CATID" />
+          <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+          <ScalarProperty Name="ItemMenuID" ColumnName="ItemMenuID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="DISTID" ColumnName="DISTID" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailCafeNetChanges">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DetailCafeNetChange">
+        <MappingFragment StoreEntitySet="DetailCafeNetChange">
+          <ScalarProperty Name="NetChange" ColumnName="NetChange" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VoidsDS">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.VoidsD">
+        <MappingFragment StoreEntitySet="VoidsDS">
+          <ScalarProperty Name="SortDate" ColumnName="SortDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Cashier" ColumnName="Cashier" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TaxPrice" ColumnName="TaxPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="MDebit" ColumnName="MDebit" />
+          <ScalarProperty Name="MCredit" ColumnName="MCredit" />
+          <ScalarProperty Name="ADebit" ColumnName="ADebit" />
+          <ScalarProperty Name="ACredit" ColumnName="ACredit" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="VoidItem" ColumnName="VoidItem" />
+          <ScalarProperty Name="VoidOrder" ColumnName="VoidOrder" />
+          <ScalarProperty Name="VoidTime" ColumnName="VoidTime" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="MODEMPID" ColumnName="MODEMPID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ORDEMPID" ColumnName="ORDEMPID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="PreOrderItem_Id" ColumnName="PreOrderItem_Id" />
+          <ScalarProperty Name="SoldType" ColumnName="SoldType" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="TaxPrice" ColumnName="TaxPrice" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="FullPrice" ColumnName="FullPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="LastUpdateLocal" ColumnName="LastUpdateLocal" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="ButtonCaption" ColumnName="ButtonCaption" />
+          <ScalarProperty Name="PreOrderDesc" ColumnName="PreOrderDesc" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="MealEquivItem" ColumnName="MealEquivItem" />
+          <ScalarProperty Name="KitchenItem" ColumnName="KitchenItem" />
+          <ScalarProperty Name="isOnceDay" ColumnName="isOnceDay" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="isScaleItem" ColumnName="isScaleItem" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="isTaxable" ColumnName="isTaxable" />
+          <ScalarProperty Name="GuestPrice" ColumnName="GuestPrice" />
+          <ScalarProperty Name="EmployeePrice" ColumnName="EmployeePrice" />
+          <ScalarProperty Name="StudentRedPrice" ColumnName="StudentRedPrice" />
+          <ScalarProperty Name="StudentFullPrice" ColumnName="StudentFullPrice" />
+          <ScalarProperty Name="M_F6_Code" ColumnName="M_F6_Code" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POS">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.POS">
+        <MappingFragment StoreEntitySet="POS">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="VeriFonePassword" ColumnName="VeriFonePassword" />
+          <ScalarProperty Name="VeriFoneUserId" ColumnName="VeriFoneUserId" />
+          <ScalarProperty Name="EnableCCProcessing" ColumnName="EnableCCProcessing" />
+          <ScalarProperty Name="MealEqual3" ColumnName="MealEqual3" />
+          <ScalarProperty Name="MealEqual2" ColumnName="MealEqual2" />
+          <ScalarProperty Name="MealEqual1" ColumnName="MealEqual1" />
+          <ScalarProperty Name="isMealEqual" ColumnName="isMealEqual" />
+          <ScalarProperty Name="Quick3" ColumnName="Quick3" />
+          <ScalarProperty Name="Quick2" ColumnName="Quick2" />
+          <ScalarProperty Name="Quick1" ColumnName="Quick1" />
+          <ScalarProperty Name="isQuickSale" ColumnName="isQuickSale" />
+          <ScalarProperty Name="ShortCutsBlob" ColumnName="ShortCutsBlob" />
+          <ScalarProperty Name="ShortCutsNumber" ColumnName="ShortCutsNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Homerooms">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Homeroom">
+        <MappingFragment StoreEntitySet="Homeroom">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerBalances">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CustomerBalance">
+        <MappingFragment StoreEntitySet="CustomerBalance">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="GRID" ColumnName="GRID" />
+          <ScalarProperty Name="HRID" ColumnName="HRID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerRosters">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.CustomerRoster">
+        <MappingFragment StoreEntitySet="CustomerRoster">
+          <ScalarProperty Name="QTYPFR" ColumnName="QTYPFR" />
+          <ScalarProperty Name="QTYMealPlan" ColumnName="QTYMealPlan" />
+          <ScalarProperty Name="QTYAdult" ColumnName="QTYAdult" />
+          <ScalarProperty Name="QTYFree" ColumnName="QTYFree" />
+          <ScalarProperty Name="QTYReduced" ColumnName="QTYReduced" />
+          <ScalarProperty Name="QTYPaid" ColumnName="QTYPaid" />
+          <ScalarProperty Name="ActiveStatusSort" ColumnName="ActiveStatusSort" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="NumMealsLeft" ColumnName="NumMealsLeft" />
+          <ScalarProperty Name="MealPlanAssignment" ColumnName="MealPlanAssignment" />
+          <ScalarProperty Name="LunchTypeSort" ColumnName="LunchTypeSort" />
+          <ScalarProperty Name="LunchTypeStatus" ColumnName="LunchTypeStatus" />
+          <ScalarProperty Name="DistrictPhone2" ColumnName="DistrictPhone2" />
+          <ScalarProperty Name="DistrictPhone1" ColumnName="DistrictPhone1" />
+          <ScalarProperty Name="DistrictZip" ColumnName="DistrictZip" />
+          <ScalarProperty Name="DistrictState" ColumnName="DistrictState" />
+          <ScalarProperty Name="DistrictCity" ColumnName="DistrictCity" />
+          <ScalarProperty Name="DistrictAddress2" ColumnName="DistrictAddress2" />
+          <ScalarProperty Name="DistrictAddress1" ColumnName="DistrictAddress1" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="SchoolPhone2" ColumnName="SchoolPhone2" />
+          <ScalarProperty Name="SchoolPhone1" ColumnName="SchoolPhone1" />
+          <ScalarProperty Name="SchoolZip" ColumnName="SchoolZip" />
+          <ScalarProperty Name="SchoolState" ColumnName="SchoolState" />
+          <ScalarProperty Name="SchoolCity" ColumnName="SchoolCity" />
+          <ScalarProperty Name="SchoolAddress2" ColumnName="SchoolAddress2" />
+          <ScalarProperty Name="SchoolAddress1" ColumnName="SchoolAddress1" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="ExtraInfo" ColumnName="ExtraInfo" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="isFrozen" ColumnName="isFrozen" />
+          <ScalarProperty Name="isStudent" ColumnName="isStudent" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="CashOnly" ColumnName="CashOnly" />
+          <ScalarProperty Name="AllowAlaCarte" ColumnName="AllowAlaCarte" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BioPresent" ColumnName="BioPresent" />
+          <ScalarProperty Name="AllowBio" ColumnName="AllowBio" />
+          <ScalarProperty Name="isDeletedInt" ColumnName="isDeletedInt" />
+          <ScalarProperty Name="isActiveInt" ColumnName="isActiveInt" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="ReactiveDate" ColumnName="ReactiveDate" />
+          <ScalarProperty Name="DeactiveDate" ColumnName="DeactiveDate" />
+          <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="HRID" ColumnName="HRID" />
+          <ScalarProperty Name="GRID" ColumnName="GRID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="LANGUAGEID" ColumnName="LANGUAGEID" />
+          <ScalarProperty Name="DISTID" ColumnName="DISTID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailCafeSummaries">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.DetailCafeSummary">
+        <MappingFragment StoreEntitySet="DetailCafeSummary">
+          <ScalarProperty Name="AdminRefunds" ColumnName="AdminRefunds" />
+          <ScalarProperty Name="AdminPaymentsVoided" ColumnName="AdminPaymentsVoided" />
+          <ScalarProperty Name="AdminPaymentsOnAccount" ColumnName="AdminPaymentsOnAccount" />
+          <ScalarProperty Name="POSPaymentsOnAccount" ColumnName="POSPaymentsOnAccount" />
+          <ScalarProperty Name="AccountSubtotal" ColumnName="AccountSubtotal" />
+          <ScalarProperty Name="OnlineACHReturns" ColumnName="OnlineACHReturns" />
+          <ScalarProperty Name="OnlineACHPayments" ColumnName="OnlineACHPayments" />
+          <ScalarProperty Name="OnlineCCPayments" ColumnName="OnlineCCPayments" />
+          <ScalarProperty Name="OnlinePayments" ColumnName="OnlinePayments" />
+          <ScalarProperty Name="CreditsOnAccount" ColumnName="CreditsOnAccount" />
+          <ScalarProperty Name="TaxOnPOSales" ColumnName="TaxOnPOSales" />
+          <ScalarProperty Name="TaxOnCashSales" ColumnName="TaxOnCashSales" />
+          <ScalarProperty Name="TaxOnAcctSales" ColumnName="TaxOnAcctSales" />
+          <ScalarProperty Name="TaxCollected" ColumnName="TaxCollected" />
+          <ScalarProperty Name="TaxableAcctSales" ColumnName="TaxableAcctSales" />
+          <ScalarProperty Name="TaxableCashSales" ColumnName="TaxableCashSales" />
+          <ScalarProperty Name="TaxableSales" ColumnName="TaxableSales" />
+          <ScalarProperty Name="StudentPayments" ColumnName="StudentPayments" />
+          <ScalarProperty Name="AdultPayments" ColumnName="AdultPayments" />
+          <ScalarProperty Name="ToAccountFor" ColumnName="ToAccountFor" />
+          <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+          <ScalarProperty Name="TotalDebits" ColumnName="TotalDebits" />
+          <ScalarProperty Name="TotalCredits" ColumnName="TotalCredits" />
+          <ScalarProperty Name="ChargedOnAccount" ColumnName="ChargedOnAccount" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="OnlineDeposit" ColumnName="OnlineDeposit" />
+          <ScalarProperty Name="AdminDeposit" ColumnName="AdminDeposit" />
+          <ScalarProperty Name="VendingDeposit" ColumnName="VendingDeposit" />
+          <ScalarProperty Name="POSDeposit" ColumnName="POSDeposit" />
+          <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+          <ScalarProperty Name="OverShort" ColumnName="OverShort" />
+          <ScalarProperty Name="Refunds" ColumnName="Refunds" />
+          <ScalarProperty Name="TotalCashSales" ColumnName="TotalCashSales" />
+          <ScalarProperty Name="TotalAccountSales" ColumnName="TotalAccountSales" />
+          <ScalarProperty Name="VendingSales" ColumnName="VendingSales" />
+          <ScalarProperty Name="VendingCashSales" ColumnName="VendingCashSales" />
+          <ScalarProperty Name="VendingAcctSales" ColumnName="VendingAcctSales" />
+          <ScalarProperty Name="VendingPayments" ColumnName="VendingPayments" />
+          <ScalarProperty Name="AccountSales" ColumnName="AccountSales" />
+          <ScalarProperty Name="CashSales" ColumnName="CashSales" />
+          <ScalarProperty Name="CashPayments" ColumnName="CashPayments" />
+          <ScalarProperty Name="TotalOnAccount" ColumnName="TotalOnAccount" />
+          <ScalarProperty Name="PaymentsOnAccount" ColumnName="PaymentsOnAccount" />
+          <ScalarProperty Name="PreOrderSalesByItemTotal" ColumnName="PreOrderSalesByItemTotal" />
+          <ScalarProperty Name="AccountSalesByItemTotal" ColumnName="AccountSalesByItemTotal" />
+          <ScalarProperty Name="CashSalesByItemTotal" ColumnName="CashSalesByItemTotal" />
+          <ScalarProperty Name="PreOrderSalesByItem" ColumnName="PreOrderSalesByItem" />
+          <ScalarProperty Name="AccountSalesByItem" ColumnName="AccountSalesByItem" />
+          <ScalarProperty Name="CashSalesByItem" ColumnName="CashSalesByItem" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ReportDateTime" ColumnName="ReportDateTime" />
+          <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="CASHRESID" ColumnName="CASHRESID" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTaxOnOrders">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.SalesTaxOnOrder">
+        <MappingFragment StoreEntitySet="SalesTaxOnOrder">
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="AccountSaleSalesTax" ColumnName="AccountSaleSalesTax" />
+          <ScalarProperty Name="CashSaleSalesTax" ColumnName="CashSaleSalesTax" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatementDetailItems">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.StatementDetailItem">
+        <MappingFragment StoreEntitySet="StatementDetailItems">
+          <ScalarProperty Name="ExtendedPrice" ColumnName="ExtendedPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderTypeName" ColumnName="OrderTypeName" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoldItems">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.SoldItem">
+        <MappingFragment StoreEntitySet="SoldItems">
+          <ScalarProperty Name="PreOrderPickup" ColumnName="PreOrderPickup" />
+          <ScalarProperty Name="PreOrderStatus" ColumnName="PreOrderStatus" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="SoldType" ColumnName="SoldType" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RegularPrice" ColumnName="RegularPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LunchTypeStatus" ColumnName="LunchTypeStatus" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryTypeName" ColumnName="CategoryTypeName" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="EMPCASHID" ColumnName="EMPCASHID" />
+          <ScalarProperty Name="PRIMSCHID" ColumnName="PRIMSCHID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="POSID" ColumnName="POSID" />
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="ItemMenuID" ColumnName="ItemMenuID" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="PartitionOffset" ColumnName="PartitionOffset" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+          <ScalarProperty Name="CreditAuth_Id" ColumnName="CreditAuth_Id" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="OverRide" ColumnName="OverRide" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+          <ScalarProperty Name="MCredit" ColumnName="MCredit" />
+          <ScalarProperty Name="BCredit" ColumnName="BCredit" />
+          <ScalarProperty Name="ACredit" ColumnName="ACredit" />
+          <ScalarProperty Name="MDebit" ColumnName="MDebit" />
+          <ScalarProperty Name="ADebit" ColumnName="ADebit" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="OrderDateLocal" ColumnName="OrderDateLocal" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrdersLog_Id" ColumnName="OrdersLog_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Emp_Cashier_Id" ColumnName="Emp_Cashier_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="Customer_Pr_School_Id" ColumnName="Customer_Pr_School_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatementDetailOrders">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.StatementDetailOrder">
+        <MappingFragment StoreEntitySet="StatementDetailOrders">
+          <ScalarProperty Name="TotalItemQTY" ColumnName="TotalItemQTY" />
+          <ScalarProperty Name="BalanceChange" ColumnName="BalanceChange" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderTypeName" ColumnName="OrderTypeName" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_Detail" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_Detail_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="District_Name" ColumnName="District_Name" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="Grade_Id" ColumnName="Grade_Id" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom_Id" ColumnName="Homeroom_Id" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Ethnicity_Id" ColumnName="Ethnicity_Id" />
+          <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Customer_Addr1" ColumnName="Customer_Addr1" />
+          <ScalarProperty Name="Customer_Addr2" ColumnName="Customer_Addr2" />
+          <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+          <ScalarProperty Name="Customer_State" ColumnName="Customer_State" />
+          <ScalarProperty Name="Customer_Zip" ColumnName="Customer_Zip" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Notes" ColumnName="Customer_Notes" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+          <ScalarProperty Name="GraduationDateSet" ColumnName="GraduationDateSet" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="NotInDistrict" ColumnName="NotInDistrict" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="LunchType_String" ColumnName="LunchType_String" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+          <ScalarProperty Name="Snack_Participant" ColumnName="Snack_Participant" />
+          <ScalarProperty Name="Student_Worker" ColumnName="Student_Worker" />
+          <ScalarProperty Name="AllowAlaCarte" ColumnName="AllowAlaCarte" />
+          <ScalarProperty Name="No_Credit_On_Account" ColumnName="No_Credit_On_Account" />
+          <ScalarProperty Name="MealPlanBalance" ColumnName="MealPlanBalance" />
+          <ScalarProperty Name="AlaCarteBalance" ColumnName="AlaCarteBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+          <ScalarProperty Name="PictureExtension" ColumnName="PictureExtension" />
+          <ScalarProperty Name="StorageAccountName" ColumnName="StorageAccountName" />
+          <ScalarProperty Name="ContainerName" ColumnName="ContainerName" />
+          <ScalarProperty Name="PictureFileName" ColumnName="PictureFileName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AllowBiometrics" ColumnName="AllowBiometrics" />
+          <ScalarProperty Name="Allow_ACH" ColumnName="Allow_ACH" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_School_Save" FunctionName="FSS_POS_TEST_2Model.Store.Admin_School_Save">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_School_Save_Result">
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_StatementDetailedItems" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_StatementDetailedItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_StatementDetailedItems_Result">
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="OrderTypeName" ColumnName="OrderTypeName" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ExtendedPrice" ColumnName="ExtendedPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_StatementDetailedOrders" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_StatementDetailedOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_StatementDetailedOrders_Result">
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="OrderTypeName" ColumnName="OrderTypeName" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="BalanceChange" ColumnName="BalanceChange" />
+          <ScalarProperty Name="TotalItemQTY" ColumnName="TotalItemQTY" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_StatementOrdersSummary" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_StatementOrdersSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_StatementOrdersSummary_Result">
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="ORDID" ColumnName="ORDID" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="TotalAccount" ColumnName="TotalAccount" />
+          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+          <ScalarProperty Name="Adjustment" ColumnName="Adjustment" />
+          <ScalarProperty Name="OnlineTransfer" ColumnName="OnlineTransfer" />
+          <ScalarProperty Name="BalanceChange" ColumnName="BalanceChange" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Dashboard_AccountInformation" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Dashboard_AccountInformation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Dashboard_AccountInformation_Result">
+          <ScalarProperty Name="CountOfPositiveAccounts" ColumnName="CountOfPositiveAccounts" />
+          <ScalarProperty Name="PositiveAmount" ColumnName="PositiveAmount" />
+          <ScalarProperty Name="CountOfNegativeAccounts" ColumnName="CountOfNegativeAccounts" />
+          <ScalarProperty Name="NegativeAmount" ColumnName="NegativeAmount" />
+          <ScalarProperty Name="CountOfZeroAccounts" ColumnName="CountOfZeroAccounts" />
+          <ScalarProperty Name="ZeroAmount" ColumnName="ZeroAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Dashboard_Participation_Percentage" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Dashboard_Participation_Percentage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Dashboard_Participation_Percentage_Result">
+          <ScalarProperty Name="TodayParticipation" ColumnName="TodayParticipation" />
+          <ScalarProperty Name="YesterdayParticipation" ColumnName="YesterdayParticipation" />
+          <ScalarProperty Name="LastWeekParticipation" ColumnName="LastWeekParticipation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Dashboard_Payments" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Dashboard_Payments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Dashboard_Payments_Result">
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="TotalPayment" ColumnName="TotalPayment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Dashboard_Sales" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Dashboard_Sales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Dashboard_Sales_Result">
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Dashboard_TotalSales" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Dashboard_TotalSales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Dashboard_TotalSales_Result">
+          <ScalarProperty Name="TodaySales" ColumnName="TodaySales" />
+          <ScalarProperty Name="YesterdaySales" ColumnName="YesterdaySales" />
+          <ScalarProperty Name="LastWeekSales" ColumnName="LastWeekSales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_CustomerRosterSummary" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_CustomerRosterSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_CustomerRosterSummary_Result">
+          <ScalarProperty Name="CSTID" ColumnName="CSTID" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="DISTID" ColumnName="DISTID" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolAddress1" ColumnName="SchoolAddress1" />
+          <ScalarProperty Name="SchoolAddress2" ColumnName="SchoolAddress2" />
+          <ScalarProperty Name="SchoolCity" ColumnName="SchoolCity" />
+          <ScalarProperty Name="SchoolState" ColumnName="SchoolState" />
+          <ScalarProperty Name="SchoolZip" ColumnName="SchoolZip" />
+          <ScalarProperty Name="Greeting" ColumnName="Greeting" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="EMailSent" ColumnName="EMailSent" />
+          <ScalarProperty Name="BeginningBalance" ColumnName="BeginningBalance" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="isFrozen" ColumnName="isFrozen" />
+          <ScalarProperty Name="balanceSum" ColumnName="balanceSum" />
+          <ScalarProperty Name="lastfirst" ColumnName="lastfirst" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_Order_Void" FunctionName="FSS_POS_TEST_2Model.Store.Main_Order_Void">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_Order_Void_Result">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Menu_Id" ColumnName="Menu_Id" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="FullPrice" ColumnName="FullPrice" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="TaxPrice" ColumnName="TaxPrice" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="SoldType" ColumnName="SoldType" />
+          <ScalarProperty Name="PreOrderItem_Id" ColumnName="PreOrderItem_Id" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AccountBalanceInfo" FunctionName="FSS_POS_TEST_2Model.Store.AccountBalanceInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.AccountBalanceInfo_Result">
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="BalNegative" ColumnName="BalNegative" />
+          <ScalarProperty Name="BalPositive" ColumnName="BalPositive" />
+          <ScalarProperty Name="BalZero" ColumnName="BalZero" />
+          <ScalarProperty Name="TotalNegativeBal" ColumnName="TotalNegativeBal" />
+          <ScalarProperty Name="TotalPositiveBal" ColumnName="TotalPositiveBal" />
+          <ScalarProperty Name="TotalZeroBal" ColumnName="TotalZeroBal" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CustomerBalanceData" FunctionName="FSS_POS_TEST_2Model.Store.CustomerBalanceData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.CustomerBalanceData_Result">
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isPrimary" ColumnName="isPrimary" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="SCHID" ColumnName="SCHID" />
+          <ScalarProperty Name="HRID" ColumnName="HRID" />
+          <ScalarProperty Name="GRID" ColumnName="GRID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_AccessRights_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_AccessRights_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_AccessRights_List_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="SecurityGroup_Id" ColumnName="SecurityGroup_Id" />
+          <ScalarProperty Name="canInsert" ColumnName="canInsert" />
+          <ScalarProperty Name="canDelete" ColumnName="canDelete" />
+          <ScalarProperty Name="canView" ColumnName="canView" />
+          <ScalarProperty Name="canEdit" ColumnName="canEdit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_UserRole_Delete" FunctionName="FSS_POS_TEST_2Model.Store.Admin_UserRole_Delete" />
+    <FunctionImportMapping FunctionImportName="Reporting_DetailedTransactions" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_DetailedTransactions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_DetailedTransactions_Result">
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="EmpCashierID" ColumnName="EmpCashierID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="AccountSales" ColumnName="AccountSales" />
+          <ScalarProperty Name="CashSales" ColumnName="CashSales" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="OnlineACHPayment" ColumnName="OnlineACHPayment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_SoldItemsByCategory" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_SoldItemsByCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_SoldItemsByCategory_Result">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="MenuItem" ColumnName="MenuItem" />
+          <ScalarProperty Name="LunchTypeStatus" ColumnName="LunchTypeStatus" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Categories_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Categories_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Categories_List_Result">
+          <ScalarProperty Name="totalCount" ColumnName="totalCount" />
+          <ScalarProperty Name="catID" ColumnName="catID" />
+          <ScalarProperty Name="catName" ColumnName="catName" />
+          <ScalarProperty Name="catTypeName" ColumnName="catTypeName" />
+          <ScalarProperty Name="catColor" ColumnName="catColor" />
+          <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Connected_Customers" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Connected_Customers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Connected_Customers_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Local_id" ColumnName="Local_id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Connected_Customers_MSA" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Connected_Customers_MSA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Connected_Customers_MSA_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Local_id" ColumnName="Local_id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Grade_Id" ColumnName="Grade_Id" />
+          <ScalarProperty Name="Homeroom_Id" ColumnName="Homeroom_Id" />
+          <ScalarProperty Name="HomeroomName" ColumnName="HomeroomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customer_Detail_ForPayment" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customer_Detail_ForPayment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customer_Detail_ForPayment_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="District_Name" ColumnName="District_Name" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="Grade_Id" ColumnName="Grade_Id" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom_Id" ColumnName="Homeroom_Id" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Ethnicity_Id" ColumnName="Ethnicity_Id" />
+          <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Customer_Addr1" ColumnName="Customer_Addr1" />
+          <ScalarProperty Name="Customer_Addr2" ColumnName="Customer_Addr2" />
+          <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+          <ScalarProperty Name="Customer_State" ColumnName="Customer_State" />
+          <ScalarProperty Name="Customer_Zip" ColumnName="Customer_Zip" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Notes" ColumnName="Customer_Notes" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+          <ScalarProperty Name="GraduationDateSet" ColumnName="GraduationDateSet" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="NotInDistrict" ColumnName="NotInDistrict" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="LunchType_String" ColumnName="LunchType_String" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+          <ScalarProperty Name="Snack_Participant" ColumnName="Snack_Participant" />
+          <ScalarProperty Name="Student_Worker" ColumnName="Student_Worker" />
+          <ScalarProperty Name="AllowAlaCarte" ColumnName="AllowAlaCarte" />
+          <ScalarProperty Name="No_Credit_On_Account" ColumnName="No_Credit_On_Account" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="MealPlanBalance" ColumnName="MealPlanBalance" />
+          <ScalarProperty Name="AlaCarteBalance" ColumnName="AlaCarteBalance" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+          <ScalarProperty Name="PictureExtension" ColumnName="PictureExtension" />
+          <ScalarProperty Name="StorageAccountName" ColumnName="StorageAccountName" />
+          <ScalarProperty Name="ContainerName" ColumnName="ContainerName" />
+          <ScalarProperty Name="PictureFileName" ColumnName="PictureFileName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AllowBiometrics" ColumnName="AllowBiometrics" />
+          <ScalarProperty Name="Allow_ACH" ColumnName="Allow_ACH" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reporting_CustomerBySoldItems" FunctionName="FSS_POS_TEST_2Model.Store.Reporting_CustomerBySoldItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Reporting_CustomerBySoldItems_Result">
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="schoolName" ColumnName="schoolName" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="homeroom" ColumnName="homeroom" />
+          <ScalarProperty Name="FormattedName" ColumnName="FormattedName" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_PreorderItems_List" FunctionName="FSS_POS_TEST_2Model.Store.Admin_PreorderItems_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_PreorderItems_List_Result">
+          <ScalarProperty Name="AllRecordsCount" ColumnName="AllRecordsCount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PreOrderId" ColumnName="PreOrderId" />
+          <ScalarProperty Name="PickupCountValid" ColumnName="PickupCountValid" />
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="MealPlan_Id" ColumnName="MealPlan_Id" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="StudentFullPrice" ColumnName="StudentFullPrice" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="KitchenItem" ColumnName="KitchenItem" />
+          <ScalarProperty Name="DatePurchased" ColumnName="DatePurchased" />
+          <ScalarProperty Name="DateToServe" ColumnName="DateToServe" />
+          <ScalarProperty Name="DatePickedUp" ColumnName="DatePickedUp" />
+          <ScalarProperty Name="Received" ColumnName="Received" />
+          <ScalarProperty Name="ItemVoid" ColumnName="ItemVoid" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="OrderVoid" ColumnName="OrderVoid" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="PickupQty" ColumnName="PickupQty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_LoadItem_Void_List" FunctionName="FSS_POS_TEST_2Model.Store.Main_LoadItem_Void_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_LoadItem_Void_List_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PreorderId" ColumnName="PreorderId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="PreSaleTrans_Id" ColumnName="PreSaleTrans_Id" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="purchasedDate" ColumnName="purchasedDate" />
+          <ScalarProperty Name="ServingDate" ColumnName="ServingDate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="CanVoid" ColumnName="CanVoid" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_LoadOrder_Void_List" FunctionName="FSS_POS_TEST_2Model.Store.Main_LoadOrder_Void_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_LoadOrder_Void_List_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PreSaleTrans_Id" ColumnName="PreSaleTrans_Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PurchasedDate" ColumnName="PurchasedDate" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="CanVoid" ColumnName="CanVoid" />
+          <ScalarProperty Name="HasPayment" ColumnName="HasPayment" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_AvgInPreorderOverview" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_AvgInPreorderOverview">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_AvgInPreorderOverview_Result">
+          <ScalarProperty Name="PeriodTypeID" ColumnName="PeriodTypeID" />
+          <ScalarProperty Name="PeriodTypeName" ColumnName="PeriodTypeName" />
+          <ScalarProperty Name="AvgCount" ColumnName="AvgCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_Count" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_Count">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_Count_Result">
+          <ScalarProperty Name="recordCount" ColumnName="recordCount" />
+          <ScalarProperty Name="recordIdStr" ColumnName="recordIdStr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_CurrentPreorderOverview" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_CurrentPreorderOverview">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_CurrentPreorderOverview_Result">
+          <ScalarProperty Name="PeriodTypeID" ColumnName="PeriodTypeID" />
+          <ScalarProperty Name="PeriodTypeName" ColumnName="PeriodTypeName" />
+          <ScalarProperty Name="openCount" ColumnName="openCount" />
+          <ScalarProperty Name="closedCount" ColumnName="closedCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_List" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_List_Result">
+          <ScalarProperty Name="PreOrderItemId" ColumnName="PreOrderItemId" />
+          <ScalarProperty Name="preOrderId" ColumnName="preOrderId" />
+          <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="CategoryType_Id" ColumnName="CategoryType_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="datePurchased" ColumnName="datePurchased" />
+          <ScalarProperty Name="dateToServe" ColumnName="dateToServe" />
+          <ScalarProperty Name="datePickedUp" ColumnName="datePickedUp" />
+          <ScalarProperty Name="received" ColumnName="received" />
+          <ScalarProperty Name="itemVoid" ColumnName="itemVoid" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="orderVoid" ColumnName="orderVoid" />
+          <ScalarProperty Name="void" ColumnName="void" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_Report" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_Report">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_Report_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="datePurchased" ColumnName="datePurchased" />
+          <ScalarProperty Name="datePickedUp" ColumnName="datePickedUp" />
+          <ScalarProperty Name="received" ColumnName="received" />
+          <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+          <ScalarProperty Name="void" ColumnName="void" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_TopSellingItemOverview" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_TopSellingItemOverview">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_TopSellingItemOverview_Result">
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="qtySold" ColumnName="qtySold" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProcessPickupPreorderItems" FunctionName="FSS_POS_TEST_2Model.Store.ProcessPickupPreorderItems" />
+    <FunctionImportMapping FunctionImportName="VoidItem" FunctionName="FSS_POS_TEST_2Model.Store.VoidItem">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.VoidItem_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="CreditDif" ColumnName="CreditDif" />
+          <ScalarProperty Name="DebitDif" ColumnName="DebitDif" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VoidOrder" FunctionName="FSS_POS_TEST_2Model.Store.VoidOrder">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.VoidOrder_Result">
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="CreditDif" ColumnName="CreditDif" />
+          <ScalarProperty Name="DebitDif" ColumnName="DebitDif" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SystemOptions">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.SystemOptions">
+        <MappingFragment StoreEntitySet="SystemOptions">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AutoReCalc" ColumnName="AutoReCalc" />
+          <ScalarProperty Name="POPickupMode" ColumnName="POPickupMode" />
+          <ScalarProperty Name="PreOrderPassword" ColumnName="PreOrderPassword" />
+          <ScalarProperty Name="PreOrderUserName" ColumnName="PreOrderUserName" />
+          <ScalarProperty Name="MSADistrictID" ColumnName="MSADistrictID" />
+          <ScalarProperty Name="UsingPreOrder" ColumnName="UsingPreOrder" />
+          <ScalarProperty Name="AllowVending" ColumnName="AllowVending" />
+          <ScalarProperty Name="AllowCreditCard" ColumnName="AllowCreditCard" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="PackageType" ColumnName="PackageType" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Main_PreOrder_MenuItem_List" FunctionName="FSS_POS_TEST_2Model.Store.Main_PreOrder_MenuItem_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_PreOrder_MenuItem_List_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Customers_SortedList" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Customers_SortedList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Customers_SortedList_Result">
+          <ScalarProperty Name="allRecordsCount" ColumnName="allRecordsCount" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Middle_Initial" ColumnName="Middle_Initial" />
+          <ScalarProperty Name="Adult" ColumnName="Adult" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Homeroom" ColumnName="Homeroom" />
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="M_Balance" ColumnName="M_Balance" />
+          <ScalarProperty Name="A_Balance" ColumnName="A_Balance" />
+          <ScalarProperty Name="Total_Balance" ColumnName="Total_Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_Applications_SortedList" FunctionName="FSS_POS_TEST_2Model.Store.Admin_Applications_SortedList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_Applications_SortedList_Result">
+          <ScalarProperty Name="AllRecordsCount" ColumnName="AllRecordsCount" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Parent_Name" ColumnName="Parent_Name" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="Member_Name" ColumnName="Member_Name" />
+          <ScalarProperty Name="Member_Id" ColumnName="Member_Id" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+          <ScalarProperty Name="District_Name" ColumnName="District_Name" />
+          <ScalarProperty Name="Household_Size" ColumnName="Household_Size" />
+          <ScalarProperty Name="No_Of_Students" ColumnName="No_Of_Students" />
+          <ScalarProperty Name="No_Of_Members" ColumnName="No_Of_Members" />
+          <ScalarProperty Name="App_Signer_Name" ColumnName="App_Signer_Name" />
+          <ScalarProperty Name="Approval_Status" ColumnName="Approval_Status" />
+          <ScalarProperty Name="Entered" ColumnName="Entered" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Main_Items_View" FunctionName="FSS_POS_TEST_2Model.Store.Main_Items_View">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Main_Items_View_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="PaidPrice" ColumnName="PaidPrice" />
+          <ScalarProperty Name="Void" ColumnName="Void" />
+          <ScalarProperty Name="ServingDate" ColumnName="ServingDate" />
+          <ScalarProperty Name="PickedupDate" ColumnName="PickedupDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="App_Ethnicity">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Ethnicity">
+        <MappingFragment StoreEntitySet="App_Ethnicity">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Ethnic_Id" ColumnName="Ethnic_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Income_Frequencies">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Income_Frequencies">
+        <MappingFragment StoreEntitySet="Income_Frequencies">
+          <ScalarProperty Name="Multiplier" ColumnName="Multiplier" />
+          <ScalarProperty Name="Frequency_Name" ColumnName="Frequency_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Income_Types">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Income_Types">
+        <MappingFragment StoreEntitySet="Income_Types">
+          <ScalarProperty Name="Income_Type" ColumnName="Income_Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Races">
+        <MappingFragment StoreEntitySet="Races">
+          <ScalarProperty Name="Race_Name" ColumnName="Race_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Member_Incomes">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Member_Incomes">
+        <MappingFragment StoreEntitySet="App_Member_Incomes">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Frequency_Id" ColumnName="Frequency_Id" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="Income_Type_Id" ColumnName="Income_Type_Id" />
+          <ScalarProperty Name="App_Member_Id" ColumnName="App_Member_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Members">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Members">
+        <MappingFragment StoreEntitySet="App_Members">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="isStudent" ColumnName="isStudent" />
+          <ScalarProperty Name="NoIncome" ColumnName="NoIncome" />
+          <ScalarProperty Name="Runaway" ColumnName="Runaway" />
+          <ScalarProperty Name="Migrant" ColumnName="Migrant" />
+          <ScalarProperty Name="Homeless" ColumnName="Homeless" />
+          <ScalarProperty Name="Foster" ColumnName="Foster" />
+          <ScalarProperty Name="Member_Id" ColumnName="Member_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Ethnic_Id" ColumnName="Ethnic_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Races">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Races">
+        <MappingFragment StoreEntitySet="App_Races">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Race_Id" ColumnName="Race_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Signers">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Signers">
+        <MappingFragment StoreEntitySet="App_Signers">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Confirmation_Of_Accuracy" ColumnName="Confirmation_Of_Accuracy" />
+          <ScalarProperty Name="Terms_Of_Use_Accepted" ColumnName="Terms_Of_Use_Accepted" />
+          <ScalarProperty Name="IP_Address" ColumnName="IP_Address" />
+          <ScalarProperty Name="Other_Identifier" ColumnName="Other_Identifier" />
+          <ScalarProperty Name="Signed_Date" ColumnName="Signed_Date" />
+          <ScalarProperty Name="No_SSN" ColumnName="No_SSN" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Other_Phone" ColumnName="Other_Phone" />
+          <ScalarProperty Name="Cell_Phone" ColumnName="Cell_Phone" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="App_Member_Id" ColumnName="App_Member_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Statuses">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Statuses">
+        <MappingFragment StoreEntitySet="App_Statuses">
+          <ScalarProperty Name="Precertified" ColumnName="Precertified" />
+          <ScalarProperty Name="Direct_Cert_Id" ColumnName="Direct_Cert_Id" />
+          <ScalarProperty Name="Status_Type_Id" ColumnName="Status_Type_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Member_Status_Id" ColumnName="Member_Status_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Applications">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="PrintedDate" ColumnName="PrintedDate" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Entered" ColumnName="Entered" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="Fee_Waiver" ColumnName="Fee_Waiver" />
+          <ScalarProperty Name="Total_Frequency_Id" ColumnName="Total_Frequency_Id" />
+          <ScalarProperty Name="Total_Income" ColumnName="Total_Income" />
+          <ScalarProperty Name="Case_Number" ColumnName="Case_Number" />
+          <ScalarProperty Name="Beneficiary_Name" ColumnName="Beneficiary_Name" />
+          <ScalarProperty Name="Runaway_On_App" ColumnName="Runaway_On_App" />
+          <ScalarProperty Name="Migrant_On_App" ColumnName="Migrant_On_App" />
+          <ScalarProperty Name="Homeless_On_App" ColumnName="Homeless_On_App" />
+          <ScalarProperty Name="Household_Size" ColumnName="Household_Size" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="District_Id" ColumnName="District_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Member_Statuses">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Member_Statuses">
+        <MappingFragment StoreEntitySet="App_Member_Statuses">
+          <ScalarProperty Name="Precertified" ColumnName="Precertified" />
+          <ScalarProperty Name="Direct_Cert_Id" ColumnName="Direct_Cert_Id" />
+          <ScalarProperty Name="Status_Type_Id" ColumnName="Status_Type_Id" />
+          <ScalarProperty Name="App_Member_Id" ColumnName="App_Member_Id" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App_Notes">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.App_Notes">
+        <MappingFragment StoreEntitySet="App_Notes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Application_Id" ColumnName="Application_Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="School_Tax">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.School_Tax">
+        <MappingFragment StoreEntitySet="School_Tax1">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="TaxEntity_Id" ColumnName="TaxEntity_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxEntities">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.TaxEntities">
+        <MappingFragment StoreEntitySet="TaxEntities1">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="School_Tax1Set">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.School_Tax1">
+        <MappingFragment StoreEntitySet="School_Tax">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="TaxEntity_Id" ColumnName="TaxEntity_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxEntities1Set">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.TaxEntities1">
+        <MappingFragment StoreEntitySet="TaxEntities">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxName" ColumnName="TaxName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_POSNotification">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.Customer_POSNotification">
+        <MappingFragment StoreEntitySet="Customer_POSNotification">
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="POSNotification_Id" ColumnName="POSNotification_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSNotifications">
+      <EntityTypeMapping TypeName="FSS_POS_TEST_2Model.POSNotifications">
+        <MappingFragment StoreEntitySet="POSNotifications">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="BackColorS" ColumnName="BackColorS" />
+          <ScalarProperty Name="TextColorS" ColumnName="TextColorS" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="BackColor" ColumnName="BackColor" />
+          <ScalarProperty Name="TextColor" ColumnName="TextColor" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FetchBeginningBalance" FunctionName="FSS_POS_TEST_2Model.Store.FetchBeginningBalance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.FetchBeginningBalance_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="DBUpdate" ColumnName="DBUpdate" />
+          <ScalarProperty Name="Alacarte" ColumnName="Alacarte" />
+          <ScalarProperty Name="MealPlan" ColumnName="MealPlan" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="PrevAlaCarte" ColumnName="PrevAlaCarte" />
+          <ScalarProperty Name="PrevMealPlan" ColumnName="PrevMealPlan" />
+          <ScalarProperty Name="CustomerBalance" ColumnName="CustomerBalance" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+          <ScalarProperty Name="HomeRoomId" ColumnName="HomeRoomId" />
+          <ScalarProperty Name="HomeRoomName" ColumnName="HomeRoomName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDistinctGradesForGraduateSeniors" FunctionName="FSS_POS_TEST_2Model.Store.FetchDistinctGradesForGraduateSeniors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.FetchDistinctGradesForGraduateSeniors_Result">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDistinctHomeRoomForBeginningBalance" FunctionName="FSS_POS_TEST_2Model.Store.FetchDistinctHomeRoomForBeginningBalance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.FetchDistinctHomeRoomForBeginningBalance_Result">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="HomeRoomId" ColumnName="HomeRoomId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchGraduateSeniors" FunctionName="FSS_POS_TEST_2Model.Store.FetchGraduateSeniors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.FetchGraduateSeniors_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Graduate" ColumnName="Graduate" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="TotalBalance" ColumnName="TotalBalance" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GRADUATESENIORS" FunctionName="FSS_POS_TEST_2Model.Store.GRADUATESENIORS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.GRADUATESENIORS_Result">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_Pr_School_Id" ColumnName="Customer_Pr_School_Id" />
+          <ScalarProperty Name="POS_Id" ColumnName="POS_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Emp_Cashier_Id" ColumnName="Emp_Cashier_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="OrdersLog_Id" ColumnName="OrdersLog_Id" />
+          <ScalarProperty Name="GDate" ColumnName="GDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderDateLocal" ColumnName="OrderDateLocal" />
+          <ScalarProperty Name="LunchType" ColumnName="LunchType" />
+          <ScalarProperty Name="ADebit" ColumnName="ADebit" />
+          <ScalarProperty Name="MDebit" ColumnName="MDebit" />
+          <ScalarProperty Name="ACredit" ColumnName="ACredit" />
+          <ScalarProperty Name="BCredit" ColumnName="BCredit" />
+          <ScalarProperty Name="MCredit" ColumnName="MCredit" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+          <ScalarProperty Name="OverRide" ColumnName="OverRide" />
+          <ScalarProperty Name="isVoid" ColumnName="isVoid" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="CreditAuth_Id" ColumnName="CreditAuth_Id" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+          <ScalarProperty Name="PartitionOffset" ColumnName="PartitionOffset" />
+          <ScalarProperty Name="LastUpdatedUTC" ColumnName="LastUpdatedUTC" />
+          <ScalarProperty Name="UpdatedBySync" ColumnName="UpdatedBySync" />
+          <ScalarProperty Name="Local_ID" ColumnName="Local_ID" />
+          <ScalarProperty Name="CloudIDSync" ColumnName="CloudIDSync" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_BeginningBalance_Get" FunctionName="FSS_POS_TEST_2Model.Store.Admin_BeginningBalance_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.Admin_BeginningBalance_Get_Result">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="DBUpdate" ColumnName="DBUpdate" />
+          <ScalarProperty Name="Alacarte" ColumnName="Alacarte" />
+          <ScalarProperty Name="MealPlan" ColumnName="MealPlan" />
+          <ScalarProperty Name="ABalance" ColumnName="ABalance" />
+          <ScalarProperty Name="MBalance" ColumnName="MBalance" />
+          <ScalarProperty Name="BonusBalance" ColumnName="BonusBalance" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="PrevAlaCarte" ColumnName="PrevAlaCarte" />
+          <ScalarProperty Name="PrevMealPlan" ColumnName="PrevMealPlan" />
+          <ScalarProperty Name="CustomerBalance" ColumnName="CustomerBalance" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+          <ScalarProperty Name="HomeRoomId" ColumnName="HomeRoomId" />
+          <ScalarProperty Name="HomeRoomName" ColumnName="HomeRoomName" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDistinctSchoolsForGraduateSeniors2" FunctionName="FSS_POS_TEST_2Model.Store.FetchDistinctSchoolsForGraduateSeniors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FSS_POS_TEST_2Model.FetchDistinctSchoolsForGraduateSeniors2_Result">
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

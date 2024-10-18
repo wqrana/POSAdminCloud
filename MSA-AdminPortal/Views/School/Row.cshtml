@@ -1,0 +1,75 @@
+﻿@model AdminPortalModels.Models.SchoolIndexModel
+
+<style>
+    .submitLink
+    {
+        background-color: transparent;
+        border: none;
+        color: blue;
+        cursor: pointer;
+        color: white;
+        font-size: medium;
+    }
+
+    input.submitLink:hover
+    {
+        text-decoration: underline;
+    }
+
+    .removeAnchorStyle
+    {
+        text-decoration: none;
+    }
+
+        .removeAnchorStyle:hover
+        {
+            text-decoration: none;
+        }
+</style>
+
+<div id="schoolTile" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 TileView">
+    <div class="dashboard-stat grey">
+        <div>
+            @*<i class="fa fa-home"></i>*@
+        </div>
+        <a class="ActionLink removeAnchorStyle  SchoolEditTile" href="~/School/Edit/@Model.Id" data-toggle="modal" data-id="@Model.Id">
+            <div class="details" onclick=@String.Format("Edit/{0}", Model.Id) >
+                <div class="number"  title="@Model.toolTip" id="sch-@Model.Id" data-id="@Model.Id">
+
+                    @Html.DisplayFor(model => model.shortSchoolName)
+                </div>
+                <br />
+                <div class="desc">
+                    <label class="">@Html.LabelFor(model => Model.DistrictName):</label>
+                    @Html.DisplayFor(m => m.DistrictName)
+                </div>
+                <div class="desc">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="footerdiv text-right">
+        <div>
+            <div class="enb">
+                <label class="lbl">@Html.LabelFor(model => Model.POSCount):</label>
+                @Html.DisplayFor(m => m.POSCount)
+            </div>
+            <div class="separator">&nbsp;</div>
+        </div>
+        <div class="btn-group action pull-right " style="padding-right: 5px;">
+            <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                <span>Actions
+                </span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu align-right" role="menu">
+                <li>
+                    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "ActionLink SchoolEditTile", data_id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { href = "#Delete", data_toggle = "modal", data_backdrop = "static", data_keyboard = "false", @class = "DeleteLink SchoolDeleteTile", data_id = Model.Id })
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

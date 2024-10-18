@@ -1,0 +1,82 @@
+﻿@model  IEnumerable<AdminPortalModels.Models.CategoryTypeIndexModel>
+
+@{
+    ViewBag.Menu = "Menu";
+    ViewBag.SubMenu = "Category Type";
+
+    ViewBag.Title = "Category Type";
+}
+
+<link href="/Content/Category-Type.css" rel="stylesheet" />
+@*<link href="~/Content/CustomCSS/Items.css" rel="stylesheet" />*@
+<link href="/Content/CustomCSS/viewButtons.css" rel="stylesheet">
+
+@*<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />*@
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+     @Html.Hidden("CreateCategoryTypes", MSA_AdminPortal.Helpers.SecurityManager.CreateCategoryTypes)
+    @Html.Hidden("UpdateCategoryTypes", MSA_AdminPortal.Helpers.SecurityManager.UpdateCategoryTypes)
+    @Html.Hidden("DeleteCategoryType", MSA_AdminPortal.Helpers.SecurityManager.DeleteCategoryType)
+
+    @Html.Hidden("viewCategories", MSA_AdminPortal.Helpers.SecurityManager.viewCategories)
+    @Html.Hidden("viewMenu", MSA_AdminPortal.Helpers.SecurityManager.viewMenu)
+    
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn default btn-md pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/CategoryType/Table'">
+                    List View
+                </button>
+                <button type="button" class="btn default btn-md pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/CategoryType/Tile'">
+                    Tile View
+                </button>
+
+            </li>
+            <li>
+                <i class="fa fa-user fa-sitemap"></i>
+                <a href="#">Menu</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;">
+    <div class="col-md-6">
+        <div class="btn-group pull-left">
+            <a href="#CreateOrEdit" id="aAddNewButton" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="ActionLink" data-id='0'>
+                <div id="sub-div">
+                    <button id="AddNewButton" class="btn green" style="width: 205px;">
+                        Add Category Type
+                    </button>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" style="margin-right: -30px;">
+
+            @foreach (var categoryType in Model)
+            {
+                Html.RenderPartial("Row", categoryType);
+            }
+        </div>
+
+    </div>
+</div>
+
+@{Html.RenderAction("Popup");}
+@{Html.RenderAction("Delete");}
+

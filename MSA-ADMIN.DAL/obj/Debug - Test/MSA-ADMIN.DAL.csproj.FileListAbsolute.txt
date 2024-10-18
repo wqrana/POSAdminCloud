@@ -1,0 +1,9 @@
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\MSA-ADMIN.DAL.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\MSA-ADMIN.DAL.pdb
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\AdminPortalModels.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\FSS.Reports.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\FSS.Security.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\bin\Debug - Test\AdminPortalModels.pdb
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\obj\Debug - Test\MSA-ADMIN.DAL.csprojResolveAssemblyReference.cache
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\obj\Debug - Test\MSA-ADMIN.DAL.dll
+D:\FSS Development Local\DEV-POS Admin Final\DEV\MSA-ADMIN.DAL\obj\Debug - Test\MSA-ADMIN.DAL.pdb

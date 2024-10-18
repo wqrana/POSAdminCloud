@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Web", "1-Web", "{A7C1FC7C-B015-4340-B7BF-4714E1F391CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- DataAccess", "3- DataAccess", "{842DB34B-4FA9-4C94-822A-C8AE1A27F722}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Models", "2-Models", "{BCAF6041-6026-4BE0-AFB7-59B0FCA707A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- Unit Test", "4- Unit Test", "{E72A8C72-79F7-4B44-90ED-40578BA465D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infrastructure", "5 - Infrastructure", "{8CBB35E9-A8D7-41B3-9099-7BE9374EA413}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E43D4881-FFFC-4A43-AE44-123BADF206AA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSA-AdminPortal", "MSA-AdminPortal\MSA-AdminPortal.csproj", "{5B3CCFBB-10D6-492A-A6C6-F3F422118072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{A827D62F-B9CB-4633-A61F-2B5DA808EF94}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AdminHQ", "AdminHQ\AdminHQ.ccproj", "{F89CC7C0-5F3E-478F-A449-4EAB7141BB22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPortalModels", "AdminPortalModels\AdminPortalModels.csproj", "{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSA-ADMIN.DAL", "MSA-ADMIN.DAL\MSA-ADMIN.DAL.csproj", "{C2278E9C-EC9F-4279-8055-05C50F9DB45C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://zipserver:8080/tfs/pos
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MSA-AdminPortal\\MSA-AdminPortal.csproj
+		SccProjectTopLevelParentUniqueName1 = MSA-AdminPortal.sln
+		SccProjectName1 = MSA-AdminPortal
+		SccLocalPath1 = MSA-AdminPortal
+		SccProjectUniqueName2 = Repository\\Repository.csproj
+		SccProjectTopLevelParentUniqueName2 = MSA-AdminPortal.sln
+		SccProjectName2 = Repository
+		SccLocalPath2 = Repository
+		SccProjectUniqueName3 = AdminHQ\\AdminHQ.ccproj
+		SccProjectName3 = AdminHQ
+		SccLocalPath3 = AdminHQ
+		SccProjectUniqueName4 = AdminPortalModels\\AdminPortalModels.csproj
+		SccProjectTopLevelParentUniqueName4 = MSA-AdminPortal.sln
+		SccProjectName4 = AdminPortalModels
+		SccLocalPath4 = AdminPortalModels
+		SccProjectUniqueName5 = MSA-ADMIN.DAL\\MSA-ADMIN.DAL.csproj
+		SccProjectTopLevelParentUniqueName5 = MSA-AdminPortal.sln
+		SccProjectName5 = MSA-ADMIN.DAL
+		SccLocalPath5 = MSA-ADMIN.DAL
+	EndGlobalSection
+	GlobalSection(AutomaticVersions) = postSolution
+		UpdateAssemblyVersion = True
+		UpdateAssemblyFileVersion = True
+		UpdateAssemblyInfoVersion = True
+		AssemblyVersionSettings = None.None.IncrementOnDemand.IncrementWithResetOnIncrease
+		AssemblyFileVersionSettings = None.None.IncrementOnDemand.IncrementWithResetOnIncrease
+		AssemblyInfoVersionSettings = None.None.IncrementOnDemand.IncrementWithResetOnIncrease
+		UpdatePackageVersion = False
+		AssemblyInfoVersionType = SettingsVersion
+		InheritWinAppVersionFrom = None
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug - Test|Any CPU = Debug - Test|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Debug - Test|Any CPU.ActiveCfg = Debug - Test|Any CPU
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Debug - Test|Any CPU.Build.0 = Debug - Test|Any CPU
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Debug - Test|Any CPU.ActiveCfg = Debug - Test|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Debug - Test|Any CPU.Build.0 = Debug - Test|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F89CC7C0-5F3E-478F-A449-4EAB7141BB22}.Debug - Test|Any CPU.ActiveCfg = Debug - Test|Any CPU
+		{F89CC7C0-5F3E-478F-A449-4EAB7141BB22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F89CC7C0-5F3E-478F-A449-4EAB7141BB22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F89CC7C0-5F3E-478F-A449-4EAB7141BB22}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Debug - Test|Any CPU.ActiveCfg = Debug - Test|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Debug - Test|Any CPU.Build.0 = Debug - Test|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Debug - Test|Any CPU.ActiveCfg = Debug - Test|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Debug - Test|Any CPU.Build.0 = Debug - Test|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B3CCFBB-10D6-492A-A6C6-F3F422118072} = {A7C1FC7C-B015-4340-B7BF-4714E1F391CC}
+		{A827D62F-B9CB-4633-A61F-2B5DA808EF94} = {842DB34B-4FA9-4C94-822A-C8AE1A27F722}
+		{0F1DA75A-5B37-46DB-9697-D71C8F3BFC9A} = {BCAF6041-6026-4BE0-AFB7-59B0FCA707A8}
+		{C2278E9C-EC9F-4279-8055-05C50F9DB45C} = {842DB34B-4FA9-4C94-822A-C8AE1A27F722}
+	EndGlobalSection
+EndGlobal

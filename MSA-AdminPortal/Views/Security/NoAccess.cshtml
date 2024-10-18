@@ -1,0 +1,72 @@
+﻿@model AdminPortalModels.Models.ErrorModel
+@{
+    ViewBag.Menu = "Security";
+    ViewBag.SubMenu = "No Access";
+
+    ViewBag.Title = "No Access";
+}
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <div class="page-breadcrumb breadcrumb">
+
+        </div>
+        <!--
+               
+        <ul class="page-breadcrumb breadcrumb">
+           
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Security</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">No Access</a>
+            </li>
+        </ul>
+       -->
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+
+<div class="row">
+				<div class="col-md-12 page-404">
+					<div class="details">
+						<h3>Oops!  You did not have rights to perform that action.</h3>
+						<p>
+							  @Model.Message<br>
+						</p>
+                        <br />
+                        <p>
+                            Please check with your administrator.
+                        </p>
+						<form action="#">
+							<div class="input-group input-medium">
+
+							</div>
+							<!-- /input-group -->
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+<script src="~/Content/themes/assets/global/scripts/metronic.js"></script>
+
+
+<script type="text/javascript">
+
+   
+
+    $(document).ready(function () {
+
+    });
+
+</script>

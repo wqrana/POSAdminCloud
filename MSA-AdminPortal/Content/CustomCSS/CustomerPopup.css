@@ -1,0 +1,209 @@
+﻿ 
+   .posDivClosed {
+        width: 20.5%;
+        min-width: 215px;
+        max-height: 95px;
+        margin-top: 30px;
+    }
+
+        .posDivClosed .dashboard-stat {
+            background-color: #e6e7e9 !important;
+            margin-bottom: 0px;
+            min-height: 65px;
+            min-width: 215px;
+        }
+
+            .posDivClosed .dashboard-stat .visual {
+                height: 60px;
+                padding-left: 10px;
+            }
+
+                .posDivClosed .dashboard-stat .visual i {
+                    font-size: 43px !important;
+                    height: 30px !important;
+                    color: #d1232a;
+                    line-height: 37px;
+                    margin-left:0px;
+                    opacity:1;
+                }
+
+
+            .posDivClosed .dashboard-stat .details {
+                height: 70px;
+                right: 43px;
+                left: 89px;
+                position: inherit;
+                max-width: 215px;
+            }
+
+                .posDivClosed .dashboard-stat .details .number {
+                    font-size: 19px;
+                    font-weight: 400;
+                    color: #59595d;
+                    padding-top: 0px;
+                    margin-bottom: 0px;
+                    float: left;
+                    line-height: 26px;
+                }
+
+                .posDivClosed .dashboard-stat .details .desc {
+                    font-size: 13px;
+                    color: #59595d;
+                    padding-top: 0px;
+                    float: left;
+                }
+
+                    .posDivClosed .dashboard-stat .details .desc .labelcss {
+                        color: red;
+                        font-weight: bold;
+                    }
+
+                    .posDivClosed .dashboard-stat .details .desc label {
+                        margin-bottom: 0px;
+                    }
+
+        .posDivClosed .footerdiv {
+            background-color: #636366;
+            color: white;
+            height: 28px;
+            font-size: 11px;
+            min-width: 215px;
+        }
+
+            .posDivClosed .footerdiv .enb {
+                width: 145px;
+                float: left;
+                padding: 6px;
+            }
+
+            .posDivClosed .footerdiv .disab {
+                width: 145px;
+                float: left;
+                padding: 6px;
+                color: gray;
+            }
+
+            .posDivClosed .footerdiv .separator {
+                width: 2px;
+                float: left;
+                background-color: white;
+                height: 30px;
+            }
+
+            .posDivClosed .footerdiv .action {
+                width: 60px;
+                float: right;
+                padding: 6px;
+                right:7px;
+            }
+
+            
+
+            .posDivClosed .footerdiv .btn {
+                padding: 0px;
+                font-size: 11px;
+            }
+
+            .posDivClosed .footerdiv .btn-group .btn.blue.dropdown-toggle {
+                background-color: #636366 !important;
+            }
+
+            .posDivClosed .footerdiv .dropdown-menu {
+                background-color: #e6e7e9;
+                font-size: 11px;
+                color: black;
+                margin-right: -8px;
+                box-shadow: none;
+                min-width: 90px;
+            }
+
+                .posDivClosed .footerdiv .dropdown-menu li > a {
+                    padding: 0px 0px 0px 6px;
+                }
+
+    .posDivOpen .dashboard-stat {
+        background-color: #86c43f !important;
+    }
+
+        .posDivOpen .dashboard-stat .visual i {
+            color: white;
+        }
+
+        .posDivOpen .dashboard-stat .details .desc {
+            color: white;
+        }
+
+            .posDivOpen .dashboard-stat .details .desc .labelcss {
+                color: white;
+            }
+
+        .posDivOpen .dashboard-stat .details .number {
+            color: white;
+        }
+
+    .top-buffer {
+        padding-top: 10px;
+    }
+
+    .savaPos {
+    }
+
+    .form-class {
+    }
+
+    .enablebtn {
+        background-color: #4D90FE;
+        color: white !important;
+        border: solid 1px #4D90FE !important;
+    }
+
+        .enablebtn:hover, enablebtn:focus {
+            color: white;
+        }
+
+    .disablebtn {
+        background-color: white;
+        color: white;
+        border: solid 1px gray !important;
+    }
+
+        .disablebtn:hover, .disablebtn:focus {
+            background-color: #4D90FE;
+            color: white;
+        }
+
+    .deletepos {
+    }
+
+    .has-switch span.switch-primary:hover, .has-switch span.switch-left:hover, .has-switch span.switch-primary:focus, .has-switch span.switch-left:focus, .has-switch span.switch-primary:active, .has-switch span.switch-left:active, .has-switch span.switch-primary.active, .has-switch span.switch-left.active, .has-switch span.switch-primary.disabled, .has-switch span.switch-left.disabled, .has-switch span.switch-primary[disabled], .has-switch span.switch-left[disabled] {
+        background-color: #3b79b0 !important;
+        color: #FFFFFF;
+    }
+
+    .has-switch span.switch-primary, .has-switch span.switch-left {
+        background-color: #5395cf !important;
+    }
+
+    .has-switch {
+        min-width: 182px !important;
+    }
+
+        .has-switch span.switch-right {
+            background-color: #ED4E2A !important;
+            color: #FFFFFF !important;
+        }
+
+        .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primar
+{
+    background-color:#43bd55 !important;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default
+{
+    background-color:#ed4e2a !important;
+    color:white !important;
+}
+.bootstrap-switch
+{
+    min-width:195px;
+}

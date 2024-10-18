@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.BuildNumber = typeof (MSA_AdminPortal.MvcApplication).Assembly.GetName().Version.ToString();
+}
+<div class="footer">
+    <div class="footer-inner">
+        Build @ViewBag.BuildNumber
+    </div>
+    <div class="copy-right-footer">
+        @DateTime.Now.Year &copy; Food Service Solutions, Inc. All rights reserved.
+    </div>
+</div>

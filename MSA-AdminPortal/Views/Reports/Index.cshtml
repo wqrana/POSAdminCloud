@@ -1,0 +1,788 @@
+﻿@model AdminPortalModels.ViewModels.ReportsModel
+
+@{
+    ViewBag.Menu = "Reports";
+
+    ViewBag.Title = "Reports";
+}
+
+<link href="~/Content/themes/assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" />
+<link href="~/Content/themes/assets/global/plugins/jquery-sumoselect/sumoselect.min.css" rel="stylesheet" />
+
+@*<link href="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />*@
+<link href="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker-new/daterangepicker.css" rel="stylesheet" />
+
+<link href="~/Content/themes/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+
+@Styles.Render("~/Content/themes/datatables/css")
+
+<link href="~/Content/CustomCSS/RepotsIndex.css" rel="stylesheet" />
+<style>
+    .dropdownParentCSS {
+        background-color: white;
+        border: 1px solid #aaa !important;
+        height: 31px;
+        width: 100%;
+    }
+
+    .dropdownCSS, .dropdownCSS:hover {
+        width: 224px;
+        text-align: left;
+        color: black !important;
+        background-color: white !important;
+        padding: 4px 6px 4px 6px;
+        width: 90%;
+    }
+
+    .dropdownArrowCSS {
+        color: black !important;
+        background-color: white !important;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+
+    .dropdown-menuoverride {
+        margin-top: 1px !important;
+        /*max-height: 200px;
+        overflow-y: auto;
+        width: 220px;*/
+    }
+
+    .table100 {
+        width: 100%;
+    }
+
+    .ms-container {
+        width: 250px !important;
+    }
+
+    .input-mini {
+        width: 100% !important;
+    }
+
+    .width-half {
+        width: 50% !important;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.ReportName != null && ViewBag.ReportName != "")
+        {
+            <h2>@ViewBag.ReportName</h2>
+        }
+        @if (ViewBag.ReportName == null || ViewBag.ReportName == "")
+        {
+            <h2>Customer Reports</h2>
+        }
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-folder-open"></i>
+                <a href="#">Reports</a>
+                <!--<span>Reports</span>-->
+                <i class="fa fa-angle-right"></i>
+            </li>
+            @if (ViewBag.ReportGroupName != null && ViewBag.ReportGroupName != "")
+            {
+                <li>
+                    <a href="#">@ViewBag.ReportGroupName Reports</a>
+                </li>
+            }
+            @if (ViewBag.ReportName != null && ViewBag.ReportName != "")
+            {
+                <li>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="#">@ViewBag.ReportName</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3" style="padding-right: 0px">
+        <div class="col-md-12 reportsFiltersDiv">
+            <div class="form-group">
+                <div class="col-md-12 PaddingClass" style="padding-left: 0px; padding-bottom: 30px;">
+                    <button class="btn yellow btn-lg" style="width: 253px;" id="RunReportBtn">
+                        Run Report
+                    </button>
+
+                </div>
+            </div>
+
+            @if (@Model.showHideReportsFilters.ShowDateRangeTypes)
+            {
+
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Date Range Types: </label>
+                        @Html.DropDownList("DateRangeTypesList", new SelectList(@Model.reportDateRangeTypesList), new { style = "width: 100%; height: 100%;", })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowDateRange)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding zeroRightPadding">
+                        <label class="">Date Range</label>
+
+                        <div id="reportrange" class="btn default reportrangeClass">
+                            <i class="fa fa-calendar pull-left"></i>
+                            &nbsp;
+                            <span></span>
+                            <b class="fa fa-angle-down pull-right"></b>
+                        </div>
+                    </div>
+                </div>
+            }
+            @Html.Hidden("startDate")
+            @Html.Hidden("EndDate")
+
+
+            @if (@Model.showHideReportsFilters.ShowCustomers)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Customers</label>
+                        <div class="radio-list">
+                            <label>
+                                <input type="radio" id="allCustomers" name="CustomersSearch" />
+                                All Customers
+                            </label>
+                            <label>
+                                <input type="radio" id="specificCustomers" name="CustomersSearch" data-target="#CustomerSearcRpt" data-toggle="modal" />
+                                <label for="specificCust">Specific Customers</label>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (@Model.showHideReportsFilters.ShowLocactions)
+            {
+                @*<div class="form-group">
+                        <div class="col-md-12 zeroLeftPadding PaddingClass">
+                            <label class="">Location: </label>
+                            @Html.DropDownList("LocationList", new SelectList(@Model.locationList, "value", "data"), "All Locations", new { style = "width: 100%; height: 100%;" })
+                        </div>
+                    </div>
+                *@
+                @*
+                    <div class="form-group">
+                        <label class="">Location: </label>
+                        <div id="locationListDiv" class="btn-group dropdownParentCSS">
+
+                            <button type="button" class="btn blue dropdownCSS"><span id="locationsSpan">All Locations</span></button>
+                    <button type="button" class="btn blue dropdown-toggle dropdownArrowCSS pull-right" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+                            <div class="dropdown-menu dropdown-menuoverride hold-on-click dropdown-checkboxes" role="menu">
+                                @foreach (var locitem in Model.locationList)
+                                {
+                                    <label>
+                                <input id="@locitem.value" onclick="checkChecked('locationListDiv', 'locationsSpan', 'All Locations');" type="checkbox">@locitem.data
+                            </label>
+                                }
+                        </div>
+                    </div>
+                    </div>
+                *@
+
+                <div class="form-group">
+                    <label class="">Locations:</label>
+                    <div class="col-md-12 zeroLeftPadding" style="padding-right:0px">
+                        @Html.ListBox("LocationList", (IEnumerable<SelectListItem>)(new SelectList(@Model.locationList, "value", "data")), new { id = "LocationListId", @class = "form-control SlectBox", placeholder = "All Locations" })
+                    </div>
+
+                </div>
+
+            }
+
+            @if (@Model.showHideReportsFilters.ShowMsaSchools)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">School: </label>
+                        @Html.DropDownList("MsaSchool", new SelectList(Model.msa_schoolList, "value", "data", Model.msa_schoolList.FirstOrDefault().value), new { style = "width: 100%; height: 100%;" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowMsaSchoolsMultiSelect)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label style="display:block">School: </label>
+                        @*@Html.DropDownList("SchoolListMultiSelect", new SelectList(Model.msa_schoolList, "value", "data"), "No Selections", new { style = "width: 100%; height: 100%;" })*@
+                        @Html.ListBox("MsaSchoolMultiSelect", new SelectList(Model.msa_schoolList, "value", "data"), new { style = "width: 100%; height: 100%;", @class = "SlectBox", placeholder = "Schools" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowDate)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label>Date: </label>
+
+                        <input type="date" name="Date" id="DateMsa" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+
+                        <!--
+                        <div class="input-icon right">
+                            <i class="fa"></i>
+                            <input type="text" name="Date" id="Date" class="form-control datepicker" placeholder="00/00/0000">
+                        </div>
+                            -->
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowDateEnd)
+            {
+                <div class="form-group">
+                    <div class="">
+                        <label>End Date: </label>
+                        <div class="input-icon right">
+                            <i class="fa"></i>
+                            <input type="text" name="DateEnd" id="DateEnd" class="form-control datepicker" placeholder="00/00/0000">
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowIncludeSchool)
+            {
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="IncludeSchool" id="IncludeSchool"> Include School
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            }
+          
+
+            @if (@Model.showHideReportsFilters.ShowSingleColumnSorting)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Sort By: </label>
+                        @Html.DropDownList("SingleColumnSorting", new SelectList(Model.reportSingleColumnSorting, "id", "name", Model.reportSingleColumnSorting.FirstOrDefault().id), "", new { style = "width: 100%; height: 100%;" })
+                    </div>
+                </div>
+            }
+            @if (@Model.showHideReportsFilters.ShowPagebreakCheck)
+            {
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="PagebreakCheckbox" id="PagebreakCheckbox"> Put page break after sorting group
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (@Model.showHideReportsFilters.ShowHomeRooms)
+            {
+                @*<div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Homerooms: </label>
+                        @Html.DropDownList("HomeRoomList", new SelectList(@Model.homeRoomList, "value", "data"), "All Homerooms", new { style = "width: 100%; height: 100%;" })
+                    </div>
+                    </div>
+                *@
+
+                @*
+                    <div class="form-group">
+                        <label class="">Homerooms: </label>
+                        <div id="HoomeroomDiv" class="btn-group dropdownParentCSS">
+                            <button type="button" class="btn blue dropdownCSS"><span id="homeroomSpan">All Homerooms</span></button>
+                    <button type="button" class="btn blue dropdown-toggle dropdownArrowCSS pull-right" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+                            <div class="dropdown-menu dropdown-menuoverride hold-on-click dropdown-checkboxes" role="menu">
+                                @foreach (var homeroomitem in Model.homeRoomList)
+                                {
+                                    <label>
+                                <input id="@homeroomitem.value" onclick="checkChecked('HoomeroomDiv', 'homeroomSpan', 'All Homerooms');" type="checkbox">@homeroomitem.data
+                            </label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                *@
+
+                <div class="form-group">
+                    <label class="">Homerooms:</label>
+                    <div class="col-md-12 zeroLeftPadding" style="padding-right:0px">
+                        @Html.ListBox("HoomeroomList", (IEnumerable<SelectListItem>)(new SelectList(@Model.homeRoomList, "value", "data")), new { id = "HoomeroomListId", @class = "form-control SlectBox", placeholder = "All Homerooms" })
+                    </div>
+
+                </div>
+
+            }
+            @if (@Model.showHideReportsFilters.ShowGrade)
+            {
+                @*<div class="form-group">
+                        <div class="col-md-12 zeroLeftPadding PaddingClass">
+                            <label class="">Grades: </label>
+                            @Html.DropDownList("GradesList", new SelectList(@Model.gradesList, "value", "data"), "All Grades", new { style = "width: 100%; height: 100%;" })
+                        </div>
+                    </div>
+                *@
+                @*
+                    <div class="form-group">
+                        <label class="">Grades: </label>
+                        <div id="gradesDiv" class="btn-group dropdownParentCSS">
+                            <button type="button" class="btn blue dropdownCSS"><span id="gradesSpan">All Grades</span></button>
+                    <button type="button" class="btn blue dropdown-toggle dropdownArrowCSS pull-right" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+                            <div class="dropdown-menu dropdown-menuoverride hold-on-click dropdown-checkboxes" role="menu">
+                                @foreach (var gradeitem in Model.gradesList)
+                                {
+                                    <label>
+                                <input id="@gradeitem.value" onclick="checkChecked('gradesDiv', 'gradesSpan', 'All Grades');" type="checkbox">@gradeitem.data
+                            </label>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                *@
+
+                <div class="form-group">
+                    <label class="">Grades:</label>
+                    <div class="col-md-12 zeroLeftPadding" style="padding-right:0px">
+                        @Html.ListBox("GradesList", (IEnumerable<SelectListItem>)(new SelectList(@Model.gradesList, "value", "data")), new { id = "GradesListId", @class = "form-control SlectBox", placeholder = "All Grades" })
+                    </div>
+
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowAccountStatus)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Account Status: </label>
+                        @Html.DropDownList("AccountStatusList", new SelectList(@Model.reportAccountStatusList), "No Selections", new { style = "width: 100%; height: 100%;", multiple = "multiple" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowQualificationTypes)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Qualification Types: </label>
+                        @Html.DropDownList("QualificationList", new SelectList(@Model.reportQualificationTypesList), "All Qualification Types", new { style = "width: 100%; height: 100%;", multiple = "multiple" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowBalanceActTypes)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Zero Balances: </label>
+                        @Html.DropDownList("BATList", new SelectList(@Model.reportBalanceTypesList), "All", new { style = "width: 100%; height: 100%;", })
+                    </div>
+                </div>
+
+
+            }
+            @if (@Model.showHideReportsFilters.ShowAccountType)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Account Type: </label>
+                        @Html.DropDownList("AccountTypesList", new SelectList(@Model.reportAccountTypeList), "All", new { style = "width: 100%; height: 100%;", onchange = "showHideRangeSlider();" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="rangeSliderDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="slider-range" class="slider bg-blue">
+                        </div>
+
+                        <div class="input-group  margin-top-10">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <input id="range_slider_input_start" type="text" class="form-control" name="from" style="width: 100px;">
+                                                            </td>
+                                                            <td><span class="input-group-addon" style="padding: 0px;">to </span></td>
+                                                            <td>
+                                                                <input id="range_slider_input_end" type="text" class="form-control" name="to" style="width: 100px;">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="LessThanDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="slider-range-min" class="slider bg-yellow">
+                        </div>
+                        <div class="input-group  margin-top-10" style="width: 80%">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+                                                <td style="width: 60%">
+                                                    Maximum Value:
+
+
+                                                </td>
+                                                <td style="width: 40%">
+                                                    <div class="slider-value">
+                                                        <input id="slider_range_max_amount_input" type="text" class="form-control slider-value" name="to" style="width: 98px;">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="GreaterThanDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="slider-range-max" class="slider bg-purple">
+                        </div>
+                        <div class="input-group  margin-top-10">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+                                                <td style="width: 60%">Minimum Value:</td>
+                                                <td style="width: 40%">
+                                                    <input id="slider_range_min_amount_input" type="text" class="form-control" name="to" style="width: 98px;">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            @if (@Model.showHideReportsFilters.ShowformatName)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Format Name: </label>
+                        @Html.DropDownList("FormatNameList", new SelectList(@Model.reportNameFormatOptions), new { style = "width: 100%; height: 100%;", multiple = "multiple" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowSessionType)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Session Type: </label>
+                        @Html.DropDownList("SessionTypeList", new SelectList(@Model.reportSessionTypes), "No Selections", new { style = "width: 100%; height: 100%;" })
+                    </div>
+                </div>
+            }
+            @if (@Model.showHideReportsFilters.ShowDepositType)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Deposit Type: </label>
+                        @Html.DropDownList("DepositTypeList", new SelectList(@Model.reportDepositType), "No Selections", new { style = "width: 100%; height: 100%;" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowQuantityRange)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Purchased Qty: </label>
+                        @Html.DropDownList("PurchasedQtyList", new SelectList(@Model.ReportQtyRangeList), "All", new { style = "width: 100%; height: 100%;", onchange = "showHideQtyRangeSlider();" })
+                    </div>
+                </div>
+
+                <div class="form-group" id="qtyRangeSliderDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="qty-slider-range" class="slider bg-blue">
+                        </div>
+
+                        <div class="input-group  margin-top-10">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <input id="qty_range_slider_input_start" maxlength="200" type="text" class="form-control numericOnly" name="from" style="width: 100px;">
+                                                            </td>
+                                                            <td><span class="input-group-addon" style="padding: 0px;">to </span></td>
+                                                            <td>
+                                                                <input id="qty_range_slider_input_end" type="text" maxlength="200" class="form-control numericOnly" name="to" style="width: 100px;">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="qtyLessThanDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="qty-slider-range-min" class="slider bg-yellow">
+                        </div>
+                        <div class="input-group  margin-top-10" style="width: 80%">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+                                                <td style="width: 60%">
+                                                    Maximum Value:
+
+
+                                                </td>
+                                                <td style="width: 40%">
+                                                    <div class="slider-value">
+                                                        <input id="qty_slider_range_max_amount_input" type="text" maxlength="200" class="form-control slider-value numericOnly" name="to" style="width: 98px;">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="qtyGreaterThanDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <div id="qty-slider-range-max" class="slider bg-purple">
+                        </div>
+                        <div class="input-group  margin-top-10">
+
+                            <table class="table100">
+                                <tr>
+                                    <td>
+                                        <table class="table100">
+                                            <tr>
+                                                <td style="width: 60%">Minimum Value:</td>
+                                                <td style="width: 40%">
+                                                    <input id="qty_slider_range_min_amount_input" type="text" maxlength="200" class="form-control numericOnly" name="to" style="width: 98px;">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowSelectionTypes)
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Selection Type: </label>
+                        @Html.DropDownList("itemSelectionType", new SelectList(@Model.ItemSelectionTypeList, "id", "name", 3), new { style = "width: 100%; height: 100%;" })
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowCategoryTypes)
+            {
+                <div class="form-group" id="CategoryTypeDiv">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class=" ">
+                            Category Type:
+                        </label>
+                        @Html.DropDownList("CategoryType", new SelectList(@Model.CategoryTypeList, "Value", "Text"), "All", new { style = "width: 100%; height: 100%;" })
+
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowCategories)
+            {
+                <div class="form-group" id="CategoryDiv">
+
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Category: </label>
+
+                        @Html.DropDownList("Category", new SelectList(@Model.CategoryList, "Value", "Text"), "All", new { style = "width: 100%; height: 100%;" })
+
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowItems)
+            {
+                <div id="processingItemListDiv">
+                    <img id="loadingItemSpinnerimg" src="~/Content/themes/assets/img/input-spinner.gif" />
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Select List : </label>
+                        <a href='#' id='select-all'>Select All</a>/ <a href='#' id='deselect-all'>Deselect All</a>
+                        @Html.DropDownList("itemList",
+                             new MultiSelectList(Model.ItemList,
+                             "ID", "ItemName"),
+                    new
+                    {
+                        multiple = "multiple",
+                        id = "itemList",
+                        name = "itemList[]",
+                        width = "300px"
+                    })
+
+                    </div>
+                </div>
+            }
+
+            @if (@Model.showHideReportsFilters.ShowsortOrder)
+            {
+
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <label class="">Sort Order: </label>
+
+                        @Html.DropDownList("SortingColumnsList",
+                    new MultiSelectList(Model.reportSortOrder,
+                    "id", "name"),
+                    new
+                    {
+                        multiple = "multiple",
+                        id = "SortingColumnsList",
+                        name = "SortingColumnsList[]",
+                        width = "200px"
+                    })
+
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.ReportDescription != "")
+            {
+                <div class="form-group">
+                    <div class="col-md-12 zeroLeftPadding PaddingClass">
+                        <p style="color: blue;">
+                            Attention:
+                        </p>
+                        <p style="color: blue;">
+                            Preorder Distribution Labels can facilitate easier distribution of prepackaged preorder items by giving you the ability to label everything beforehand.
+                            These labels are formatted to fit <mark>@ViewBag.ReportDescription</mark> label sheets.
+
+                        </p>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-3">
+
+
+
+                <div id="exportDiv" class="exportDivTag">
+
+
+                    <i class="fa fa-file-pdf-o exportClick" id="btnExportToPDF" title="Export to PDF"></i>
+
+                    <i class="fa fa-file-excel-o exportClick" id="btnExportToExcel" title="Export to Excel"></i>
+
+                    <i class="fa  fa-file-text-o exportClick" id="btnExportToCSV" title="Export to CSV"></i>
+
+
+                </div>
+
+            </div>
+
+            <div id="loadingSpinnerDiv" class="col-md-6 loadingdivCSS">
+                <img id="loadingSpinnerimg" class="loadingSpinnerimgCSS" src="~/Content/themes/assets/img/input-spinner.gif" />
+            </div>
+            <div class="col-md-3">
+
+                <div id="closeDiv" class="closeDivTag">
+                    <i class="fa fa-times-circle closeIcon" id="btnClose" title="Close Preview"></i>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="reportsDiv" id="reportsDiv">
+        </div>
+
+    </div>
+
+</div>
+
+@Html.Partial("_CustomerSerachPop")
+<script src="~/Content/themes/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="~/Content/themes/assets/global/plugins/jquery-sumoselect/jquery.sumoselect.min.js" type="text/javascript"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/jquery.numeric.min.js"></script>
+<script src="~/Scripts/ReportsIndex.js"></script>
+
+@*<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>*@
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker-new/moment.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker-new/daterangepicker.js"></script>
+
+
+<script src="~/Content/themes/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+@Scripts.Render("~/Content/themes/datatables/js")
+<script src="~/Scripts/CustSearchPopup.js"></script>

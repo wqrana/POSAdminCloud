@@ -1,0 +1,50 @@
+﻿@model  AdminPortalModels.Models.CategoryTypeIndexModel
+
+
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed">
+    @*<a href="#CreateOrEdit" data-toggle="modal" data-backdrop="static"  data-keyboard="false" class="ActionLink removeAnchorStyle" data-id="@Model.Id">*@
+        <div class="dashboard-stat grey">
+            <div class="visual">
+                <i class="fa fa-sitemap"></i>
+            </div>
+            <div class="details">
+                <div class="number" name="name-@Model.Id" id="name-@Model.Id">
+                    @Html.DisplayFor(model => Model.Name)
+                </div>
+                <div class="desc">
+                    <a href="~/Category/?id=@Model.Id" class="ViewSecurityCategoryClass" >Categories : @Model.Categories</a> 
+                            @*<label class="labelcss" name="categories-@Model.Id">@Html.DisplayFor(model => Model.Categories) </label>*@
+                </div>
+                <div class="desc">
+                    <a href="~/Menu/?id=@Model.Id" class="ViewSecurityMenuClass">Items : @Model.Items</a> 
+                            @*<label class="labelcss" name="items-@Model.Id">@Html.DisplayFor(model => Model.Items) </label>*@
+                </div>
+            </div>
+        </div>
+    @*</a>*@
+    <div class="footerdiv">
+        <a href="#CreateOrEdit" data-toggle="modal" data-backdrop="static"  data-keyboard="false" class="ActionLink removeAnchorStyle" data-id="@Model.Id">
+            <div class="separator">&nbsp;</div>
+            <div class="enb"></div>
+            <div class="separator">&nbsp;</div>
+        </a>
+        <div class="btn-group action">
+            <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                <span>Actions
+                </span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    @Html.ActionLink("Settings", "Edit", new { Id = Model.Id }, new { href = "#CreateOrEdit", data_toggle = "modal", data_backdrop = "static", data_keyboard = "false", @class = "ActionLink EditSecurityClass ", data_id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { href = "#Delete", data_toggle = "modal", data_backdrop = "static", data_keyboard = "false", @class = "DeleteLink DeleteSecurityClass", data_id = Model.Id })
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+

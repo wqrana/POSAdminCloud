@@ -1,0 +1,550 @@
+﻿@using System.Reflection
+<style>
+    .CustomDropdownCss {
+        left: 225px;
+        top: 0%;
+        background-color: #f2f3f4;
+        width: 240px;
+        padding-top: 0px !important;
+        padding-bottom: 10px;
+        border: 0px;
+    }
+
+        .CustomDropdownCss li {
+            color: #1676ba;
+        }
+
+        .CustomDropdownCss .divider {
+            margin-left: 15px;
+            margin-bottom: 2px;
+            margin-top: 3px;
+            margin-right: 15px;
+            width: 140px;
+        }
+
+        .CustomDropdownCss li > span {
+            padding-left: 15px;
+            display: inline-block;
+            padding-top: 8px;
+            color: #989898;
+        }
+
+        .CustomDropdownCss li > a {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            color: #1676ba;
+            font-size: 11px;
+        }
+
+            .CustomDropdownCss li > a:hover {
+                color: #13629a;
+            }
+
+            .CustomDropdownCss li > a span {
+                display: list-item;
+                list-style-type: disc;
+                list-style-position: inside;
+                padding-left: 16px;
+            }
+
+    .dropdown.open .dropdown-toggle .selectedArrow {
+        background-image: url("/images/sidebar-menu-arrow.png");
+        display: block;
+        float: right;
+        height: 25px;
+        position: absolute;
+        right: 0;
+        top: 4px;
+        width: 8px;
+    }
+
+    #toast-container > div {
+    }
+
+    .build-css {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+
+    .build-cssli {
+        text-align: center;
+    }
+
+
+
+        .build-cssli span {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+</style>
+
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="sidebar-toggler-wrapper">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler hidden-phone">
+                </div>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li class="sidebar-search-wrapper">
+                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+
+                <form class="sidebar-search" id="searchForm">
+                    <a class="remove" href="javascript:;">
+                        <i class="fa fa-close"></i>
+                    </a>
+                    <div class="input-group">
+                        <input type="text" placeholder="Search..." class="form-control">
+                        <span class="input-group-btn">
+                            <a class="btn submit" href="javascript:;"><i class="fa fa-search"></i></a>
+                        </span>
+                    </div>
+                </form>
+                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+            </li>
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewDashboard)
+            {
+                <li id="viewDashboardLink"
+                    @if (ViewBag.Menu == "Dashboard") { <text> class="start active" </text>               }>
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span class="title">
+                            Dashboard
+                        </span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewDistricts ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewSchools ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewMSASettings ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewPOS||
+                MSA_AdminPortal.Helpers.SecurityManager.viewTaxes)
+            {
+                <li @if (ViewBag.Menu == "Settings") { <text> class="start active" </text>               }>
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span class="title">
+                            Settings
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewDistricts)
+                        {
+                            <li id="viewDistrictsLink"
+                                @if (ViewBag.SubMenu == "Districts") { <text> class="active" </text>               }>
+                                <a href="/district">Districts</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewSchools)
+                        {
+                            <li id="viewSchoolsLink"
+                                @if (ViewBag.SubMenu == "Schools") { <text> class="active" </text>               }>
+                                @*<a href="/settings/schools_index">Schools</a>*@
+                                <a href="/School">Schools</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewMSASettings)
+                        {
+                            <li id="viewMSALink"
+                                @if (ViewBag.SubMenu == "MSA") { <text> class="active" </text>                }>
+                                <a href="/settings/msa">MSA</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewPOS)
+                        {
+                            <li id="viewPOSLink"
+                                @if (ViewBag.SubMenu == "POS") { <text> class="active" </text>               }>
+                                <a href="/settings/pos">POS</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewSettingsPreorder)
+                        {
+                            <li id="viewPreorderSettingLink"
+                                @if (ViewBag.SubMenu == "PreorderSettings") { <text> class="active" </text>            }>
+                                <a href="/PreorderSettings/index">Preorder</a>
+                            </li>
+                        }
+                            @if (MSA_AdminPortal.Helpers.SecurityManager.viewTaxes)
+                        {
+                                <li id="viewTaxLink"
+                                    @if (ViewBag.SubMenu == "Taxes") { <text> class="active" </text>                }>
+                                    <a href="/taxes/index">Taxes</a>
+                                </li>
+                        }
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewUsers ||
+                 MSA_AdminPortal.Helpers.SecurityManager.viewUserRoles)
+            {
+                            <li @if (ViewBag.Menu == "Security") { <text> class="start active" </text>               }>
+                    <a href="javascript:;">
+                        <i class="fa fa-lock"></i>
+                        <span class="title">
+                            Security
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li style="display: none;">
+                            <a onclick="showNotification();">User Roles</a>
+                        </li>
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewUsers)
+                        {
+                            <li id="viewUsersLink"
+                                            @if (ViewBag.SubMenu == "Users") { <text> class="active" </text>               }>
+                                <a href="/security/users">Users</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewUserRoles)
+                        {
+                            <li id="viewUserRolesLink"
+                                            @if (ViewBag.SubMenu == "UserRoles") { <text> class="active" </text>               }>
+                                <a href="/security/UserRolesList">User Role</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewCustomers ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewHomerooms ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewPOSNotifications ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewGrades)
+            {
+                <li @if (ViewBag.Menu == "Customer Data") { <text> class="start active" </text>               }>
+                    <a href="/customer/">
+                        <i class="fa fa-user"></i>
+                        <span class="title">Customer Data</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewCustomers)
+                        {
+                            <li id="viewCustomersLink"
+                                @if (ViewBag.SubMenu == "Customers") { <text> class="active" </text>               }>
+
+                                @Html.ActionLink("Customers", "Index", "Customer")
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewHomerooms)
+                        {
+                            <li id="viewHomeroomsLink"
+                                @if (ViewBag.SubMenu == "Homerooms") { <text> class="active" </text>               }>
+                                @Html.ActionLink("Homerooms", "Index", "Homeroom")
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewGrades)
+                        {
+                            <li id="viewGradesLink"
+                                @if (ViewBag.SubMenu == "Grades") { <text> class="active" </text>               }>
+                                @Html.ActionLink("Grades", "Index", "Grade")
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewPOSNotifications)
+                        {
+                            <li id="viewGradesLink"
+                                @if (ViewBag.SubMenu == "POSNotifications") { <text> class="active" </text>                }>
+                                @Html.ActionLink("POS Notifications", "Index", "POSNotifications")
+                            </li>
+                        }
+
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewParent)
+            {
+                <li id="viewParentsLink"
+                                @if (ViewBag.Menu == "Parents") { <text> class="start active" </text>               }>
+                    <a href="/parents">
+                        <i class="fa fa-users"></i>
+                        <span class="title">
+                            Parents
+                        </span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+            }
+
+            @*Routine Start*@
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewBeginningBalance)
+            {
+                <li @if (ViewBag.Menu == "Routine") { <text> class="start active" </text>                }>
+                    <a href="/GraduateSeniors/">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="title">
+                            Routine
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewBeginningBalance)
+                        {
+                            <li id="viewBeginningBalanceLink"
+                                @if (ViewBag.SubMenu == "Beginning Balance") { <text> class="active" </text>                }>
+                                <a href="/BeginningBalance/Index">Beginning Balance</a>
+                            </li>
+                        }
+
+                    </ul>
+                </li>
+            }
+            @*Routine End*@
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewActivity ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewPayments ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewAdjustments ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewRefunds)
+            {
+                            <li @if (ViewBag.Menu == "Order Management") { <text> class="start active" </text>               }>
+                    <a href="/OrdersMgt/">
+                        <i class="fa fa-table"></i>
+                        <span class="title">
+                            Order Management
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @*<li
+                                     @if (ViewBag.SubMenu == "Voids")
+                                     {
+                                        <text> class="active"</text>
+                                     }
+                                    >
+                                <a href="/OrdersMgt">Activity</a>
+                            </li>*@
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewActivity)
+                        {
+                            <li id="viewActivityLink"
+                                            @if (ViewBag.SubMenu == "Activity") { <text> class="active" </text>               }>
+                                <a href="/OrdersMgt/Activity">Activity </a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.AllowNewPayments)
+                        {
+                            <li id="AllowNewPaymentsLink"
+                                            @if (ViewBag.SubMenu == "Payment") { <text> class="active" </text>               }>
+                                @*<a href="#payment_modalPopup" data-toggle="modal" id="payment">Select User</a>*@
+                                @*@Ajax.ActionLink("Payments", "Payment","Payment", new AjaxOptions{ UpdateTargetId = "modal", OnComplete = "$('#payment_modalPopup').dialog('open');"})*@
+                                @*@Html.ActionLink("Payments", "Payment", "Payment")*@
+
+                                <a href="/Payment/Payment">Payments</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.AllowAccountAdjustments)
+                        {
+                            <li id="AllowRefundingLink"
+                                            @if (ViewBag.SubMenu == "Refund") { <text> class="active" </text>               }>
+                                <a href="/Payment/Refund">Refunds</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.AllowRefunding)
+                        {
+                            <li id="AllowAccountAdjustmentsLink"
+                                            @if (ViewBag.SubMenu == "Adjustment") { <text> class="active" </text>               }>
+                                <a href="/Payment/Adjustment">Adjustments</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.ViewPreorderCalendars ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewPickUp ||
+                MSA_AdminPortal.Helpers.SecurityManager.viewPreorderDashboard)
+            {
+                            <li @if (ViewBag.Menu == "Preorder") { <text> class="start active" </text>                }>
+                    <a href="javascript:;">
+                        <i class="fa  fa-calendar-o"></i>
+                        <span class="title">
+                            Preorder
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewPreorderDashboard)
+                        {
+                            <li id="viewPreorderDashboardLink"
+                                            @if (ViewBag.SubMenu == "Dashboard") { <text> class="active" </text>               }>
+                                <a href="/PreorderDashboard/index">Dashboard</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.ViewPreorderCalendars)
+                        {
+                                        <li id="viewCalendarsLink"
+                                            @if (ViewBag.SubMenu == "Calendars") { <text> class="active" </text>                }>
+                                            <a href="/PreorderCalList/Table">Calendars</a>
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewPickUp)
+                        {
+                            <li id="viewPreorderPickupLink"
+                                            @if (ViewBag.SubMenu == "Pickup") { <text> class="active" </text>             }>
+                                <a href="/PreorderPickup/index">Pickup</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewMSAAlerts)
+            {
+                            <li @if (ViewBag.Menu == "Communication") { <text> class="start active" </text>                 }>
+                    <a href="javascript:;">
+                        <i class="fa fa-envelope"></i>
+                        <span class="title">
+                            Communication
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+
+                        <li id="viewMSAAlertLink"
+                                        @if (ViewBag.SubMenu == "MSA_Alerts") { <text> class="active" </text>                 }>
+                            @Html.ActionLink("MSA Alerts", "Index", "Communication")
+                        </li>
+                    </ul>
+                </li>
+            }
+
+            @if (MSA_AdminPortal.Helpers.SecurityManager.viewMenu ||
+                    MSA_AdminPortal.Helpers.SecurityManager.viewCategories ||
+                    MSA_AdminPortal.Helpers.SecurityManager.viewCategoryTypes)
+            {
+                            <li @if (ViewBag.Menu == "Menu") { <text> class="start active" </text>               }>
+                    <a href="javascript:;">
+                        <i class="fa fa-sitemap"></i>
+                        <span class="title">
+                            Menu
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+
+                    <ul class="sub-menu ">
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewCategoryTypes)
+                            {
+                            <li id="viewCategoryTypesLink"
+                                            @if (ViewBag.SubMenu == "Category Type") { <text> class="active" </text>               }>
+                                @Html.ActionLink("Category Type", "Index", "CategoryType")
+                            </li>
+                        }
+                        @if (MSA_AdminPortal.Helpers.SecurityManager.viewCategories)
+                        {
+                            <li id="viewCategoriesLink"
+                                            @if (ViewBag.SubMenu == "Categories") { <text> class="active" </text>               }>
+                                @Html.ActionLink("Categories", "Index", "Category")
+                            </li>
+                        }
+                      @if (MSA_AdminPortal.Helpers.SecurityManager.viewMenu)
+                      {
+                            <li id="viewMenuLink"
+                                            @if (ViewBag.SubMenu == "Items") { <text> class="active" </text>               }>
+                                @Html.ActionLink("Menu Items", "Index", "Menu")
+                            </li>
+                        }
+                    </ul>
+
+
+                </li>
+            }
+            @if (MSA_AdminPortal.Helpers.SecurityManager.ViewApplications)
+            {
+                <li id="viewApplicationsLink"
+                    @if (ViewBag.Menu == "Applications") { <text> class="start active" </text>                 }>
+                    <a href="/Application">
+                        <i class="fa fa-book"></i>
+                        <span class="title">
+                            Applications
+                        </span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+            }
+            @if (MSA_AdminPortal.Helpers.SecurityManager.ViewCustomerReports ||
+                MSA_AdminPortal.Helpers.SecurityManager.ViewFinancialReports ||
+                MSA_AdminPortal.Helpers.SecurityManager.ViewPreOrderReports ||
+                MSA_AdminPortal.Helpers.SecurityManager.ViewShoppingCartReports ||
+                MSA_AdminPortal.Helpers.SecurityManager.ViewMSAAdminReports)
+            {
+                            <li @if (ViewBag.Menu == "Reports") { <text> class="start active" </text>               }>
+                    <a class="active" href="javascript:;">
+                        <i class="fa fa-folder-open"></i>
+                        <span class="title">
+                            Reports
+                        </span>
+                        <span class="arrow "></span>
+                    </a>
+                    @{Html.RenderAction("ReportsMenu", "Reports", new { reportGroup = ViewBag.ReportGroup });}
+                </li>
+
+                <li>
+                    <span style="display: block; height: 432px;"></span>
+                </li>
+            }
+        </ul>
+
+        <!-- END SIDEBAR MENU -->
+    </div>
+
+
+    @Html.Hidden("viewDashboard", MSA_AdminPortal.Helpers.SecurityManager.viewDashboard)
+    @Html.Hidden("viewDistricts", MSA_AdminPortal.Helpers.SecurityManager.viewDistricts)
+
+    @Html.Hidden("viewSchools", MSA_AdminPortal.Helpers.SecurityManager.viewSchools)
+
+    @Html.Hidden("viewPOS", MSA_AdminPortal.Helpers.SecurityManager.viewPOS)
+    @Html.Hidden("viewUsers", MSA_AdminPortal.Helpers.SecurityManager.viewUsers)
+    @Html.Hidden("viewUserRoles", MSA_AdminPortal.Helpers.SecurityManager.viewUserRoles)
+    @Html.Hidden("viewCustomers", MSA_AdminPortal.Helpers.SecurityManager.viewCustomers)
+    @Html.Hidden("viewHomerooms", MSA_AdminPortal.Helpers.SecurityManager.viewHomerooms)
+    @Html.Hidden("viewGrades", MSA_AdminPortal.Helpers.SecurityManager.viewGrades)
+
+    @Html.Hidden("viewActivity", MSA_AdminPortal.Helpers.SecurityManager.viewActivity)
+
+    @Html.Hidden("AllowNewPayments", MSA_AdminPortal.Helpers.SecurityManager.AllowNewPayments)
+    @Html.Hidden("AllowRefunding", MSA_AdminPortal.Helpers.SecurityManager.AllowRefunding)
+    @Html.Hidden("AllowAccountAdjustments", MSA_AdminPortal.Helpers.SecurityManager.AllowAccountAdjustments)
+
+
+    @Html.Hidden("viewCategoryTypes", MSA_AdminPortal.Helpers.SecurityManager.viewCategoryTypes)
+    @Html.Hidden("viewCategories", MSA_AdminPortal.Helpers.SecurityManager.viewCategories)
+    @Html.Hidden("viewMenu", MSA_AdminPortal.Helpers.SecurityManager.viewMenu)
+    @Html.Hidden("ViewCustomerReports", MSA_AdminPortal.Helpers.SecurityManager.ViewCustomerReports)
+    @Html.Hidden("ViewFinancialReports", MSA_AdminPortal.Helpers.SecurityManager.ViewFinancialReports)
+    @Html.Hidden("viewParent", MSA_AdminPortal.Helpers.SecurityManager.viewParent)
+    @Html.Hidden("viewMSAAlert", MSA_AdminPortal.Helpers.SecurityManager.viewMSAAlerts)
+    @Html.Hidden("viewApplications", MSA_AdminPortal.Helpers.SecurityManager.ViewApplications)
+
+
+</div>
+
+
+
+@*@Html.Partial("_PaymentPop")*@
+<script>
+    $(document).ready(function () {
+        $('#searchForm').submit(function (evt) {
+            displayInfoMessage("This feature is currently in development. Please check back soon!");
+            evt.preventDefault();
+        });
+
+        HideLinksSidebar();
+
+    })
+
+    function showNotification() {
+        displayInfoMessage("User roles are currently under development. Please check back later.");
+    }
+
+</script>
+<script src="~/Scripts/SecurityManager.js"></script>

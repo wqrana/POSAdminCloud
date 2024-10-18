@@ -1,0 +1,434 @@
+﻿@model AdminPortalModels.Models.SchoolUpdateModel
+
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "Schools";
+}
+
+<style type="text/css">
+    .radio input[type="radio"], .radio-inline input[type="radio"] {
+        margin-left: 0px;
+    }
+        textarea {
+   resize: none;
+}
+</style>
+<link rel="stylesheet" href="~/Content/SchoolEdit.css" />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Schools</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Schools</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>School Settings: <b>@Model.SchoolName</b></h3>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <div class="alert alert-danger display-hide" style="padding: 9px; width: 360px;">
+                <button class="close" data-close="alert"></button>
+                Either required field(s) is/are missing or there is invalid field(s) value.
+            </div>
+        </div>
+
+        @Html.Hidden("schlId", Model.Id)
+        @Html.Hidden("ClientId", Model.ClientID)
+        @Html.Hidden("distStartDate", Model.districtStartDate)
+        @Html.Hidden("distEndDate", Model.districtEndDate)
+        @Html.Hidden("schlStartDate", Model.SchoolYearStartDate)
+        @Html.Hidden("schlEndDate", Model.SchoolYearEndDate)
+        @Html.Hidden("distExecId", Model.UseDistDirAdmin)
+        @Html.Hidden("distDirectorId", Model.Emp_Director_Id)
+        @Html.Hidden("distAdminId", Model.Emp_Administrator_Id)
+
+        <div class="row">
+            <div class="col-md-12">
+                <div style="border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding-top: 30px; margin-bottom: 10px; overflow: hidden;">
+                    <div style="width: 35%; float: left; min-width: 448px;">
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label for="SchoolID" class="col-md-3 control-label formlabel">School ID <span class="required">*</span></label>
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.SchoolID, new { @class = "form-control", maxlength = 30 })
+                                </div>
+                                </div>       
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+
+                                <label for="SchoolName" class="col-md-3 control-label formlabel">School <span class="required">*</span></label>
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                    @Html.TextBoxFor(model => model.SchoolName, new { @class = "form-control", maxlength = 60 })
+                                </div>
+                                </div>            
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.DistrictName, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.DropDownList("dllDistrict", Model.Districts, new { id = "dllDistrict", style = "width: 100%; height: 100%", onchange = "distChange()" })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.Address1, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.TextBoxFor(model => model.Address1, new { @class = "form-control", maxlength = 30 })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3 control-label formlabel"></div>
+                                <div class="col-md-7">
+                                    @Html.TextBoxFor(model => model.Address2, new { @class = "form-control", maxlength = 30 })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.City, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.TextBoxFor(model => model.City, new { maxlength = 30, @class = "form-control" })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.State, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.DropDownList("dllState", new SelectList(@Model.States, "value", "data", Model.State), new { style = "width: 40%; height: 100%;" })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.Zip, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        @Html.TextBoxFor(model => model.Zip, new { maxlength = 9, @class = "form-control" })
+                                    </div>
+                                 </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.Phone1, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        @Html.TextBoxFor(model => model.Phone1, new { maxlength = 14, @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.Phone2, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        @Html.TextBoxFor(model => model.Phone2, new { maxlength = 14, @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.Comment, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <textarea class="form-control" style="margin: 0px -3.67188px 0px 0px;height: 273px;" charswidth="14" id="Comments" placeholder="Enter Comments..." rows="10" name="Comments" maxlength="1000">@Model.Comment</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 57%; float: left; min-width: 448px;">
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.AlaCarteLimit, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.TextBoxFor(model => model.AlaCarteLimit, new { @class = "form-control floatOnly", maxlength = 12 })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle ">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.MealPlanLimit, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-7">
+                                    @Html.TextBoxFor(model => model.MealPlanLimit, new { @class = "form-control floatOnly", maxlength = 12 })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.BarCodeLength, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-3">
+                                    <div data-on-label="Enable" data-off-label="&nbsp; Disable &nbsp;">
+                                        <input type="checkbox" id="IsPinEnable" name="IsPinEnable" checked="@Model.IsPinEnable" class="toggle pin-switch" onchange="togglePinSize()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="ddlBarCodeDiv">
+                                        @Html.DropDownList("dllBarCodeLength", new SelectList(@Model.BarCodeLengthList, "Value", "Text", Model.BarCodeLength), new { style = "width: 40%; height: 100%;" })
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                @Html.LabelFor(model => model.DoPinPreFix, new { @class = "col-md-3 control-label formlabel" })
+                                <div class="col-md-3">
+                                    <input type="checkbox" id="DoPinPreFix" name="DoPinPreFix" checked="@Model.DoPinPreFix" class="toggle make-switch" onchange="togglePinPrefix()" />
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.PinPreFix, new { @class = "form-control numericOnly", @style = "margin-left:auto", maxlength = 4 })
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-body formRowStyle">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="checkbox-list">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>
+                                                        @Html.CheckBoxFor(model => model.PhotoLogging, new { @id = "PhotoLogging" })
+                                                        @Html.LabelFor(model => model.PhotoLogging)
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">School Year</label>
+                            <div class="col-md-7">
+                                <label>
+                                    <input type="radio" value="useDist" name="SchoolYear" id="DisSchoolYear" onclick="hideDates()" style="float: left">
+                                    <span id="schoolText">
+                                        @{
+                                            DateTime startDate = Model.districtStartDate == null ? DateTime.Now.AddYears(-50) : Model.districtStartDate.Value;
+                                            DateTime endDate = Model.districtEndDate == null ? DateTime.Now.AddYears(-50) : Model.districtEndDate.Value;
+                                            string msg = "Use district school year (" + startDate.ToString("MM/dd/yyyy") + " - " + endDate.ToString("MM/dd/yyyy") + ")";
+                                            <text>@msg</text>
+                                        }
+                                       
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-8">
+                                <label>
+                                    <input type="radio" value="newDate" name="SchoolYear" id="NewSchoolYear" onclick="showDates()" style="float: left">
+                                    Override district school year dates
+                                </label>
+                            </div>
+                        </div>
+                       <div class="row">
+                        <div class="form-body formRowStyle  dates">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Start Date <span class="required">*</span> </label>
+                                <div class="col-md-7">
+                                    <div class="input-icon">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" value="@Model.SchoolYearStartDate.Value.ToString("MM/dd/yyyy")" name="StartSchoolYear" id="StartSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="form-body formRowStyle dates">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">End Date <span class="required">*</span></label>
+                                <div class="col-md-7">
+                                    <div class="input-icon">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" value="@Model.SchoolYearEndDate.Value.ToString("MM/dd/yyyy")" name="EndSchoolYear" id="EndSchoolYear" size="16" class="form-control form-control-inline input-medium datepicker" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                   </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Director/Admin</label>
+                                <div class="col-md-8">
+                                    <label>
+                                        <input type="radio" value="UseDistrict" name="DistDirAdmin" id="distExec" onclick="hideExec()" style="white-space: nowrap">
+                                        <span id="DirAdminText">Use district director/admin @(((!string.IsNullOrEmpty(Model.districtEmpDirectorName) || !string.IsNullOrEmpty(Model.districtEmpAdminName)) ? "(" + Model.districtEmpDirectorName + "/" + Model.districtEmpAdminName + ")" : ""))</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6">
+                                    <label>
+                                        <input type="radio" value="NewExecs" name="DistDirAdmin" id="newExec" onclick="showExec()">
+                                        Override district director/admin
+                                    </label>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                        </div>
+                        
+                            <div class="form-body formRowStyle form-group exec">
+
+                                <div class="col-md-1"></div>
+                                <label class="col-md-3 control-label formlabel">Director</label>
+                                <div class="col-md-7">
+                                    @Html.DropDownList("dllDirector", @Model.Directors, new { id = "dllDirector", style = "width: 100%; height: 100%;" })
+                                </div>
+                                <div class="col-md-1"></div>
+
+                            </div>
+                        <div class="form-body formRowStyle form-group exec">
+
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Administrator</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("dllAdmin", @Model.Admins, new { id = "dllAdmin", style = "width: 100%; height: 100%;" })
+                            </div>
+                            <div class="col-md-1"></div>
+
+                        </div>
+                        <div class="form-body">
+                            <div class="col-md-1"></div>
+                            <label class="col-md-3 control-label formlabel">Taxes</label>
+                            <div class="col-md-7">
+                                @*@Html.DropDownList("dllAdmin", @Model.Admins, new { id = "dllAdmin", style = "width: 100%; height: 100%;" })*@
+                                <select id="taxList" style="width: 100%; height: 100%;" class="multicss" multiple="multiple" size="100">
+                                    @foreach (var tax in @Model.Taxes)
+                                    {
+                                        <option value="@tax.Id" @if (@tax.isSelected) { <text> selected="selected" </text>         }>@tax.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+
+                    </div>
+                @*<div class="row">
+                        <div class="col-md-12">
+                            <div class="form-body formRowStyle">
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    @Html.LabelFor(model => model.Comment, new { @class = "col-md-1 control-label formlabel", @style = "text-align: left; float: left" })
+                                </div>
+                                <div class="col-md-8"></div>
+                            </div>
+                        </div>
+                    </div>*@
+                @*<div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <div class="form-body formRowStyle form-group col-md-10">
+                                <textarea class="form-control textarea" id="Comments" placeholder="Enter Comments..." rows="10" maxlength="1000" name="Comments">@Model.Comment</textarea>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-actions fluid">
+        <div class="col-md-offset-5 col-md-7">
+            <button type="button" class="btn green btn-lg submitClass defaultBtnClass" id="btnSave">SAVE</button>
+            <button type="button" class="btn default btn-lg margleft10 not-default-btn" onclick="javascript: window.location.replace('/School');">Cancel</button>
+        </div>
+    </div>
+</div>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script src="~/Scripts/jquery.numeric.min.js"></script>
+<script src="~/Scripts/SchoolEdit.js"></script>
+<script type="text/javascript" src="~/Content/themes/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="../../content/themes/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>

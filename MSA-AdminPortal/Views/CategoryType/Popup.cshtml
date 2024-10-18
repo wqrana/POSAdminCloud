@@ -1,0 +1,67 @@
+﻿@model  AdminPortalModels.Models.CategoryTypeModel
+
+@Html.HiddenFor(model => Model.Id)
+
+<div class="modal fade" id="CreateOrEdit" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 408px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" type="button" class="close" data-dismiss="modal" aria-hidden="true"></a>
+                Category Type: <strong><span id="span-title">@Html.DisplayFor(model => Model.Title)</span></strong>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => Model.Name): <span class="required"> *</span></label><br />
+                            @Html.TextBoxFor(model => Model.Name, new { size = "16", @class = "form-control", maxLength = 15 })
+                            @Html.ValidationMessageFor(model => Model.Name)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="">Lunch Status Options:</label><br />
+                            <input type="checkbox" name="CanReduce" id="CanReduce" >
+                            @Html.LabelFor(model => Model.CanReduce)<br />
+                            <input type="checkbox" name="CanFree" id="CanFree" >
+                            @Html.LabelFor(model => Model.CanFree)<br />
+                        </div>
+                    </div>
+                    <div class="row">&nbsp</div>
+                    <div class="radio-list">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="">Meal Plan Options:</label><br />
+                              <!--  <input type="checkbox" name="IsMealPlan" id="IsMealPlan">-->
+                                <label>
+                                    <input type="radio" name="PlanOptionGroup" id="IsMealPlan">
+                                    Meal Plan Items
+                                    @*@Html.LabelFor(model => Model.IsMealPlan)<br />*@
+                                </label>
+                                <br />
+                               
+                                <!--  <input type="checkbox" name="IsMealEquiv" id="IsMealEquiv">-->
+                                <label>
+                                    <input type="radio" name="PlanOptionGroup" id="IsMealEquiv">
+                                    Meal Equivalency
+                                  @* @Html.LabelFor(model => Model.IsMealEquiv)*@<br />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                  
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button href="#" type="submit" class="btn blue btn-lg margleft10 defaultBtnClass" id="btnSave" name="btnSave"><span id="savebtnSpan">@Html.DisplayFor(model => Model.savebtnCaption)</span></button>
+                <button href="#" type="button" class="btn default btn-lg not-default-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+</div>
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="/Scripts/category-type.js"></script>

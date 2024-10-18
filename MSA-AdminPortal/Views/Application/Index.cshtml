@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Menu = "Applications";
+    ViewBag.SubMenu = "Applications";
+
+    ViewBag.Title = "ApplicationsList";
+}
+
+@Styles.Render("~/Content/themes/datatables/css")
+<link href="~/Content/themes/assets/global/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+<link href="~/Content/CustomCSS/Application.css" rel="stylesheet" />
+<style>
+       .incomeDetail td, .incomeDetail th {
+        padding: 10px 0px 10px 20px;
+    }
+    
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>Applications</h2>
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-book"></i>
+                <a href="#">Applications</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-5">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="control-label" for="dlSearchBy">Search By:</label>
+                                </td>
+                                <td>
+                                    @Html.DropDownList("dlSearchBy", new SelectList(ViewBag.SearchByOptions, "key", "value"), new { @class = "form-control", style = "width: 270px; border: 1px solid #808080; margin-left:10px;" })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-12">
+                        <div class="col-md-2">
+                            <label for="txtSearch" class="form-control" style="margin-left:100px;">Search</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input id="txtSearch" type="text" class="form-control" style="width:220px;" />
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn yellow not-default-btn" style="width: 120px; margin-left:10px;" id="SearchBtn">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a id="hidefilters" href="#" style="margin-left:10px;">Hide Filters</a><br />
+                    <a id="Clearfilters" href="#" style="margin-left:10px;">Clear Filters & Search</a>
+                </div>
+            </div>
+        </div>
+        <div class="row filterDiVClass" id="filterDiv" style="display:none;">
+            <div class="table-responsive">
+                <table style="background-color: #dcdddf; width: 100%">
+                    <tr>
+                        <td colspan="2" style="padding: 7px;">
+                            <button onclick="HideFilterDiv();" class="close" style="color: white;" type="button"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 60%">
+                            <table>
+                                <tr style="padding-bottom:3em;">
+                                    <td style="width: 11%">
+                                        <label class="control-label">Sign Date</label>
+                                    </td>
+                                    <td style="width: 30%">
+                                        <div class="input-group date" id="dpSigneddate">
+                                            <input id="txtSignedDate" type="text" class="form-control">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <label class="control-label" style="margin-left:20%;">Approval Status</label>
+                                    </td>
+                                    <td style="width: 30%;">
+                                        @Html.DropDownList("dpApprovalStatus", new SelectList(ViewBag.ApprovalStatusOptions, "key", "value"), string.Empty, new { @class = "form-control", style = "width: 110px; border: 1px solid #808080; margin-left:10px;" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="margin-top:3px;">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr style="margin-top:10px; padding-top:10px;">
+                                    <td>
+                                        <label class="control-label">Entered</label>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownList("dpEnteredOptions", new SelectList(ViewBag.EnteredOptions, "key", "value"), string.Empty, new { @class = "form-control", style = "width: 110px; border: 1px solid #808080;" })
+                                    </td>
+                                    <td>
+                                        <label class="control-label" style="margin-left:20%;">Updated</label>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownList("dpUpdatedOptions", new SelectList(ViewBag.UpdatedOptions, "key", "value"), string.Empty, new { @class = "form-control", style = "width: 110px; border: 1px solid #808080; margin-left:10px;" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width: 40%">
+                            <button class="btn FilterBtn" style="width: 120px; margin-left: 295px; margin-bottom: 20px;" id="applyFilterBtn">
+                                Apply Filters
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 7px;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered" id="tblApplications">
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <th>Application ID</th>
+                                <th>Student Name</th>
+                                <th>Member Name</th>
+                                <th>District</th>
+                                <th>Household Size</th>
+                                <th>No Of Students</th>
+                                <th>No Of Members</th>
+                                <th>App Signer</th>
+                                <th>Approval Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Loaderdiv" style="z-index: 50000; display:none">
+    <img id="loadingimg" src="~/Images/ajax-loader.gif" class="ajax-loader" />
+</div>
+
+@Html.Partial("StudentsPopup")
+@Html.Partial("MembersPopup")
+
+@Scripts.Render("~/Content/themes/datatables/js")
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/Applications/Application.js"></script>
+
+
+

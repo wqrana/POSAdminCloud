@@ -1,0 +1,111 @@
+﻿
+<div class="modal fade" id="OverrideCutoffModal" tabindex="-1" role="basic" aria-hidden="true">
+
+    <div class="modal-dialog" style="width: 520px; margin-top: 170px;">
+        <div class="modal-content">
+            <div class="modal-header  OverrideCutoffPopHeaderCSS">
+                <button id="btnCloseOverrideCutoff" type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <label >OVERRIDE CUTOFF</label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <table class="overridetable">
+                    <tr>
+                        <td style=" text-align:left;" colspan="2">
+                            This function overrides the cutoff value associated with the calendar. Please choose
+                            how many days, starting today, to open ordering for the
+                            <label id="lblSelectedDate" ></label>
+                            serving date.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <table cellpadding="0" cellspacing="11" class="style2CSS">
+                                <tr>
+                                    <td align="right">
+                                        <input name="txtcutoffday2" id="txtcutoffday2" maxlength="3" class="numericOnly tbOverrideCSS"
+                                              
+                                               autocomplete="off" />
+                                    </td>
+                                    <td align="left">
+                                        Day(s)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Current Cutoff Date:
+                                    </td>
+                                    <td align="left">
+                                        <label id="CurrentCutofflbl" class="CCutoffDate"></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        New Cutoff Date:
+                                    </td>
+                                    <td align="left">
+                                        <label id="NewCutofflbl" class="NewCCutoffDate"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <table cellpadding="3" cellspacing="0" class="style1CSS">
+                                <tr>
+                                    <td valign="top">
+                                        Note:
+                                    </td>
+                                    <td>
+                                        Ordering will be open for this date immediately unless the Cancel button is pressed.
+                                        The “New Cutoff Date” is the first date the user will no longer be able to order
+                                        for
+                                        <label id="lblSelectedDate2"></label>. Please ensure
+                                        the dates provided above look correct.
+                                    </td>
+                                </tr>
+                               
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <input id="hdSdate" name="hdSdate" type="hidden" />
+                <input id="hduseFiveDayWeekCutOff" name="hduseFiveDayWeekCutOff" type="hidden" />
+                <input id="hdCalID" name="hdCalID" type="hidden" />
+                <input id="hdDistrictID" name="hdDistrictID" type="hidden" />
+
+                <input id="hdoverridecutoffvalue" name="hdoverridecutoffvalue" type="hidden" />
+                <input id="hdhascutoffvalue" name="hdhascutoffvalue" type="hidden" />
+                <input id="hdcutOFFdate" name="hdcutOFFdate" type="hidden" />
+                <input id="hdacceptorderdate" name=" hdacceptorderdate" type="hidden" />
+
+
+                <input id="hdcutoffvalue" name="hdcutoffvalue" type="hidden" />
+                <input id="hdisoverriddentcutoff" name="hdisoverriddentcutoff" type="hidden" />
+
+                              
+            </div>
+            <div class="modal-footer footerCSS" style="border-top: 0px;">
+                <button id="btnOverrideCutoff" type="button" class="btn blue OverrideCutoffBtn btn-lg margleft10">OK</button>
+                <button id="btnCancelOverrideCutoff" type="button" class="btn default not-default-btn btn-lg orangeCSS" data-dismiss="modal">CANCEL</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

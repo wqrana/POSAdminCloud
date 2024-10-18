@@ -1,0 +1,61 @@
+﻿@model  IEnumerable<AdminPortalModels.Models.CategoryTypeIndexModel>
+
+@{
+    ViewBag.Menu = "Menu";
+    ViewBag.SubMenu = "Category Type";
+
+    ViewBag.Title = "Category Type";
+}
+
+<link href="/Content/Category-Type.css" rel="stylesheet" />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <i class="fa fa-user fa-sitemap"></i>
+                <a href="#">Menu</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+            
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row" style=" padding-bottom:10px;">
+    <div class="col-md-12">
+        <div class="btn-group pull-left">
+            <a href="#CreateOrEdit" data-toggle="modal" data-backdrop="static" data-keyboard="false"  class="ActionLink" data-id='0'>
+               <div id="sub-div"> <button id="sample_editable_1_new" class="btn green" style="width: 205px;">
+                    Add Category Type
+                </button> </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" style="margin-right: -30px;">
+
+            @foreach (var categoryType in Model)
+            {
+                Html.RenderPartial("Row", categoryType);
+            }
+
+            @* @{Html.RenderPartial("_CreateRow");}*@
+
+        </div>
+
+    </div>
+</div>
+
+@{Html.RenderAction("Popup");}
+@{Html.RenderAction("Delete");}

@@ -1,0 +1,153 @@
+﻿.TileView {
+    /*width: 19.5%;*/
+    min-width: 280px; /**/
+    /*max-height: 100px;*/
+    padding-bottom:15px;
+}
+
+    .TileView .dashboard-stat {
+        /*min-height: 65px;*/
+        min-width: 200px; /**/
+        margin-bottom:0px;
+        padding-bottom:0px;
+    }
+
+        .TileView .dashboard-stat.grey {
+            background-color: #d1d2d4 !important;
+        }
+
+        .TileView .dashboard-stat .row {
+            margin-left:0px;
+            margin-right:0px;
+        }
+
+        .TileView .dashboard-stat .Title {
+            font-size: large;
+            font-weight: 700;
+            text-wrap:none;
+        }
+
+        .TileView .dashboard-stat .SecondaryTitle {
+            font-size: small;
+            font-weight: 500;
+            text-align: right;
+            margin-right: 0px;
+            margin-left: 0px;
+            text-wrap:none;
+        }
+
+        .TileView .dashboard-stat .visual {
+            height:inherit;
+            padding-top: 10px;
+            padding-left: 10px;
+            width:inherit;
+        }
+
+            .TileView .dashboard-stat .visual i {
+                font-size: 43px !important;
+                height: 30px !important;
+                /*color: #d1232a;*/
+                line-height: 37px;
+            }
+
+        .TileView .dashboard-stat .stats {
+            text-align:right;
+            font-style:italic;
+            vertical-align:text-bottom;
+        }
+
+
+        .TileView .dashboard-stat .details {
+            position: inherit;
+        }
+
+            .TileView .dashboard-stat .details .number {
+                font-size: 17px;
+                font-weight: 400;
+                color: #59595d;
+                padding-top: 0px;
+                margin-bottom: 0px;
+                /*float: left;*/
+                line-height: 26px;
+            }
+
+            .TileView .dashboard-stat .details .desc {
+                font-size: 13px;
+                color: #59595d;
+                padding-top: 0px;
+                /*float: left;*/
+            }
+
+                .TileView .dashboard-stat .details .desc .labelcss {
+                    color: #636366;
+                    font-weight: bold;
+                }
+
+                .TileView .dashboard-stat .details .desc label {
+                    margin-bottom: 0px;
+                }
+
+    .TileView .footerdiv {
+        background-color: #636366;
+        color: white;
+        height: 28px;
+        font-size: 11px;
+         padding-right:8px;
+        /*min-width: 200px;*/
+    }
+
+        .TileView .footerdiv .enb {
+            width: 130px;
+            float: left;
+            padding: 6px;
+        }
+
+        .TileView .footerdiv .disab {
+            width: 145px;
+            float: left;
+            padding: 6px;
+            color: gray;
+        }
+
+        .TileView .footerdiv .separator {
+            width: 1px;
+            float: left;
+            background-color: white;
+            height: 30px;
+        }
+
+        .TileView .footerdiv .action {
+            width: 60px;
+            float: left;
+            padding: 6px;
+        }
+
+        .TileView .footerdiv .action {
+            width: 60px;
+            float: left;
+            padding: 6px;
+        }
+
+        .TileView .footerdiv .btn {
+            padding: 0px;
+            font-size: 11px;
+        }
+
+        .TileView .footerdiv .dropdown-menu {
+            background-color: #e6e7e9;
+            font-size: 11px;
+            color: black;
+            margin-right: -8px;
+            box-shadow: none;
+            min-width: 90px;
+        }
+
+            .TileView .footerdiv .dropdown-menu li > a {
+                padding: 0px 0px 0px 6px;
+            }
+
+
+.schcss
+{
+    min-height:38px;
+}

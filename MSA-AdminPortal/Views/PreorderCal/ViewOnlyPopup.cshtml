@@ -1,0 +1,50 @@
+﻿
+
+
+<div class="modal fade" id="ViewOnlyModal" tabindex="-1" role="basic" aria-hidden="true">
+
+    <div class="modal-dialog" style="width: 408px; margin-top: 193px;">
+        <div class="modal-content">
+            <div class="modal-header  viewOnlyPopHeaderCSS">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <span>
+                        <i class="fa fa-window-maximize"></i>
+                        <label id="calNamelbl">VIEW ONLY</label>
+                    </span>
+                    
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="scroller" style="height: 125px" data-always-visible="1" data-rail-visible1="1">
+                    <div class="row">&nbsp</div>
+                    <div class="row" id="divCalendarName">
+                        <div class="col-md-12">
+                            <label class="">
+                                This function will set the current month to only be viewable by the parents. No orders can be taken.
+                                <br />
+                                <br />
+                                Would you like to proceed ?
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                   
+
+                    <input value="0" id="calID" name="calID" type="hidden">
+                    <input value="0" id="distID" name="distID" type="hidden">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button id="btnViewOnly" type="button" class="btn ViewOnlyBtn blue savaForm btn-lg margleft10">Yes</button>
+                <button type="button" class="btn default not-default-btn btn-lg" data-dismiss="modal">No</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

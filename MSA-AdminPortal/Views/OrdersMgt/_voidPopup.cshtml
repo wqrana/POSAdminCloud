@@ -1,0 +1,149 @@
+﻿@*@model  AdminPortalModels.ViewModels.popUpCustomer*@
+
+
+@{
+    ViewBag.Title = "detailPopup";
+}
+
+<link href="~/Content/CustomCSS/voidPopup.css" rel="stylesheet" />
+
+<div id="VoidpopupModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    @Html.Hidden("OrderID")
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close not-default-btn" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">
+                    <span id="customerName"></span>
+                    @*Customer Name:
+                    <label id="customerName"></label>*@
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row accountDetail">
+                    <span class="spanText">Order #:</span>
+                    <label id="OrderNumber" class="spanVal"></label>
+                    <span class="spansep">|</span>
+
+                    <span class="spanText">Date:</span>
+                    <label id="OrderDate" class="spanVal"></label>
+                    <span class="spansep">|</span>
+
+                    <span class="spanText">Order Total:</span>
+                    <label id="OrderTotal" class="spanVal"></label>
+                </div>
+
+                <div class="row accountDetail" style="padding-bottom: 0px;">
+                    <span class="spanText">POS Name:</span>
+                    <label id="POSName" class="spanVal"></label>
+                    <span class="spansep">|</span>
+
+                    <span class="spanText">Cashier Name:</span>
+                    <label id="CashierName" class="spanVal"></label>
+                    <span class="spansep">|</span>
+
+                    <span id="paymentType" class="spanText">Payment:</span>
+                    <label id="Payment" class="spanVal"></label>
+                </div>
+                <div id="waitingDiv" class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row" id="adjNote" style="display: none;">
+                    <div class="col-md-12" style="color: red; font-style: italic; font-size: 11px;">
+                        Note:
+                        <br />
+                        An Adjustment cannot be voided. Please make an opposite Adjustment to counteract a prior adjustment.
+                    </div>
+                </div>
+                <div class="row" id="detailpopupItemTable" >
+                    <div class="col-md-12">
+                        <table class="table table-striped table-hover table-bordered" id="orderitemTable">
+                            <thead>
+                                <tr>
+                                    <th>Select
+                                    </th>
+                                    <th>Qty
+                                    </th>
+                                    <th>Item
+                                    </th>
+                                    <th>Paid Price
+                                    </th>
+                                    <th>Void
+                                    </th>
+                                    <th >Serve Date
+                                    </th>
+                                    <th >Picked up Date
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <div class="modal-footer">
+            <button id="voiditemsBtn" class="btn blue btn-lg not-default-btn" data-backdrop="static" data-keyboard="false" data-toggle="modal" href="#stack2">Void Items(s)</button>
+            <button id="voidOrderBtn" class="btn blue btn-lg margleft10 not-default-btn" data-backdrop="static" data-keyboard="false" data-toggle="modal" href="#stack2">Void Order</button>
+            <button id="closePopup" class="btn default btn-lg margleft10 defaultBtnClass" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+<div id="stack2" class="modal fade" tabindex="-1">
+    <div class="modal-dialog stacked">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Notes</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-1">
+                            </div>
+                            <label class="col-md-2 control-label formlabels">Notes: </label>
+                            <div class="col-md-9">
+                                <input type="text" name="Order_Notes" id="Order_Notes" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="padding-top: 5px;">
+                        <div class="form-group">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-9">
+                                <div id="voidPaymentDiv" class="checkbox-list">
+                                    <label>
+                                        <input type="checkbox" name="voidPayment" id="voidPayment">
+                                        <span style="font-size: 11px;">Void Payments</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="OkButton" type="button" class="btn blue btn-lg margleft10 not-default-btn">Ok</button>
+                <button type="button" data-dismiss="modal" class="btn btn-lg defaultBtnClass">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+</script>

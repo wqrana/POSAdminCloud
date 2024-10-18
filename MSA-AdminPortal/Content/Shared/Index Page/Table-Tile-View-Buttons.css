@@ -1,0 +1,29 @@
+﻿.btn-group .btn.blue.table-tile,
+.btn-group .btn.blue.table-tile:active,
+.btn-group .btn.blue.table-tile:focus {
+    background: #333333 !important;
+}
+
+    .btn-group .btn.blue.table-tile:hover {
+        background: white !important;
+        color: black !important;
+    }
+
+    .btn-group .btn.blue.table-tile-selected,
+    .btn-group .btn.blue.table-tile-selected:hover,
+    .btn-group .btn.blue.table-tile-selected:active,
+    .btn-group .btn.blue.table-tile-selected:focus,
+    .btn-group .btn.blue.table-tile-selected:disabled {
+        background: #333333 !important;
+    }
+
+    .btn-group .btn.blue.table-tile-selected,
+    .btn-group .btn.blue.table-tile-selected:hover {
+       cursor:default;
+    }
+
+    /*.btn.blue.table-tile,
+    .btn.blue.table-tile:hover {
+        cursor:auto;
+    }*/
+

@@ -1,0 +1,71 @@
+﻿@model  AdminPortalModels.ViewModels.CategoryViewModel
+
+@Html.HiddenFor(model => Model.CategoryModel.Id)
+
+<div class="modal fade" id="CreateOrEdit" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width: 408px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" type="button" class="close" data-dismiss="modal" aria-hidden="true"></a>
+                Category: <strong><span id="CategoryModel_Title" name="CategoryModel_Title">@Html.DisplayFor(model => Model.CategoryModel.Title)</span></strong>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => Model.CategoryModel.Name):  <span class="required"> *</span></label><br />
+                            @Html.TextBoxFor(model => Model.CategoryModel.Name, new { size = "16", @class = "form-control", maxLength = 20 })
+                            @Html.ValidationMessageFor(model => Model.CategoryModel.Name)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">@Html.LabelFor(model => Model.CategoryModel.CategoryType_Id): <span class="required"> *</span></label><br />
+                            @Html.DropDownListFor(model => Model.CategoryModel.CategoryType_Id, Model.CategoryTypeList, "-- Select --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => Model.CategoryModel.CategoryType_Id)
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <label class="">@Html.LabelFor(model => Model.CategoryModel.Color):</label><br />
+                            <div id="CategoryModel_Color_div" class="input-group color colorpicker" data-color="@Model.CategoryModel.HexaColor" data-color-format="hex">
+                                <input name="CategoryModel_Color" id="CategoryModel_Color" type="text" class="form-control" value="@Model.CategoryModel.HexaColor" readonly>
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button"><i id="CategoryModel_Color_i" style="background-color: @Model.CategoryModel.HexaColor;"></i>&nbsp;</button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="checkbox" name="CategoryModel_IsActive" id="CategoryModel_IsActive" checked="checked">
+                            @Html.LabelFor(model => Model.CategoryModel.IsActive)<br />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 0px;">
+                <button href="#" type="submit" class="btn blue btn-lg margleft10 defaultBtnClass" id="btnSave" name="btnSave"><span id="savebtnSpan">@Html.DisplayFor(model => Model.CategoryModel.savebtnCaption)</span></button>
+                <button href="#" type="button" class="btn default btn-lg not-default-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript" src="/Content/themes/assets/global/plugins/fuelux/js/spinner.min.js"></script>
+<script type="text/javascript" src="/Content/themes/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="/Content/themes/assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="/Content/themes/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+<script src="/Content/themes/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="/Content/themes/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+
+<script  type="text/javascript" src="/Scripts/category.js"></script>
+
+@Scripts.Render("~/Content/themes/datatables/js")

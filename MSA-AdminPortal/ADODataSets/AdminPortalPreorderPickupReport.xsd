@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AdminPortalPreorderPickupReport" targetNamespace="http://tempuri.org/AdminPortalPreorderPickupReport.xsd" xmlns:mstns="http://tempuri.org/AdminPortalPreorderPickupReport.xsd" xmlns="http://tempuri.org/AdminPortalPreorderPickupReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AdminPortalPreorderPickupReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AdminPortalPreorderPickupReport" msprop:Generator_UserDSName="AdminPortalPreorderPickupReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PreorderPickup" msprop:Generator_TableClassName="PreorderPickupDataTable" msprop:Generator_TableVarName="tablePreorderPickup" msprop:Generator_TablePropName="PreorderPickup" msprop:Generator_RowDeletingName="PreorderPickupRowDeleting" msprop:Generator_RowChangingName="PreorderPickupRowChanging" msprop:Generator_RowEvHandlerName="PreorderPickupRowChangeEventHandler" msprop:Generator_RowDeletedName="PreorderPickupRowDeleted" msprop:Generator_UserTableName="PreorderPickup" msprop:Generator_RowChangedName="PreorderPickupRowChanged" msprop:Generator_RowEvArgName="PreorderPickupRowChangeEvent" msprop:Generator_RowClassName="PreorderPickupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transactionId" msprop:Generator_ColumnVarNameInTable="columntransactionId" msprop:Generator_ColumnPropNameInRow="transactionId" msprop:Generator_ColumnPropNameInTable="transactionIdColumn" msprop:Generator_UserColumnName="transactionId" type="xs:int" minOccurs="0" />
+              <xs:element name="Grade" msprop:Generator_ColumnVarNameInTable="columnGrade" msprop:Generator_ColumnPropNameInRow="Grade" msprop:Generator_ColumnPropNameInTable="GradeColumn" msprop:Generator_UserColumnName="Grade" type="xs:string" minOccurs="0" />
+              <xs:element name="customerName" msprop:Generator_ColumnVarNameInTable="columncustomerName" msprop:Generator_ColumnPropNameInRow="customerName" msprop:Generator_ColumnPropNameInTable="customerNameColumn" msprop:Generator_UserColumnName="customerName" type="xs:string" minOccurs="0" />
+              <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:string" minOccurs="0" />
+              <xs:element name="itemName" msprop:Generator_ColumnVarNameInTable="columnitemName" msprop:Generator_ColumnPropNameInRow="itemName" msprop:Generator_ColumnPropNameInTable="itemNameColumn" msprop:Generator_UserColumnName="itemName" type="xs:string" minOccurs="0" />
+              <xs:element name="datePurchased" msprop:Generator_ColumnVarNameInTable="columndatePurchased" msprop:Generator_ColumnPropNameInRow="datePurchased" msprop:Generator_ColumnPropNameInTable="datePurchasedColumn" msprop:Generator_UserColumnName="datePurchased" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="datePickedUp" msprop:Generator_ColumnVarNameInTable="columndatePickedUp" msprop:Generator_ColumnPropNameInRow="datePickedUp" msprop:Generator_ColumnPropNameInTable="datePickedUpColumn" msprop:Generator_UserColumnName="datePickedUp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Ordered" msprop:Generator_ColumnVarNameInTable="columnOrdered" msprop:Generator_ColumnPropNameInRow="Ordered" msprop:Generator_ColumnPropNameInTable="OrderedColumn" msprop:Generator_UserColumnName="Ordered" type="xs:int" minOccurs="0" />
+              <xs:element name="received" msprop:Generator_ColumnVarNameInTable="columnreceived" msprop:Generator_ColumnPropNameInRow="received" msprop:Generator_ColumnPropNameInTable="receivedColumn" msprop:Generator_UserColumnName="received" type="xs:int" minOccurs="0" />
+              <xs:element name="voidSts" msprop:Generator_ColumnVarNameInTable="columnvoidSts" msprop:Generator_ColumnPropNameInRow="voidSts" msprop:Generator_ColumnPropNameInTable="voidStsColumn" msprop:Generator_UserColumnName="voidSts" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

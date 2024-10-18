@@ -1,0 +1,172 @@
+﻿
+@model AdminPortalModels.ViewModels.PreorderDashboardModel
+@{
+    ViewBag.Menu = "Preorder";
+    ViewBag.SubMenu = "Dashboard";
+
+    ViewBag.Title = "Dashboard";
+  
+}
+
+<link href="~/Content/CustomCSS/PreorderDashboard.css" rel="stylesheet" />
+
+
+<style>
+    .page-content {
+        margin-left: 225px;
+        margin-top: 0px;
+        min-height: 760px;
+        padding: 25px 20px 20px;
+    }
+</style>
+
+<div class="container-fluid">
+
+    <div id="PreoderDashboard">
+        <!-- BEGIN DASHBOARD STATS -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-fluid">
+
+                    <h3 class="page-title">
+                        Dashboard <small>Preorders Statistics</small>
+                    </h3>
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-calendar-o"></i>
+                            <a href="#">Preorder</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Dashboard</a>
+                        </li>
+
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+        </div>
+        <!-- END DASHBOARD STATS -->
+        <div class="row">
+           <div class="col-md-4">
+               <div class="span6">
+                  <div class="portlet box yellow">
+                      <div class="portlet-title">
+                           <div class="caption">Current Preorders</div>
+                       </div>
+                        <div class="portlet-body">
+                           
+                            <table class="table table-striped table-hover table-condensed " id="LoadCPTable">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Open</th>
+                                        <th>Closed </th>                                      
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var record in Model.CurrentPreorderStatList) { 
+
+                                    <tr>
+                                        <td >@record.PeriodTypeName</td>
+                                        <td >@record.openCount</td>
+                                        <td >@record.closedCount</td>
+                                        
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                   </div>
+                </div>                              
+            </div>
+            <div class="col-md-4">
+                <div class="span6">
+                    <div class="portlet box red">
+                        <div class="portlet-title">
+                            <div class="caption">Average Incoming Preorders</div>
+                        </div>
+                        <div class="portlet-body">
+                            
+                            <table class="table table-striped table-hover table-condensed " id="LoadAIPTable">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Avg</th>
+                                        
+                                    </tr>
+                                  </thead>
+
+                                <tbody>
+                                   @foreach(var record in Model.AvgInPreorderStatList)
+                                   { 
+                                    <tr>
+                                        <td >@record.PeriodTypeName</td>
+                                        <td >@record.AvgCount</td>
+
+                                    </tr>
+                                   }        
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="span6">
+                    <div class="portlet box green">
+                        
+                                <div class="portlet-title">
+                                    
+                                          <div class="caption">Top Selling Items </div>
+                                            <div class="control">
+                                                @Html.DropDownList("PeriodType", new SelectList(@Model.PeriodTypeList, "id", "name", 1), new { @class = "form-control" })
+                                            </div>
+                                </div>
+                                    
+                                
+                                <div class="portlet-body">
+                                    <div id="divTopPreordersLoading" hidden="hidden">
+                                        <img src="~/Content/themes/assets/global/img/loading.gif" alt="loading" />
+                                    </div>
+                                    <table class="table table-striped table-hover table-condensed " id="LoadTSITable">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Qty</th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var record in Model.TopSellingItemStatList)
+                                            {
+                                                <tr>
+                                                    <td>@record.ItemName</td>
+                                                    <td>@record.qtySold</td>
+
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>               
+    </div>
+</div>
+
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.categories.min.js"></script>
+<script src="~/Content/themes/assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+        <script src="~/Scripts/PreorderDashboard/PreorderDashboard.js"></script>
+
+
+
+
+

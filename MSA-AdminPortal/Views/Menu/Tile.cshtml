@@ -1,0 +1,87 @@
+﻿@model  IEnumerable<AdminPortalModels.Models.MenuIndexModel>
+
+@{
+    ViewBag.Menu = "Menu";
+    ViewBag.SubMenu = "Items";
+
+    ViewBag.Title = "Menu Items";
+}
+
+
+
+<link href="/Content/district.css" rel="stylesheet" />
+@*<link href="~/Content/CustomCSS/Items.css" rel="stylesheet" />*@
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    
+    <input type="hidden" value='@MSA_AdminPortal.Helpers.SecurityManager.CreateMenuObjects.ToString()' id="CreateMenuObjects" />
+    <input type="hidden" value='@MSA_AdminPortal.Helpers.SecurityManager.UpdateMenuDetails.ToString()' id="UpdateMenuDetails" />
+    <input type="hidden" value='@MSA_AdminPortal.Helpers.SecurityManager.DeleteMenuObjects.ToString()' id="DeleteMenuObjects" />
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>@ViewBag.Title</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn default btn-md pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/Menu/Table'">
+                    List View
+                </button>
+                <button type="button" class="btn default btn-md pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/Menu/Tile'">
+                    Tile View
+                </button>
+
+            </li>
+            <li>
+                <i class="fa fa-user fa-sitemap"></i>
+                <a href="#">Menu</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">@ViewBag.Title</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div class="row marginclass">
+    <div class="col-md-6">
+        <div class="btn-group pull-left">
+            <a href="#CreateOrEdit" id="aAddNewButton" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="ActionLink" data-id='0'>
+                 <div id="sub-div">  <button id="AddNewButton" class="btn green" style="width: 160px;">
+                    Add New Item
+                </button></div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+@*        <button type="button" class="btn default btn-lg pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/Menu/Table'">
+            List View
+        </button>
+        <button type="button" class="btn default btn-lg pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/Menu/Tile'">
+            Tile View
+        </button>*@
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12" style="padding-right: 0px;">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial("Row", item);
+            }
+        </div>
+
+    </div>
+</div>
+@{Html.RenderAction("Popup");}
+@{Html.RenderAction("Delete");}
+
+@Scripts.Render("~/Content/themes/datatables/js")
+
+<script src="/scripts/menuitem.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.numeric.min.js"></script>

@@ -1,0 +1,49 @@
+﻿@model  AdminPortalModels.Models.CategoryIndexModel
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed">
+    <a href="#CreateOrEdit" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="ActionLink removeAnchorStyle EditSecurityClass" data-id="@Model.Id">
+        <div class="dashboard-stat grey" style='background-color: @Model.HexaColor !important'>
+            <div class="visual">
+                <i class="fa fa-sitemap"></i>
+            </div>
+            <div class="details">
+                <div class="number" name="name-@Model.Id" id="name-@Model.Id">
+                    @Html.DisplayFor(model => Model.Name)
+                </div>
+                <div class="desc">
+                    @Html.LabelFor(model => Model.CategoryType):
+                            <label class="labelcss" name="category-type-@Model.Id">@Html.DisplayFor(model => Model.CategoryType) </label>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="footerdiv">
+        @*<a href="#CreateOrEdit" data-toggle="modal" data-backdrop="static"  data-keyboard="false" class="ActionLink removeAnchorStyle" style="color:#fff;" data-id="@Model.Id">*@
+        <a href="/Menu/GetItemsByCategory?id=@Model.Id" class="ViewSecurityMenuClass" style="color:#fff;">
+            <div class="separator">&nbsp;</div>
+            <div class="enb">
+                @Html.LabelFor(model => Model.ItemCount, new { @style = "cursor:pointer;" }):
+                            <label class="labelcss" style="cursor:pointer;" name="item-count-@Model.Id">@Html.DisplayFor(model => Model.ItemCount) </label>
+
+            </div>
+            <div class="separator">&nbsp;</div>
+        </a>
+        <div class="btn-group action">
+            <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                <span>Actions
+                </span>
+                <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { href = "#CreateOrEdit", data_toggle = "modal", data_backdrop = "static", data_keyboard = "false", @class = "ActionLink EditSecurityClass", data_id = Model.Id })
+                </li>
+                <li>
+                    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { href = "#Delete", data_toggle = "modal", data_backdrop = "static", data_keyboard = "false", @class = "DeleteLink DeleteSecurityClass", data_id = Model.Id })
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+

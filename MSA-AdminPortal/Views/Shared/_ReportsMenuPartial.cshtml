@@ -1,0 +1,59 @@
+﻿@model AdminPortalModels.ViewModels.ReportsMenu
+
+@using FSS.Reports;
+
+<ul class="sub-menu">
+    @foreach (var MainMenu in Model.reportList)
+    {
+        
+        if ((MSA_AdminPortal.Helpers.SecurityManager.ViewCustomerReports && MainMenu.Key.ToString() == "RGP_CUSTOMERS") ||
+                (MSA_AdminPortal.Helpers.SecurityManager.ViewFinancialReports && MainMenu.Key.ToString() == "RGP_FINANCIAL") ||
+                (MSA_AdminPortal.Helpers.SecurityManager.ViewPreOrderReports && MainMenu.Key.ToString() == "RGP_PREORDER") ||
+                (MSA_AdminPortal.Helpers.SecurityManager.ViewShoppingCartReports && MainMenu.Key.ToString() == "RGP_SHOPPING_CART") ||
+                (MSA_AdminPortal.Helpers.SecurityManager.ViewMSAAdminReports && MainMenu.Key.ToString() == "RGP_MSA_ADMIN")
+            )
+        {
+            bool containReports = false;
+            foreach (var Middlemenu in MainMenu.Value)
+            {
+                if (Middlemenu.Value.ContainsValue(true))
+                {
+                    containReports = true;
+                }
+            }
+            if (containReports)
+            {
+                <li id="@MainMenu.Key" class="dropdown
+                    @if (ViewBag.ReportGroup == MainMenu.Key.ToString()) { <text> active</text>
+             }
+                    ">
+            <a href=" #" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10000" data-close-others="true">
+                    <span class="title">@FSSReports.ReportGroups[MainMenu.Key]</span>
+                    <span class="selectedArrow"></span>
+                    </a>
+                    <ul class="dropdown-menu CustomDropdownCss">
+                        @foreach (var Middlemenu in MainMenu.Value)
+                        {
+                            if (Middlemenu.Value.ContainsValue(true))
+                            {
+                                if (Middlemenu.Value.Count > 0)
+                                {
+                                    <li><span>@FSSReports.ReportSectionNames[Middlemenu.Key]</span></li>
+                                    <li class="divider"></li>
+                                }
+                                foreach (var lastMenu in Middlemenu.Value)
+                                {
+                                    if (lastMenu.Value)
+                                    {
+                                        <li><a tabindex="-1" href="/reports?id=@((Int32)lastMenu.Key)"><span>@FSSReports.ReportNames[lastMenu.Key]</span></a></li>
+                                    }
+                                }
+                            }
+
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    }
+</ul>

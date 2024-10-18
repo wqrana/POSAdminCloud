@@ -1,0 +1,42 @@
+﻿
+/* MSA Settings */
+
+.grey.box.portlet {
+  /*border-radius: 15px !important;
+  -moz-border-radius: 15px !important;*/
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+.grey.box.portlet > .portlet-title {
+    background-color: #f5f5f5;  /*Rounded cornor div color e7e7e8*/
+    border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+}
+
+.grey.box.portlet > .portlet-title hr {
+    border: 1px solid white !important;
+}
+
+.grey.box.portlet > .portlet-title {
+    color: #333333 !important; 
+ }
+p.select-all {
+    height:35px !important;
+}
+
+
+.left-box hr {
+    margin-bottom: 0px !important;
+}
+.basic-panel {
+    margin-bottom: 0px !important;
+}
+.well {
+    border: 1px dashed rgba(98, 138, 147, 0.53);
+}
+.input-group > .input-group-addon {
+    background-color: darkgray;
+}
+.label-heading {
+    font-weight:bold;
+}

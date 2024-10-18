@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestTimeZone</title>
+    <script src="/content/themes/assets/global/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/content/themes/assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="~/Content/themes/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    @if (string.IsNullOrEmpty(Session["UserTimeZone"].ToString()))
+    {
+        <script type="text/javascript">
+            alert('test');
+            postUserTimeZone();
+            function postUserTimeZone() {
+                var timezone = moment().format('Z');
+                $.ajax({
+                    type: 'POST',
+                    url: '/Account/PostTimeZone/?timeZone=' + encodeURIComponent(timezone.replace('+', '')),
+                    success: function (data) {
+                        console.log('time zone saved.');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log('error on saving timezone.');
+                    }
+                });
+            }
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            alert('test1');
+        </script>
+    }
+
+    <script type="text/javascript">
+        function postUserTimeZone() {
+            var timezone = moment().format('Z');
+            $.ajax({
+                type: 'POST',
+                url: '/Account/PostTimeZone/?timeZone=' + encodeURIComponent(timezone.replace('+', '')),
+                success: function (data) {
+                    console.log('time zone saved.');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error on saving timezone.');
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td> TimeZoneID</td>
+                <td>@ViewBag.TimeZoneID</td>
+            </tr>
+            <tr>
+                <td>clientTimeZone</td>
+                <td>@ViewBag.clientTimeZone</td>
+            </tr>
+            <tr>
+                <td>UTCNOW</td>
+                <td>@ViewBag.UTCNOW</td>
+            </tr>
+            <tr>
+                <td>dateTimeOffset</td>
+                <td>@ViewBag.dateTimeOffset</td>
+            </tr>
+            <tr>
+                <td>dateTimeNow</td>
+                <td>@ViewBag.dateTimeNow</td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

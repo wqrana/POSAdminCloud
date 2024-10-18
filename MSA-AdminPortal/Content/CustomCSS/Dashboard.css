@@ -1,0 +1,155 @@
+﻿.graph-height {
+  height:211px !important;
+}
+
+.legendLabel {
+  padding-left:5px !important;
+}
+.legendColorBox {
+ vertical-align:top !important;
+}
+
+.account-info-height {
+  height:180px !important;
+}
+
+.sales-participation-height {
+  height:313px !important;
+}
+
+.open-cashier-sessions-height {
+  height:80px !important;
+}
+
+.my-school-account-blog {
+    height:568px !important; 
+}
+
+
+.grey.box.portlet {
+  border:1px solid #989898 !important;
+}
+.grey.box.portlet > .portlet-title {
+    background-color: #989898 !important;
+}
+
+.grey.box.portlet > .portlet-title > .caption {
+    color: #FFFFFF !important;
+ }
+
+.rssfeed-title {
+    color: #1575B6;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.rssfeed-summary {
+    color: #707070;
+    font-size:12px;
+}
+
+.rssfeed-title > a:focus {
+    text-decoration:none !important;
+}
+    /***
+Pricing table(Alternative 2)
+***/
+.pricing {
+  position:relative;
+  margin-bottom:15px;
+  border:3px solid #eee;
+}
+.pricing-active {
+  border:3px solid #35aa47;
+}
+.pricing:hover {
+  border:3px solid #35aa47;
+}
+.pricing:hover h4 {
+  color:#35aa47;
+}
+.pricing-head {
+  text-align:center;
+}
+.pricing-head h3,
+.pricing-head h4 {
+  margin:0;
+  line-height:normal;
+}
+.pricing-head h3 span, 
+.pricing-head h4 span {
+  display:block;
+  margin-top:5px;
+  font-size:14px;
+  font-style:italic;
+}
+.pricing-head h3 {
+  font-weight: 300;
+  color:#fafafa;
+  padding:12px 0;
+  font-size:27px;
+  background:#35aa47;
+  border-bottom:solid 1px #41b91c;
+}
+.pricing-head h4 {
+  color:#bac39f;
+  padding:5px 0;
+  font-size:27px;
+  font-weight:300;
+  background:#fff;
+  border-bottom:solid 1px #f5f9e7;
+  margin-top:5px;
+}
+.pricing-head-active h4 {
+  color:#35aa47;
+}
+.pricing-head h4 i {
+  top:-4px;
+  font-size:20px;
+  font-style:normal;
+  position:relative;
+  
+}
+.pricing-head h4 span {
+  top:-8px;
+  font-size:12px;
+  font-style:normal;
+  position:relative;
+}
+
+.dollar-sign {
+  top:-2px;
+  font-size:18px !important;
+  font-style:normal;
+  position:relative;
+
+}
+
+.font-red {
+    color: #989898 !important;
+}
+
+.portlet.box.green {
+    border: 1px solid #8dc63f !important;
+}
+
+.portlet.box.green > .portlet-title {
+    background-color: #8dc63f !important;
+}
+
+.portlet.box.yellow {
+    border: 1px solid #efb23a !important;
+}
+
+.portlet.box.yellow > .portlet-title {
+    background-color: #efb23a !important;
+}
+
+.portlet.box.red {
+    border: 1px solid #ed1d34 !important;
+}
+
+.portlet.box.red > .portlet-title {
+    background-color: #ed1d34 !important;
+}
+

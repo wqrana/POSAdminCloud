@@ -1,0 +1,197 @@
+﻿@model  AdminPortalModels.ViewModels.POSPageVM
+@{
+    ViewBag.Menu = "Settings";
+    ViewBag.SubMenu = "POS";
+
+    ViewBag.Title = "POS";
+}
+
+<link href="~/Content/CustomCSS/CustomerPopup.css" rel="stylesheet" />
+<style>
+    .ShowSchool
+    {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .HideSchool
+    {
+        display: none;
+    }
+
+    .posDivClosed .dashboard-stat .details
+    {
+        min-width: 254px;
+    }
+
+    .posDivClosed
+    {
+        min-width: 285px;
+    }
+
+        .posDivClosed .dashboard-stat .details .number
+        {
+            min-width: 56px;
+            text-align: left;
+        }
+
+        .posDivClosed .dashboard-stat .details .desc
+        {
+            min-width: 67px;
+        }
+
+        .posDivClosed .dashboard-stat
+        {
+            padding-top: 5px;
+        }
+
+      
+</style>
+
+<script type="text/javascript">
+</script>
+
+
+<link href="~/Content/CustomCSS/viewButtons.css" rel="stylesheet" />
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+
+    @Html.Hidden("UpdatePOS", MSA_AdminPortal.Helpers.SecurityManager.UpdatePOS)
+    @Html.Hidden("DeletePOS", MSA_AdminPortal.Helpers.SecurityManager.DeletePOS)
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h2>POS</h2>
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group pull-right">
+                <button type="button" class="btn default btn-md pull-right marginTileBtn unselectedBtn" title="List View" onclick="javascript:location.href='/settings/POSTable'">
+                    List View
+                </button>
+                <button type="button" class="btn default btn-md pull-right selectedBtn" title="Tile View" onclick="javascript:location.href='/settings/POSTile'">
+                    Tile View
+                </button>
+            </li>
+
+            <li>
+                <i class="fa fa-cogs fa-fw"></i>
+                <a href="#">Settings</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">POS</a>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+@if (Model.allPOSCount == 0)
+{
+    <div>
+        <div class="col-md-12">
+            <h2>No POS terminals are currently configured.</h2>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var school in Model.SchoolsList)
+        {
+            <div class="row @school.schoolDisplayClass">
+                <div style="margin-left: 15px;">
+                    <h3>
+                        @school.SchoolName
+                    </h3>
+                </div>
+                @foreach (var pos in school.POSVM)
+                {
+                    using (Html.BeginForm("pos", "Settings", FormMethod.Post, new { @class = "form-class", name = "form" }))
+                    {
+
+                    @Html.Hidden("posid", pos.Id) 
+                    @Html.Hidden("ClientID", pos.ClientID) 
+                    @Html.Hidden("School_Id", pos.School_Id)
+                    @Html.Hidden("Name", pos.Name)
+                    @Html.Hidden("UserName", pos.VeriFoneUserId)
+                    @Html.Hidden("enbStatus", pos.enbCCCCProcessing)
+                    @Html.Hidden(pos.hrefid, pos.enbCCCCProcessing, new { id = pos.hrefid })
+                    @Html.Hidden("SessionStatus", pos.SessionStatus)
+
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 posDivClosed" style="margin-top: 30px;">
+                        <a data-toggle="modal" href="#basic_modalPopup" data-backdrop="static" data-keyboard="false" class="settingslnk POSEditTile">
+                            <div class="dashboard-stat blue">
+                                <div class="visual">
+                                    <i class="fa fa-desktop"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        @(pos.Name.Trim().Length > 12 ? pos.Name.Trim().Substring(0, 10) + "..." : pos.Name.Trim())
+                                    </div>
+                                    <div class="desc">
+                                        Session:
+                            <label class="labelcss">@pos.SessionStatus</label>
+                                    </div>
+                                    @if (pos.enbCCCCProcessing)
+                                    {
+                                        <div class="desc">
+                                            User:
+                            <label>@pos.VeriFoneUserId </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </a>
+                        <div class="footerdiv">
+                            @if (pos.enbCCCCProcessing)
+                            {
+                                <div class="enb"><i class="fa fa-credit-card"></i>&nbsp;Enabled</div>
+                            }
+                            else
+                            {
+                                <div class="disab"><i class="fa fa-credit-card"></i>&nbsp;Disabled</div>    
+                            }
+
+
+
+
+                            <div class="separator">&nbsp;</div>
+
+                            <div class="btn-group action">
+                                <button type="button" class="btn blue dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                                    <span>Actions
+                                    </span>
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li>
+                                        <a data-toggle="modal" href="#basic_modalPopup" data-backdrop="static" data-keyboard="false" class="settingslnk POSEditTile">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#deleteModal" role="button" data-backdrop="static" data-keyboard="false" data-toggle="modal" class="deletepos POSEdelTile">Delete POS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    }
+                }
+            </div>
+        }
+
+    </div>
+</div>
+
+@Html.Partial("popup")
+@Html.Partial("delpopup")
+
+<script src="~/Content/themes/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script src="~/Scripts/pos.js"></script>
+
+
+<script src="~/Scripts/datapost.js"></script>

@@ -1,0 +1,164 @@
+﻿.TileView {
+    width: 19.5%;
+    min-width: 200px; /**/
+    max-height: 100px;
+    margin-bottom: 40px;
+    padding-right: 0;
+}
+
+    .TileView .dashboard-stat {
+        margin-bottom: 0px;
+        min-height: 65px;
+        min-width: 200px; 
+        padding-left:5px;
+    }
+
+        .TileView .dashboard-stat.grey {
+            background-color: #d1d2d4 !important;
+        }
+
+        .TileView .dashboard-stat .visual {
+            height: 60px;
+            padding-left: 10px;
+            width: 70px;
+        }
+
+            .TileView .dashboard-stat .visual i {
+                font-size: 43px !important;
+                height: 30px !important;
+                color: #d1232a;
+                line-height: 37px;
+            }
+
+
+        .TileView .dashboard-stat .details {
+            position: inherit;
+        }
+
+            .TileView .dashboard-stat .details .number {
+                font-size: 17px;
+                font-weight: 400;
+                color: #59595d;
+                padding-top: 0px;
+                margin-bottom: 0px;
+                /*float: left;*/
+                line-height: 26px;
+                 text-align:left;
+            }
+
+            .TileView .dashboard-stat .details .desc {
+                font-size: 13px;
+                color: #59595d;
+                padding-top: 0px;
+                text-align:left;
+                /*float: left;*/
+            }
+
+                .TileView .dashboard-stat .details .desc .labelcss {
+                    color: #636366;
+                    font-weight: bold;
+                }
+
+                .TileView .dashboard-stat .details .desc label {
+                    margin-bottom: 0px;
+                }
+
+    .TileView .footerdiv {
+        background-color: #636366;
+        color: white;
+        height: 28px;
+        font-size: 11px;
+        min-width: 200px; /**/
+    }
+
+        .TileView .footerdiv .enb {
+            width: 184px !important;
+            float: left;
+            padding: 6px;
+            text-align:left;
+        }
+        .TileView .footerdiv .enb label
+        {
+            font-size:12px;
+        }
+
+        .TileView .footerdiv .disab {
+            width: 145px;
+            float: left;
+            padding: 6px;
+            color: gray;
+        }
+
+        .TileView .footerdiv .separator {
+            width: 1px;
+            float: left;
+            background-color: white;
+            height: 30px;
+        }
+
+        .TileView .footerdiv .action {
+            width: 60px;
+            float: left;
+            padding: 6px;
+        }
+
+        .TileView .footerdiv .action {
+            width: 60px;
+            float: left;
+            padding: 6px;
+        }
+
+        .TileView .footerdiv .btn {
+            padding: 0px;
+            font-size: 11px;
+        }
+
+        .TileView .footerdiv .dropdown-menu {
+            background-color: #e6e7e9;
+            font-size: 11px;
+            color: black;
+            margin-right: -8px;
+            box-shadow: none;
+            min-width: 90px;
+        }
+
+            .TileView .footerdiv .dropdown-menu li > a {
+                padding: 0px 0px 0px 6px;
+              /*  float:left;*/
+            }
+
+                .non-selected {
+        background-color:red !important;
+    }
+
+   
+
+    .btn-group .btn.blue.table-tile,
+    .btn-group .btn.blue.table-tile:active,
+    .btn-group .btn.blue.table-tile:focus {
+        background: #808080 !important;
+    }
+
+    .btn-group .btn.blue.table-tile-selected,
+    .btn-group .btn.blue.table-tile-selected:active,
+    .btn-group .btn.blue.table-tile-selected:focus,
+    .btn-group .btn.blue.table-tile:hover {
+        background: #555555 !important;
+    }
+
+    .btn-group .btn.blue.table-tile-selected,
+    .btn-group .btn.blue.table-tile-selected:hover {
+       cursor:default;
+    }
+
+    .newSchool
+    {
+        background-color: #37a847;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+.TileView .dashboard-stat
+{
+    min-height:90px;
+}
